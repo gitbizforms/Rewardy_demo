@@ -1,0 +1,2 @@
+# Rewardy
+Rewardy Live server

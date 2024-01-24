@@ -1,0 +1,59 @@
+@charset "utf-8"; input, button, select, textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+button { cursor: pointer; } 
+
+.layer_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+.layer_pro_in { width: 460px; min-height: 429px; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 10px; z-index: 6000; overflow: hidden; } 
+
+.layer_close { position: absolute; top: 15px; right: 15px; z-index: 10; transition: all 0.3s; } 
+.layer_close button { width: 20px; height: 20px; background: url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.layer_top { text-align: center; padding: 30px 0 15px 0; margin: 0 30px; margin-bottom: 40px; border-bottom: 1px solid #f2f2f2; transition: all 0.3s; } 
+.layer_top strong { display: block; font-size: 18px; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.layer_area { margin-bottom: 20px; padding: 0 30px; } 
+
+.layer_pro .tl_prof_box { width: 100px; height: 100px; position: relative; left: 50%; transform: translateX(-50%); margin: 0; margin-bottom: 40px; border: 1px solid #e5e5e5; border-radius: 50px; display: inline-block; vertical-align: top; z-index: 1; } 
+.tl_prof_img { width: 100px; height: 100px; border-radius: 50px; overflow: hidden; background-image: url(../images/pre/img_prof_default.png); background-position: 50% 50%; background-repeat: no-repeat; -webkit-background-size: cover; background-size: cover; } 
+.tl_prof_slc { position: absolute; bottom: 0; right: 0; z-index: 2; } 
+.tl_prof_slc_in { position: relative; } 
+/* .button_prof { width:36px; height:36px; position:relative; background:url(../images/pre/ico_main_set.png) 50% 50% no-repeat #fff; text-indent:-9999px; border: 1px solid #ebebeb; border-radius: 25px; } */
+.char_prof { width:36px; height:36px; position:relative; background:url(../images/pre/ico_main_set.png) 50% 50% no-repeat #fff; text-indent:-9999px; border: 1px solid #ebebeb !important; border-radius: 25px; } 
+.tl_prof_slc ul { display: none; width: 130px; position: absolute; z-index: 4; top: 15px; left: 15px; border: 1px solid #ccc; background: #fff; border-radius: 3px; } 
+.tl_prof_slc ul li { border-top: 1px solid #ccc; position: relative; } 
+.tl_prof_slc ul li:first-child { border-top: none; } 
+.tl_prof_slc ul li button { font-size: 13px; font-weight: 300; line-height: 36px; color: #858585; letter-spacing: -0.05em; text-align: left; display: block; width: 100%; } 
+.tl_prof_slc ul li button span { display: block; padding: 0 16px; white-space: nowrap; } 
+.tl_prof_slc ul li .input_prof { visibility: hidden; position: absolute; top: 50%; left: 50%; font-size: 1px; width: 1px; height: 1px; overflow: hidden; } 
+.tl_prof_slc ul li .label_prof { font-size: 13px; font-weight: 300; line-height: 36px; color: #858585; letter-spacing: -0.05em; text-align: left; display: block; width: 100%; cursor: pointer; padding: 0 16px; box-sizing: border-box; } 
+.tl_prof_slc ul li button.default_on { color: #ccc; cursor: default; } 
+
+.tl_prof_slc ul li button:hover { background:#43454c; color:#fff; } 
+.tl_prof_slc ul li .label_prof:hover { background:#43454c; color:#fff; } 
+.tl_prof_slc ul li button.default_on:hover { color:#ccc; background:none; } 
+
+.text_area { margin-bottom: 20px; position: relative; } 
+.text_area .layer_text { width: 100%; height: 55px; border: 1px solid #e5e5e5; border-radius: 10px !important; padding: 0 20px; padding-right: 85px; box-sizing: border-box !important; font-size: 16px; letter-spacing: -0.05em; font-weight: 300; } 
+
+.submit_btn { width: calc(100% - 60px); height: 60px; margin: 0 30px; } 
+.submit_btn .btn_on { width: 100%; height: 100%; background: #38c9d2; color: #fff; font-size: 18px; letter-spacing: -0.05em; font-weight: 500; border-radius: 10px; } 
+
+.text_lengh { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); display: flex; font-size: 12px; color: #aaa; font-weight: 300; letter-spacing: -0.05em; } 
+
+@media screen and (max-width: 480px){
+ .layer_pro_in { width: 90vw; min-height: 1px; overflow: visible; } 
+ .layer_top { margin: 0 20px 30px 20px; } 
+ .layer_top strong { font-size: 15px; } 
+ 
+ .layer_area { padding: 0 20px; } 
+ .text_area .layer_text { height: 47px; border-radius: 5px !important; font-size: 12px; } 
+ .submit_btn { width: calc(100% - 40px); height: 47px; margin: 0 20px; padding-bottom: 30px; } 
+ .submit_btn .btn_on { border-radius: 5px; font-size: 14px; } 
+
+ .rew_layer_character.item_prof .tl_btn .tl_profile_bt button { width: calc(100% - 14px) !important; } 
+ 
+ /* icon */
+
+ .layer_close button { background: url(../images/pre_m/ico_close.png) 50% 50% no-repeat; background-size: 12px; } 
+ .char_prof { background: url(../images/pre_m/ico_main_set.png) 50% 50% no-repeat #fff; background-size: 16px; } 
+}

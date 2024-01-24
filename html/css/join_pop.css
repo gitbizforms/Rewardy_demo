@@ -1,0 +1,89 @@
+@charset "utf-8"; button { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.rew_warp input,
+.rew_warp button,
+.rew_warp select,
+.rew_warp textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+button { cursor: pointer; } 
+
+.t_layer.rew_layer_setting { width: 520px; min-height: 589px; height: auto; position: fixed; top: 50%; left: 50%; margin-left: -260px; margin-top: -295px; } 
+.tl_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+.rew_layer_setting .tl_in { padding: 0 40px; height: 100%; border-radius: 10px; position: relative; background: #fff; z-index: 4000; text-align: center; } 
+.rew_layer_setting .tl_in:after { content: ""; position: absolute; top: 30px; right: 40px; width: 100px; height: 29px; background: url(../images/pre/img_logo.png) 50% 50% no-repeat; text-indent: -9999px; } 
+.rew_layer_setting .tl_close { position: absolute; bottom: 40px; height: 60px; width: 130px; top: auto; right: auto; } 
+.rew_layer_setting .tl_close button { font-size: 18px; font-weight: 500; letter-spacing: -0.05em; color: #fff; text-align: center; background: #ccc; width: 100%; height: 60px; line-height: 60px; border: 0; border-radius: 10px; margin: 0; margin-top: 0px; display: inline-block; vertical-align: top; text-indent: 0; } 
+.rew_layer_setting .tl_login_logo { position: absolute; top: 30px; right: 40px; width: 100px; height: 29px; background: url(../images/pre/img_logo.png) 50% 50% no-repeat; text-indent: -9999px; display: none; } 
+
+.tl_prof { margin-bottom:30px; padding-top:69px; } 
+.tl_prof_box { position:relative; width:100px; height:100px; margin:0 auto; } 
+.tl_prof_img { width:100px; height:100px; border-radius:50px; overflow:hidden; background-image:url(../images/pre/img_prof_default.png); background-position:50% 50%; background-repeat:no-repeat; -webkit-background-size:cover; background-size:cover; } 
+.rew_layer_setting .tl_prof_img { width:98px; height:98px; border:1px solid #e5e5e5; } 
+.tl_prof_slc { position:absolute; top:64px; left:64px; z-index:2; } 
+.tl_prof_slc_in { position:relative; } 
+.tl_prof_slc:hover ul { display:block; } 
+.tl_prof_slc .button_prof { width:36px; height:36px; position:relative; background:url(../images/pre/ico_camera.png) 50% 50% no-repeat; text-indent:-9999px; } 
+.tl_prof_slc ul { display:none; position:absolute; z-index:4; top:18px; left:18px; border:1px solid #ccc; background:#fff; border-radius:3px; } 
+.tl_prof_slc ul li { border-top:1px solid #ccc; position:relative; } 
+.tl_prof_slc ul li:first-child { border-top:none;; } 
+.tl_prof_slc ul li button { font-size:13px; font-weight:300; line-height:36px; color:#858585; letter-spacing:-0.05em; text-align:left; display:block; width:100%; } 
+.tl_prof_slc ul li .input_prof { visibility:hidden; position:absolute; top:50%; left:50%; font-size:1px; width:1px; height:1px; overflow:hidden; } 
+.tl_prof_slc ul li .label_prof { font-size:13px; font-weight:300; line-height:36px; color:#858585; letter-spacing:-0.05em; text-align:left; display:block; width:100%; cursor:pointer; } 
+.tl_prof_slc ul li button:hover { background:#43454c; color:#fff; } 
+.tl_prof_slc ul li .label_prof:hover { background:#43454c; color:#fff; } 
+.tl_prof_slc ul li button.default_on { color:#ccc; cursor:default; } 
+.tl_prof_slc ul li button.default_on:hover { color:#ccc; background:none; } 
+.tl_prof_slc ul li button span { display:block; padding:0 16px; white-space:nowrap; } 
+.tl_prof_slc ul li .label_prof span { display:block; padding:0 16px; white-space:nowrap; } 
+
+.tl_list { text-align: left; } 
+.rew_layer_setting .tl_list > ul > li { margin-bottom: 10px; font-size: 0; } 
+.tc_input { position: relative; } 
+.rew_layer_setting .tc_input.tc_50 { display: inline-block; vertical-align: top; width: calc(50% - 5px); } 
+.rew_layer_setting .tc_input.tc_50:last-child { margin-left: 10px; } 
+.rew_layer_setting .tc_input .label_001 { display: none; } 
+.rew_layer_setting .tc_input .input_002 { width: 100%; padding: 0 20px; height: 55px; line-height: 55px; border: 1px solid #e5e5e5; border-radius: 10px; text-align: left; background: #fff; font-size: 16px; color: #454545; letter-spacing: 0; font-weight: 300; box-sizing: border-box; } 
+.rew_layer_setting .tc_input .input_002:disabled { background: #f8f8f9; } 
+
+.rew_layer_setting .tc_input .input_001 { width: 100%; padding: 0 20px; height: 55px; line-height: 55px; border: 1px solid #e5e5e5; border-radius: 10px; text-align: left; background: #fff; font-size: 16px; color: #454545; letter-spacing: 0; font-weight: 300; box-sizing: border-box; } 
+
+.rew_layer_setting .tl_btn { padding-top: 20px; padding-bottom: 40px; text-align: right; } 
+.rew_layer_setting .tl_btn button { font-size: 18px; font-weight: bold; letter-spacing: -0.05em; color: #fff; text-align: center; display: inline-block; vertical-align: top; background: #38c9d2; width: calc(100% - 140px); height: 60px; line-height: 60px; border: 0; border-radius: 10px; margin: 0; } 
+
+
+@media all and (max-width: 960px) { } 
+@media all and (max-width: 540px){
+ .t_layer.rew_layer_setting { width: 90%; } 
+
+ .t_layer.rew_layer_setting { min-height: 1px; margin-left: -242px; margin-top: -250px; } 
+ .rew_layer_setting .tl_in { padding: 0 20px; } 
+
+ .tl_prof { padding-top: 25px; margin-bottom: 20px; } 
+ .tl_prof_box { width: 80px; height: 80px; } 
+ .rew_layer_setting .tl_prof_img { width: 70px; height: 70px; } 
+ .tl_prof_slc { top: 45px; left: 50px; } 
+ .tl_prof_slc .button_prof { width: 28px; height: 28px; background-size: cover; } 
+
+ .rew_layer_setting .tl_btn { padding-top: 10px; padding-bottom: 20px; } 
+ .rew_layer_setting .tl_close { width: calc(30% - 10px); height: 47px; bottom: 20px; box-sizing: border-box; } 
+ .rew_layer_setting .tl_close button { width: 100%; height: 100%; border-radius: 5px; font-size: 13px; line-height: 46px; } 
+ .rew_layer_setting .tl_btn button { width: calc(70% - 10px); height: 47px; font-size: 13px; line-height: 47px; border-radius: 5px; } 
+ 
+ .rew_layer_setting .tc_input .input_002 { height: 47px; font-size: 13px; border-radius: 5px; } 
+ .rew_layer_setting .tc_input .input_001 { height: 47px; font-size: 13px; border-radius: 5px; } 
+
+ .rew_layer_setting .tl_in:after {width: 60px; height: 17px; background-size: cover;}
+}
+@media all and (max-width: 480px){
+ .t_layer.rew_layer_setting { margin-left: -215px; } 
+ }
+@media all and (max-width: 420px){
+ .t_layer.rew_layer_setting { margin-left: -190px; } 
+ }
+ @media all and (max-width: 375px){
+  .t_layer.rew_layer_setting { margin-left: -170px; } 
+  }
+@media all and (max-width: 360px){
+ .t_layer.rew_layer_setting { margin-left: -162px; } 
+ }

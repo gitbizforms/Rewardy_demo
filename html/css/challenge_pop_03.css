@@ -1,0 +1,30 @@
+@charset "utf-8"; button { outline: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.layer_cha_img .layer_deam { position:fixed; top:0; left:0; right:0; bottom:0; z-index:1111; background:rgba(0,0,0,0.4); border-radius:0; z-index: 9999; } 
+
+.layer_cha_img_slide ul { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; } 
+.layer_cha_img_slide ul li { max-width: 1100px; max-height: 70vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block; } 
+.layer_cha_img_slide ul li img { max-width: 1100px; max-height: 70vh; } 
+
+/* btn */
+.layer_cha_slide_btn { width: 100%; display: block; position: absolute; top: 50%; transform: translateY(-50%); z-index: 9999; } 
+.layer_cha_slide_btn .slide_btn_prev { width: 50px; height: 50px; display: block; position: absolute; left: 250px; border: 1px solid #fff; background: url(../images/pre/ico_prev.png) no-repeat 50% 50%; border-radius: 25px; } 
+.layer_cha_slide_btn .slide_btn_next { width: 50px; height: 50px; display: block; position: absolute; right: 250px; border: 1px solid #fff; background: url(../images/pre/ico_next.png) no-repeat 50% 50%; border-radius: 25px; } 
+
+.layer_cha_slide_btn .slide_btn_prev:hover { background: url(../images/pre/ico_prev.png) no-repeat 50% 50% #333; border: none; } 
+.layer_cha_slide_btn .slide_btn_next:hover { background: url(../images/pre/ico_next.png) no-repeat 50% 50% #333; border: none; } 
+
+@media screen and (max-width: 960px){
+ .layer_cha_slide { top: 45vh !important; transform: translate( 0, -50%) !important; } 
+
+ .layer_cha_img_slide ul li img { max-width: 90vw; max-height: 50vh; } 
+
+ .layer_cha_slide_btn { top: 72%; } 
+ .layer_cha_slide_btn .slide_btn_prev { left: 50%; transform: translateX(-110%); } 
+ .layer_cha_slide_btn .slide_btn_next { right: 50%; transform: translateX(110%); } 
+ }
+@media screen and (max-width: 540px) { } 
+@media screen and (max-width: 480px) { } 
+@media screen and (max-width: 420px) { } 
+@media screen and (max-width: 360px) { } 

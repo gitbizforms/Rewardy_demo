@@ -1,0 +1,204 @@
+@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.rew_warp button { cursor:pointer; } 
+
+button { cursor:pointer; outline:none; border:none; background:none; } 
+input[type=text]::-ms-clear { display:none; } 
+input[type=number]::-ms-clear { display:none; } 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; } 
+html { height:100%; background:#fafafa; } 
+body { height:100%; } 
+img { max-width:100%; } 
+
+.rew_menu { width:70px; height:100%; position:absolute; top:0; left:0; z-index:20; transition:all 0.6s 0.4s; } 
+.rew_box.on .rew_menu { width:580px; transition:all 0.8s; } 
+#work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+#r_work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+.rew_menu_in { height:100%; width:100%; position:relative; z-index:2; } 
+
+.rew_qck { display: none; } 
+
+/* ------------------------------------------------------------------ */
+.rew_warp { background:#dee1e7; width:100%; height:100%; background:#dee1e7 url(../images/pre/img_intro.png) 50% 50% no-repeat; } 
+.rew_warp { background: #fff6e0; min-height: 800px; background: #fff6e0 url(../images/pre/img_intro.png) 50% 50% no-repeat; position: relative; } 
+.rew_warp_in { height:100%; } 
+
+.rew_box { min-width:480px; height:100%; width:100%; margin:0 auto; overflow:hidden; background:#fff; } 
+.rew_box_in { height: 100%; font-size: 0; text-align: left; position: relative; } 
+
+.rew_head { position:relative; z-index:9; padding-left:70px; transition:all 0.6s 0.4s; } 
+.rew_box.on .rew_head { padding-left:580px; transition:all 0.8s; } 
+
+.rew_conts_in { height:100%; position:relative; } 
+
+.rew_conts { background: #ececec; height: 100%; padding-left: 70px; transition: all 0.6s 0.4s; } 
+/* ------------------------------------------------------------------ */
+/* cont */
+.rew_conts_scroll_01 { height:calc(100% - 90px); overflow-y:scroll; overflow-x:auto; -ms-overflow-style:none; min-width:640px; position:relative; } 
+.rew_conts_scroll_01::-webkit-scrollbar { height:10px; width:10px; } 
+.rew_conts_scroll_01::-webkit-scrollbar-thumb { border-radius:5px; background-color:rgba(0,0,0,0.05); border:none; height:10px; width:10px; background-color:rgba(0,0,0,0.05); } 
+.rew_conts_scroll_01::-webkit-scrollbar-track { background-color:#ececec; } 
+.rew_conts_scroll_01::-webkit-scrollbar-corner { background-color:#ececec; } 
+
+.rew_member_in { padding:50px 40px 90px 40px; width:1100px; margin:0 auto; } 
+
+.rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
+.rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
+.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+
+.rew_member_sub_count { } 
+.rew_member_sub_count span { font-size: 20px; font-weight: 700; color: #252525; letter-spacing: -1px; margin-bottom: 30px; } 
+.rew_member_sub_count strong { font-size:20px; font-weight:bold; font-weight:900; color:#38c9d2; letter-spacing:-0.05em; line-height:46px; height:46px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_count em { font-size:15px; font-weight:300; color:#858585; letter-spacing:-0.05em; line-height:48px; height:46px; display:inline-block; vertical-align:top; } 
+
+.rew_member_sub_func_tab .rew_member_sub_func_sort { display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_sort_in { position:relative; text-align:left; } 
+.rew_member_sub_func_sort .btn_sort_on { font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; line-height:44px; text-align:left; width:140px; height:46px; padding-left:20px; background:#fff url(../images/pre/ico_arrow_slc.png) 100% 50% no-repeat; border:1px solid #e5e5e5; border-radius:5px; } 
+.rew_member_sub_func_sort .btn_sort_on span { } 
+.rew_member_sub_func_sort ul { position:absolute; opacity:0; top:0; right:0; z-index:4; width:calc(100% - 2px); background:#fff; border:1px solid #43454c; border-radius:5px; overflow:hidden; } 
+.rew_member_sub_func_sort.on ul { opacity:1; } 
+.rew_member_sub_func_sort ul li { margin-bottom:-45px; position:relative; background:#fff; } 
+
+.rew_member_sub_func_sort.on ul li { margin-bottom:0; } 
+.rew_member_sub_func_sort ul li button { font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; line-height:45px; text-align:left; width:100%; height:45px; padding-left:20px; } 
+.rew_member_sub_func_sort ul li button:hover { color:#fff; background:#43454c; } 
+.rew_member_sub_func_sort ul li span { } 
+
+.rew_member_sub_func_calendar { display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns { font-size:0; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns button { text-align:center; border:1px solid #e1e1e1; background:#fff; height:46px; line-height:44px; font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:5px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns button.on { background:#38c9d2; color:#fff; } 
+.rew_member_sub_func_btns button span { padding:0 15px; } 
+
+.rew_member_sub_func_down { font-size:0; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_down button { text-align:center; border:1px solid #38c9d2; background:#38c9d2; height:46px; line-height:44px; font-size:15px; color:#fff; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:10px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_down button span { padding:0 15px; } 
+
+.rew_member_sub_func_period { margin-left:10px; display:inline-block; vertical-align:top; } 
+.tyle_money .rew_member_sub_func_period { margin-left:0; } 
+.rew_member_sub_func_period_box { padding:0 5px; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period_box.cal_month { padding:0 20px; } 
+.rew_member_sub_func_period .input_date_l { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .cal_month .input_date_l { width:76px; } 
+.rew_member_sub_func_period .btn_calendar_l { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .rew_member_sub_func_period_box > span { width:28px; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .input_date_r { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .btn_calendar_r { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:10px; display:inline-block; vertical-align:top; } 
+
+.rew_member_sub_func_period .btn_inquiry { margin-left:10px; width:85px; height:46px; font-size:15px; color:#fff; font-weight:400; letter-spacing:-0.05em; text-align:center; background:#414141; border-radius:5px; display:inline-block; vertical-align:top; } 
+
+.rew_member_list { width:1100px; margin:0 auto; border-radius:10px; overflow:hidden; position:relative; z-index:1; } 
+.rew_member_list_in { border:1px solid #e8ebee; border-radius:10px; } 
+
+.tyle_coin .member_list_header { padding:0; } 
+.member_list_header { text-align:center; font-size:0; height:65px; padding:0 10px 0 34px; background:#f6f7f9; } 
+
+.member_list_header_in > div { display:inline-block; vertical-align:top; padding-top:18px; } 
+.member_list_header .member_list_header_datetime { width:213px; } 
+.member_list_header .member_list_header_deposit { width:160px; } 
+.member_list_header .member_list_header_withdraw { width:160px; } 
+.member_list_header .member_list_header_coin { width:170px; } 
+.member_list_header .member_list_header_admin_user { width:125px; } 
+.member_list_header .member_list_header_detail { width:270px; } 
+
+.member_list_conts { background:#fff; } 
+.member_list_conts .member_list_conts_datetime { width:213px; } 
+.member_list_conts .member_list_conts_deposit { width:160px; } 
+.member_list_conts .member_list_conts_withdraw { width:160px; } 
+.member_list_conts .member_list_conts_coin { width:170px; } 
+.member_list_conts .member_list_conts_admin_user { width:125px; } 
+.member_list_conts .member_list_conts_detail { width:270px; text-align:left; } 
+
+
+.member_list_header_in > div strong { font-size:17px; font-weight:400; color:#000; line-height:27px; letter-spacing:-0.05em; display:inline-block; vertical-align:middle; } 
+.member_list_header_in > div em { width:13px; height:18px; margin-left:5px; display:inline-block; vertical-align:middle; } 
+.member_list_header_in > div button { width:13px; height:9px; } 
+.member_list_header_in > div button.btn_sort_up { background:url(../images/pre/ico_sort_up.png) 50% 4px no-repeat; margin-bottom:1px; } 
+.member_list_header_in > div button.btn_sort_up.on { background:url(../images/pre/ico_sort_up_on.png) 50% 4px no-repeat; margin-bottom:1px; } 
+.member_list_header_in > div button.btn_sort_down { background:url(../images/pre/ico_sort_down.png) 50% 1px no-repeat; } 
+.member_list_header_in > div button.btn_sort_down.on { background:url(../images/pre/ico_sort_down_on.png) 50% 1px no-repeat; } 
+
+.tyle_coin .member_list_conts_in > ul > li { padding: 0; } 
+.member_list_conts_in > ul > li { text-align: center; font-size: 0; padding: 0 10px 0 34px; border-top: 1px solid #f2f2f2; } 
+
+.member_list_conts_in > ul > li.on { background:#f6f7f9; } 
+.member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding-top:17px; padding-bottom:17px; } 
+.member_list_conts_in > ul > li > div > strong { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; max-width:calc(100% - 2px); display:inline-block; vertical-align:top; } 
+.member_list_conts_in > ul > li > div button { display:inline-block; vertical-align:top; } 
+
+.member_list_conts .member_list_conts_datetime strong { color:#252525; letter-spacing:0.01em; } 
+.member_list_conts .member_list_conts_deposit strong { font-weight:400; color:#337bf6; letter-spacing:0; text-align: right; } 
+.member_list_conts .member_list_conts_withdraw strong { font-weight:400; color:#f10006; letter-spacing:0; text-align: right; } 
+.member_list_conts .member_list_conts_coin strong { color:#252525; letter-spacing:-0.025em; text-align: right; } 
+.member_list_conts .member_list_conts_admin_user strong { color:#252525; } 
+.member_list_conts .member_list_conts_detail strong { text-align:left; padding-left:35px; padding-right:15px; } 
+.member_list_conts .member_list_conts_deposit strong.zero { color:#252525; } 
+.member_list_conts .member_list_conts_withdraw strong.zero { color:#252525; } 
+
+@media screen and (max-width: 1400px){
+ .rew_conts_scroll_01 { min-width:1px; } 
+ .rew_member_in { width:auto; padding:40px 30px 0px 40px; } 
+
+ .rew_member_list { width:auto; } 
+ .rew_member_list_in { position:relative; padding-left:120px; } 
+ .member_list_header { position:absolute; top:0; left:0; width:118px; border-right:2px solid #ececec; padding:0; height:100%; text-align:left; overflow:hidden; } 
+ .member_list_conts_in > ul { display:flex; overflow-x:scroll; padding:10px 0 0 0; } 
+ .member_list_conts_in > ul > li { text-align:left; padding:5px 15px; border-top:none; border-right:2px solid #ececec; } 
+ .tyle_coin .member_list_conts_in > ul > li { padding:5px 15px; } 
+ .member_list_conts_in > ul > li:last-child { border-right:none; } 
+ .member_list_conts_in > ul > li > div { display:block; padding-top:10px; padding-bottom:10px; width:auto !important; min-width:155px; } 
+ .tyle_coin .member_list_conts_in > ul > li > div { min-width:140px; max-width:170px; } 
+ .member_list_conts_in > ul > li > div > strong { font-size:15px; line-height:25px; width:auto !important; } 
+ .member_list_conts .member_list_conts_email strong { white-space:nowrap; } 
+ .member_list_conts .member_list_conts_detail strong { padding-left:0; padding-right:0; } 
+ .member_list_conts .member_list_conts_date button { margin:-4px 0 -4px 6px; } 
+ .member_list_conts .member_list_conts_admin .btn_switch { margin:0; } 
+ .member_list_conts .member_list_conts_admin { padding-top:8px; padding-bottom:7px; } 
+ .member_list_conts_in > ul > li > .member_list_conts_function { padding-top:7px; padding-bottom:7px; } 
+ .member_list_conts .member_list_conts_function button.btn_list_regi { width:31px; height:31px; margin:0 4px 0 0; border-radius:5px; } 
+ .member_list_conts .member_list_conts_function button.btn_list_del { width:31px; height:31px; margin:0; border-radius:5px; } 
+ .btn_member_list { top:6px; text-align:left; } 
+ .btn_member_list button { width:64px; height:36px; font-size:14px; margin:0 5px 0 0; } 
+
+ .member_list_header_in { padding:15px 5px 15px 15px; } 
+ .member_list_header_in > div { padding-top:10px; padding-bottom:10px; } 
+ .member_list_header .member_list_header_name { width:100%; } 
+ .member_list_header .member_list_header_team { width:100%; } 
+ .member_list_header .member_list_header_email { width:100%; } 
+ .member_list_header .member_list_header_date { width:100%; } 
+ .member_list_header .member_list_header_admin { width:100%; } 
+ .member_list_header .member_list_header_function { width:100%; } 
+ .member_list_header .member_list_header_datetime { width:100%; } 
+ .member_list_header .member_list_header_deposit { width:100%; } 
+ .member_list_header .member_list_header_withdraw { width:100%; } 
+ .member_list_header .member_list_header_coin { width:100%; } 
+ .member_list_header .member_list_header_admin_user { width:100%; } 
+ .member_list_header .member_list_header_detail { width:100%; } 
+ .member_list_header_in > div strong { font-size:15px; font-weight:500; line-height:25px; } 
+ .member_list_header_in > div em { height:19px; } 
+
+ .member_list_conts .on .member_list_conts_name .input_member_list_name { top:0; left:-5px; width:calc(100% - 24px); height:43px; line-height:43px; margin:0; } 
+ .rew_member_list_sort { top:0; left:-5px; width:calc(100% - -10px); } 
+ .rew_member_list_sort .btn_sort_on { height:45px; width:100%; } 
+ .rew_member_list_sort ul li button { width:100%; padding-left:16px; } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

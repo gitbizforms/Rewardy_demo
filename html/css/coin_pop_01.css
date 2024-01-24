@@ -1,0 +1,134 @@
+@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100; 300; 400; 500; 700; 900&display=swap'); * { font-family: 'Noto Sans KR', sans-serif; } 
+
+.layer_deam { position:fixed; top:0; left:0; width:100%; height:100%; z-index:111; background:rgba(0,0,0,0.4); } 
+
+button { cursor: pointer; border: none; background: inherit; } 
+input:focus { outline: none; } 
+
+.layer_withdraw_in { position:fixed; left:50%; margin-left:-225px; width:450px; height:676px; top:50%; margin-top:-338px; background:#fff; border-radius:10px; z-index:6000; overflow:hidden; } 
+.layer_withdraw_box { } 
+.layer_withdraw_top { background:#38c9d2; padding:20px 30px; } 
+.layer_withdraw_top .layer_withdraw_qna { text-align:left; margin-bottom:12px; } 
+.layer_withdraw_top .qna { height:22px; } 
+.layer_withdraw_top .layer_withdraw_qna_tit { font-size:16px; font-weight:400; color:#fff; letter-spacing:-0.05em; display:inline-block; vertical-align:top; line-height:20px; } 
+.layer_withdraw_top .qna .qna_q { color:#fff; background:url(../images/pre/ico_q_w.png) 50% 50% no-repeat; margin-left:3px; line-height:22px; } 
+.layer_withdraw_top .qna .qna_a { bottom:auto; top:30px; width:222px; } 
+.layer_withdraw_top .qna .qna_a span { margin-bottom:0; margin-top:8px; } 
+.layer_withdraw_top .qna .qna_a span:after { transform:rotate(180deg); bottom:auto; top:-8px; } 
+.layer_withdraw_top .layer_withdraw_coin { } 
+.layer_withdraw_top .layer_withdraw_coin strong { display:block; text-align:right; padding-right:35px; background:url(../images/pre/ico_coin_new.png) 100% 55% no-repeat; background-size: 27px; } 
+.layer_withdraw_top .layer_withdraw_coin span { font-size:30px; font-weight:bold; color:#fff; letter-spacing:0; line-height:40px; } 
+.layer_withdraw_mid { padding:24px 30px; } 
+.layer_withdraw_mid .layer_withdraw_btns { margin-bottom:15px; display:flex; justify-content:space-between; } 
+.layer_withdraw_mid .layer_withdraw_btns ul { font-size:0; } 
+.layer_withdraw_mid .layer_withdraw_btns li { display:inline-block; vertical-align:top; margin-right:5px; } 
+.layer_withdraw_mid .layer_withdraw_btns li button { min-width:55px; padding:0 11.5px; height:33px; line-height:31px; text-align:center; font-size:14px; font-weight:400; color:#858585; letter-spacing:-0.05em; border:1px solid #e5e5e5; border-radius:10px; } 
+.layer_withdraw_mid .layer_withdraw_btns li button span { } 
+.layer_withdraw_mid .btn_coin_reset { width:75px; height:33px; text-align:center; font-size:14px; font-weight:400; color:#858585; letter-spacing:-0.05em; line-height:31px; border:1px solid #e5e5e5; border-radius:10px; } 
+.layer_withdraw_mid .btn_coin_reset span { } 
+.layer_withdraw_mid .layer_withdraw_input { margin-bottom:20px; } 
+.layer_withdraw_mid .layer_withdraw_input + div > span { display:block; text-align:right; font-size:13px; font-weight:300; color:#353535; letter-spacing:-0.05em; line-height:22px; padding-right:10px; margin-top:-15px; margin-bottom:15px; } 
+.layer_withdraw_mid .input_withdraw { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:right; height:53px; border:1px solid #e5e5e5; border-radius:10px; padding-right:20px; display:block; width:calc(100% - 22px); } 
+
+.layer_withdraw_mid .layer_withdraw_info { margin-bottom:20px; } 
+
+.layer_withdraw_bank { font-size:15px; } 
+.layer_withdraw_bank_in { position:relative; } 
+.layer_withdraw_bank .btn_bank_on { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; width:100%; height:55px; padding-left:20px; background:#fff url(../images/pre/ico_arrow_slc.png) 100% 50% no-repeat; border:1px solid #e5e5e5; border-radius:10px 10px 0 0; } 
+.layer_withdraw_bank .btn_bank_on span { } 
+.layer_withdraw_bank ul { position:absolute; opacity:0; top:0; right:0; width:calc(100% - 2px); background:#fff; border:1px solid #e5e5e5; border-radius:10px; overflow:hidden; max-height:240px; overflow-y:scroll; -ms-overflow-style:none; } 
+.layer_withdraw_bank ul::-webkit-scrollbar { width:0px; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-thumb { border-radius:3px 7px 7px 3px; background-color:#f5f5f5; width:4px; border-right:5px solid transparent; background-clip:padding-box; transition:all 0.2s; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-thumb:hover { background-color:#ddd; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-track { background-color:transparent; margin:10px 0; } 
+.layer_withdraw_bank.on ul { opacity:1; } 
+.layer_withdraw_bank ul li { margin-bottom:-55px; border-top:1px solid #e5e5e5; position:relative; background:#fff; } 
+.layer_withdraw_bank ul li:first-child { z-index:4; border-top:none; } 
+.layer_withdraw_bank ul li:first-child+li { z-index:3; } 
+.layer_withdraw_bank ul li:first-child+li+li { z-index:2; } 
+.layer_withdraw_bank ul li:last-child { /* margin-bottom:0; */ z-index:1; } 
+
+.layer_withdraw_bank.on ul li { margin-bottom:0; } 
+
+.layer_withdraw_bank ul li button { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; width:100%; height:53px; padding-left:20px; } 
+.layer_withdraw_bank ul li button:hover { color:#fff; background:#43454c; border-radius: 0px; } 
+.layer_withdraw_bank ul li span { } 
+
+.layer_withdraw_mid .input_bank_num { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; padding-left:20px; display:block; width:calc(100% - 22px); } 
+.layer_withdraw_mid .input_bank_user { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; border-radius:0 0 10px 10px; padding-left:20px; display:block; width:calc(100% - 22px); } 
+
+.layer_withdraw_desc { background:#f4f4f4; border-radius:10px; margin-bottom:20px; } 
+.layer_withdraw_desc ul { padding:21px 15px 17px 15px; text-align:left; } 
+.layer_withdraw_desc li { font-size:14px; font-weight:300; color:#aaa; letter-spacing:0; line-height:21px; margin-bottom:5px; word-break:keep-all; padding-left:14px; background:url(../images/pre/ico_dot_g.png) 0 9px no-repeat; } 
+
+.layer_withdraw_btn { display:flex; justify-content:space-between; } 
+.layer_withdraw_btn button { height:55px; border-radius:10px; text-align:center; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+.layer_withdraw_btn button.btn_withdraw_off { width:130px; background:#ccc; border: none; } 
+.layer_withdraw_btn button.btn_withdraw_on { width:calc(100% - 140px); background:#43454c; } 
+
+.layer_withdraw_mid .input_bank_num { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; padding-left:20px; display:block; width:calc(100% - 22px); } 
+.layer_withdraw_mid .input_bank_user { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; border-radius:0 0 10px 10px; padding-left:20px; display:block; width:calc(100% - 22px); } 
+
+.layer_withdraw_desc { background:#f4f4f4; border-radius:10px; margin-bottom:20px; } 
+.layer_withdraw_desc ul { padding:21px 15px 17px 15px; text-align:left; } 
+.layer_withdraw_desc li { font-size:14px; font-weight:300; color:#aaa; letter-spacing:0; line-height:21px; margin-bottom:5px; word-break:keep-all; padding-left:14px; background:url(../images/pre/ico_dot_g.png) 0 9px no-repeat; } 
+
+.layer_withdraw_btn { display:flex; justify-content:space-between; } 
+.layer_withdraw_btn button { height:55px; border-radius:10px; text-align:center; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+.layer_withdraw_btn button.btn_withdraw_off { width:130px; background:#ccc; } 
+.layer_withdraw_btn button.btn_withdraw_on { width:calc(100% - 140px); background:#43454c; } 
+
+.qna { position:relative; } 
+.qna .qna_q { width:16px; height:100%; background:url(../images/pre/ico_q.png) 50% 50% no-repeat; margin-left:5px; display:inline-block; vertical-align:top; text-indent:-9999px; } 
+.qna .qna_a { position:absolute; bottom:60px; left:50%; margin-left:-200px; width:400px; text-align:center; z-index:20; overflow:hidden; height:0; opacity:0; transition:all 0.2s; } 
+.qna .qna_q:hover + .qna_a { height:auto; opacity:1; transition:all 0.3s; } 
+.qna .qna_a span { position:relative; margin-bottom:8px; font-size:15px; font-weight:300; color:#fff; line-height:23px; letter-spacing:-0.05em; padding:16px 20px; border-radius:20px; background:#43454c; box-shadow:0 0 8px 0 rgba(0,0,0,0.1); display:inline-block; vertical-align:top; } 
+/* .qna .qna_a span:after { content:""; display:block; position:absolute; bottom:-8px; left:50%; margin-left:-8px; width:16px; height:8px; background:url(../images/pre/ico_arrow.png) 50% 50% no-repeat; }  */
+
+.title_area .qna { display:inline-block; vertical-align:top; } 
+.title_area .qna .qna_a { bottom:30px; left:auto; right:-191px; margin-left:0; } 
+
+
+@media screen and (max-width: 960px) { } 
+@media screen and (max-width: 540px){
+ .layer_withdraw_in { width: 90%; height: auto; margin-top: 0; margin-left: 0; transform: translate(-50%, -50%); } 
+ 
+ .layer_withdraw_top { position: relative; } 
+ .layer_withdraw_top .layer_withdraw_qna { height: 35px; margin-bottom: 0; } 
+ .layer_withdraw_top .qna { position: absolute; top: 50%; transform: translateY(-50%); } 
+ .layer_withdraw_top .qna .qna_a { top: 25px; left: -12px; margin-left: 0; } 
+ .layer_withdraw_top .qna .qna_a span { border-radius: 10px; font-size: 12px; padding: 10px 20px; } 
+ .layer_withdraw_top .layer_withdraw_qna_tit { font-size: 15px; } 
+ .layer_withdraw_top .layer_withdraw_coin strong { position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background-size: 20px; padding-right: 25px; } 
+ .layer_withdraw_top .layer_withdraw_coin span { font-size: 20px; } 
+
+ .layer_withdraw_mid { padding: 25px 20px; } 
+ .layer_withdraw_mid .layer_withdraw_btns li button { min-width: 50px; border-radius: 5px; font-size: 12px; } 
+ .layer_withdraw_mid .btn_coin_reset { width: 60px;; border-radius: 5px; font-size: 12px; } 
+ .layer_withdraw_mid .layer_withdraw_input { margin-bottom: 15px; } 
+ .layer_withdraw_mid .input_withdraw { height: 47px; border-radius: 5px; font-size: 14px; } 
+ .layer_withdraw_mid .layer_withdraw_input + div > span { font-size: 12px; } 
+
+ .layer_withdraw_bank .btn_bank_on { height: 47px; font-size: 12px; border-radius: 5px 5px 0 0; } 
+ .layer_withdraw_bank.on ul { border-radius: 5px; } 
+ .layer_withdraw_bank ul li button { height: 47px; font-size: 12px; border-radius: 5px 5px 0 0; } 
+ .layer_withdraw_mid .input_bank_num { height: 46px; font-size: 12px; } 
+ .layer_withdraw_mid .input_bank_user { height: 46px; font-size: 12px; border-radius: 0 0 5px 5px; } 
+
+ .layer_withdraw_desc { border-radius: 5px; } 
+ .layer_withdraw_desc ul { padding: 15px 20px; } 
+ .layer_withdraw_desc li { font-size: 12px; line-height: 16px; } 
+ .layer_withdraw_desc li:last-child { margin-bottom: 0; } 
+
+ .layer_withdraw_btn button.btn_withdraw_off { width: 100px; height: 47px; border-radius: 5px; font-size: 14px; } 
+ .layer_withdraw_btn button.btn_withdraw_on { width: calc(100% - 110px); height: 47px; border-radius: 5px; font-size: 14px; } 
+
+ /* 아이콘 */
+ .layer_withdraw_top .qna .qna_q { color: #fff; background: url(../images/pre_m/ico_q_w.png) 50% 50% no-repeat; background-size: 16px; } 
+ .layer_withdraw_bank .btn_bank_on { background: #fff url(../images/pre_m/ico_arrow_slc.png) 100% 50% no-repeat; background-size: 22px; } 
+ }
+@media screen and (max-width: 480px) { } 
+@media screen and (max-width: 420px) { } 
+@media screen and (max-width: 360px) { } 

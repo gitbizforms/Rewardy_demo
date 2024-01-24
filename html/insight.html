@@ -1,0 +1,824 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/rew_head.css" />
+<link rel="stylesheet" type="text/css" href="./css/insight.css" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/mainy.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+<script src="./js/todaywork.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".rew_conts_list_in ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move"
+		});
+		$(".rew_conts_list_in ul").disableSelection();
+
+		$("#template_list").sortable({
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move",
+			containment : 'parent'
+		});
+		$("#template_list").disableSelection();
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+		},400);
+		
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+		$(".rew_conts_scroll_04").scroll(function(){
+			var rct = $(".rew_cha_list_in").offset().top;
+			console.log(rct);
+			if(rct<216){
+				$(".rew_cha_list_func").addClass("pos_fix");
+			}else{
+				$(".rew_cha_list_func").removeClass("pos_fix");
+			}
+		});
+
+		$(".rew_cha_list_ul li").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			setTimeout(function(){
+				tis.addClass("sli");
+			},700+tindex*150);
+		});
+
+		$(".rew_cha_tab_sort .btn_sort_on").click(function(){
+			$(".rew_cha_tab_sort").addClass("on");
+		});
+		$(".rew_cha_tab_sort").mouseleave(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+		$(".rew_cha_tab_sort ul li button").click(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+
+		$(".rew_cha_sort .btn_sort_on").click(function(){
+			$(".rew_cha_sort").addClass("on");
+		});
+		$(".rew_cha_sort").mouseleave(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+		$(".rew_cha_sort ul li button").click(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+
+		$(".rew_cha_more button").click(function(){
+
+			$(".rew_cha_list_ul").append('<li class="sli2 category_06 offset0"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_06"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li>');
+
+			
+			setTimeout(function(){
+				var offset = $(".offset0").position();
+				$(".rew_conts_scroll_04").animate({scrollTop : offset.top - 5}, 700);
+			},400);
+
+			setTimeout(function(){
+				$(".offset0").removeClass("offset0");
+			},1100);
+
+			$(".rew_cha_list_ul li:not('.sli')").each(function(aa){
+				var tis = $(this);
+				var tindex = $(this).index();
+				//alert(tindex);
+				setTimeout(function(){
+					tis.addClass("sli");
+				},700+(aa+1)*150);
+			});
+
+			
+		});
+
+
+		$(".cha_jjim").click(function(){
+			$(this).toggleClass("on");
+		});
+
+		$(".tpl_list_switch .btn_switch").click(function(){
+			$(this).toggleClass("on");
+		});
+
+		$(".tpl_list_area ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			handle: ".tpl_list_drag",
+			//placeholder:"sort_empty",
+			cursor: "move",
+			items:"li:not(.ui-state-disabled)"
+		});
+
+
+		//그래프 높이
+		var irg_t_coin = $(".ins_rank_graph .ir_rank_4 .ir_bar_coin span").text();
+		var irg_t_heart = $(".ins_rank_graph .ir_rank_4 .ir_bar_heart span").text();
+		var irg_t = irg_t_coin + irg_t_heart;
+		var irg_h = 200;
+		var irg_no = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
+		var irg_t = irg_t.replace(irg_no, "");
+		$(".ins_rank_graph li").each(function(){
+			var irg_count_coin = $(this).find(".ir_bar_coin span").text().replace(irg_no, "");
+			var irg_count_heart = $(this).find(".ir_bar_heart span").text().replace(irg_no, "");
+			var irg_count = irg_count_coin + irg_count_heart;
+			var irg_height = irg_h*irg_count/irg_t;
+			$(this).find(".ir_bar_graph").css({"height":irg_height});
+		});
+
+	});
+
+
+</script>
+<div class="rew_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04 on">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_08">
+							<div class="rew_mypage_08_in">
+								<div class="rew_mypage_title">
+									<strong>인사이트</strong>
+								</div>
+
+								<div class="rew_mypage_ins">
+									<div class="rew_mypage_ins_in">
+										<ul>
+											<li>
+												<a href="#"><span>🏆</span> 코인킹</a>
+											</li>
+											<li>
+												<a href="#"><span>💖</span> 좋아요</a>
+											</li>
+											<li>
+												<a href="#"><span>💪🏻</span> 역량</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+						<div class="rew_ins_func">
+							<div class="rew_ins_func_in">
+								<div class="rew_ins_func_title">
+									<strong>코인킹</strong><!-- 좋아요 : 하트킹 -->
+									<span>이달에 코인을 많이 획득한 순위</span><!-- 좋아요 : 이달에 하트를 많이 획득한 순위 -->
+								</div>
+
+								<div class="rew_ins_calendar">
+									<div class="tdw_ins_date">
+										<input type="text" class="input_date" value="2023.01" maxlength="10">
+									</div>
+									<div class="tdw_ins_tab_03">
+										<div class="tdw_ins_tab_in">
+											<ul>
+												<!-- <li>
+													<button class="on"><span>일간</span></button>
+												</li>
+												<li>
+													<button><span>주간</span></button>
+												</li> -->
+												<li>
+													<button><span>월간</span></button>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_12">
+
+							<div class="rew_ins">
+								<div class="rew_ins_in">
+									<div class="ins_rank_top">
+										<ul>
+											<li class="ir_rank_1">
+												<div class="ins_rank_user">
+													<div class="ir_user_img">
+														<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_03.png);"></div>
+													</div>
+													<div class="ir_name">
+														<div class="ir_name_user">윤지혜</div>
+														<div class="ir_name_team">디자인팀</div>
+													</div>
+													<div class="ir_rank_mark">
+														<span>1위</span>
+													</div>
+												</div>
+												<div class="ir_user_coin"><!-- 좋아요 : ir_user_heart -->
+													<span>52,060</span>
+												</div>
+											</li>
+											<li class="ir_rank_2">
+												<div class="ins_rank_user">
+													<div class="ir_user_img">
+														<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_04.png);"></div>
+													</div>
+													<div class="ir_name">
+														<div class="ir_name_user">정현주</div>
+														<div class="ir_name_team">디자인팀</div>
+													</div>
+													<div class="ir_rank_mark">
+														<span>2위</span>
+													</div>
+												</div>
+												<div class="ir_user_heart">
+													<span>21,060</span>
+												</div>
+											</li>
+											<li class="ir_rank_3">
+												<div class="ins_rank_user">
+													<div class="ir_user_img">
+														<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_06.png);"></div>
+													</div>
+													<div class="ir_name">
+														<div class="ir_name_user">하병호</div>
+														<div class="ir_name_team">디자인팀</div>
+													</div>
+													<div class="ir_rank_mark">
+														<span>3위</span>
+													</div>
+												</div>
+												<div class="ir_user_coin">
+													<span>18,060</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+
+									<div class="ins_rank_graph">
+										<div class="ins_rank_graph_in">
+											<ul>
+												<li class="ir_rank_4">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin"><!-- 좋아요 : ir_bar_heart -->
+															<span>15,250</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>4</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_05.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_5">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_heart">
+															<span>10,250</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>5</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_07.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_6">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin">
+															<span>9,250</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>6</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_01.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_7">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin">
+															<span>7,250</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>7</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_08.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_8">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin">
+															<span>6,000</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>8</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_02.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_9">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin">
+															<span>3,200</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>9</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_03.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ir_rank_10">
+													<div class="ins_rank_bar">
+														<div class="ir_bar_coin">
+															<span>1,800</span>
+														</div>
+														<div class="ir_bar_rank">
+															<span>10</span>
+														</div>
+														<div class="ir_bar_graph"><span></span></div>
+													</div>
+													<div class="ins_rank_user">
+														<div class="ir_user_img">
+															<div class="ir_user_img_in" style="background-image:url(images/pre/img_prof_04.png);"></div>
+														</div>
+														<div class="ir_name">
+															<div class="ir_name_user">하병호</div>
+															<div class="ir_name_team">디자인팀</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

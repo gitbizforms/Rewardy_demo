@@ -1,0 +1,619 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+  <title>Rewardy</title>
+
+  <meta name="title" content="Rewardy">
+  <meta name="description" content="Rewardy 입니다.">
+  <meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+  <meta property="og:description" content="Rewardy 입니다.">
+  <meta property="og:title" content="Rewardy">
+  <meta property="og:image" content="../images/main/img_meta.jpg">
+
+  <!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+  <!-- 노토산스 -->
+  <link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+  <link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+  <link rel="stylesheet" type="text/css" href="./css/common.css" />
+  <link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+  <link rel="stylesheet" type="text/css" href="./css/sub_05.css" />
+  <link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+  <script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script>
+  <!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+  <!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+  <script src="./js/window-date-picker.js"></script>
+  <script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+  <script type="text/javascript" src="./js/scrolloverflow.min.js"></script>
+  <script type="text/javascript" src="./js/circle-progress.js"></script>
+  <script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $(".depth_01 strong.depth_01_link").mouseenter(function () {
+        $(this).next(".depth_02_area").show();
+      });
+      $(".depth_01").mouseleave(function () {
+        $(this).find(".depth_02_area").hide();
+      });
+
+      $(".rb_nav_mb_btn button, .rb_nav_mb_deam").click(function () {
+        $(".rb_nav_depth").toggleClass("on");
+        $(".rb_nav_member").toggleClass("on");
+        $(".rb_nav_mb_deam").toggleClass("on");
+      });
+
+      $(".faq_q").click(function () {
+        $(".faq_q").not(this).next(".faq_a").slideUp(200);
+        $(this).next(".faq_a").slideToggle(200);
+        $(this).toggleClass("on");
+      });
+
+      $('.tab_btn ul li').click(function(){
+        $(this).addClass('on');
+        $(this).siblings().removeClass('on');
+       })
+    });
+  </script>
+  <style type="text/css">
+    html,
+    body {
+      background: none;
+      height: 100%;
+    }
+  </style>
+  <div class="rb_warp fp-notransition ">
+    <div class="rb_warp_in fp-notransition">
+      <div class="rb_nav" id="menu">
+        <div class="rb_nav_in">
+          <div class="rb_nav_logo">
+            <a href="./000a.html"><img src="images/pre/img_nav_logo.png" alt="" /></a>
+          </div>
+          <div class="rb_nav_mb_btn">
+            <button>메뉴</button>
+          </div>
+          <div class="rb_nav_mb_deam">
+          </div>
+          <div class="rb_nav_depth">
+            <ul class="depth_01_area">
+              <!-- <li class="depth_01">
+                <a href="./000a.html" class="depth_01_link"><span>서비스 소개</span></a>
+              </li> -->
+
+              <li class="depth_01">
+                <strong class="depth_01_link"><span>서비스 소개</span></strong>
+                <ul class="depth_02_area">
+                  <li class="depth_02">
+                    <a href="./0021.html" class="depth_02_link"><span>오늘업무</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0022.html" class="depth_02_link lts_0"><span>LIVE</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0023.html" class="depth_02_link"><span>보상</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0024.html" class="depth_02_link"><span>챌린지</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0024.html" class="depth_02_link"><span>파티</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0024.html" class="depth_02_link"><span>인사이트</span></a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="depth_01">
+                <a href="./0031.html" class="depth_01_link"><span>가격안내</span></a>
+              </li>
+
+              <li class="depth_01">
+                <strong class="depth_01_link"><span>고객지원</span></strong>
+                <ul class="depth_02_area">
+                  <li class="depth_02">
+                    <a href="./0040.html" class="depth_02_link"><span>고객센터</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0043.html" class="depth_02_link lts_0"><span>자주묻는질문</span></a>
+                  </li>
+                  <li class="depth_02">
+                    <a href="./0041.html" class="depth_02_link"><span>공지사항</span></a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="depth_01">
+                <a href="sub_05.html" class="depth_01_link"><span>활용사례</span></a>
+              </li>
+
+              <li class="depth_01">
+                <a href="https://rewardy.co.kr/team/" target="_blank" class="depth_01_link"><span>무료체험</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="rb_nav_member">
+            <ul>
+              <li>
+                <button><span>가입하기</span></button>
+              </li>
+              <li>
+                <button><span>접속하기</span></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rew_sub_05">
+        <div class="rew_sub_05_in">
+          <!-- banner -->
+          <div class="sub_05_banner">
+            <div class="sub_05_banner_in">
+              <div class="banner_text">
+                <h2>리워디로 우리회사의 문화가 달라집니다.</h2>
+                <span>리워디를 통해서 회사가 얼마나 더 좋아질 수 있는지<br>
+                  아래의 활용사례들을 통해서 알아보세요~</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="sub_05_cont">
+            <div class="sub_05_cont_in">
+              <!-- tab_btn -->
+              <div class="tab_btn">
+                <ul>
+                  <li class="on btn_all"><button><span>전체</span></button></li>
+                  <li class="btn_work"><button><span>업무</span></button></li>
+                  <li class="btn_edu"><button><span>교육</span></button></li>
+                  <li class="btn_life"><button><span>생활/문화</span></button></li>
+                  <li class="btn_hea"><button><span>건강</span></button></li>
+                  <li class="btn_event"><button><span>행사</span></button></li>
+                </ul>
+              </div>
+              <!-- cont_top -->
+              <div class="cont_tit">
+                <div class="cont_tit_txt">
+                  <span>총 <strong>36</strong>건</span>
+                </div>
+                <div class="cont_search">
+                  <input type="text" name="cont_search" placeholder="검색">
+                  <button><span>검색</span></button>
+                </div>
+              </div>
+              <!-- cont_list -->
+              <div class="cont_main">
+                <div class="cont_main_in">
+                  <ul>
+                    <li class="char_hea">
+                      <a href="#">
+                        <h3>리워디로 <br>회사 임직원들의<br> 건강을 챙기는 <br>5가지 방법</h3>
+                        <span>챌린지</span>
+                      </a>
+                    </li>
+                    <li class="char_life">
+                      <a href="#">
+                        <h3>지각 안하는 회사를 <br>만들기 위한 <br>즐거운 캠페인</h3>
+                        <span>챌린지</span>
+                      </a>
+                    </li>
+                    <li class="char_work">
+                      <a href="#">
+                        <h3>쉽게 해결하는 <br>신입 온보딩</h3>
+                        <span>챌린지</span>
+                      </a>
+                    </li>
+                    <li class="char_work">
+                      <a href="#">
+                        <h3>일할 맛 나는 회사 <br>만드는 방법</h3>
+                        <span>오늘업무</span>
+                      </a>
+                    </li>
+                    <li class="char_life">
+                      <a href="#">
+                        <h3>개인 사생활이 없는 <br>단톡방은 이제 그만!</h3>
+                        <span>오늘업무</span>
+                      </a>
+                    </li>
+                    <li class="char_work">
+                      <a href="#">
+                        <h3>여기저기 뒤섞인 <br>문서 찾는 <br>직장인 주목</h3>
+                        <span>파티</span>
+                      </a>
+                    </li>
+                    <li class="char_edu">
+                      <a href="#">
+                        <h3>성장을 알고 싶은 <br>사람에게 추천하는 <br>나의 성장일지</h3>
+                        <span>오늘업무</span>
+                      </a>
+                    </li>
+                    <li class="char_work">
+                      <a href="#">
+                        <h3>다들 무슨 업무 <br>하고 있는지<br>궁금한 사람?</h3>
+                        <span>오늘업무</span>
+                      </a>
+                    </li>
+                    <li class="char_party">
+                      <a href="#">
+                        <h3>한눈에 업무 상황을<br>파악할 수 있는<br>회사가 있다?</h3>
+                        <span>파티</span>
+                      </a>
+                    </li>
+                    <li class="char_edu">
+                      <a href="#">
+                        <h3>경영지원팀이<br>리워디로<br>법정의무교육<br>관리하는법</h3>
+                        <span>챌린지</span>
+                      </a>
+                    </li>
+                    <li class="char_work">
+                      <a href="#">
+                        <h3>'이것'으로<br>바뀌는 회사분위기</h3>
+                        <span>챌린지</span>
+                      </a>
+                    </li>
+                    <li class="char_life">
+                      <a href="#">
+                        <h3>칭찬이<br>인색하지 않는 문화</h3>
+                        <span>인사이트</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="cont_more">
+                    <button><span>더보기</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t_layer rew_layer_join" style="display:none;">
+      <div class="tl_deam"></div>
+      <div class="tl_in">
+        <div class="tl_close">
+          <button><span>닫기</span></button>
+        </div>
+        <div class="tl_login_logo">
+          <span>리워디</span>
+        </div>
+        <div class="tl_tit">
+          <strong>가입하기</strong>
+          <span>리워디에서 인증을요청합니다. <br />
+            리워디와 함께 하세요!</span>
+        </div>
+        <div class="tl_list">
+          <ul>
+            <li>
+              <div class="tc_input">
+                <input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+                <label for="z5" class="label_001">
+                  <strong class="label_tit">이메일을 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl_btn">
+          <button><span>인증메일 발송</span></button>
+        </div>
+        <div class="tl_descript">
+          <p>리워디에서 인증을 요청합니다.<br />
+            아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+            링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+            넣어주세요.<br />
+            <br />
+            https://www.rewardy.co.kr/<br />
+            <br />
+            기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+            리워디와 함께 해주셔서 감사합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="t_layer rew_layer_repass" style="display:none;">
+      <div class="tl_deam"></div>
+      <div class="tl_in">
+        <div class="tl_close">
+          <button><span>닫기</span></button>
+        </div>
+        <div class="tl_login_logo">
+          <span>리워디</span>
+        </div>
+        <div class="tl_tit">
+          <strong>비밀번호 재설정</strong>
+          <span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+            리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+        </div>
+        <div class="tl_list">
+          <ul>
+            <li>
+              <div class="tc_input">
+                <input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+                <label for="z3" class="label_001">
+                  <strong class="label_tit">이메일을 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl_btn">
+          <button><span>비밀번호 재설정 메일 보내기</span></button>
+        </div>
+        <div class="tl_back">
+          <button><span>이전으로</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="t_layer rew_layer_login" style="display:none;">
+      <div class="tl_deam"></div>
+      <div class="tl_in">
+        <div class="tl_close">
+          <button><span>닫기</span></button>
+        </div>
+        <div class="tl_login_logo">
+          <span>리워디</span>
+        </div>
+        <div class="tl_tit">
+          <strong>로그인</strong>
+          <span>안녕하세요. <br />로그인을 부탁드려요!</span>
+        </div>
+        <div class="tl_list">
+          <ul>
+            <li>
+              <div class="tc_input">
+                <input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+                <label for="z1" class="label_001">
+                  <strong class="label_tit">이메일을 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="tc_input">
+                <input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+                <label for="z2" class="label_001">
+                  <strong class="label_tit">비밀번호를 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl_chk_wrap">
+          <div class="tl_chk">
+            <input type="checkbox" name="chk_login" id="chk_login" />
+            <label for="chk_login">로그인 상태 유지</label>
+          </div>
+          <ul>
+            <li>
+              <button>가입하기</button>
+            </li>
+            <li>
+              <button>비밀번호 재설정</button>
+            </li>
+          </ul>
+        </div>
+        <div class="tl_btn">
+          <button id="loginbtn"><span>로그인</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="t_layer rew_layer_setting" style="display:none;">
+      <div class="tl_deam"></div>
+      <div class="tl_in">
+        <div class="tl_close">
+          <button><span>닫기</span></button>
+        </div>
+        <div class="tl_login_logo">
+          <span>리워디</span>
+        </div>
+        <div class="tl_prof">
+          <div class="tl_prof_box">
+            <div class="tl_prof_img">
+            </div>
+            <div class="tl_prof_slc">
+              <div class="tl_prof_slc_in">
+                <button class="button_prof"><span>프로필 변경</span></button>
+                <ul>
+                  <li>
+                    <input type="file" id="prof" class="input_prof" />
+                    <label for="prof" class="label_prof"><span>사진 변경</span></label>
+                  </li>
+                  <li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+                  <li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl_list">
+          <ul>
+            <li>
+              <div class="tc_input">
+                <input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+                <label for="z7" class="label_001">
+                  <strong class="label_tit">이메일</strong>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="tc_input tc_50">
+                <input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+                <label for="z8" class="label_001">
+                  <strong class="label_tit">이름을 입력하세요</strong>
+                </label>
+              </div>
+              <div class="tc_input tc_50">
+                <input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+                <label for="z9" class="label_001">
+                  <strong class="label_tit">이름을 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="tc_input">
+                <input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+                <label for="z10" class="label_001">
+                  <strong class="label_tit">비밀번호를 입력하세요</strong>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="tc_input">
+                <input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+                <label for="z11" class="label_001">
+                  <strong class="label_tit">비밀번호를 확인하세요</strong>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="tl_btn">
+          <button><span>가입하기</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="t_layer rew_layer_character" style="display:none;">
+      <div class="tl_deam"></div>
+      <div class="tl_in">
+        <div class="tl_close">
+          <button><span>닫기</span></button>
+        </div>
+        <div class="tl_tit">
+          <strong>캐릭터 설정</strong>
+          <span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+        </div>
+        <div class="tl_profile">
+          <ul>
+            <li>
+              <div class="tl_profile_box">
+                <div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+                  <button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tl_profile_box">
+                <div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+                  <button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tl_profile_box">
+                <div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+                  <button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="tl_profile_box">
+                <div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+                  <button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="tl_btn">
+          <button><span>적용</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="rew_qck" style="display:none;">
+      <button class="btn_open_join"><span>회원가입</span></button>
+      <button class="btn_open_login"><span>로그인</span></button>
+      <button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+      <button class="btn_open_setting"><span>프로필 변경</span></button>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".btn_open_join, .open_layer_join").click(function () {
+          $(".rew_layer_join").show();
+        });
+        $(".btn_open_login, .open_layer_login").click(function () {
+          $(".rew_layer_login").show();
+        });
+        $(".btn_open_repass").click(function () {
+          $(".rew_layer_repass").show();
+        });
+        $(".btn_open_setting").click(function () {
+          $(".rew_layer_setting").show();
+        });
+        $(".tl_close button").click(function () {
+          $(this).closest(".t_layer").hide();
+        });
+
+        $(".button_prof").click(function () {
+          $(".tl_prof_slc ul").show();
+        });
+        $("#btn_slc_character").click(function () {
+          $(".rew_layer_character").show();
+        });
+        $(".rew_layer_character .tl_btn").click(function () {
+          $(".rew_layer_character").hide();
+        });
+        $(".btn_profile").click(function () {
+          $(".btn_profile").removeClass("on");
+          $(this).addClass("on");
+        });
+        $(".tl_prof_slc").mouseleave(function () {
+          $(".tl_prof_slc ul").hide();
+        });
+      });
+    </script>
+
+    <!-- Step 1) Load D3.js -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Step 2) Load billboard.js with style -->
+    <script src="./js/billboard.js"></script>
+    <!-- Load with base style -->
+    <link rel="stylesheet" href="./css/billboard.css">
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+      });
+    </script>
+  </div>
+  <script language="JavaScript">
+    /* FOR BIZ., COM. AND ENT. SERVICE. */
+    _TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+  </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>������</title>
+
+<meta name="title" content="������">
+<meta name="description" content="������">
+<meta name="keywords" content="������, ����Ʈ, SMART, ������">
+
+<meta property="og:description" content="������">
+<meta property="og:title" content="������">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- ����꽺 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".th_login").click(function(){
+			$(".t_layer").show();
+		});
+
+		$(".tl_close, .tl_deam").click(function(){
+			$(".t_layer").hide();
+		});
+
+		$(".label_01").click(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusin(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusout(function(){
+			var this_val = $(this).val();
+			if(this_val==0){
+				$(this).parent(".tc_input").removeClass("now_focus");
+			}else{
+				//$(this).parent(".tc_input").addClass("now_ok");
+				//$(this).parent(".tc_input").addClass("now_no");
+			}
+		});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+
+<div class="todaywork_wrap">
+	<div class="t_in">
+		<!-- header -->
+		<div class="t_header">
+			<div class="th_in">
+				<div class="th_login">
+					<button><span>�α���</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_contents">
+			<div class="tc_in">
+				<div class="tc_main">
+					<div class="tc_main_in">
+						<div class="tc_box_01">
+							<div class="tc_box_01_in">
+								<div class="tc_box_tit">
+									<strong>������</strong>
+								</div>
+								<div class="tc_box_btn">
+									<a href="../admin/join.html"><span>���� ����</span></a>
+									<a href="../works/write.html"><span>��������</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_footer">
+			<div class="tf_in">
+				�� Ǫ��
+			</div>
+		</div>
+	</div>
+</div>
+<div class="t_layer">
+	<div class="tl_deam"></div>
+	<div class="tl_in">
+		<div class="tl_close">
+			<button><span>�ݱ�</span></button>
+		</div>
+		<div class="tl_tit">
+			<strong>�α���</strong>
+		</div>
+		<div class="tl_list">
+			<ul>
+				<li>
+					<div class="tc_input">
+						<input type="text" id="z1" name="" class="input_01" />
+						<label for="z1" class="label_01">
+							<strong class="label_tit">�̸����� �Է��ϼ���</strong>
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="tc_input">
+						<input type="password" id="z2" name="" class="input_01" />
+						<label for="z2" class="label_01">
+							<strong class="label_tit">��й�ȣ�� �Է��ϼ���</strong>
+						</label>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="tl_btn">
+			<button><span>�α���</span></button>
+		</div>
+	</div>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/������"; /* ������ �̸� ���� Contents Path */
+</script>
+
+</body>
+
+
+</html>

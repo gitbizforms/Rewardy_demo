@@ -1,0 +1,56 @@
+@charset "utf-8"; button { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+input, textarea {font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif;}
+
+.rew_warp input,
+.rew_warp button,
+.rew_warp select,
+.rew_warp textarea { outline: none; border: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+button { cursor: pointer; } 
+
+.layer_deam { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 5000; background: rgba(0, 0, 0, 0.4); border-radius: 0; } 
+
+.layer_mess { text-align: left; } 
+.layer_mess_in { position: fixed; left: 50%; margin-left: -275px; width: 500px; height: auto; top: 50%; margin-top: -190px; background: #fff; border-radius: 10px; z-index: 6000; overflow: hidden; } 
+.layer_mess_box { position: relative; height: calc(100% - 130px); padding: 20px 30px 30px 30px; } 
+.layer_mess_box .textarea_mess { outline: none; border: 1px solid #e5e5e5; background: #fff; border-radius: 10px; font-size: 16px; color: #666; font-weight: 300; letter-spacing: -0.05em; line-height: 27px; text-align: left; padding: 15px 20px; resize: none; overflow-y: scroll; width: 100%; height: 135px; box-sizing: border-box;} 
+.layer_mess_box .textarea_mess::placeholder { font-size: 16px; color: #9a9a9a; font-weight: 300;}
+.layer_mess_box .textarea_mess_secret { border: 1px solid #e5e5e5; background: #fff; border-radius: 10px; font-size: 16px; color: #666; font-weight: 300; letter-spacing: -0.05em; line-height: 27px; text-align: left; padding: 15px 20px; resize: none; overflow-y: scroll; width: 100%; height: 135px; box-sizing: border-box; } 
+.layer_mess_box .textarea_mess::-webkit-scrollbar { display: none; } 
+.layer_mess_box .textarea_mess_secret::-webkit-scrollbar { display: none; } 
+.layer_mess_btn { height: 40px; padding: 15px 20px; text-align: right; font-size: 0; background: #f6f7f9; position: relative; } 
+.layer_mess_btn .layer_mess_cancel { font-size: 15px; font-weight: 400; letter-spacing: -0.05em; color: #aaa; line-height: 40px; width: 45px; height: 40px; text-align: center; background: none; display: inline-block; vertical-align: top; } 
+.layer_mess_btn .layer_mess_submit { font-size: 15px; font-weight: 400; letter-spacing: -0.05em; color: #fff; line-height: 40px; width: 92px; margin-left: 10px; background: #999; display: inline-block; vertical-align: top; border-radius: 5px; } 
+.layer_mess_btn .layer_mess_submit:hover { background: #38c9d2; cursor: pointer;} 
+.layer_mess_btn .layer_mess_submit.on { background: #38c9d2; cursor: pointer; } 
+.layer_mess_btn .layer_mess_secret_submit { font-size: 15px; font-weight: 400; letter-spacing: -0.05em; color: #fff; line-height: 40px; width: 92px; margin-left: 10px; background: #999; display: inline-block; vertical-align: top; border-radius: 5px; } 
+.layer_mess_btn .layer_mess_secret_submit.on { background: #38c9d2; cursor: pointer; } 
+
+.mess_user { padding: 30px 30px 0px 30px; } 
+.mess_user .mess_user_img { border:1px solid #e5e5e5; border-radius:50%; overflow:hidden; width:42px; height:42px; display:inline-block; vertical-align:middle; margin-right:10px; } 
+.mess_user .mess_user_img_in { width:100%; height:100%; background-position:50% 50%; background-repeat:no-repeat; -webkit-background-size:cover; background-size:cover; } 
+.mess_user .mess_name { margin-top:10px; margin-bottom:10px; display:inline-block; vertical-align:middle; } 
+.mess_user .mess_name_user { font-size:17px; font-weight:500; color:#353535; letter-spacing:-0.05em; line-height:23px; display:inline-block; vertical-align:middle; } 
+.mess_user .mess_name_team { font-size:15px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:21px; padding-top:2px; display:inline-block; vertical-align:middle; margin-left:5px; } 
+
+.layer_mess_box { position: relative; } 
+.layer_mess_box span { position: absolute; bottom: 80px; right: 55px; display: inline-block; font-size: 13px; font-weight: 300; letter-spacing: -1px; color: #aaa; } 
+.layer_mess_box p { font-size: 14px; letter-spacing: -1px; color: #aaa; margin-top: 15px; } 
+
+@media all and (max-width: 960px){
+  .mess_user .mess_name_user { font-size: 14px;}
+  .mess_user .mess_name_team { font-size: 12px; margin-left: 2px;}
+ .layer_mess_in { left:5%; width:90%; transform: translateY(-50%); margin-left:0; height:auto; margin-top:0; } 
+ .layer_mess_box { padding:20px; height:calc(100% - 95px); } 
+ .layer_mess_box .textarea_mess { font-size:13px; line-height:24px; padding:10px 15px; width:100%; height:110px; border-radius: 5px; } 
+ .layer_mess_box .textarea_mess::placeholder { font-size: 12px;}
+ .layer_mess_btn { height:77px; padding:10px 15px; box-sizing: border-box; } 
+ .layer_mess_btn .layer_mess_cancel { font-size:13px; height:47px; line-height:47px; margin-top: 6px; } 
+ .layer_mess_btn .layer_mess_submit { font-size:13px; width:100px; line-height:47px; margin-left:8px; margin-top: 6px; } 
+ .layer_mess_btn .layer_mess_secret_submit { font-size:13px; width:100px; line-height:47px; margin-left:8px; margin-top: 6px; } 
+
+ .mess_user { padding: 30px 20px 0px 20px; } 
+ .layer_mess_box span { font-size: 12px; bottom: 60px; right: 35px; } 
+ .layer_mess_box p { font-size: 12px; } 
+ }

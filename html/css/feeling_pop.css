@@ -1,0 +1,138 @@
+@charset "utf-8"; input, button, select, textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+button { cursor: pointer; } 
+
+.feeling_first { } 
+
+.ff_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 7000; background: rgba(0, 0, 0, 0.4); } 
+.ff_in { position: fixed; left: 50%; margin-left: -222px; width: 443px; height: 596px; top: 50%; margin-top: -298px; background: #fff; border-radius: 10px; z-index: 8000; overflow: hidden; } 
+.ff_box { position: relative; height: 100%; font-size: 0; } 
+.ff_box_in { position: relative; height: 100%; } 
+.ff_close { position: absolute; top: 15px; right: 15px; z-index: 10; transition: all 0.3s } 
+.pos_fix .ff_close { top: 20px; transition: all 0.3s } 
+.ff_close button { width: 20px; height: 20px; background: url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent: -9999px; } 
+.ff_top { text-align: center; padding: 30px 0 15px 0; margin: 0 30px; border-bottom: 1px solid #f2f2f2; transition: all 0.3s } 
+.pos_fix .ff_top { margin-top: -74px; transition: all 0.3s } 
+.ff_top strong { display: block; font-size: 18px; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.ff_area { padding: 38px 30px 0 30px; min-height: 375px; margin-bottom: 12px; } 
+.ff_area ul { font-size: 0; text-align: center; } 
+.ff_area li { width: 70px; margin: 0 23px 25px 23px; display: inline-block; } 
+.ff_area li button { padding-top: 70px; width: 100%; position: relative; } 
+.ff_area li button strong { width: 70px; height: 70px; position: absolute; top: 0; left: 0; border: 1px solid #e5e5e5; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-radius: 50%; } 
+
+.ff_area li button.btn_ff_01 strong { background: url(../images/pre/ico_fl_01.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_02 strong { background: url(../images/pre/ico_fl_02.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_03 strong { background: url(../images/pre/ico_fl_03.png) 50% 13px no-repeat; } 
+.ff_area li button.btn_ff_04 strong { background: url(../images/pre/ico_fl_04.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_05 strong { background: url(../images/pre/ico_fl_05.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_06 strong { background: url(../images/pre/ico_fl_06.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_07 strong { background: url(../images/pre/ico_fl_07.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_08 strong { background: url(../images/pre/ico_fl_08.png) 50% 14px no-repeat; } 
+.ff_area li button.btn_ff_09 strong { background: url(../images/pre/ico_fl_09.png) 50% 14px no-repeat; } 
+
+.ff_area li button.btn_ff_01.on strong { background-color: #e9f1d3; border-color: #e9f1d3; } 
+.ff_area li button.btn_ff_02.on strong { background-color: #fff6d9; border-color: #fff6d9; } 
+.ff_area li button.btn_ff_03.on strong { background-color: #fde5e1; border-color: #fde5e1; } 
+.ff_area li button.btn_ff_04.on strong { background-color: #ffeade; border-color: #ffeade; } 
+.ff_area li button.btn_ff_05.on strong { background-color: #d5f0e3; border-color: #d5f0e3; } 
+.ff_area li button.btn_ff_06.on strong { background-color: #dbf1fe; border-color: #dbf1fe; } 
+.ff_area li button.btn_ff_07.on strong { background-color: #e1e6fc; border-color: #e1e6fc; } 
+.ff_area li button.btn_ff_08.on strong { background-color: #e8d3e6; border-color: #e8d3e6; } 
+.ff_area li button.btn_ff_09.on strong { background-color: #e5e5e5; border-color: #e5e5e5; } 
+
+.ff_area li button span { font-size: 15px; font-weight: 400; color: #151515; letter-spacing: -0.05em; line-height: 21px; display: block; margin-top: 9px; } 
+.ff_area li button.btn_ff_01.on span { font-weight: 500; color: #55bb4a; } 
+.ff_area li button.btn_ff_02.on span { font-weight: 500; color: #ff9805; } 
+.ff_area li button.btn_ff_03.on span { font-weight: 500; color: #ff5c5c; } 
+.ff_area li button.btn_ff_04.on span { font-weight: 500; color: #ff7221; } 
+.ff_area li button.btn_ff_05.on span { font-weight: 500; color: #11ae5b; } 
+.ff_area li button.btn_ff_06.on span { font-weight: 500; color: #2daeff; } 
+.ff_area li button.btn_ff_07.on span { font-weight: 500; color: #4d61b5; } 
+.ff_area li button.btn_ff_08.on span { font-weight: 500; color: #913084; } 
+.ff_area li button.btn_ff_09.on span { font-weight: 500; color: #555; } 
+.ff_bottom { padding: 0 30px; } 
+.ff_bottom button { width: 100%; height: 57px; line-height: 56px; text-align: center; display: block; background: #38c9d2; border-radius: 10px; font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.05em; } 
+.ff_bottom button.btn_off { background: #c5c5c5; cursor: default; } 
+.ff_bottom button.btn_on { background: #38c9d2; cursor: pointer; } 
+
+.feeling_layer { } 
+.fl_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 7000; background: rgba(0, 0, 0, 0.4); } 
+.fl_in { position: fixed; left: 50%; margin-left: -222px; width: 443px; height: 444px; top: 50%; margin-top: -222px; background: #fff; border-radius: 10px; z-index: 8000; overflow: hidden; } 
+.fl_box { position: relative; height: 100%; font-size: 0; } 
+.fl_box_in { position: relative; height: 100%; } 
+.fl_close { position: absolute; top: 15px; right: 15px; z-index: 10; transition: all 0.3s } 
+.pos_fix .fl_close { top: 20px; transition: all 0.3s } 
+
+.fl_close button { width: 20px; height: 20px; background: url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.fl_top { text-align: center; padding: 30px 0 15px 0; margin: 0 30px; border-bottom: 1px solid #f2f2f2; transition: all 0.3s } 
+.fl_top strong { display: block; font-size: 18px; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.fl_area { padding: 38px 30px 20px 30px; } 
+.fl_area .fl_desc { padding-top: 100px; width: 100%; position: relative; margin-bottom: 27px; } 
+.fl_area .fl_desc strong { width: 100px; height: 100px; position: absolute; top: 0; left: 50%; margin-left: -50px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-radius: 50%; } 
+
+.fl_area .fl_desc.btn_ff_01 strong { background: #e9f1d3 url(../images/pre/ico_fl_001.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_02 strong { background: #fff6d9 url(../images/pre/ico_fl_002.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_03 strong { background: #fde5e1 url(../images/pre/ico_fl_003.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_04 strong { background: #ffeade url(../images/pre/ico_fl_004.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_05 strong { background: #d5f0e3 url(../images/pre/ico_fl_005.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_06 strong { background: #dbf1fe url(../images/pre/ico_fl_006.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_07 strong { background: #e1e6fc url(../images/pre/ico_fl_007.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_08 strong { background: #e8d3e6 url(../images/pre/ico_fl_008.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc.btn_ff_09 strong { background: #e5e5e5 url(../images/pre/ico_fl_009.png) 50% 50% no-repeat; } 
+.fl_area .fl_desc p { font-size: 15px; font-weight: 500; color: #353535; letter-spacing: -0.05em; line-height: 21px; display: block; margin-top: 12px; text-align: center; } 
+
+.fl_area .fl_desc.btn_ff_01 p span { color: #55bb4a; } 
+.fl_area .fl_desc.btn_ff_02 p span { color: #ff9805; } 
+.fl_area .fl_desc.btn_ff_03 p span { color: #ff5c5c; } 
+.fl_area .fl_desc.btn_ff_04 p span { color: #ff7221; } 
+.fl_area .fl_desc.btn_ff_05 p span { color: #11ae5b; } 
+.fl_area .fl_desc.btn_ff_06 p span { color: #2daeff; } 
+.fl_area .fl_desc.btn_ff_07 p span { color: #4d61b5; } 
+.fl_area .fl_desc.btn_ff_08 p span { color: #913084; } 
+.fl_area .fl_desc.btn_ff_09 p span { color: #555; } 
+
+.fl_area .fl_input { } 
+.fl_area .input_fl { width: calc(100% - 42px); padding: 0 20px; height: 53px; line-height: 53px; border: 1px solid #e5e5e5; border-radius: 10px; text-align: left; background: #fff; font-size: 16px; color: #555; letter-spacing: -0.05em; font-weight: 300; } 
+.fl_bottom { padding: 0 30px; } 
+.fl_bottom button { width: 100%; height: 57px; line-height: 56px; text-align: center; display: block; background: #38c9d2; border-radius: 10px; font-size: 17px; font-weight: 500; color: #fff; letter-spacing: -0.05em; } 
+
+.ff_area li button strong:hover { animation: admii 1.0s infinite linear; } 
+
+ @keyframes admii { 
+ 0% { transform: rotate(0deg); } 
+ 25% { transform: rotate(10deg); } 
+ 75% { transform: rotate(-10deg); } 
+ 100% { transform: rotate(0deg); } 
+ }
+
+ .fl_area .fl_desc strong:hover { animation: admii 1.0s infinite linear; } 
+
+ @media screen and (max-width: 480px) {
+  /* 오늘하루 */
+.ff_in { margin-left:-150px; width:300px; height:491px; margin-top:-246px; } 
+.ff_top { padding:15px 0 15px 0; margin:0 15px; } 
+.ff_top strong { font-size:16px; padding-left:4px; } 
+.ff_close { top:20px; } 
+.ff_area { padding:25px 0 0 0; min-height:1px; } 
+.ff_area li { width:60px; margin:0 12px 18px 12px; } 
+.ff_area li button { padding-top:60px; } 
+.ff_area li button strong { width:60px; height:60px; background-position:50% 9px !important; } 
+.ff_area li button span { font-size:14px; margin-top:7px; } 
+.ff_bottom button { height:47px; line-height:46px; font-size:15px; border-radius: 5px; } 
+
+ /* 오늘 한줄 소감 2차 팝업 */
+ .fl_in { width: 90%; height: 403px; margin-left: 0; margin-top: 0; transform: translate(-50%, -50%); } 
+ .fl_top strong { font-size: 16px; } 
+ .fl_area { padding: 30px 30px 15px 30px; } 
+ .fl_area .fl_desc { margin-bottom: 20px; } 
+ .fl_area .fl_desc p { font-size: 14px; } 
+ .fl_area .input_fl { border-radius: 5px; height: 47px; line-height: 47px; font-size: 13px; } 
+ .fl_bottom button { height: 47px; line-height: 47px; border-radius: 5px; font-size: 14px; } 
+ .search_layer .sl_date_area .date_area_l { background-position: 35px 50%; background-size: 20px; } 
+
+ /* 닫기버튼 */
+ .ff_close button,
+ .fl_close button {     background: url(../images/pre_m/ico_close.png) 50% 50% no-repeat; background-size: 10px;}
+}

@@ -1,0 +1,1117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".rew_conts_list_in ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move"
+		});
+		$(".rew_conts_list_in ul").disableSelection();
+
+		$("#template_list").sortable({
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move",
+			containment : 'parent'
+		});
+		$("#template_list").disableSelection();
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+		},400);
+		
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+		$(".rew_conts_scroll_04").scroll(function(){
+			var rct = $(".rew_cha_list_in").offset().top;
+			console.log(rct);
+			if(rct<216){
+				$(".rew_cha_list_func").addClass("pos_fix");
+			}else{
+				$(".rew_cha_list_func").removeClass("pos_fix");
+			}
+		});
+
+		$(".rew_cha_list_ul li").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			setTimeout(function(){
+				tis.addClass("sli");
+			},700+tindex*150);
+		});
+
+		$(".rew_cha_tab_sort .btn_sort_on").click(function(){
+			$(".rew_cha_tab_sort").addClass("on");
+		});
+		$(".rew_cha_tab_sort").mouseleave(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+		$(".rew_cha_tab_sort ul li button").click(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+
+		$(".rew_cha_sort .btn_sort_on").click(function(){
+			$(".rew_cha_sort").addClass("on");
+		});
+		$(".rew_cha_sort").mouseleave(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+		$(".rew_cha_sort ul li button").click(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+
+		$(".rew_cha_more button").click(function(){
+
+			$(".rew_cha_list_ul").append('<li class="sli2 category_06 offset0"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_06"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li>');
+
+			
+			setTimeout(function(){
+				var offset = $(".offset0").position();
+				$(".rew_conts_scroll_04").animate({scrollTop : offset.top - 5}, 700);
+			},400);
+
+			setTimeout(function(){
+				$(".offset0").removeClass("offset0");
+			},1100);
+
+			$(".rew_cha_list_ul li:not('.sli')").each(function(aa){
+				var tis = $(this);
+				var tindex = $(this).index();
+				//alert(tindex);
+				setTimeout(function(){
+					tis.addClass("sli");
+				},700+(aa+1)*150);
+			});
+
+			
+		});
+
+
+		$(".cha_jjim").click(function(){
+			$(this).toggleClass("on");
+		});
+
+		$(".tpl_list_switch .btn_switch").click(function(){
+			$(this).toggleClass("on");
+		});
+
+		$(".tpl_list_area ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			handle: ".tpl_list_drag",
+			//placeholder:"sort_empty",
+			cursor: "move",
+			items:"li:not(.ui-state-disabled)"
+		});
+
+	});
+
+
+</script>
+<div class="rew_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04 on">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_04_tpl">
+							<div class="rew_mypage_04_tpl_in">
+								<div class="rew_mypage_title">
+									<a href="./0004.html"><strong>챌린지 만들기</strong></a>
+								</div>
+
+								<div class="rew_mypage_tpl_write">
+									<a href="./0005.html"><span>직접 만들기</span></a>
+								</div>
+
+								<div class="rew_mypage_tpl_list">
+									<div class="rew_mypage_tpl_list_in">
+										<div class="tpl_list_zzim">
+											<a href="#"><span>💖</span> 내가 찜한 챌린지</a>
+										</div>
+										<div class="tpl_list_cc">
+											<a href="#"><span>🏆</span> 추천테마</a>
+										</div>
+										<!-- <div class="tpl_list_all">
+											<a href="#"><strong>전체</strong></a>
+										</div> -->
+										<div class="tpl_list_area">
+											<ul>
+												<li class="ui-state-disabled">
+													<a href="#"><strong>전체</strong></a>
+												</li>
+												<li>
+													<a href="#"><strong>안전</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>법정의무교육</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>건강</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>근태관리</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>목표설정</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>보안</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>문서 마스터</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>신입사원</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>업무적응</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>일정관리</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>자기개발</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>환경</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												<li>
+													<a href="#"><strong>보고</strong></a>
+													<div class="tpl_list_drag">
+														<span>드래그 드랍 기능</span>
+													</div>
+													<div class="tpl_list_switch">
+														<em>추천</em>
+														<div class="btn_switch">
+															<strong class="btn_switch_on"></strong>
+															<span>버튼</span>
+															<strong class="btn_switch_off"></strong>
+														</div>
+													</div>
+												</li>
+												
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<div class="rew_mypage_tab_02">
+									<ul>
+										<li>
+											<span>내가 만든 챌린지</span>
+											<strong>0</strong>
+										</li>
+										<li>
+											<span>임시저장 챌린지</span>
+											<strong>0</strong>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+						<!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+						<!-- <div class="rew_cha_tab">
+							<div class="rew_cha_tab_in">
+								<ul>
+									<li class="on"><button><span>전체</span></button></li>
+									<li><button><span>업무</span></button></li>
+									<li><button><span>생활</span></button></li>
+									<li><button><span>교육</span></button></li>
+									<li><button><span>문화</span></button></li>
+									<li><button><span>신입사원</span></button></li>
+									<li><button><span>기타</span></button></li>
+								</ul>
+							</div>
+						</div> -->
+						<div class="rew_cha_list_func">
+							<div class="rew_cha_list_func_in">
+								<div class="rew_cha_count">
+									<span class="thema_title">힘을 내요 신입사원</span>
+									<div class="thema_title_regi">
+										<input type="text" value="힘을 내요 신입사원" class="input_thema_title" />
+										<div class="btn_thema_title">
+											<button class="btn_thema_submit">확인</button>
+											<button class="btn_thema_cancel">취소</button>
+										</div>
+									</div>
+									<strong>182</strong>
+								</div>
+
+								<div class="rew_cha_sort" style="right:240px">
+									<div class="rew_cha_sort_in">
+										<button class="btn_sort_on"><span>조회수 순</span></button>
+										<ul>
+											<li><button><span>조회수 순</span></button></li>
+											<li><button><span>찜 많은 순</span></button></li>
+											<li><button><span>최근 등록 순</span></button></li>
+										</ul>
+									</div>
+								</div>
+								<div class="rew_cha_search" style="right:10px">
+									<div class="rew_cha_search_box">
+										<input type="text" class="input_search" placeholder="키워드 검색" />
+										<button><span>검색</span></button>
+									</div>
+								</div>
+								<div class="rew_cha_chk_tab">
+									<ul>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_all" checked />
+												<label for="cha_chk_tab_all">전체</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_save">
+												<label for="cha_chk_tab_save">임시저장 챌린지</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_hide">
+												<label for="cha_chk_tab_hide">숨긴 챌린지</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_04">
+
+							<div class="rew_cha_list">
+								<div class="rew_cha_list_in">
+									<ul class="rew_cha_list_ul" id="template_list">
+										<li class="category_01">
+											<button class="cha_jjim"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">1일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_02">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">2일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">3일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_02">
+											<button class="cha_jjim"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">4일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">5일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">6일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">7일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">8일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">9일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">10일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">11일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">12일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_05">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">13일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<button class="cha_jjim on"><span>찜하기</span></button>
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">14일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_hit">조회수 0</span>
+													</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

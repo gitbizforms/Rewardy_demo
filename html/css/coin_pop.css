@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100; 300; 400; 500; 700; 900&display=swap'); * { font-family: 'Noto Sans KR', sans-serif; } 
+
+
+button { cursor: pointer; } 
+
+.layer_reward { z-index: 99999; position: relative; } 
+.lr_deam { position:fixed; top:0; left:0; width:100%; height:100%; z-index:8001; background:rgba(0,0,0,0.4); } 
+.lr_in { position:fixed; left:50%; margin-left:-343px; width:686px; height:498px; top:50%; margin-top:-249px; background:#fff; border-radius:10px; z-index:8002; overflow:hidden; } 
+.lr_box { position:relative; height:100%; font-size:0; } 
+.lr_box_in { position:relative; height:100%; } 
+.lr_close { position:absolute; top:15px; right:15px; z-index:10; transition:all 0.3s } 
+.pos_fix .lr_close { top:20px; transition:all 0.3s } 
+.lr_close button { width:20px; height:20px; background:url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent:-9999px; border: none; } 
+.lr_top { text-align:center; padding:30px 0 15px 0; margin:0 30px; border-bottom:1px solid #f2f2f2; transition:all 0.3s } 
+.pos_fix .lr_top { margin-top:-74px; transition:all 0.3s } 
+.lr_top strong { display:block; font-size:18px; font-weight:bold; color:#252525; letter-spacing:-0.05em; line-height:28px; padding-left:0; } 
+.lr_top strong span { font-weight:bold; color:#38c9d2; } 
+.lr_area { padding:30px 24px 18px 24px; } 
+.lr_area ul { font-size:0; text-align:center; } 
+.lr_area li { width:calc(50% - 12px); margin:0 6px 12px 6px; display:inline-block; vertical-align:top; } 
+.lr_area li button { width:100%; position:relative; border:1px solid #e5e5e5; border-radius:10px; padding:0 25px; display:flex; justify-content:space-between; align-items:center; } 
+.lr_area li button.btn_lr_01:hover { background:#6cccf9; border-color:#6cccf9; } 
+.lr_area li button.btn_lr_01.on { background:#6cccf9; border-color:#6cccf9; } 
+.lr_area li button.btn_lr_02:hover { background:#bc7d42; border-color:#bc7d42; } 
+.lr_area li button.btn_lr_02.on { background:#bc7d42; border-color:#bc7d42; } 
+.lr_area li button.btn_lr_03:hover { background:#80d86c; border-color:#80d86c; } 
+.lr_area li button.btn_lr_03.on { background:#80d86c; border-color:#80d86c; } 
+.lr_area li button.btn_lr_04:hover { background:#ffaf14; border-color:#ffaf14; } 
+.lr_area li button.btn_lr_04.on { background:#ffaf14; border-color:#ffaf14; } 
+.lr_area li button.btn_lr_05:hover { background:#ff7a60; border-color:#ff7a60; } 
+.lr_area li button.btn_lr_05.on { background:#ff7a60; border-color:#ff7a60; } 
+.lr_area li button.btn_lr_06:hover { background:#ffd614; border-color:#ffd614; } 
+.lr_area li button.btn_lr_06.on { background:#ffd614; border-color:#ffd614; } 
+.lr_area li .lr_txt { font-size:16px; line-height:61px; letter-spacing:-0.05em; text-align:left; height:63px; } 
+.lr_area li .lr_txt span { padding-right:5px; font-size:21px; line-height:59px; display:inline-block; vertical-align:top; } 
+.lr_area li .lr_txt strong { font-weight:300; color:#252525; display:inline-block; vertical-align:top; } 
+.lr_area li button:hover .lr_txt strong { font-weight:400; color:#fff; } 
+.lr_area li button.on .lr_txt strong { font-weight:400; color:#fff; } 
+.lr_area li .lr_coin { background:url(../images/pre/ico_btn_coin.png) calc(100% - 1px) 50% no-repeat; text-align:right; padding-right:20px; height:63px; } 
+.lr_area li button:hover .lr_coin { background:url(../images/pre/ico_btn_coin_on.png) calc(100% - 1px) 50% no-repeat; } 
+.lr_area li button.on .lr_coin { background:url(../images/pre/ico_btn_coin_on.png) calc(100% - 1px) 50% no-repeat; } 
+.lr_area li .lr_coin em { font-size:16px; line-height:61px; letter-spacing:-0.025em; font-weight:500; color:#38c9d2; } 
+.lr_area li button:hover .lr_coin em { color:#fff; } 
+.lr_area li button.on .lr_coin em { color:#fff; } 
+.lr_bottom { padding:30px 30px 20px 30px; background:#e9ebef; font-size:0; } 
+.lr_bottom .lr_input_text { width:calc(100% - 347px); padding:0 15px; margin-right:10px; height:53px; line-height:53px; border:1px solid #e5e5e5; border-radius:10px; text-align:left; background:#fff; font-size:15px; color:#555; letter-spacing:-0.05em; font-weight:300; display:inline-block; vertical-align:top; } 
+.lr_bottom .lr_input { width:163px; padding:0 15px; margin-right:10px; height:53px; line-height:53px; border:1px solid #e5e5e5; border-radius:10px; text-align:left; background:#fff; font-size:15px; color:#555; letter-spacing:-0.05em; font-weight:300; display:inline-block; vertical-align:top; } 
+.lr_bottom .lr_btn { width:100px; height:55px; line-height:53px; font-size:15px; font-weight:500; color:#fff; letter-spacing:-0.05em; background:#38c9d2; border:1px solid #38c9d2; border-radius:10px; display:inline-block; vertical-align:top; text-align:center; } 
+.lr_bottom p { font-size:15px; font-weight:300; color:#858585; letter-spacing:-0.05em; line-height:40px; text-align:left; padding-left:10px; } 
+.lr_bottom p strong { font-weight:400; color:#38c9d2; letter-spacing:0; } 
+
+.lr_bottom input:focus { border-color: none; outline: none; } 
+
+@media all and (max-width: 860px){
+ .lr_in { margin-left:-230px; width:460px; max-height:90%; top:5%; margin-top:0; min-height:200px; height:auto; } 
+.lr_top { padding:15px 0 15px 0; margin:0 15px; } 
+.lr_top strong { font-size:14px; text-align:left; } 
+.lr_close { top:20px; } 
+.lr_area { padding:15px 15px 10px 15px; position:relative; } 
+.lr_area li { width:100%; margin:0 0 8px 0; } 
+.lr_area li button { padding:0 15px; border-radius: 5px; } 
+.lr_area li .lr_txt { font-size:13px; line-height:41px; height:43px; } 
+.lr_area li .lr_txt span { font-size:16px; padding-right:3px; line-height:41px; } 
+.lr_area li .lr_coin { height:43px; } 
+.lr_area li .lr_coin em { font-size:14px; line-height:43px; } 
+.lr_bottom { padding:15px 15px 15px 15px; } 
+.lr_bottom .lr_input { width:calc(50% - 75px); padding:0 10px; margin-right:5px; height:43px; line-height:43px; font-size:13px; border-radius: 5px; } 
+.lr_bottom .lr_input_text { width:calc(50% + 26px); padding:0 10px; height:43px; line-height:43px; font-size:13px; margin-right:0; border-radius: 5px; } 
+.lr_bottom .lr_btn { width:calc(50% - 53px); height:43px; line-height:41px; font-size:13px; margin-right:10px; margin-top:10px; border-radius: 5px; } 
+.lr_bottom p { font-size:13px; line-height:41px; padding-left:0; display:inline-block; vertical-align:top; margin-top:10px; } 
+
+.lr_close button { background: url(../images/pre_m/ico_close.png) 50% 50% no-repeat; background-size: 12px; } 
+ }
+
+@media all and (max-width: 480px){
+ .lr_in { margin-left:-160px; width:320px; } 
+ }

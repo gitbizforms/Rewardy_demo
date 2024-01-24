@@ -1,0 +1,60 @@
+@charset "utf-8"; button { outline: none; border: none; /* background: none; */ resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.rew_warp input,
+.rew_warp button,
+.rew_warp select,
+.rew_warp textarea { outline: none; border: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+button { cursor: pointer; } 
+
+.is_layer { position: relative; z-index: 11111; } 
+.is_layer_in { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); min-width:450px; max-height:90vh; background:#fff; border-radius:10px; overflow:hidden; z-index:3010; } 
+.is_layer_deam { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:3000; } 
+.is_layer_tit { text-align:center; padding:30px 0 15px 0; margin:0 30px; border-bottom:1px solid #f2f2f2; } 
+.is_layer_tit strong { display:block; font-size:18px; font-weight:bold; color:#252525; letter-spacing:-0.05em; line-height:28px; } 
+.is_layer_area { padding:40px 30px 20px 30px; } 
+.is_layer_list { text-align:center; } 
+.is_layer_list .is_layer_ul { } 
+.is_layer_list .is_layer_li { } 
+.is_profile_box { display:block; width:100px; height:100px; text-align:center; border-radius:50px; overflow:hidden; margin:0 auto; } 
+.is_profile_box .is_profile_img { position:relative; z-index:1; height:100px; width:100%; background-color:#f8f8f9; border-radius:50px; overflow:hidden; -webkit-background-size:cover; background-size:cover; background-position:50% 50%; background-repeat:no-repeat; } 
+.is_profile_box .is_profile_img img { width:100%; max-width:100%; height:auto; max-height:100%; display:none; } 
+.is_coin { text-align:center; margin-top:15px; } 
+.is_coin strong { display:block; } 
+.is_coin span { font-size:20px; font-weight:bold; color:#252525; letter-spacing:-0.025em; line-height:22px; display:inline-block; vertical-align:top; padding-left:30px; background:url(../images/pre/ico_coin_new.png) 0 50% no-repeat; -webkit-background-size:22px; background-size:22px; } 
+.is_desc { margin-top:25px; border-radius:10px; background:#f4f4f4; } 
+.is_desc ul { text-align:left; padding:17px 20px 18px 20px; } 
+.is_desc li { font-size:16px; font-weight:300; color:#858585; letter-spacing:-0.05em; line-height:27px; background:url(../images/pre/ico_dot_g.png) 0 13px no-repeat; padding-left:14px; } 
+.is_layer_btns { font-size:0; padding:0 30px 30px 30px; } 
+.is_layer_btns button { font-size:17px; font-weight:500; letter-spacing:-0.05em; color:#fff; text-align:center; background:#38c9d2; width:100%; height:55px; line-height:54px; border:0; border-radius:10px; margin:0; display:inline-block; vertical-align:top; } 
+.is_layer_btns button.is_layer_btn_on { background:#38c9d2; width:calc(100% - 140px); } 
+.is_layer_btns button.is_layer_btn_off { background:#ccc; width:130px; margin-right:10px; } 
+
+@media all and (max-width: 960px) { /* icon */
+}
+
+@media all and (max-width: 540px){
+ .is_layer_tit { padding: 24px 0; } 
+ .is_layer_tit strong { font-size: 15px; } 
+
+ .is_layer_area { padding: 25px 15px 15px 15px; } 
+
+ .is_profile_box { width: 70px; height: 70px; } 
+ .is_profile_box .is_profile_img { width: 70px; height: 70px; background-size: 70px; background-position: 50% 0%; } 
+
+ .is_coin span { font-size: 13px; padding-left: 20px; background-size: 16px; } 
+
+ .is_desc { margin-top: 20px; border-radius: 5px; } 
+ .is_desc ul { padding: 15px 20px; } 
+ .is_desc li { font-size: 12px; line-height: 24px; } 
+
+ .is_layer_btns { padding: 0 15px 25px 15px; } 
+ .is_layer_btns button { height: 47px; font-size: 13px; line-height: 46px; border-radius: 5px; } 
+ .is_layer_btns button.is_layer_btn_off { width: calc(30% - 10px); } 
+ .is_layer_btns button.is_layer_btn_on { width: 70%; } 
+ }
+@media all and (max-width: 480px){
+ .is_layer_in { width: 90%; min-width: 1px; } 
+ }
+@media all and (max-width: 420px) { } 
+@media all and (max-width: 360px) { } 

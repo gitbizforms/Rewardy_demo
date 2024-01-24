@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+  <title>Rewardy</title>
+
+  <meta name="title" content="Rewardy">
+  <meta name="description" content="Rewardy 입니다.">
+  <meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+  <meta property="og:description" content="Rewardy 입니다.">
+  <meta property="og:title" content="Rewardy">
+  <meta property="og:image" content="../images/main/img_meta.jpg">
+
+  <!-- 노토산스 -->
+  <link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/rew_head.css">
+  <!-- <link rel="stylesheet" href="./css/todaywork.css"> -->
+  <link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+  <link rel="stylesheet" type="text/css" href="./css/common.css" />
+  <link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="./css/slick.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+  <script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script>
+  <script src="./js/window-date-picker.js"></script>
+  <script type="text/javascript" src="./js/slick.js"></script>
+  <script type="text/javascript" src="./js/circle-progress.js"></script>
+  <script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+  <script src="./js/jquery.mousewheel.min.js"></script>
+  <script src="./js/jquery.touchFlow.js"></script>
+  <script src="js/todaywork.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $(".rew_mypage_08").click(function (e) {
+        if (!$(e.target).is(".rew_mypage_08 *")) {
+          $(".rew_box").removeClass("on");
+          $(".rew_menu_onoff button").removeClass("on");
+        }
+      });
+
+      $(".hamburger_btn").click(function () {
+
+        $(this).toggleClass("on");
+
+        if ($(this).hasClass("on")) {
+          $(".rew_bar").css({
+            "left": "0%"
+          });
+          $(".rew_bg_black").fadeIn();
+        } else {
+          $(".rew_bar").css({
+            "left": "-55%"
+          });
+          $(".rew_bg_black").fadeOut();
+        }
+      });
+
+      $(".rew_mypage_close").click(function () {
+        $(".rew_box").removeClass("on");
+        $(".rew_menu").css({
+          "top": "100%"
+        });
+      })
+
+      $(".tdw_open_btn button").click(function () {
+        let windowWidth = $(window).width();
+
+        $(".rew_box").addClass("on");
+
+        if (windowWidth < 540) {
+          $(".rew_menu").css({
+            "top": "calc(100% - 475px)"
+          });
+        } else {
+          $(".rew_menu").css({
+            "top": "calc(100% - 490px)"
+          });
+        }
+      })
+
+      $('.my_alert_tit button').click(function () {
+
+        $('.layer_my_alert').addClass('set')
+
+        if ($('.layer_my_alert').hasClass('set') === true) {
+          $('.my_alert_set').show()
+          $('.my_alert_tit strong').text('알림설정');
+          $('.my_alert_tit strong').css({
+            'padding-left': '20px',
+            'background': 'url(images/pre/ico_back.png) 5px 50% no-repeat',
+            'background-size': '5px',
+            'cursor': 'pointer'
+          })
+        }
+      })
+
+      $('.my_alert_tit strong').click(function () {
+        $('.layer_my_alert').removeClass('set');
+        $('.my_alert_set').hide();
+        $('.my_alert_tit strong').text('알림');
+        $('.my_alert_tit strong').css({
+          'padding-left': '0px',
+          'background': 'none',
+          'background-size': '0',
+          'cursor': 'none'
+        })
+      })
+
+      // $('.alert_set_head .btn_switch').click(function(){
+      //     $('.alert_set_body ul li .btn_switch').addClass('on');
+      //     if($('.alert_set_body ul li .btn_switch').hasClass('on') === false) {
+      //       $(this).removeClass('on')
+      //     }
+      // })
+
+
+      $(".btn_switch").click(function () {
+        $(this).toggleClass("on");
+      });
+
+
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="rew_box">
+    <div class="rew_box_in">
+      <!-- header -->
+      <div class="rew_head">
+        <div class="rew_head_in">
+          <div class="hamburger_btn">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="rew_head_logo">
+            <a href="https://rewardy.co.kr/team/">
+              <span class="mobile_chage_img">
+                <img src="./images/pre/logo_bm.png" alt="베러먼데이" />
+              </span>
+            </a>
+          </div>
+          <div class="rew_head_my">
+            <div class="rew_head_my_mess">
+              <button class="btn_my_mess"><span>쪽지</span><em>N</em></button>
+              <div class="layer_my_mess" style="display: none;">
+                <div class="layer_my_mess_in">
+                  <div class="my_mess_tit">
+                    <div class="mess_btn">
+                      <button class="mess_send on"><span>받은쪽지</span></button>
+                      <button class="mess_rece"><span>보낸쪽지</span></button>
+                    </div>
+                    <span>※ 쪽지는 최근 30일간의 내용만 볼 수 있습니다.</span>
+                  </div>
+                  <div class="my_mess_list">
+                    <div class="my_mess_list_in">
+                      <div class="mess_list_head">
+                        <div class="list_day"><span>날짜</span></div>
+                        <div class="list_cont"><span>내용</span></div>
+                        <div class="list_user"><span>보낸사람</span></div>
+                      </div>
+                      <div class="mess_list_body">
+                        <ul>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 15:23</span></div>
+                            <div class="list_cont"><span>오늘은 힙합이 땡기네요~</span></div>
+                            <div class="list_user"><button><span>이수용</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 14:29</span></div>
+                            <div class="list_cont"><span>2번 시안 고고고!!!</span></div>
+                            <div class="list_user"><button><span>이선규</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 11:48</span></div>
+                            <div class="list_cont"><span>빠른 수정 감사해용!!♥</span></div>
+                            <div class="list_user"><button><span>김명선</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 10:31</span></div>
+                            <div class="list_cont"><span>와 쪽지 기능이다~~~ 안녕하세요안녕하세요
+                                안녕하세요안녕하세요안녕하세요안녕하세요
+                                안녕하세요안녕하세요안녕하세요안녕하세요</span></div>
+                            <div class="list_user"><button><span>이선규</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 10:31</span></div>
+                            <div class="list_cont"><span>주절주절주절~~~</span></div>
+                            <div class="list_user"><button><span>이선규</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 10:31</span></div>
+                            <div class="list_cont"><span>주절주절주절~~~</span></div>
+                            <div class="list_user"><button><span>이선규</span></button></div>
+                          </li>
+                          <li>
+                            <div class="list_day"><span>2023.01.01 10:31</span></div>
+                            <div class="list_cont"><span>주절주절주절~~~</span></div>
+                            <div class="list_user"><button><span>이선규</span></button></div>
+                          </li>
+
+                          <div class="mess_list_none">
+                            <span>받은 쪽지가 없습니다.</span>
+                          </div>
+
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rew_head_my_alert">
+              <button class="btn_my_alert"><span>알림</span><em>35</em></button>
+              <div class="layer_my_alert">
+                <div class="layer_my_alert_in">
+                  <div class="my_alert_tit">
+                    <strong>알림</strong>
+                    <button><span>설정</span></button>
+                  </div>
+                  <div class="my_alert_set">
+                    <div class="alert_set_head">
+                      <p>전체알림 허용</p>
+                      <div class="member_list_conts_admin">
+                        <div class="btn_switch">
+                          <strong class="btn_switch_on"></strong>
+                          <span>버튼</span>
+                          <strong class="btn_switch_off"></strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="alert_set_body">
+                      <ul>
+                        <li>
+                          <p>오늘업무 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>챌린지 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>파티 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>좋아요 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>코인 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>메모 알림</p>
+                          <div class="member_list_conts_admin">
+                            <div class="btn_switch">
+                              <strong class="btn_switch_on"></strong>
+                              <span>버튼</span>
+                              <strong class="btn_switch_off"></strong>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="my_alert_list">
+                    <ul>
+                      <li>
+                        <button class="my_alert_box">
+                          <div class="my_alert_box_tit">
+                            <img src="images/pre_m/ico_bell.png" alt="" />
+                            <span><strong>챌린지</strong> 알림</span>
+                          </div>
+                          <div class="my_alert_box_desc">
+                            <span>[실행] 갓생이 되는 가장 쉬운 첫 걸음</span>
+                          </div>
+                          <div class="my_alert_box_info">
+                            <span>2023.05.16 PM 03:39</span>
+                            <span><strong>300</strong> 코인</span>
+                          </div>
+                        </button>
+                        <button class="my_alert_close"><span>닫기</span></button>
+                      </li>
+                      <li>
+                        <button class="my_alert_box">
+                          <div class="my_alert_box_tit">
+                            <img src="images/pre_m/arrow_icon.png" alt="" />
+                            <span><strong>이선규</strong>님의 업무요청</span>
+                          </div>
+                          <div class="my_alert_box_desc">
+                            <span>요즘 핫한 chatGPT 내부교육이 예정되어 있습니다. 요즘 핫한 chatGPT 내부교육이 예정되어 있습니다. 요즘 핫한 chatGPT 내부교육이
+                              예정되어 있습니다.</span>
+                          </div>
+                          <div class="my_alert_box_info">
+                            <span>2023.05.16 PM 03:39</span>
+                            <span>첨부파일 <strong>3</strong></span>
+                          </div>
+                        </button>
+                        <button class="my_alert_close"><span>닫기</span></button>
+                      </li>
+                      <li>
+                        <button class="my_alert_box">
+                          <div class="my_alert_box_tit">
+                            <img src="images/pre/ico_coin_new.png" alt="" />
+                            <span><strong>이선규</strong>님에게 <strong>1,000 코인</strong> 받음</span>
+                          </div>
+                          <div class="my_alert_box_desc">
+                            <span>ㄲ ㅑ~ 로딩 멋찜!!!!</span>
+                          </div>
+                          <div class="my_alert_box_info">
+                            <span>2023.05.16 PM 03:39</span>
+                          </div>
+                        </button>
+                        <button class="my_alert_close"><span>닫기</span></button>
+                      </li>
+                      <li>
+                        <button class="my_alert_box">
+                          <div class="my_alert_box_tit">
+                            <img src="images/pre/ico_ht.png" alt="" />
+                            <span><strong>김명선</strong>님에게 <strong>좋아요</strong> 받음</span>
+                          </div>
+                          <div class="my_alert_box_desc">
+                            <span>와우 좋아요~~</span>
+                          </div>
+                          <div class="my_alert_box_info">
+                            <span>2023.05.16 PM 03:39</span>
+                          </div>
+                        </button>
+                        <button class="my_alert_close"><span>닫기</span></button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rew_head_my_info">
+              <button class="btn_my_info">
+                <span class="user_img"
+                  style="background-image:url('https://rewardy.co.kr/data/NTPAVuvVtP1655879969/profile/img/20230310144030926_f8OxD4dW4f_profile_51.png');"></span>
+                <span class="user_name">윤지혜님</span>
+              </button>
+              <div class="layer_my_info" style="display:block !important;">
+                <div class="layer_my_info_in">
+                  <div class="my_info_t">
+                    <div class="my_info_tl">
+                      <div class="user_img"
+                        style="background-image:url('https://rewardy.co.kr/data/NTPAVuvVtP1655879969/profile/img/20230310144030926_f8OxD4dW4f_profile_51.png');">
+                      </div>
+                      <div class="setting_btn"><button class="button_prof"><span>프로필 변경</span></button></div>
+
+                      <div class="user_name">
+                        <strong>윤지혜님,안녕하세요!</strong>
+                        <span>오피스레볼루션_디자인</span>
+                      </div>
+                    </div>
+                    <div class="my_info_tr">
+                      <ul>
+                        <li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+                        <li>
+                          <input type="file" id="prof" class="input_prof">
+                          <label for="prof" class="label_prof"><span>나만의 이미지 선택</span></label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="my_info_b">
+                    <div class="my_info_bt">
+                      <ul>
+                        <li>
+                          <a href="coin.html">
+                            <span>공용코인</span>
+                            <strong><em>1,500</em></strong>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="coin.html">
+                            <span>내 코인</span>
+                            <strong><em>31,432</em></strong>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="my_info_bb">
+                      <ul>
+                        <li>
+                          <button>
+                            <span>역량</span>
+                            <strong>256점</strong>
+                          </button>
+                        </li>
+                        <li>
+                          <button>
+                            <span>좋아요</span>
+                            <strong>15개</strong>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tdw_open_btn">
+        <button><span>오늘업무 등록</span></button>
+      </div>
+      <div class="rew_menu">
+        <div class="rew_menu_in">
+          <div class="rew_bar">
+            <span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+            <div class="rew_bar_in">
+              <div class="rew_bg_black"></div>
+              <div class="rew_bar_logo">
+                <a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+              </div>
+              <ul>
+                <li class="rew_bar_li_01 on">
+                  <a href="./0008.html"><strong>오늘업무</strong></a>
+                </li>
+                <li class="rew_bar_li_02">
+                  <a href="./0007.html"><strong>실시간 업무</strong></a>
+                </li>
+                <li class="rew_bar_li_03">
+                  <a href="./0009.html"><strong>보상/코인</strong></a>
+                </li>
+                <li class="rew_bar_li_04">
+                  <a href="./0004.html"><strong>챌린지</strong></a>
+                </li>
+                <li class="rew_bar_li_05">
+                  <a href="./0004.html"><strong>파티</strong></a>
+                </li>
+                <li class="rew_bar_li_06">
+                  <a href="./0004.html"><strong>인사이트</strong></a>
+                </li>
+              </ul>
+              <div class="rew_bar_setting">
+                <a href="./0004.html" class="rew_bar_setting_01"><strong>아이템샵</strong></a>
+                <a href="./0001.html" class="rew_bar_setting_02"><strong>설정</strong></a>
+                <a href="./0002.html" class="rew_bar_setting_03"><strong>관리자</strong></a>
+              </div>
+            </div>
+          </div>
+          <!-- header_fin -->
+          <!-- menu -->
+          <div class="rew_mypage_08">
+            <div class="rew_mypage_08_in">
+              <div class="rew_mypage_close"><button><img src="./images/pre_m/rew_mypage_close.png"></button></div>
+            </div>
+          </div>
+        </div>
+        <div class="rew_menu_onoff">
+          <button>열고 닫기</button>
+        </div>
+      </div>
+      <!-- menu_fin -->
+    </div>
+  </div>
+</body>

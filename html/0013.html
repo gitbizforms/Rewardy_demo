@@ -1,0 +1,1569 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/slick.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+<script src="./js/jquery.mousewheel.min.js"></script> 
+<script src="./js/jquery.touchFlow.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		//아이템샵 임시
+		$(".my_is_list .my_is_box").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+		$(".is_list .is_box").click(function(){
+			$(".is_layer").show();
+		});
+		$(".is_layer button").click(function(){
+			$(".is_layer").hide();
+		});
+
+		$(".rew_mypage_13").click(function (e) {
+			if (!$(e.target).is(".rew_mypage_13 *")) {
+				$(".rew_box").removeClass("on");
+				$(".rew_menu_onoff button").removeClass("on");
+			}
+		});
+
+		$(".rew_conts_list_in ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move"
+		});
+		$(".rew_conts_list_in ul").disableSelection();
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+		},400);
+		
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+		$(".rew_conts_scroll_04").scroll(function(){
+			var rct = $(".rew_cha_list_in").offset().top;
+			console.log(rct);
+			if(rct<216){
+				$(".rew_cha_list_func").addClass("pos_fix");
+			}else{
+				$(".rew_cha_list_func").removeClass("pos_fix");
+			}
+		});
+
+		$(".rew_cha_list_ul li").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			setTimeout(function(){
+				tis.addClass("sli");
+			},700+tindex*150);
+		});
+
+		$(".rew_cha_tab_sort .btn_sort_on").click(function(){
+			$(".rew_cha_tab_sort").addClass("on");
+		});
+		$(".rew_cha_tab_sort").mouseleave(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+		$(".rew_cha_tab_sort ul li button").click(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+
+		$(".rew_cha_sort .btn_sort_on").click(function(){
+			$(".rew_cha_sort").addClass("on");
+		});
+		$(".rew_cha_sort").mouseleave(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+		$(".rew_cha_sort ul li button").click(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+
+		$(".rew_cha_more button").click(function(){
+
+			$(".rew_cha_list_ul").append('<li class="sli2 category_06 offset0"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_06"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="#"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li>');
+
+			
+			setTimeout(function(){
+				var offset = $(".offset0").position();
+				$(".rew_conts_scroll_04").animate({scrollTop : offset.top - 5}, 700);
+			},400);
+
+			setTimeout(function(){
+				$(".offset0").removeClass("offset0");
+			},1100);
+
+			$(".rew_cha_list_ul li:not('.sli')").each(function(aa){
+				var tis = $(this);
+				var tindex = $(this).index();
+				//alert(tindex);
+				setTimeout(function(){
+					tis.addClass("sli");
+				},700+(aa+1)*150);
+			});
+
+			
+		});
+
+
+	});
+
+	
+</script>
+<div class="rew_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert" style="display:none;"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02 on">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+									<li class="rew_bar_li_05">
+										<a href="./0010.html"><strong>파티</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0013.html" class="rew_bar_setting_04 on"><strong>아이템샵</strong></a>
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_13">
+							<div class="rew_mypage_13_in">
+								<div class="rew_mypage_title">
+									<strong>내가 보유한 아이템</strong>
+								</div>
+								<div class="rew_my_is_section">
+									<div class="my_is_list">
+										<ul>
+											<li class="on">
+												<button class="my_is_box">
+													<div class="my_is_box_in">
+														<div class="my_is_thumb">
+															<div class="my_is_thumb_in">
+																<img src="images/pre/item_prof_02.png" alt="커리어우먼 캐릭터" />
+															</div>
+														</div>
+														<div class="my_is_desc">
+															<dl>
+																<dt>커리어우먼 캐릭터</dt>
+																<dd>가격: 500 Coin</dd>
+																<dd>구매일자: 2023-03-20 14:00</dd>
+															</dl>
+														</div>
+													</div>
+												</button>
+											</li>
+											<li>
+												<button class="my_is_box">
+													<div class="my_is_box_in">
+														<div class="my_is_thumb">
+															<div class="my_is_thumb_in">
+																<img src="images/pre/item_prof_01.png" alt="스마트맨 캐릭터" />
+															</div>
+														</div>
+														<div class="my_is_desc">
+															<dl>
+																<dt>스마트맨 캐릭터</dt>
+																<dd>가격: 500 Coin</dd>
+																<dd>구매일자: 2023-03-26 15:00</dd>
+															</dl>
+														</div>
+													</div>
+												</button>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+
+						<div class="rew_is_func">
+							<div class="rew_is_func_in">
+								<div class="rew_is_count">
+									<span>아이템샵 목록</span>
+									<strong>4</strong>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_13">
+
+							<div class="is_list">
+								<div class="is_list_in">
+									<ul class="is_list_ul">
+										<li class="on">
+											<button class="is_box">
+												<div class="is_box_in">
+													<div class="is_thumb">
+														<div class="is_thumb_in">
+															<img src="images/pre/item_prof_02.png" alt="캐리어우먼 캐릭터" />
+														</div>
+													</div>
+													<div class="is_exp">
+														<dl>
+															<dt>아이템 : 프로필 캐릭터(커리어우먼)</dt>
+															<dd>가격 : 500 Coin</dd>
+															<dd>효과 : 내 프로필 캐릭터 변경</dd>
+															<dd>사용기간 : 영구소장</dd>
+														</dl>
+													</div>
+												</div>
+											</button>
+										</li>
+
+										<li>
+											<button class="is_box">
+												<div class="is_box_in">
+													<div class="is_thumb">
+														<div class="is_thumb_in">
+															<img src="images/pre/item_prof_01.png" alt="스마트맨 캐릭터" />
+														</div>
+													</div>
+													<div class="is_exp">
+														<dl>
+															<dt>아이템 : 프로필 캐릭터(스마트맨)</dt>
+															<dd>가격 : 500 Coin</dd>
+															<dd>효과 : 내 프로필 캐릭터 변경</dd>
+															<dd>사용기간 : 영구소장</dd>
+														</dl>
+													</div>
+												</div>
+											</button>
+										</li>
+
+										<li class="off">
+											<button class="is_box">
+												<div class="is_box_in">
+													<div class="is_thumb">
+														<div class="is_thumb_in">
+															
+														</div>
+													</div>
+													<div class="is_exp">
+														<dl>
+															<dt>아이템 : 좋아요 강화 버프</dt>
+															<dd>가격 : 1,000 Coin</dd>
+															<dd>효과 : 좋아요 효과 두배 UP</dd>
+															<dd>사용기간 : 24시간</dd>
+														</dl>
+													</div>
+												</div>
+											</button>
+										</li>
+
+										<li class="off">
+											<button class="is_box">
+												<div class="is_box_in">
+													<div class="is_thumb">
+														<div class="is_thumb_in">
+															
+														</div>
+													</div>
+													<div class="is_exp">
+														<dl>
+															<dt>아이템 : 역량 강화 버프</dt>
+															<dd>가격 : 1,000 Coin</dd>
+															<dd>효과 : 역량 증가값 두배 UP</dd>
+															<dd>사용기간 : 24시간</dd>
+														</dl>
+													</div>
+												</div>
+											</button>
+										</li>
+
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 아이템샵 레이어 -->
+	<div class="is_layer" style="display:none;">
+		<div class="is_layer_deam"></div>
+		<div class="is_layer_in">
+			<div class="is_layer_tit">
+				<strong>Rewardy 아이템샵</strong>
+			</div>
+			<div class="is_layer_area">
+				<div class="is_layer_list">
+					<ul class="is_layer_ul">
+						<li class="is_layer_li">
+							<div class="is_profile_box">
+								<div class="is_profile_img" style="background-image:url(images/pre/item_prof_02.png);"></div>
+							</div>
+							<div class="is_coin">
+								<strong><span>500</span></strong>
+							</div>
+							<div class="is_desc">
+								<ul>
+									<li>아이템 : 프로필 캐릭터(커리어우먼)</li>
+									<li>가격 : 500 Coin</li>
+									<li>효과 : 내 프로필 캐릭터 변경</li>
+									<li>사용기간 : 영구소장</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="is_layer_btns">
+				<button class="is_layer_btn_off"><span>취소</span></button>
+				<button class="is_layer_btn_on"><span>구매하기</span></button>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="layer_work" style="display:none;">
+		<div class="lw_deam"></div>
+		<div class="lw_in">
+			<div class="lw_box">
+				<div class="lw_box_in">
+					<div class="lw_top">
+						<strong>좋은아침입니다!</strong>
+						<p>2022년 11월 01일 오전 09:00</p>
+					</div>
+					<div class="lw_btn">
+						<button class="lw_off"><span>취소</span></button>
+						<button class="lw_on"><span>출근하기</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="party_link_layer" style="display: none;">
+		<div class="pll_deam"></div>
+		<div class="pll_in">
+			<div class="pll_box">
+				<div class="pll_box_in">
+					<div class="pll_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="pll_top">
+						<strong>파티 연결</strong>
+					</div>
+					<div class="live_drop_left">
+						<div class="ldl_in">
+							<div class="ldl_box on">
+								<div class="ldl_box_in">
+									<div class="ldl_chk"><button><span>선택</span></button></div>
+									<button class="ldl_box_close" style="display:none;"><span>닫기</span></button>
+									<div class="ldl_box_tit">
+										<p>네이버페이, 카카오페이 결제 개발</p>
+									</div>
+									<div class="ldl_box_time">08/29 13:33 업데이트</div>
+									<div class="ldl_box_user">
+										<ul>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_08.png)" title="손언영"></div>
+												<div class="ldl_box_user">
+													<strong>손언영</strong>
+													<span>운영기획팀</span>
+												</div>
+											</li>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_04.png)" title="김민경"></div>
+												<div class="ldl_box_user">
+													<strong>김민경</strong>
+													<span>경영지원팀</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="ldl_box">
+								<div class="ldl_box_in">
+									<div class="ldl_chk"><button><span>선택</span></button></div>
+									<button class="ldl_box_close"><span>닫기</span></button>
+									<div class="ldl_box_tit">
+										<p>네이버페이, 카카오페이 결제 개발</p>
+									</div>
+									<div class="ldl_box_time">08/29 13:33 업데이트</div>
+									<div class="ldl_box_user">
+										<ul>
+											<li class="ldl_me">
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_08.png)" title="손언영"></div>
+												<div class="ldl_box_user">
+													<strong>손언영</strong>
+													<span>운영기획팀</span>
+												</div>
+											</li>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_04.png)" title="김민경"></div>
+												<div class="ldl_box_user">
+													<strong>김민경</strong>
+													<span>경영지원팀</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="ldl_box">
+								<div class="ldl_box_in">
+									<div class="ldl_chk"><button><span>선택</span></button></div>
+									<button class="ldl_box_close" style="display:none;"><span>닫기</span></button>
+									<div class="ldl_box_tit">
+										<p>네이버페이, 카카오페이 결제 개발</p>
+									</div>
+									<div class="ldl_box_time">08/29 13:33 업데이트</div>
+									<div class="ldl_box_user">
+										<ul>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_08.png)" title="손언영"></div>
+												<div class="ldl_box_user">
+													<strong>손언영</strong>
+													<span>운영기획팀</span>
+												</div>
+											</li>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_04.png)" title="김민경"></div>
+												<div class="ldl_box_user">
+													<strong>김민경</strong>
+													<span>경영지원팀</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="ldl_box">
+								<div class="ldl_box_in">
+									<div class="ldl_chk"><button><span>선택</span></button></div>
+									<button class="ldl_box_close" style="display:none;"><span>닫기</span></button>
+									<div class="ldl_box_tit">
+										<p>네이버페이, 카카오페이 결제 개발</p>
+									</div>
+									<div class="ldl_box_time">08/29 13:33 업데이트</div>
+									<div class="ldl_box_user">
+										<ul>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_08.png)" title="손언영"></div>
+												<div class="ldl_box_user">
+													<strong>손언영</strong>
+													<span>운영기획팀</span>
+												</div>
+											</li>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_04.png)" title="김민경"></div>
+												<div class="ldl_box_user">
+													<strong>김민경</strong>
+													<span>경영지원팀</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="ldl_box">
+								<div class="ldl_box_in">
+									<div class="ldl_chk"><button><span>선택</span></button></div>
+									<button class="ldl_box_close" style="display:none;"><span>닫기</span></button>
+									<div class="ldl_box_tit">
+										<p>네이버페이, 카카오페이 결제 개발</p>
+									</div>
+									<div class="ldl_box_time">08/29 13:33 업데이트</div>
+									<div class="ldl_box_user">
+										<ul>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_08.png)" title="손언영"></div>
+												<div class="ldl_box_user">
+													<strong>손언영</strong>
+													<span>운영기획팀</span>
+												</div>
+											</li>
+											<li>
+												<div class="ldl_box_img" style="background-image:url(images/pre/img_prof_04.png)" title="김민경"></div>
+												<div class="ldl_box_user">
+													<strong>김민경</strong>
+													<span>경영지원팀</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pll_btn">
+						<button><span>선택 완료</span></button>
+						<button style="display:none;"><span>연결 해제</span></button>
+						<button style="display:none;"><span>변경 완료</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 1026 검색 -->
+	<div class="search_layer" style="display:none;">
+		<div class="sl_deam"></div>
+		<div class="sl_in">
+			<div class="sl_box">
+				<div class="sl_box_in">
+					<div class="sl_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="sl_top">
+						<strong>오늘업무 검색</strong>
+					</div>
+					<div class="sl_list">
+						<ul>
+							<li>
+								<div class="sl_date_area">
+									<div class="date_area_l">
+										<input type="text" class="input_cha_date_l" value="2022-10-01">
+										<span>~</span>
+										<input type="text" class="input_cha_date_r" value="2022-10-31">
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="sl_div">
+									<div class="sl_slc">
+										<button class="btn_sort_on"><span>전체</span></button>
+										<ul>
+											<li><button><span>전체</span></button></li>
+											<li><button><span>나의업무</span></button></li>
+											<li><button><span>보고</span></button></li>
+											<li><button><span>요청</span></button></li>
+											<li><button><span>공유</span></button></li>
+											<li><button><span>첨부파일</span></button></li>
+											<li><button><span>메모</span></button></li>
+										</ul>
+									</div>
+									<div class="tc_input">
+										<input type="text" id="sl1" name="sl1" class="input_001" placeholder="검색어를 입력하세요">
+										<label for="sl1" class="label_001">
+											<strong class="label_tit">검색어를 입력하세요</strong>
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="sl_btn">
+						<button><span>검색</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_search" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>오늘업무 검색</strong>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="sl_date_area">
+							<div class="date_area_l">
+								<input type="text" class="input_cha_date_l" value="2022-10-01">
+								<span>~</span>
+								<input type="text" class="input_cha_date_r" value="2022-10-31">
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="sl_div">
+							<div class="sl_slc">
+								<button class="btn_sort_on"><span>전체</span></button>
+								<ul>
+									<li><button><span>전체</span></button></li>
+									<li><button><span>나의업무</span></button></li>
+									<li><button><span>보고</span></button></li>
+									<li><button><span>요청</span></button></li>
+									<li><button><span>공유</span></button></li>
+									<li><button><span>첨부파일</span></button></li>
+									<li><button><span>메모</span></button></li>
+								</ul>
+							</div>
+							<div class="tc_input">
+								<input type="text" id="sl1" name="sl1" class="input_001" placeholder="검색어를 입력하세요">
+								<label for="sl1" class="label_001">
+									<strong class="label_tit">검색어를 입력하세요</strong>
+								</label>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>검색</span></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 0831 팝업 -->
+	<div class="rew_popup">
+		<div class="rew_popup_in">오늘업무를 작성하여 적극성 1점이 올라갔습니다.</div>
+	</div>
+
+
+	<!-- 한줄소감 -->
+	<div class="feeling_first" style="display:none;">
+		<div class="ff_deam"></div>
+		<div class="ff_in">
+			<div class="ff_box">
+				<div class="ff_box_in">
+					<div class="ff_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="ff_top">
+						<strong>오늘 하루는 어땠나요?</strong>
+					</div>
+					<div class="ff_area">
+						<ul>
+							<li>
+								<button class="btn_ff_01">
+									<strong></strong>
+									<span>최고야</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_02">
+									<strong></strong>
+									<span>뿌듯해</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_03">
+									<strong></strong>
+									<span>기분좋아</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="btn_ff_04">
+									<strong></strong>
+									<span>감사해</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_05">
+									<strong></strong>
+									<span>재밌어</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_06">
+									<strong></strong>
+									<span>수고했어</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="btn_ff_07">
+									<strong></strong>
+									<span>무난해</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_08">
+									<strong></strong>
+									<span>지쳤어</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_ff_09">
+									<strong></strong>
+									<span>속상해</span>
+								</button>
+							</li>
+						</ul>
+					</div>
+					<div class="ff_bottom">
+						<button class="btn_off">다음</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feeling_layer" style="display:none;">
+		<div class="fl_deam"></div>
+		<div class="fl_in">
+			<div class="fl_box">
+				<div class="fl_box_in">
+					<div class="fl_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="fl_top">
+						<strong>오늘 하루는 어땠나요?</strong>
+					</div>
+					<div class="fl_area">
+						<div class="fl_desc">
+							<strong></strong>
+							<p><span>최고의</span> 하루였어요!</p>
+						</div>
+						<div class="fl_input">
+							<input type="text" class="input_fl" placeholder="한줄소감을 남겨주세요!" />
+						</div>
+					</div>
+					<div class="fl_bottom">
+						<button>등록하기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 페널티 -->
+	<div class="penalty_layer" style="display: none;">
+		<div class="pl_deam"></div>
+		<div class="pl_in">
+			<div class="pl_box">
+				<div class="pl_box_in">
+					<div class="pl_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="pl_top">
+						<strong>지각 페널티 카드</strong>
+					</div>
+					<div class="pl_area">
+						<div class="pl_user">
+							<div class="user_img" style="background-image:url('./images/pre/img_prof_03.png');"></div>
+							<div class="user_name">
+								<strong>손언영</strong>
+								운영기획팀
+							</div>
+						</div>
+						<div class="pl_left">
+							<p>지각 페널티 카드는 1주일 내 지각 2회 이상 시 자동으로 발동됩니다.</p>
+							<p>종료 시간 내 팀장님 혹은 대표님과 10분간 면담을 진행합 니다. 첨부된 수료증을 다운로드 받아 면담자에게 사인을 받습니다.<br />
+							<strong>수료증 이미지를 찍어 업로드</strong>하면 미션 완료!</p>
+							<p>미션 실패 시에는 관리자(이선규님, 김민경님)에게 알림 이 보내집니다.</p>
+						</div>
+						<div class="pl_right">
+							<div class="pl_right_01">
+								<div class="pl_img">
+									<div class="pl_img_on">
+										<img src="images/pre/sample_02.png" alt="" />
+									</div>
+									<div class="pl_img_comp">
+										<img src="images/pre/img_comp.png" alt="COMPLETE" />
+									</div>
+								</div>
+							</div>
+							<div class="pl_right_02">
+								<div class="pl_time">
+									<span>남은 시간</span>
+									<strong>07:50</strong>
+								</div>
+								<div class="file_box">
+									<div class="file_desc">
+										<span>수료증.word</span>
+										<strong>다운로드</strong>
+									</div>
+								</div>
+							</div>
+							<div class="pl_right_03">
+								<button class="btn_on"><span>이미지 올리기</span></button>
+								<button class="btn_off" style="display:none;"><span>이미지 수정하기</span></button><!-- 이미지 수정전 -->
+								<button class="btn_on" style="display:none;"><span>이미지 수정하기</span></button><!-- 이미지 수정후 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_cha_image" style="display:none;">
+		<div class="layer_deam"></div>
+		<div class="layer_cha_image_in">
+			<div class="layer_cha_image_box">
+				<div class="layer_cha_image_box_in">
+					<img src="images/pre/img_prof_03.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_memo" style="display:none;">
+		<div class="layer_deam"></div>
+		<div class="layer_memo_in">
+			<div class="layer_memo_box">
+				<textarea name="" class="textarea_memo" placeholder="메모를 작성해주세요."></textarea>
+			</div>
+			<div class="layer_memo_btn">
+				<button class="layer_memo_cancel"><span>취소</span></button>
+				<button class="layer_memo_submit"><span>등록하기</span></button>
+				<button class="layer_memo_submit on"><span>등록하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_user" style="display:none;">
+		<div class="layer_deam"></div>
+		<div class="layer_user_in">
+			<div class="layer_user_box">
+				<div class="layer_user_search">
+					<div class="layer_user_search_desc">
+						<strong>참여자 설정</strong>
+						<span>전체 30명, 1명 선택</span>
+					</div>
+					<div class="layer_user_search_box">
+						<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+						<button><span>검색</span></button>
+					</div>
+				</div>
+				<div class="layer_user_slc_list">
+					<div class="layer_user_slc_list_in">
+						<ul>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+							<li>
+								<div class="user_img">
+								</div>
+								<div class="user_name">
+									<strong>윤지혜</strong>
+								</div>
+								<button class="user_slc_del"><span>삭제</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="layer_user_info">
+					<ul>
+						<li>
+							<dl class="on">
+								<dt>
+									<button class="btn_team_slc"><span>고객행복팀 3</span></button>
+									<button class="btn_team_toggle"><span>열고닫기</span></button>
+								</dt>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>이수아</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>정혜윤</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt>
+									<button class="btn_team_slc"><span>개발팀 2</span></button>
+									<button class="btn_team_toggle"><span>열고닫기</span></button>
+								</dt>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>유상길</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt>
+									<button class="btn_team_slc"><span>디자인팀 4</span></button>
+									<button class="btn_team_toggle"><span>열고닫기</span></button>
+								</dt>
+								<dd>
+									<button>
+										<img src="images/pre/ico_me.png" alt="" class="user_me" />
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>이나윤</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>정현주</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>하병호</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt>
+									<button class="btn_team_slc"><span>마케팅팀 3</span></button>
+									<button class="btn_team_toggle"><span>열고닫기</span></button>
+								</dt>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="layer_user_btn">
+				<button class="layer_user_all_slc"><span>전체선택</span></button>
+				<button class="layer_user_cancel"><span>취소</span></button>
+				<button class="layer_user_submit"><span>설정하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_time" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_time_area">
+				<p>좋은 아침입니다!</p>
+				<span>2022년 11월 01일 09:00</span>
+			</div>
+			<div class="tl_btns">
+				<button class="tl_btn_on"><span>출근하기</span></button>
+				<button class="tl_btn_off"><span>취소</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var ff_class = "";
+			var ff_text = "";
+
+			$(".btn_feeling_banner").click(function(){
+				$(".feeling_first").show();
+			});
+			$(".ff_area button").click(function(){
+				ff_class = $(this).attr("class");
+				if($(this).attr("class") == "btn_ff_01"){ff_text="최고의";}
+				if($(this).attr("class") == "btn_ff_02"){ff_text="뿌듯한";}
+				if($(this).attr("class") == "btn_ff_03"){ff_text="기분 좋은";}
+				if($(this).attr("class") == "btn_ff_04"){ff_text="감사한";}
+				if($(this).attr("class") == "btn_ff_05"){ff_text="재밌는";}
+				if($(this).attr("class") == "btn_ff_06"){ff_text="수고한";}
+				if($(this).attr("class") == "btn_ff_07"){ff_text="무난한";}
+				if($(this).attr("class") == "btn_ff_08"){ff_text="지친";}
+				if($(this).attr("class") == "btn_ff_09"){ff_text="속상한";}
+				$(".ff_area button").not(this).removeClass("on");
+				$(this).addClass("on");
+				$(".ff_bottom button").removeClass("btn_off").addClass("btn_on");
+			});
+			$(".ff_close button").click(function(){
+				$(".feeling_first").hide();
+				$(".ff_area button").removeClass("on");
+				$(".ff_bottom button").removeClass("btn_on").addClass("btn_off");
+			});
+
+			$(".ff_bottom button").click(function(){
+				if($(this).hasClass("btn_on")){
+					$(".feeling_first").hide();
+					$(".ff_area button").removeClass("on");
+					$(".ff_bottom button").removeClass("btn_on").addClass("btn_off");
+					$(".feeling_layer").show();
+					$(".fl_area .fl_desc").removeClass().addClass("fl_desc");
+					$(".fl_area .fl_desc").addClass(ff_class);
+					$(".fl_area .fl_desc span").text(ff_text);
+				}else{
+
+				}
+			});
+
+			$(".fl_bottom button").click(function(){
+				$(".feeling_layer").hide();
+				$(".tdw_feeling_banner").removeClass().addClass("tdw_feeling_banner");
+				$(".tdw_feeling_banner").addClass(ff_class);
+				var inputfl = $(".fl_area .input_fl").val();
+				$(".tdw_feeling_banner p").text(inputfl);
+			});
+			$(".fl_close button").click(function(){
+				$(".feeling_layer").hide();
+			});
+
+			$(".btn_penalty_banner").click(function(){
+				$(".penalty_layer").show();
+			});
+			$(".pl_close button").click(function(){
+				$(".penalty_layer").hide();
+			});
+			$(".pl_img_on img").click(function(){
+				$(".layer_cha_image").show();
+			});
+			$(".layer_cha_image .layer_cha_image_in, .layer_cha_image .layer_deam").click(function(){
+				$(".layer_cha_image").hide();
+			});
+
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

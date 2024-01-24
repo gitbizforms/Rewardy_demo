@@ -1,0 +1,363 @@
+@charset "utf-8";body { background: #f0f1f4; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.todaywork_wrap input,
+.todaywork_wrap button,
+.todaywork_wrap select,
+.todaywork_wrap textarea { outline: none; background: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; resize: none; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.t_layer input,
+.t_layer button,
+.t_layer select,
+.t_layer textarea { outline: none; background: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; resize: none; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.t_layer_req input,
+.t_layer_req button,
+.t_layer_req select,
+.t_layer_req textarea { outline: none; background: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; resize: none; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.t_layer_date input,
+.t_layer_date button,
+.t_layer_date select,
+.t_layer_date textarea { outline: none; background: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; resize: none; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.t_layer_goal input,
+.t_layer_goal button,
+.t_layer_goal select,
+.t_layer_goal textarea { outline: none; background: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; resize: none; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.todaywork_wrap button { cursor: pointer; outline: none; border: none; background: none; } 
+
+.t_layer button { cursor: pointer; outline: none; border: none; background: none; } 
+
+button { cursor: pointer; outline: none; border: none; background: none; } 
+
+input[type=text]::-ms-clear { display: none; } 
+
+input[type=number]::-ms-clear { display: none; } 
+
+html { height: 100%; background: #fafafa; } 
+
+body { height: 100%; } 
+
+img { max-width: 100%; } 
+
+/* setting */
+.sb-nav-fixed #layoutSidenav #layoutSidenav_content { background: #fff; } 
+
+.card { --bs-card-border-width: 0px; } 
+
+
+.container-fluid { height: calc(100% - 56px); overflow-y: scroll; overflow-x: auto; -ms-overflow-style: none; position: relative; } 
+
+.container-fluid::-webkit-scrollbar { width: 7px } 
+
+.container-fluid::-webkit-scrollbar-thumb { height: 10px; background: #ccc; border-radius: 20px; } 
+
+.container-fluid::-webkit-scrollbar-track { background-color: #fff; } 
+
+/* top_title/etc.. */
+.mt-4 { font-size: 35px; font-weight: 700; margin-bottom: 14px; padding-left: 16px; } 
+
+.rew_member_sub_func_period { display: flex; } 
+
+.rew_member_sub_func_tab { position: relative; z-index: 11; margin-bottom: 15px !important; } 
+
+/* rew_list_char */
+.rew_list_char { position: relative; } 
+
+.rew_list_char_select { width: 156px; height: 46px; padding-left: 10px; margin-right: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: #fff url(../images/replay_popup/arrow_down.png) no-repeat 100% 50%; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+
+.rew_list_char_select span { font-size: 15px; vertical-align: center; color: #454545; } 
+
+.rew_list_char ul { width: 156px; display: none; position: absolute; top: 0; left: 0; font-size: 15px; line-height: 46px; border: 1px solid #555; border-radius: 5px; background: #fff; z-index:1; } 
+
+.rew_list_char ul li { height: 46px; padding-left: 10px; } 
+
+.rew_list_char ul li:last-child { border-bottom: none; } 
+
+.rew_list_char:hover ul { display: block; } 
+
+.rew_list_char ul li:hover { background: #454545; z-index:5; } 
+
+.rew_list_char ul li:hover button span { color: #fff; } 
+
+/* rew_member_sub_func_period_box */
+.rew_member_sub_func_period_box { width: 270px; height: 46px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; margin-right: 10px; border: 1px solid #dcdcdc; border-radius: 5px; box-sizing: border-box; } 
+
+.btn_calendar_l { width: 24px; height: 24px; background-size: cover; } 
+
+.rew_member_sub_func_period_box input { width: 85px; border: none; font-size: 15px; color: #555; text-align: center; background: none; } 
+
+.rew_member_sub_func_period_box span { display: inline-block; margin: 0 10px; } 
+
+/* rew_cha_search_box mx-1 */
+.rew_cha_search_box { width: 207px; height: 46px; display: flex; border: 1px solid #dcdcdc; border-radius: 5px; padding: 10px 20px; margin: 0 10px 0 0 !important; box-sizing: border-box; } 
+
+.rew_cha_search_box input { width: 100%; border: none; background: transparent; outline: none; } 
+
+#backcoin_search_btn { width: 20px; height: 20px; margin-top: 2px; } 
+
+/* top_button */
+.btn_inquiry { font-size: 15px; color: #fff; border-radius: 5px; background: #414141; } 
+
+.btn_check { width: 68px; height: 46px; margin-right: 10px; } 
+
+.btn_reset { width: 113px; height: 46px; } 
+
+/* rew_member_sub_func_sort */
+.btn_sort_on { width: 96px; height: 46px; position: absolute; top: 0; right: 0; padding-left: 10px; border: 1px solid #e5e5e5; border-radius: 5px; background: #fff url(../images/replay_popup/arrow_down.png) no-repeat 100% 50%; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+
+.rew_member_sub_func_sort ul { width: 96px; display: none; position: absolute; top: 0; right: 0; font-size: 15px; line-height: 46px; border: 1px solid #555; border-radius: 5px; background: #fff; } 
+
+.rew_member_sub_func_sort ul li { height: 46px; padding-left: 10px; } 
+
+.rew_member_sub_func_sort ul li:last-child { border-bottom: none; } 
+
+.rew_member_sub_func_sort:hover ul { display: block; } 
+
+.rew_member_sub_func_sort ul li:hover { background: #454545; } 
+
+.rew_member_sub_func_sort ul li:hover button span { color: #fff; } 
+
+/* ----------------------------- 상단 영역 ---------------------------- */
+
+/* table */
+
+/* thead */
+#backoff_table { border: 1px solid #f2f2f2; width:100%; } 
+
+.table>thead,
+.datatable-table>thead { text-align: center; font-size: 14px; font-weight: 400; background: #f6f7f9; } 
+
+.table-bordered> :not(caption)>*>*,
+.datatable-table> :not(caption)>*>* { border-width: 0; } 
+
+/* thead tr th:nth-child(1) { width: 195px; } 
+
+thead tr th:nth-child(2) { width: 320px; } 
+
+thead tr th:nth-child(3) { width: 340px; } 
+
+thead tr th:nth-child(4) { width: 95px; } 
+
+thead tr th:nth-child(5) { width: 160px; } 
+
+thead tr th:nth-child(6) { padding-right: 360px; box-sizing: border-box; } */
+
+.table-bordered .list_arrow.up { width: 10px; height: 22px; margin-left: 5px; display: inline-block; vertical-align: bottom; background: url(../images/pre/list_arrow_up.png)no-repeat 50% 50%; } 
+.table-bordered .list_arrow.down { width: 10px; height: 22px; margin-left: 5px; display: inline-block; vertical-align: bottom; background: url(../images/pre/list_arrow_down.png)no-repeat 50% 50%; } 
+.list_arrow { width: 10px; height: 22px; margin-left: 5px; display: inline-block; vertical-align: bottom; background: url(../images/pre/list_arrow.png)no-repeat 50% 50%; } 
+
+
+.rew_member_sub_func_period_box .btn_calendar_l { width:20px; height:35px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
+
+
+/* tdbody */
+.table>tbody { text-align : center; font-size: 13px; color: #454545; vertical-align: middle; } 
+
+/* tbody td:first-child,
+tbody td:nth-child(5) { text-align: center; } 
+
+tbody td:nth-child(6) { text-align: left; } 
+
+tbody td:nth-child(4) { text-align: right; } */
+
+/* ----------------------------- 리스트 영역 ---------------------------- */
+
+/* paging */
+.rew_ard_paging_in { text-align: center; padding: 14px 0; } 
+
+.rew_ard_paging_in input { outline: none; border: none; background: none; resize: none; } 
+
+.rew_ard_paging .paging_first { background: url(../images/pre/ico_paging_first.png) 50% 50% no-repeat; margin-right: 15px; } 
+
+.rew_ard_paging .paging_prev { background: url(../images/pre/ico_paging_prev.png) 50% 50% no-repeat; margin-right: 15px; } 
+
+.rew_ard_paging .paging_num.on { background: #252525; color: #fff; } 
+
+.rew_ard_paging .paging_num { text-indent: 0; } 
+
+.rew_ard_paging .paging_next { background: url(../images/pre/ico_paging_next.png) 50% 50% no-repeat; margin-left: 15px; } 
+
+.rew_ard_paging .paging_last { background: url(../images/pre/ico_paging_last.png) 50% 50% no-repeat; margin-left: 15px; } 
+
+.rew_ard_paging button { width: 36px; height: 36px; border-radius: 18px; text-indent: -9999px; font-size: 15px; font-weight: 400; color: #999; letter-spacing: -0.05em; display: inline-block; vertical-align: top; } 
+
+.paging_num:hover { background: #f6f7f9; } 
+
+
+/*------------------------------테이블 헤드------------------------------*/
+
+#backoff_table .backoff_no { width : 150px } 
+#backoff_table .backoff_name { width : 250px } 
+#backoff_table .backoff_id { width : 500px; } 
+#backoff_table .backoff_comp { width : 500px } 
+#backoff_table .backoff_comcoin { width : 250px } 
+#backoff_table .backoff_coin { width : 250px } 
+#backoff_table .backoff_lcnt { width : 250px } 
+#backoff_table .backoff_ltime { width : 350px; } 
+#backoff_table .backoff_memo { width: 250px; } 
+
+#backoff_table .backoff_title { width : 900px; } 
+#backoff_table .backoff_date { width : 200px; } 
+
+#backoff_table .backoff_coinname { width : 300px; } 
+
+#backoff_table .backoff_memo p { width:250px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+
+/*----------------------------코인 리스트------------------------------*/
+#backoff_table .coin_regdate { width:13% } 
+#backoff_table .coin_user { width:19% } 
+#backoff_table .coin_coin { width:7% } 
+#backoff_table .coin_kind { width:10% } 
+#backoff_table .coin_memo { width:20% } 
+#backoff_table .coin_comp { width:12% } 
+
+#backoff_table .coin_memo p { width:100%; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------코인 리스트------------------------------*/
+
+/*----------------------------좋아요 리스트------------------------------*/
+#backoff_table .like_date { width:15% } 
+#backoff_table .like_user { width:20% } 
+#backoff_table .like_service { width:10% } 
+#backoff_table .like_memo { width:15% } 
+#backoff_table .like_comp { width:20% } 
+
+#backoff_table .like_memo p { width:280px; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------좋아요 리스트------------------------------*/
+
+/*----------------------------유저 리스트------------------------------*/
+#backoff_table .user_no { width:5% } 
+#backoff_table .user_name { width:10% } 
+#backoff_table .user_id { width:20% } 
+#backoff_table .user_company { width:19% } 
+#backoff_table .user_coin { width:8% }
+#backoff_table .user_login { width:10% }
+#backoff_table .user_last { width:13% } 
+#backoff_table .user_pass { width:7% } 
+
+#backoff_table .like_memo p { width:280px; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------유저 리스트------------------------------*/
+
+/*----------------------------챌린지 리스트------------------------------*/
+#backoff_table .chall_regdate { width:15% } 
+#backoff_table .chall_title { width:20% } 
+#backoff_table .chall_comp { width:15% } 
+#backoff_table .chall_user { width:15% } 
+#backoff_table .chall_cnt { width:5% } 
+#backoff_table .chall_coin { width: 5px; } 
+#backoff_table .chall_date { width:7% } 
+
+#backoff_table .like_memo p { width:100%; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------챌린지 리스트------------------------------*/
+
+/*----------------------------에러 로그------------------------------*/
+#backoff_table .backoff_erridx { width:5% } 
+#backoff_table .backoff_query { width:48% } 
+#backoff_table .backoff_errkind { width:5% } 
+#backoff_table .backoff_errpage { width:15% } 
+#backoff_table .backoff_errhost { width:12% } 
+#backoff_table .backoff_errdate { width:15% } 
+
+#backoff_table .backoff_query p { width:100%; text-align:left; } 
+/*----------------------------에러 로그------------------------------*/
+
+/*----------------------------퇴근/소감------------------------------*/
+#backoff_table .backoff_commdate { width:12% } 
+#backoff_table .backoff_commname { width:28% } 
+#backoff_table .backoff_company { width:15% } 
+#backoff_table .backoff_part { width:15% } 
+#backoff_table .backoff_feel { width:10% } 
+#backoff_table .backoff_comment { width:20% } 
+
+#backoff_table .backoff_comment p { width:200px; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------퇴근/소감------------------------------*/
+
+/*----------------------------참여자 리스트--------------------------*/
+#backoff_table .backoff_time { width:12% } 
+#backoff_table .backoff_ctitle { width:20% } 
+#backoff_table .backoff_cuser { width:10% } 
+#backoff_table .backoff_cham_comp { width:15% } 
+#backoff_table .backoff_file { width:9% } 
+#backoff_table .backoff_givecoin { width:9% } 
+#backoff_table .backoff_cham_comment { width:25% } 
+
+#backoff_table .backoff_cham_comment p { width:300px; text-align:left; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------참여자 리스트--------------------------*/
+
+/*----------------------------오늘업무 리스트--------------------------*/
+#backoff_table .work_regdate { width:15% } 
+#backoff_table .work_user { width:15% } 
+#backoff_table .work_company { width:15% } 
+#backoff_table .work_content { width:20% } 
+#backoff_table .work_again { width:10% } 
+#backoff_table .work_date { width:10% } 
+#backoff_table .work_edit { width:10% } 
+
+#backoff_table .work_share,.work_request,.work_report { width:5% } 
+
+#backoff_table .work_content p { max-width:300px; text-align:left; white-space:pre-wrap; word-wrap:break-word; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------오늘업무 리스트--------------------------*/
+
+/*----------------------------역량 리스트--------------------------*/
+#backoff_table .cp_company { width:18% } 
+#backoff_table .cp_name { width:8% } 
+#backoff_table .cp_email { width:20% } 
+/* #backoff_table .cp_list { width:15% } */
+#backoff_table .cp_service { width:10% } 
+#backoff_table .cp_date { width:15% } 
+#backoff_table .cp_type { width:5% } 
+
+/*----------------------------역량 리스트--------------------------*/
+
+/*---------------------------페널티 리스트-------------------------*/
+#backoff_table .penalty_comp { width:18% } 
+#backoff_table .penalty_user { width:10% } 
+#backoff_table .penalty_email { width:20% } 
+#backoff_table .penalty { width:15% } 
+#backoff_table .penalty_count { width:15% } 
+#backoff_table .penalty_time { width:12% } 
+#backoff_table .penalty_state { width:10% } 
+/*---------------------------페널티 리스트-------------------------*/
+
+/*----------------------------출근기록------------------------------*/
+#backoff_table .backoff_inname { width:12% } 
+#backoff_table .backoff_inemail { width:22% } 
+#backoff_table .backoff_incomp { width:22% } 
+#backoff_table .backoff_part { width:17% } 
+#backoff_table .backoff_ip { width:15% } 
+/*----------------------------출근기록------------------------------*/
+
+/*----------------------------Data_log--------------------------*/
+#backoff_table .cp_No { width:5% } 
+#backoff_table .cp_workidx { width:10% } 
+#backoff_table .cp_email { width:15% } 
+#backoff_table .cp_code { width:10% } 
+#backoff_table .cp_logmemo { width:20% } 
+#backoff_table .cp_ip { width:10% } 
+#backoff_table .cp_logdate { width:15% } 
+#backoff_table .log_company { width:15% } 
+/*----------------------------Data_log--------------------------*/
+
+/*----------------------------alarm_list--------------------------*/
+#backoff_table .al_regdate { width:13% } 
+#backoff_table .al_service { width:10% } 
+#backoff_table .al_user { width:17% } 
+#backoff_table .al_title { width:20% } 
+#backoff_table .al_contents { width:25% } 
+#backoff_table .al_comp { width:15% } 
+
+#backoff_table .al_contents p { max-width:100%; max-height:65px; text-align:left; white-space:pre-wrap; word-wrap:break-word; text-overflow:ellipsis; overflow:hidden; } 
+/*----------------------------alarm_list--------------------------*/
+
+/*----------------------------브로슈어 공지사항--------------------------*/
+#backoff_table .note_no{width:5%}
+#backoff_table .note_date{width:20%}
+#backoff_table .note_state{width:15%}
+#backoff_table .note_user{width:10%}
+#backoff_table .note_title{width:40%}
+#backoff_table .note_delete{width:10%}
+
+.title_text{font-size:30px;}
+.title_list{text-align:left;}
+/*----------------------------브로슈어 공지사항--------------------------*/

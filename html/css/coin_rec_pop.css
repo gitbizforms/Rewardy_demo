@@ -1,0 +1,77 @@
+@charset "utf-8"; input, button, select, textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+button { cursor: pointer; } 
+
+.layer_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+.layer_pro_in { width: 460px; min-height: 429px; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 10px; z-index: 6000; overflow: hidden; } 
+
+.layer_close { position: absolute; top: 15px; right: 15px; z-index: 10; transition: all 0.3s; } 
+.layer_close button { width: 20px; height: 20px; background: url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.layer_top { text-align: center; padding: 30px 0 15px 0; margin: 0 30px; margin-bottom: 40px; border-bottom: 1px solid #f2f2f2; transition: all 0.3s; } 
+.layer_top strong { display: block; font-size: 18px; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.layer_area { margin-bottom: 20px; padding: 0 30px; } 
+
+.t_layer input, .t_layer button, .t_layer select, .t_layer textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_req input, .t_layer_req button, .t_layer_req select, .t_layer_req textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_date input, .t_layer_date button, .t_layer_date select, .t_layer_date textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_goal input, .t_layer_goal button, .t_layer_goal select, .t_layer_goal textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.todaywork_wrap button { cursor:pointer; outline:none; } 
+/* .rew_warp button { cursor:pointer; outline:none; border:none; background:none; } */
+.t_layer button { cursor:pointer; outline:none; } 
+
+.t_layer { /* height: 100%; position: relative; */ z-index: 6000 } 
+
+.tl_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+/* coin_rec_pop */
+.lay_rec { width: 520px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 10px; padding: 60px 40px 50px 40px; z-index: 9999; box-sizing: border-box; } 
+
+.lay_rec:after { content: ""; position: absolute; top: 30px; right: 40px; width: 100px; height: 29px; background: url(../images/pre/img_logo.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.lay_rec .rec_tit { } 
+.lay_rec .rec_tit h2 { font-size: 30px; font-weight: bold; letter-spacing: -0.05em; display: block; text-align: left; color: #353535; line-height: 30px; margin-bottom: 10px; } 
+
+.rec_input { } 
+.rec_input .rec_input_in { } 
+.rec_input .rec_coin { padding: 20px; background: #f6f7f9; border-radius: 10px; margin-top: 30px; } 
+.rec_input .rec_coin .coin_btn { display: flex; justify-content: space-between; margin-bottom: 15px; } 
+.rec_input .rec_coin .coin_btn button { font-size: 14px; letter-spacing: -1px; color: #858585; padding: 10px 12px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; margin-right: 5px; } 
+.rec_input .rec_coin .coin_btn button.coin_last { margin-right: 0; padding: 10px 18px; } 
+.rec_input .rec_coin .coin_btn button:active { font-size: 14px; letter-spacing: -1px; color: #fff; padding: 10px 12px; border: 1px solid #e5e5e5; border-radius: 10px; background: #38c9d2; margin-right: 5px;} 
+
+.rec_input .rec_coin input { width: 100%; height: 55px; font-size: 16px; color: #aaa; font-weight: 300; text-align: right; letter-spacing: -1px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; padding-right: 20px; } 
+
+.rec_input .rec_sec { margin-top: 20px; } 
+.rec_input .rec_sec p { font-size: 13px; color: #858585; margin-bottom: 15px; } 
+
+.rec_input .rec_total { position: relative; } 
+.rec_input .rec_total input { width: 100%; height: 55px; border: 1px solid #e5e5e5; border-radius: 10px; } 
+.rec_input .rec_total input::placeholder { font-size: 23px; font-weight: 700; color: #555; letter-spacing: -1px; text-align: right; padding-right: 35px; } 
+.rec_input .rec_total label { position: absolute; bottom: 17px; left: 20px; font-size: 15px; color: #555; letter-spacing: -1px; } 
+.rec_input .rec_total span { position: absolute; bottom: 17px; right: 20px; color: #555; } 
+
+.rec_input .rec_total.on input { border: 1px solid #38c9d2; padding: 0 20px; } 
+.rec_input .rec_total.on input::placeholder { font-size: 23px; font-weight: 700; color: #38c9d2; letter-spacing: -1px; text-align: right; padding-right: 15px; } 
+.rec_input .rec_total.on label { color: #38c9d2; } 
+.rec_input .rec_total.on span { color: #38c9d2; } 
+
+.rec_input .rec_pay { } 
+.rec_input .rec_pay .rec_pay_list { position: relative; } 
+.rec_input .rec_pay .rec_pay_list button { width: 100%; height: 55px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff;} 
+.rec_input .rec_pay .rec_pay_list button span { width: 100%; display: inline-block; font-size: 16px; color: #555; letter-spacing: -1px; line-height: 53px; text-align: left; padding-left: 20px; } 
+
+.rec_input .rec_pay .rec_pay_list ul { width: 100%; position: absolute; top: 0; display: none; font-size: 16px; color: #555; letter-spacing: -1px; line-height: 53px; text-align: left; border: 1px solid #454545; border-radius: 10px; background: #fff; } 
+.rec_input .rec_pay .rec_pay_list:hover ul { display: block; } 
+.rec_input .rec_pay .rec_pay_list ul li { border-bottom: 1px solid #e5e5e5; } 
+.rec_input .rec_pay .rec_pay_list ul li:first-child { border-radius: 10px 10px 0 0; } 
+.rec_input .rec_pay .rec_pay_list ul li:last-child { border-bottom: 0; border-radius: 0 0 10px 10px; } 
+.rec_input .rec_pay .rec_pay_list ul li:hover { color: #fff; background: #454545; } 
+.rec_input .rec_pay .rec_pay_list ul li span { padding-left: 20px; } 
+
+.rec_input .rec_pay > button { font-size: 15px; color: #858585; font-weight: 300; background: url(../images/replay_popup/check_off.png) no-repeat 0% 0%; padding-left: 30px; margin-top: 15px; } 
+.rec_input .rec_pay > button.on { background: url(../images/replay_popup/check_on.png) no-repeat 0% 0%; }
+
+.lay_rec .submit_btn { margin-top: 30px; } 
+.lay_rec .submit_btn button { width: 100%; height: 60px; font-size: 18px; font-weight: bold; line-height: 60px; letter-spacing: -0.05em; color: #fff; vertical-align: top; background: #38c9d2; border: 0; border-radius: 10px; } 

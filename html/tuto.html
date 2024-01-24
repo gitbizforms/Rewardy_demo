@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/tuto.css">
+</head>
+<body>
+  <div class="tuto_link">
+		<div class="tuto_link_in">
+			<button class="btn_tuto_link_close">닫기</button>
+			<a href="#" class="tuto_link_area">
+				<p>튜토리얼을 시작하고, <br />코인으로 보상도 받아 가세요!</p>
+			</a>
+		</div>
+	</div>
+  <div class="tuto_start">
+		<div class="tuto_deam"></div>
+		<div class="tuto_start_in">
+			<div class="tuto_start_tit">
+				<img src="images/pre/img_tuto_tit.png" alt="시작해야 돈이 된다. 누군가는 쌓고 있다." />
+				<p>튜토리얼을 시작하고 보상받자<em>!</em></p>
+			</div>
+			<div class="tuto_start_btn">
+				<button><span>튜토리얼 시작하기</span></button>
+			</div>
+		</div>
+	</div>
+  <div class="tuto_end">
+		<div class="tuto_deam"></div>
+		<div class="tuto_end_in">
+			<div class="tuto_end_tit">
+				<img src="images/pre/img_tuto_tit_02.png" alt="성과가 보인다면 보상은 당연한 것!" />
+				<p>보상 500코인이 지급되었습니다.</p>
+			</div>
+			<div class="tuto_end_coin">
+				<strong>500</strong>
+			</div>
+			<div class="tuto_end_btn">
+				<button><span>리워디 시작하기</span></button>
+			</div>
+		</div>
+	</div>
+	<div class="tuto_phase">
+		<div class="tuto_phase_deam"></div>
+		<div class="tuto_phase_in">
+			<div class="tuto_phase_tit">
+				<strong>튜토리얼로 보상받기</strong>
+				<span>단계별 튜토리얼을 진행하고 코인으로 보상 받아가세요!</span>
+			</div>
+			<div class="tuto_phase_list">
+				<div class="tuto_phase_box phase_01 tuto_clear">
+					<p>1</p>
+					<button>
+						<dl>
+							<dt>오늘업무</dt>
+							<dd>
+								<span>역량</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+				<div class="tuto_phase_box phase_02 tuto_on">
+					<p>2</p>
+					<button>
+						<dl>
+							<dt>좋아요</dt>
+							<dd>
+								<span>역량</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+				<div class="tuto_phase_box phase_03">
+					<p>3</p>
+					<button>
+						<dl>
+							<dt>코인 보상</dt>
+							<dd>
+								<span>좋아요</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+				<div class="tuto_phase_box phase_06">
+					<p>6</p>
+					<button>
+						<dl>
+							<dt>메인</dt>
+							<dd>
+								<span>좋아요</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+				<div class="tuto_phase_box phase_05">
+					<p>5</p>
+					<button>
+						<dl>
+							<dt>챌린지 도전</dt>
+							<dd>
+								<span>역량</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+				<div class="tuto_phase_box phase_04">
+					<p>4</p>
+					<button>
+						<dl>
+							<dt>파티 체험</dt>
+							<dd>
+								<span>역량</span>
+								<strong>1</strong>
+							</dd>
+							<dd>
+								<span>코인</span>
+								<strong>100</strong>
+							</dd>
+						</dl>
+						<em>도전하기</em>
+					</button>
+				</div>
+			</div>
+			<div class="tuto_phase_pause">
+				<button>저장하고 끝내기</button>
+			</div>
+		</div>
+	</div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+  
+      $(".rew_mypage_08").click(function (e) {
+        if (!$(e.target).is(".rew_mypage_08 *")) {
+          $(".rew_box").removeClass("on");
+          $(".rew_menu_onoff button").removeClass("on");
+        }
+      });
+  
+      $(".tdw_write_btns ul").slick({
+        slidesToShow: 6,
+        slidesToScroll: 4,
+        arrows: true,
+        infinite: false,
+        speed: 500,
+        autoplay: false,
+        dots:false
+      });
+  
+      //$(".layer_user_slc_list_in").touchFlow({
+        //axis : "x"
+      //});
+  
+      $(".layer_user_slc_list_in ul").mousewheel(function(event, delta) {
+        this.scrollLeft -= (delta * 30);
+        event.preventDefault();
+      });
+  
+      $(".tdw_list ul").sortable({
+        axis: "y",
+              opacity: 0.7,
+        zIndex: 9999,
+        handle: ".tdw_list_drag",
+        //placeholder:"sort_empty",
+        cursor: "move"
+      });
+      //$(".tdw_list ul").disableSelection();
+  
+      
+      $(".rew_grid_onoff_in .btn_switch").click(function(){
+        var switchon = $(this);
+        if(switchon.hasClass("on")){
+          $(this).removeClass("on");
+          $(this).prev("em").removeClass("on");
+        }else{
+          $(".btn_switch").not($(this)).removeClass("on");
+          $(".btn_switch").not($(this)).prev("em").removeClass("on");
+          $(this).addClass("on");
+          $(this).prev("em").addClass("on");
+        }
+      });
+  
+      $(".rew_conts_list_in ul li button").click(function(){
+        $(this).parent("li").toggleClass("on");
+      });
+  
+      $(".rew_btn_icons_more").click(function(){
+        $(".rew_icons").toggle();
+      });
+  
+      $(".rew_mypage_tab_04 a").click(function(){
+        $(".rew_mypage_tab_04 li").removeClass("on");
+        $(this).parent("li").addClass("on");
+      });
+  
+  
+      setTimeout(function(){
+        $(".rew_box").addClass("on");
+        $(".rew_menu_onoff button").addClass("on");
+  
+        var bar_t = $(".rew_mypage_section .live_list_today_bar strong").text();
+        var bar_b = $(".rew_mypage_section .live_list_today_bar span").text();
+        var bar_w = bar_t/bar_b*100;
+        $(".rew_mypage_section .live_list_today_bar strong").css({width:bar_w+"%"});
+  
+      },400);
+  
+      setTimeout(function(){
+        $(".tabs_on").addClass("now_01");
+      },1100);
+  
+      $(".btn_next_step_02").click(function(){
+        $(".rew_cha_step_01").addClass("step_z");
+        $(".rew_cha_step_02").addClass("step_z");
+        $(".rew_cha_step_03").removeClass("step_z");
+        $(".rew_cha_step_01").animate({"left":-100+"%"},700);
+        $(".rew_cha_step_02").animate({"left":0+"%"},700);
+        $(".rew_cha_step_03").animate({"left":100+"%"},700);
+        
+        setTimeout(function(){
+          $(".rew_cha_step_01").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_02").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_03").animate({scrollTop :0}, 0);
+        },200);
+  
+        setTimeout(function(){
+          $(".tabs_on").addClass("now_02");
+        },1100);
+      });
+      $(".btn_prev_step_01").click(function(){
+        $(".rew_cha_step_01").addClass("step_z");
+        $(".rew_cha_step_02").addClass("step_z");
+        $(".rew_cha_step_03").removeClass("step_z");
+        $(".rew_cha_step_01").animate({"left":0+"%"},700);
+        $(".rew_cha_step_02").animate({"left":100+"%"},700);
+        $(".rew_cha_step_03").animate({"left":-100+"%"},700);
+        
+        setTimeout(function(){
+          $(".rew_cha_step_01").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_02").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_03").animate({scrollTop :0}, 0);
+        },200);
+        
+        setTimeout(function(){
+          $(".tabs_on").removeClass("now_02");
+        },1100);
+      });
+      $(".btn_next_step_03").click(function(){
+        $(".rew_cha_step_01").removeClass("step_z");
+        $(".rew_cha_step_02").addClass("step_z");
+        $(".rew_cha_step_03").addClass("step_z");
+        $(".rew_cha_step_01").animate({"left":100+"%"},700);
+        $(".rew_cha_step_02").animate({"left":-100+"%"},700);
+        $(".rew_cha_step_03").animate({"left":0+"%"},700);
+        
+        setTimeout(function(){
+          $(".rew_cha_step_01").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_02").animate({scrollTop :0}, 0);
+          $(".rew_cha_step_03").animate({scrollTop :0}, 0);
+        },200);
+        
+        setTimeout(function(){
+          $(".tabs_on").addClass("now_03");
+        },1100);
+      });
+    
+  
+      $(".sl_slc .btn_sort_on").click(function(){
+        $(".sl_slc").addClass("on");
+      });
+      $(".sl_slc").mouseleave(function(){
+        $(".sl_slc").removeClass("on");
+      });
+      $(".sl_slc ul li button").click(function(){
+        $(".sl_slc").removeClass("on");
+      });
+      $(".btn_tdw_search").click(function(){
+        $(".search_layer").show();
+      });
+      $(".sl_close button").click(function(){
+        $(".search_layer").hide();
+      });
+  
+      $(".party_link_layer .ldl_chk button").click(function(){
+        $(this).closest(".ldl_box").toggleClass("on");
+      });
+      $(".pll_close button").click(function(){
+        $(".party_link_layer").hide();
+      });
+      $(".tdw_list_party_link").click(function(){
+        $(".party_link_layer").show();
+      });
+  
+      $(".rew_menu_onoff button").click(function(){
+        var thisonoff = $(this);
+        if(thisonoff.hasClass("on")){
+          thisonoff.removeClass("on");
+          $(".rew_box").removeClass("on");
+  
+        }else{
+          thisonoff.addClass("on");
+          $(".rew_box").addClass("on");
+  
+        }
+      });
+  
+  
+      $(".rew_conts_scroll_08").scroll(function(){
+        var tbt = $(".rew_todaywork").offset().top;
+        if(tbt < 140){
+          $(".tdw_date").addClass("pos_fix");
+        }else{
+          $(".tdw_date").removeClass("pos_fix");
+        }
+  
+      });
+      $(".list_area").scroll(function(){
+        var rct = $(".list_area_in").position().top;
+        if(rct<60){
+          $(".layer_result_right").addClass("pos_fix");
+        }else{
+          $(".layer_result_right").removeClass("pos_fix");
+        }
+      });
+  
+      $(".layer_report .report_area").scroll(function(){
+        var rct = $(".layer_report .report_area_in").position().top;
+        if(rct<60){
+          $(".layer_report .layer_result_right").addClass("pos_fix");
+        }else{
+          $(".layer_report .layer_result_right").removeClass("pos_fix");
+        }
+      });
+  
+      $(".layer_challenge .report_area").scroll(function(){
+        var rat = $(".layer_challenge .report_area_in").position().top;
+        if(rat<50){
+          $(".layer_challenge .layer_result_right").addClass("pos_fix");
+        }else{
+          $(".layer_challenge .layer_result_right").removeClass("pos_fix");
+        }
+      });
+  
+  
+      $("#go_view_01").click(function(){
+        var offset1 = $(".rew_conts_scroll_06").offset();
+        $(".rew_conts_scroll_06").animate({scrollTop : 0}, 400+(offset1.top/2));
+      });
+      var offset2 = $(".rew_cha_view_result").position();
+      $("#go_view_02").click(function(){
+        var offset1 = $(".rew_conts_scroll_06").offset();
+        var offset_sum = Math.abs(offset1.top - offset2.top);
+        setTimeout(function(){
+          $(".rew_conts_scroll_06").animate({scrollTop : offset2.top - 155}, offset_sum/4+200);
+        },100);
+      });
+      var offset3 = $(".rew_cha_view_masage").position();
+      $("#go_view_03").click(function(){
+        var offset1 = $(".rew_conts_scroll_06").offset();
+        //console.log(offset2.top);
+        var offset_sum = Math.abs(offset1.top - offset3.top);
+        setTimeout(function(){
+          $(".rew_conts_scroll_06").animate({scrollTop : offset3.top - 155}, offset_sum/4+200);
+        },100);
+      });
+  
+  
+      $(".conts_tab ul li button").click(function(){
+        var drM_li = $(this).parent("li").index();
+  
+        var offt = $(".conts_main > div:eq("+drM_li+")").offset();
+        var tabt = $(".conts_tab").offset();
+        var matht = Math.abs(tabt.top - offt.top);
+        $("html, body").animate({scrollTop:offt.top-101},matht/8+200);
+  
+        return false;
+      });
+  
+      $(".layer_user_info dt .btn_team_toggle").click(function(){
+        $(this).parent().parent("dl").toggleClass("on");
+      });
+      $(".layer_user_info dt .btn_team_slc").click(function(){
+        if($(this).hasClass("on")){
+          $(this).removeClass("on");
+          $(this).parent().parent("dl").find("dd button").removeClass("on");
+        }else{
+          $(this).addClass("on");
+          $(this).parent().parent("dl").find("dd button").addClass("on");
+        }
+      });
+      $(".layer_user_info dd button").click(function(){
+        $(this).toggleClass("on");
+        if($(".layer_user_info dd button").hasClass("on")){
+          $(".layer_user_submit").addClass("on");
+        }else{
+          $(".layer_user_submit").removeClass("on");
+        }
+      });
+  
+      $(".layer_test_01").click(function(){
+        $("#layer_test_02").hide();
+        $("#layer_test_03").hide();
+        $("#layer_test_01").show();
+        $(".layer_user_info dl").addClass("on");
+        $(".layer_user_info dd button").removeClass("on");
+        $(".layer_user_submit").removeClass("on");
+        $(".layer_user_info").animate({scrollTop :0}, 0);
+      });
+      $(".layer_test_02").click(function(){
+        $("#layer_test_01").hide();
+        $("#layer_test_03").hide();
+        $("#layer_test_02").show();
+        $(".layer_user_info dl").addClass("on");
+        $(".layer_user_info dd button").removeClass("on");
+        $(".layer_user_submit").removeClass("on");
+        $(".layer_user_info").animate({scrollTop :0}, 0);
+      });
+      $(".layer_test_03").click(function(){
+        $("#layer_test_01").hide();
+        $("#layer_test_02").hide();
+        $("#layer_test_03").show();
+        $(".layer_user_info dl").addClass("on");
+        $(".layer_user_info dd button").removeClass("on");
+        $(".layer_user_submit").removeClass("on");
+        $(".layer_user_info").animate({scrollTop :0}, 0);
+      });
+      $(".layer_user_cancel").click(function(){
+        $(".layer_user").hide();
+      });
+      $(".layer_user_submit").click(function(){
+        if($(this).hasClass("on")){
+          $(".layer_user").hide();
+        }
+      });
+      $("#open_layer_user").click(function(){
+        $(".layer_user").show();
+        $("#layer_test_02").hide();
+        $("#layer_test_03").hide();
+        $("#layer_test_01").show();
+        $(".layer_user_info dl").addClass("on");
+        $(".layer_user_info dd button").removeClass("on");
+        $(".layer_user_submit").removeClass("on");
+        $(".layer_user_info").animate({scrollTop :0}, 0);
+      });
+  
+      $(".list_function_type .type_list").click(function(){
+        $(".list_function_type button").removeClass("on");
+        $(this).addClass("on");
+        $(".list_box .list_conts").removeClass("type_img");
+        $(".list_box .list_conts").removeClass("type_on");
+        $(".list_box .list_conts").addClass("type_list");
+        $(".list_box .list_conts").addClass("type_on");
+      });
+      $(".list_function_type .type_img").click(function(){
+        $(".list_function_type button").removeClass("on");
+        $(this).addClass("on");
+        $(".list_box .list_conts").removeClass("type_list");
+        $(".list_box .list_conts").removeClass("type_on");
+        $(".list_box .list_conts").addClass("type_img");
+        $(".list_box .list_conts").addClass("type_on");
+      });
+  
+      $(".list_conts .list_ul li button").click(function(){
+        $(this).toggleClass("on");
+      });
+      $(".rew_cha_view_result .title_area .title_more").click(function(){
+        $(".layer_result").show();
+      });
+      $(".rew_cha_view_result li button").click(function(){
+        $(".layer_result").show();
+      });
+      $(".rew_cha_view_header .view_user li button").click(function(){
+        $(".layer_result").show();
+      });
+      $(".layer_result .layer_close button").click(function(){
+        $(".layer_result").hide();
+      });
+      $(".layer_result_user li button").click(function(){
+        $(".layer_result_user li button").removeClass("on");
+        $(this).addClass("on");
+      });
+  
+      $(".rew_cha_view_masage .title_area .title_more").click(function(){
+        $(".layer_masage").show();
+      });
+      $(".masage_zone").click(function(){
+        $(".layer_masage").show();
+      });
+      $(".masage_area_in").click(function(){
+        $(this).toggleClass("on");
+      });
+      $(".layer_masage .layer_close button").click(function(){
+        $(".layer_masage").hide();
+      });
+  
+      $(".layer_report .layer_close button").click(function(){
+        $(".layer_report").hide();
+      });
+  
+      $(".layer_challenge .layer_close button").click(function(){
+        $(".layer_challenge").hide();
+        $(".layer_challenge .report_cha .rew_cha_list_ul li").removeClass("sli");
+      });
+  
+      $(".join_type_file .btns_cha_cancel").click(function(){
+        $(".join_type_file").hide();
+      });
+      $(".join_type_masage .btns_cha_cancel").click(function(){
+        $(".join_type_masage").hide();
+      });
+      $(".join_type_mix .btns_cha_cancel").click(function(){
+        $(".join_type_mix").hide();
+      });
+      $(".btn_join_ok").click(function(){
+        $(".layer_cha_join").show();
+      });
+  
+  
+      $(".btn_eval").click(function(){
+        $(".layer_report").show();
+      });
+      $(".live_list_cha_tit, .live_list_cha_count").click(function(){
+        $(".layer_challenge .report_cha .rew_cha_list_ul li").removeClass("sli");
+        $(".layer_challenge").show();
+        $(".layer_challenge .report_cha .rew_cha_list_ul li").each(function(){
+          var tis = $(this);
+          var tindex = $(this).index();
+          setTimeout(function(){
+            tis.addClass("sli");
+          },600+tindex*200);
+        });
+      });
+  
+      $(".live_list .live_list_box").each(function(){
+        var tis = $(this);
+        var tindex = $(this).index();
+        var bar_t = tis.find(".live_list_today_bar strong").text();
+        var bar_b = tis.find(".live_list_today_bar span").text();
+        var bar_w = bar_t/bar_b*100;
+        setTimeout(function(){
+          tis.addClass("sli");
+          tis.find(".live_list_today_bar strong").css({width:bar_w+"%"});
+        },600+tindex*200);
+      });
+  
+  
+      $(".live_user_state li .live_user_state_circle").mouseenter(function(){
+        $(".layer_state").removeClass("on");
+        $(this).next(".layer_state").addClass("on");
+        $(".live_list_box").removeClass("zindex");
+        $(this).closest(".live_list_box").addClass("zindex");
+      });
+      $(".live_user_state li .live_user_state_circle").mouseleave(function(){
+        $(".layer_state").removeClass("on");
+        $(".live_list_box").removeClass("zindex");
+      });
+  
+      $(".layer_report").hide();
+  
+      $("#write_tab_01").click(function(){
+        $(".tdw_write_tab_in button").removeClass("on");
+        $(this).addClass("on");
+        $(".input_write").attr("placeholder", "업무를 입력해 주세요.");
+        //$(".input_write").val("");
+        $(".tdw_write_btns button").removeClass("on");
+        $(".tdw_write_req").hide();
+        $(".tdw_write_report").hide();
+        $(".tdw_write_text_report").hide();
+        $(".tdw_write_user_desc").hide();
+        $(".tdw_write_date").show();
+        $(".tdw_write_text").show();
+        $(".tdw_write_btns").addClass("on");
+      });
+      $("#write_tab_02").click(function(){
+        $(".tdw_write_tab_in button").removeClass("on");
+        $(this).addClass("on");
+        $(".input_write").attr("placeholder", "업무를 입력해 주세요.");
+        //$(".input_write").val("");
+        $(".tdw_write_btns").removeClass("on");
+        $(".tdw_write_report").hide();
+        $(".tdw_write_text_report").hide();
+        $(".tdw_write_date").show();
+        $(".tdw_write_req").show();
+        $(".tdw_write_text").show();
+        $(".tdw_write_user_desc").show();
+      });
+  
+      $("#write_tab_03").click(function(){
+        $(".tdw_write_tab_in button").removeClass("on");
+        $(this).addClass("on");
+        $(".input_write").attr("placeholder", "보고할 내용을 작성해 주세요.");
+        //$(".input_write").val("");
+        $(".tdw_write_btns").removeClass("on");
+        $(".tdw_write_date").hide();
+        $(".tdw_write_text").hide();
+        $(".tdw_write_req").show();
+        $(".tdw_write_report").show();
+        $(".tdw_write_text_report").show();
+        $(".tdw_write_user_desc").show();
+      });
+  
+      $("#write_tab_04").click(function(){
+        $(".tdw_write_tab_in button").removeClass("on");
+        $(this).addClass("on");
+        $(".input_write").attr("placeholder", "업무를 입력해 주세요.");
+        //$(".input_write").val("");
+        $(".tdw_write_btns").removeClass("on");
+        $(".tdw_write_report").hide();
+        $(".tdw_write_text_report").hide();
+        $(".tdw_write_date").show();
+        $(".tdw_write_req").show();
+        $(".tdw_write_text").show();
+        $(".tdw_write_user_desc").show();
+      });
+  
+      $(".tdw_date_select .select_dd").click(function(){
+        $(".tdw_date_select button").removeClass("on");
+        $(this).addClass("on");
+        $(".tdw_list_dd").show();
+        $(".tdw_list_ww").hide();
+        $(".tdw_list_mm").hide();
+      });
+      $(".tdw_date_select .select_ww").click(function(){
+        $(".tdw_date_select button").removeClass("on");
+        $(this).addClass("on");
+        $(".tdw_list_dd").hide();
+        $(".tdw_list_ww").show();
+        $(".tdw_list_mm").hide();
+      });
+      $(".tdw_date_select .select_mm").click(function(){
+        $(".tdw_date_select button").removeClass("on");
+        $(this).addClass("on");
+        $(".tdw_list_dd").hide();
+        $(".tdw_list_ww").hide();
+        $(".tdw_list_mm").show();
+      });
+  
+      $(".btn_tdw_list_chk").click(function(){
+        $(this).closest(".tdw_list_box").toggleClass("on");
+      });
+      $(".tdw_list_desc p").click(function(){
+        $(this).closest(".tdw_list_desc").children(".tdw_list_regi").show();
+      });
+      $(".tdw_list .tdw_list_desc .tdw_list_regi button").click(function(){
+        $(this).closest(".tdw_list_regi").hide();
+      });
+  
+      $(".tdw_write_btns li button").click(function(){
+        var tdw_write_btns = $(this);
+        if(tdw_write_btns.hasClass("on")){
+          $(".tdw_write_btns li button").removeClass("on");
+        }else{
+          $(".tdw_write_btns li button").removeClass("on");
+          $(this).addClass("on");
+        }
+      });
+  
+      $(".btn_req").click(function(){
+        $(".layer_user").show();
+        $("#layer_test_02").hide();
+        $("#layer_test_03").hide();
+        $("#layer_test_01").show();
+        $(".layer_user_info dl").addClass("on");
+        $(".layer_user_info dd button").removeClass("on");
+        $(".layer_user_submit").removeClass("on");
+        $(".layer_user_info").animate({scrollTop :0}, 0);
+      });
+  
+  
+  
+      $(".tdw_list .btn_regi_cancel").click(function(){
+        $(this).closest(".tdw_list_memo_regi").hide();
+      });
+      $(".tdw_list .tdw_list_memo_conts_txt strong").click(function(){
+        $(this).next(".tdw_list_memo_regi").show();
+        var memo_width = $(this).parent(".tdw_list_memo_conts_txt").width();
+        $(this).next(".tdw_list_memo_regi").css({"width":memo_width+199});
+      });
+      $(".tdw_list .btn_memo_del").click(function(){
+        $(this).closest(".tdw_list_memo_desc").remove();
+      });
+      $(".tdw_list .tdw_list_memo").click(function(){
+        $(".layer_memo").show();
+      });
+      $(".layer_memo_cancel").click(function(){
+        $(".layer_memo").hide();
+      });
+      $(".layer_memo_submit").click(function(){
+        $(".layer_memo").hide();
+        $(".tdw_list_memo").addClass("on");
+      });
+  
+      $(".tdw_list .tdw_list_repeat").click(function(){
+        $(this).next(".tdw_list_repeat_list").show();
+      });
+      $(".tdw_list .tdw_list_repeat_list button").click(function(){
+        var this_text = $(this).text();
+        $(this).closest(".tdw_list_repeat_box").addClass("on");
+        $(this).closest(".tdw_list_repeat_box").find(".tdw_list_repeat").text(this_text);
+        $(".tdw_list_repeat_list").hide();
+      });
+      $(".tdw_list .tdw_list_repeat_box").mouseleave(function(){
+        $(".tdw_list_repeat_list").hide();
+      });
+  
+      $("#loginbtn").click(function(){
+        $(".rew_layer_login").hide();
+        $(".layer_work").show();
+      });
+      $(".lw_off").click(function(){
+        $(this).closest(".layer_work").hide();
+      });
+      $(".l100_off").click(function(){
+        $(this).closest(".layer_100c").hide();
+      });
+      $(".tdw_list .tdw_list_100c").click(function(){
+        $(".layer_100c").show();
+      });
+      $(".layer_100c_more .l100_btn .l100_on").click(function(){
+        $(this).closest(".layer_100c").hide();
+        $(".type_coin").show();
+      });
+  
+  
+      //0921 보고 열기/접기
+      $(".tdw_list_report_area").each(function(){
+        var rath = $(this);
+        var rathle = rath.next(".tdw_list_memo_area").children().length;
+        if(rathle>0){
+          rath.find(".btn_list_report_onoff").addClass("memo_on");
+        }else{
+          rath.find(".btn_list_report_onoff").removeClass("memo_on");
+        }
+      });
+      $(".btn_list_report_onoff").click(function(){
+        $(this).parent().prev(".tdw_list_report_area_in").toggleClass("off");
+        $(this).toggleClass("off");
+      });
+  
+      //0831 메모 열기/접기
+      $(".btn_list_memo_onoff").click(function(){
+        $(this).parent().prev(".tdw_list_memo_area_in").toggleClass("off");
+        $(this).toggleClass("off");
+      });
+      
+      //0901 메모 열기/접기 보여지는 기준 : 메모 영역 높이기준이라 메모 삭제 시 다시 계산 필요
+      setTimeout(function(){
+        $(".tdw_list_memo_area_in").each(function(){
+          var maih = $(this);
+          if(maih.height()>110){
+            maih.next($(".tdw_list_memo_onoff")).show();
+          }
+        });
+      },400);
+  
+      //0901 임시 팝업
+      $(".tdw_write_btn").click(function(){
+        $(".rew_popup").show();
+        setTimeout(function(){
+          $(".rew_popup").hide();
+        },4700);
+      });
+  
+  
+    });
+  
+    
+  </script>
+</body>
+</html>

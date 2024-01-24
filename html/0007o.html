@@ -1,0 +1,4127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<link rel="shortcut icon" href="images/pre/1616.ico" type="image/x-icon">
+
+<!-- <link rel="icon" href="파일위치1.png" type="image/png" sizes="파일해상도1">
+<link rel="icon" href="파일위치2.png" type="image/png" sizes="파일해상도2">
+<link rel="icon" href="파일위치3.png" type="image/png" sizes="파일해상도3"> -->
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="images/pre/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/Sortable.min.js"></script>
+<script src="./js/spectrum.js"></script>
+<link rel="stylesheet" type="text/css" href="./js/spectrum.css" />
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	function ltb(){
+		if($(".lt_bottom button").hasClass("btn_on")){
+			var ltb_t;
+			ltb_t = confirm("파티를 생성하시겠습니까?");
+			if(ltb_t == true){
+				var me_img = $(".ldr_me .ldr_user_img .ldr_user_img_in").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+				var lt_img = $(".lt_ul_01 .ll_li .ll_img_user").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+				var me_user = $(".ldr_me .ldr_user_desc .ldr_user_name").text();
+				var lt_user = $(".lt_ul_01 .ll_li .ll_name_user").text();
+				var me_team = $(".ldr_me .ldr_user_desc .ldr_user_team").text();
+				var lt_team = $(".lt_ul_01 .ll_li .ll_name_team").text();
+				var lt_text = $(".textarea_lt").val();
+				var ldl_length = Math.abs($(".rew_mypage_section_title em").text())+1;
+				$(".rew_mypage_section_title em").text(ldl_length);
+				$("#layer_team").hide();
+
+				$(".ldl_in").append('<div class="ldl_box"><div class="ldl_box_in"><button class="ldl_box_close">닫기</button><div class="ldl_box_tit">'+lt_text+'</div><div class="ldl_box_user"><ul><li><div class="ldl_box_img" style="background-image:url('+me_img+')"></div><div class="ldl_box_user"><strong>'+me_user+'</strong><span>'+me_team+'</span></div></li><li><div class="ldl_box_img" style="background-image:url('+lt_img+')"></div><div class="ldl_box_user"><strong>'+lt_user+'</strong><span>'+lt_team+'</span></div></li></ul></div></div></div>');
+			}
+		}
+	}
+	$(document).ready(function(){
+
+		var jg_all = $(".jg_user_heart_all").text();
+		var jg_h = $(".jg_graph_area_in").height();
+		$(".jg_graph_list li").each(function(){
+			var jg_txt = $(this).find("span").text();
+			var jg_height = jg_txt/jg_all*jg_h*0.8;
+			$(this).find("strong").css({"height":jg_height});
+		});
+
+		$(".ldr_jjim_num").click(function(){
+			$("#jjim_graph").show();
+		});
+		$(".jg_icon_list li button").click(function(){
+			$("#jjim_graph").hide();
+			$("#jjim_table").show();
+		});
+		$(".jt_top button").click(function(){
+			$("#jjim_table").hide();
+			$("#jjim_graph").show();
+		});
+		$(".jt_close").click(function(){
+			$("#jjim_table").hide();
+		});
+
+		$(".jg_close").click(function(){
+			$("#jjim_graph").hide();
+		});
+
+		var ff_class = "";
+		var jf_text = "";
+
+		$(".jf_area button").click(function(){
+			jf_class = $(this).attr("class");
+			if($(this).attr("class") == "btn_jf_01"){jf_text="성과를 인정합니다!";}
+			if($(this).attr("class") == "btn_jf_02"){jf_text="열렬히 응원합니다!";}
+			if($(this).attr("class") == "btn_jf_03"){jf_text="잘해서 칭찬합니다!";}
+			if($(this).attr("class") == "btn_jf_04"){jf_text="힘내라고 격려합니다!";}
+			if($(this).attr("class") == "btn_jf_05"){jf_text="좋은일에 축하합니다!";}
+			if($(this).attr("class") == "btn_jf_06"){jf_text="도움에 감사합니다!";}
+			if($(this).attr("class") == "btn_jf_07"){jf_text="무난한";}
+			if($(this).attr("class") == "btn_jf_08"){jf_text="지친";}
+			if($(this).attr("class") == "btn_jf_09"){jf_text="속상한";}
+			$(".jf_area button").not(this).removeClass("on");
+			$(this).addClass("on");
+			$(".jf_bottom button").removeClass("btn_off").addClass("btn_on");
+		});
+		$(".jf_close button").click(function(){
+			$(".jjim_first").hide();
+			$(".jf_area button").removeClass("on");
+			$(".jf_bottom button").removeClass("btn_on").addClass("btn_off");
+		});
+
+		$(".jf_bottom button").click(function(){
+			if($(this).hasClass("btn_on")){
+				$(".jjim_first").hide();
+				$(".jf_area button").removeClass("on");
+				$(".jf_bottom button").removeClass("btn_on").addClass("btn_off");
+				$(".jjim_layer").show();
+				$(".jl_area .jl_desc").removeClass().addClass("jl_desc");
+				$(".jl_area .jl_desc").addClass(jf_class);
+				$(".jl_area .jl_desc p").text(jf_text);
+				$(".jl_area .input_jl").val(jf_text);
+			}else{
+
+			}
+		});
+
+		$(".jl_bottom button").click(function(){
+			$(".jjim_layer").hide();
+
+		});
+		$(".jl_close button").click(function(){
+			$(".jjim_layer").hide();
+		});
+
+
+
+		$(".ldr_li:not(.ldr_me) .jjim_only").click(function(){
+			$(".jjim_first").show();
+		});
+		$(".ldr_li:not(.ldr_me) .ldr_popup button").click(function(){
+			$(".jjim_first").show();
+		});
+
+		
+		setTimeout(function(){
+			$(".circle_01").circleProgress({
+				startAngle: -Math.PI / 4 * 2,
+				value: 0.7,
+				thickness : 2,
+				size:64,
+				emptyFill :'#ffffff',
+				lineCap: 'round',
+				fill: {color: '#3ac73b'},
+				animation: {
+				  duration: 1200
+				}
+			});
+		},1400);
+		
+
+		$(".ldr_menu").mouseenter(function(){
+			$(this).closest(".ldr_li").find(".ldr_popup").show();
+		});
+		$(".ldr_popup").mouseleave(function(){
+			$(this).hide();
+		});
+
+
+		$(".ldr_today").mouseenter(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_today").show();
+		});
+		$(".ldr_today").mouseleave(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_today").hide();
+		});
+		$(".ldr_chall").mouseenter(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_chall").show();
+		});
+		$(".ldr_chall").mouseleave(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_chall").hide();
+		});
+		$(".ldr_jjim").mouseenter(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_jjim").show();
+		});
+		$(".ldr_jjim").mouseleave(function(){
+			$(this).closest(".ldr_li").find(".layer_ldr_jjim").hide();
+		});
+
+
+		$(".ldl_in").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move"
+		});
+
+		var me_clone = $("#ldr .ldr_me").clone();
+		$("#ldr .ldr_me").draggable({
+			//refreshPositions: true,
+			//connectToSortable:"#ldl",
+			//revert:true,
+			//revert: "invalid",
+			//containment: "document",
+			helper: "clone"
+		});
+
+
+		$("#ldr .ldr_li:not(.ldr_me)").droppable({
+		//$("#ldl3").droppable({
+			accept:"#ldr .ldr_me",
+			classes: {
+				"ui-droppable-active": "ldr_active",
+				"ui-droppable-hover": "ldr_hover"
+			},
+			drop:function(event, ui) {
+				//$(this).append($("ui.draggable").clone());
+				$(".lt_ul_02 .textarea_lt").val("");
+				var ldr_img = $(this).find(".ldr_user_imgs").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+				var ldr_name = $(this).find(".ldr_user_name").text();
+				var ldr_team = $(this).find(".ldr_user_team").text();
+				$(".lt_ul_01 .ll_li .ll_name_team").text(ldr_team);
+				$(".lt_ul_01 .ll_li .ll_name_user").text(ldr_name);
+				$(".ll_li .ll_img_user").css("background-image", "url(" + ldr_img + ")");
+				$("#layer_team").show();
+			}
+		});
+
+		$(".ldl_box").droppable({
+			accept:"#ldr .ldr_me",
+			classes: {
+				"ui-droppable-active": "ldl_active",
+				"ui-droppable-hover": "ldl_hover"
+			},
+			drop:function(event, ui) {
+				var ldl_tit = $(this).find(".ldl_box_tit").text();
+				$(".lp_in .lp_tit").text(ldl_tit);
+				var me_img = $(".ldr_me .ldr_user_img .ldr_user_imgs").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+				var me_user = $(".ldr_me .ldr_user_desc .ldr_user_name").text();
+				var me_team = $(".ldr_me .ldr_user_desc .ldr_user_team").text();
+				$(this).find(".ldl_box_user ul").append('<li class="ldl_box_me"><div class="ldl_box_img" style="background-image:url('+me_img+')"></div><div class="ldl_box_user"><strong>'+me_user+'</strong><span>'+me_team+'</span></div></li>');
+				$("#layer_plus").show();
+			}
+		});
+
+		$(".lp_bottom button").click(function(){
+			if($(this).hasClass("btn_on")){
+				var me_img = $(".ldr_me .ldr_user_img .ldr_user_imgs").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+				var me_user = $(".ldr_me .ldr_user_desc .ldr_user_name").text();
+				var me_team = $(".ldr_me .ldr_user_desc .ldr_user_team").text();
+				$("#layer_plus").hide();
+				$(".ldl_box_me").css("display","inline-block");
+				$(".ldl_box_user ul li").removeClass(".ldl_box_me");
+			}
+		});
+
+		$(".lt_bottom button").click(function(){
+			if($(this).hasClass("btn_on")){
+				var ltb_t;
+				ltb_t = confirm("파티를 생성하시겠습니까?");
+				if(ltb_t == true){
+					var me_img = $(".ldr_me .ldr_user_img .ldr_user_imgs").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+					var lt_img = $(".lt_ul_01 .ll_li .ll_img_user").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+					var me_user = $(".ldr_me .ldr_user_desc .ldr_user_name").text();
+					var lt_user = $(".lt_ul_01 .ll_li .ll_name_user").text();
+					var me_team = $(".ldr_me .ldr_user_desc .ldr_user_team").text();
+					var lt_team = $(".lt_ul_01 .ll_li .ll_name_team").text();
+					var lt_text = $(".textarea_lt").val();
+					var ldl_length = Math.abs($(".rew_mypage_section_title em").text())+1;
+					$(".rew_mypage_section_title em").text(ldl_length);
+					$("#layer_team").hide();
+
+					$(".ldl_in").append('<div class="ldl_box"><div class="ldl_box_in"><button class="ldl_box_close">닫기</button><div class="ldl_box_tit">'+lt_text+'</div><div class="ldl_box_user"><ul><li><div class="ldl_box_img" style="background-image:url('+me_img+')"></div><div class="ldl_box_user"><strong>'+me_user+'</strong><span>'+me_team+'</span></div></li><li><div class="ldl_box_img" style="background-image:url('+lt_img+')"></div><div class="ldl_box_user"><strong>'+lt_user+'</strong><span>'+lt_team+'</span></div></li></ul></div></div></div>');
+				}
+			}
+		});
+
+
+		$(".lp_close").click(function(){
+			$("#layer_plus").hide();
+			$(".ldl_box_me").remove();
+		});
+		$(".ldl_box_close").click(function(){
+			$(this).closest(".ldl_box").remove();
+			var ldl_length = Math.abs($(".rew_mypage_section_title em").text())-1;
+			$(".rew_mypage_section_title em").text(ldl_length);
+		});
+
+
+
+
+		$(".onoff_01 .btn_switch").click(function(){
+			$(".onoff_04 .btn_switch").removeClass("on");
+			$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+			$(this).addClass("on");
+			$(this).prev("em").addClass("on");
+		});
+
+		$(".onoff_02 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_03 .btn_switch").removeClass("on");
+				$(".onoff_03 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_04 .btn_switch").removeClass("on");
+				$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_01 .btn_switch").addClass("on");
+				$(".onoff_01 .btn_switch").prev("em").addClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".onoff_03 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_02 .btn_switch").removeClass("on");
+				$(".onoff_02 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_04 .btn_switch").removeClass("on");
+				$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_01 .btn_switch").addClass("on");
+				$(".onoff_01 .btn_switch").prev("em").addClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".onoff_04 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_01 .btn_switch").removeClass("on");
+				$(".onoff_01 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_02 .btn_switch").removeClass("on");
+				$(".onoff_02 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_03 .btn_switch").removeClass("on");
+				$(".onoff_03 .btn_switch").prev("em").removeClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+
+			var bar_t = $(".rew_mypage_section .live_list_today_bar strong").text();
+			var bar_b = $(".rew_mypage_section .live_list_today_bar span").text();
+			var bar_w = bar_t/bar_b*100;
+			$(".rew_mypage_section .live_list_today_bar strong").css({width:bar_w+"%"});
+
+		},400);
+
+		setTimeout(function(){
+			$(".tabs_on").addClass("now_01");
+		},1100);
+
+		$(".btn_next_step_02").click(function(){
+			$(".rew_cha_step_01").addClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").removeClass("step_z");
+			$(".rew_cha_step_01").animate({"left":-100+"%"},700);
+			$(".rew_cha_step_02").animate({"left":0+"%"},700);
+			$(".rew_cha_step_03").animate({"left":100+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+
+			setTimeout(function(){
+				$(".tabs_on").addClass("now_02");
+			},1100);
+		});
+		$(".btn_prev_step_01").click(function(){
+			$(".rew_cha_step_01").addClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").removeClass("step_z");
+			$(".rew_cha_step_01").animate({"left":0+"%"},700);
+			$(".rew_cha_step_02").animate({"left":100+"%"},700);
+			$(".rew_cha_step_03").animate({"left":-100+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+			
+			setTimeout(function(){
+				$(".tabs_on").removeClass("now_02");
+			},1100);
+		});
+		$(".btn_next_step_03").click(function(){
+			$(".rew_cha_step_01").removeClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").addClass("step_z");
+			$(".rew_cha_step_01").animate({"left":100+"%"},700);
+			$(".rew_cha_step_02").animate({"left":-100+"%"},700);
+			$(".rew_cha_step_03").animate({"left":0+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+			
+			setTimeout(function(){
+				$(".tabs_on").addClass("now_03");
+			},1100);
+		});
+	
+
+		$(".rew_live_sort .btn_sort_on").click(function(){
+			$(".rew_live_sort").addClass("on");
+		});
+		$(".rew_live_sort").mouseleave(function(){
+			$(".rew_live_sort").removeClass("on");
+		});
+		$(".rew_live_sort ul li button").click(function(){
+			$(".rew_live_sort").removeClass("on");
+		});
+
+		$(".list_function_sort .btn_sort_on").click(function(){
+			$(".list_function_sort").addClass("on");
+		});
+		$(".list_function_sort").mouseleave(function(){
+			$(".list_function_sort").removeClass("on");
+		});
+		$(".list_function_sort ul li button").click(function(){
+			$(".list_function_sort").removeClass("on");
+		});
+
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+
+		$(".rew_conts_scroll_07").scroll(function(){
+			var lbt = $(".rew_live").offset().top;
+			if(lbt < 120){
+				$(".rew_live_my").addClass("pos_fix");
+			}else{
+				$(".rew_live_my").removeClass("pos_fix");
+			}
+		});
+		$(".list_area").scroll(function(){
+			var rct = $(".list_area_in").position().top;
+			if(rct<60){
+				$(".layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+		$(".layer_report .report_area").scroll(function(){
+			var rct = $(".layer_report .report_area_in").position().top;
+			if(rct<60){
+				$(".layer_report .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_report .layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+		$(".layer_challenge .report_area").scroll(function(){
+			var rat = $(".layer_challenge .report_area_in").position().top;
+			console.log(rat);
+			if(rat<50){
+				$(".layer_challenge .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_challenge .layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+		$(".desc_lr_01 .report_area").scroll(function(){
+			var rat = $(".desc_lr_01 .report_area_in").position().top;
+			console.log(rat);
+			if(rat<50){
+				$(".layer_today .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_today .layer_result_right").removeClass("pos_fix");
+			}
+		});
+		$(".desc_lr_02 .report_area").scroll(function(){
+			var rat = $(".desc_lr_02 .report_area_in").position().top;
+			console.log(rat);
+			if(rat<50){
+				$(".layer_today .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_today .layer_result_right").removeClass("pos_fix");
+			}
+		});
+		$(".desc_lr_03 .report_area").scroll(function(){
+			var rat = $(".desc_lr_03 .report_area_in").position().top;
+			console.log(rat);
+			if(rat<50){
+				$(".layer_today .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_today .layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+
+		$("#go_view_01").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			$(".rew_conts_scroll_06").animate({scrollTop : 0}, 400+(offset1.top/2));
+		});
+		var offset2 = $(".rew_cha_view_result").position();
+		$("#go_view_02").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			var offset_sum = Math.abs(offset1.top - offset2.top);
+			setTimeout(function(){
+				$(".rew_conts_scroll_06").animate({scrollTop : offset2.top - 155}, offset_sum/4+200);
+			},100);
+		});
+		var offset3 = $(".rew_cha_view_masage").position();
+		$("#go_view_03").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			//console.log(offset2.top);
+			var offset_sum = Math.abs(offset1.top - offset3.top);
+			setTimeout(function(){
+				$(".rew_conts_scroll_06").animate({scrollTop : offset3.top - 155}, offset_sum/4+200);
+			},100);
+		});
+
+
+		$(".conts_tab ul li button").click(function(){
+			var drM_li = $(this).parent("li").index();
+
+			var offt = $(".conts_main > div:eq("+drM_li+")").offset();
+			var tabt = $(".conts_tab").offset();
+			var matht = Math.abs(tabt.top - offt.top);
+			$("html, body").animate({scrollTop:offt.top-101},matht/8+200);
+
+			return false;
+		});
+
+		$(".layer_user_info dt button").click(function(){
+			$(this).parent().parent("dl").toggleClass("on");
+		});
+		$(".layer_user_info dd button").click(function(){
+			$(this).toggleClass("on");
+			if($(".layer_user_info dd button").hasClass("on")){
+				$(".layer_user_submit").addClass("on");
+			}else{
+				$(".layer_user_submit").removeClass("on");
+			}
+		});
+
+		$(".layer_test_01").click(function(){
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_02").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_02").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_03").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_user_cancel").click(function(){
+			$(".layer_user").hide();
+		});
+		$(".layer_user_submit").click(function(){
+			if($(this).hasClass("on")){
+				$(".layer_user").hide();
+			}
+		});
+		$("#open_layer_user").click(function(){
+			$(".layer_user").show();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+
+		$(".list_function_type .type_list").click(function(){
+			$(".list_function_type button").removeClass("on");
+			$(this).addClass("on");
+			$(".list_box .list_conts").removeClass("type_img");
+			$(".list_box .list_conts").removeClass("type_on");
+			$(".list_box .list_conts").addClass("type_list");
+			$(".list_box .list_conts").addClass("type_on");
+		});
+		$(".list_function_type .type_img").click(function(){
+			$(".list_function_type button").removeClass("on");
+			$(this).addClass("on");
+			$(".list_box .list_conts").removeClass("type_list");
+			$(".list_box .list_conts").removeClass("type_on");
+			$(".list_box .list_conts").addClass("type_img");
+			$(".list_box .list_conts").addClass("type_on");
+		});
+
+		$(".list_conts .list_ul li button").click(function(){
+			$(this).toggleClass("on");
+		});
+		$(".rew_cha_view_result .title_area .title_more").click(function(){
+			$(".layer_result").show();
+		});
+		$(".rew_cha_view_result li button").click(function(){
+			$(".layer_result").show();
+		});
+		$(".rew_cha_view_header .view_user li button").click(function(){
+			$(".layer_result").show();
+		});
+		$(".layer_result .layer_close button").click(function(){
+			$(".layer_result").hide();
+		});
+		$(".layer_result_user li button").click(function(){
+			$(".layer_result_user li button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".rew_cha_view_masage .title_area .title_more").click(function(){
+			$(".layer_masage").show();
+		});
+		$(".masage_zone").click(function(){
+			$(".layer_masage").show();
+		});
+		$(".masage_area_in").click(function(){
+			$(this).toggleClass("on");
+		});
+		$(".layer_masage .layer_close button").click(function(){
+			$(".layer_masage").hide();
+		});
+
+		$(".layer_report .layer_close button").click(function(){
+			$(".layer_report").hide();
+			$(".layer_report").css({opacity:0});
+		});
+
+		$(".layer_challenge .layer_close button").click(function(){
+			$(".layer_challenge").hide();
+			$(".layer_challenge .report_cha .rew_cha_list_ul li").removeClass("sli");
+		});
+
+		$(".layer_today .layer_close button").click(function(){
+			$(".layer_today").hide();
+			$(".layer_today .report_cha .rew_cha_list_ul li").removeClass("sli");
+		});
+
+		$(".join_type_file .btns_cha_cancel").click(function(){
+			$(".join_type_file").hide();
+		});
+		$(".join_type_masage .btns_cha_cancel").click(function(){
+			$(".join_type_masage").hide();
+		});
+		$(".join_type_mix .btns_cha_cancel").click(function(){
+			$(".join_type_mix").hide();
+		});
+		$(".btn_join_ok").click(function(){
+			$(".layer_cha_join").show();
+		});
+
+
+		$(".layer_result_list.desc_lr_01").hide();
+		$(".layer_result_list.desc_lr_02").hide();
+		$(".layer_result_list.desc_lr_03").hide();
+		$(".layer_today").hide();
+		$(".layer_today").css({opacity:1});
+		$(".btn_eval").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".layer_result_list.desc_lr_01").css({opacity:0});
+			$(".layer_result_list.desc_lr_02").css({opacity:0});
+			$(".desc_lr_03 .report_cha .rew_cha_list_ul li").removeClass("sli");
+			$(".layer_today").show();
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_03").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_03").css({opacity:1});
+			$(".layer_result_list.desc_lr_03").show();
+			$(".desc_lr_03 .report_cha .rew_cha_list_ul li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".ldr_chall_num").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".layer_result_list.desc_lr_01").css({opacity:0});
+			$(".layer_result_list.desc_lr_03").css({opacity:0});
+			$(".desc_lr_02 .report_cha .rew_cha_list_ul li").removeClass("sli");
+			$(".layer_today").show();
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_02").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_02").css({opacity:1});
+			$(".layer_result_list.desc_lr_02").show();
+			$(".desc_lr_02 .report_cha .rew_cha_list_ul li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".ldr_today_num").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".layer_result_list.desc_lr_02").css({opacity:0});
+			$(".layer_result_list.desc_lr_03").css({opacity:0});
+			$(".desc_lr_01 .tdw_list_li").removeClass("sli");
+			$(".layer_today").show();
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_01").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_01").css({opacity:1});
+			$(".layer_result_list.desc_lr_01").show();
+			$(".desc_lr_01 .tdw_list_li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".btn_lr_03").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_03").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_03").css({opacity:1});
+			$(".layer_result_list.desc_lr_03").show();
+		});
+
+		$(".btn_lr_02").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".report_cha .rew_cha_list_ul li").removeClass("sli");
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_02").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_02").css({opacity:1});
+			$(".layer_result_list.desc_lr_02").show();
+			$(".layer_today .report_cha .rew_cha_list_ul li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".btn_lr_01").click(function(){
+			$(".layer_today .layer_result_right").removeClass("pos_fix");
+			$(".layer_today .tdw_list_li").removeClass("sli");
+			$(".layer_result_tab li button").removeClass("on");
+			$(".layer_result_tab li .btn_lr_01").addClass("on");
+			$(".layer_result_list").hide();
+			$(".layer_result_list.desc_lr_01").css({opacity:1});
+			$(".layer_result_list.desc_lr_01").show();
+			$(".layer_today .tdw_list_li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".live_list .live_list_box").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			var bar_t = tis.find(".live_list_today_bar strong").text();
+			var bar_b = tis.find(".live_list_today_bar span").text();
+			var bar_w = bar_t/bar_b*100;
+			setTimeout(function(){
+				tis.addClass("sli");
+				tis.find(".live_list_today_bar strong").css({width:bar_w+"%"});
+			},500+tindex*100);
+		});
+
+
+		$(".ldr_user_state li .ldr_user_state_circle").mouseenter(function(){
+			$(".layer_state").removeClass("on");
+			$(this).next(".layer_state").addClass("on");
+			$(".ldr_list_box").removeClass("zindex");
+			$(this).closest(".ldr_list_box").addClass("zindex");
+		});
+		$(".ldr_user_state li .ldr_user_state_circle").mouseleave(function(){
+			$(".layer_state").removeClass("on");
+			$(".ldr_list_box").removeClass("zindex");
+		});
+
+		$(".layer_report").hide();
+
+		$(".tdw_list .btn_regi_cancel").click(function(){
+			$(this).closest(".tdw_list_memo_regi").hide();
+		});
+		$(".tdw_list .tdw_list_memo_conts_txt strong").click(function(){
+			$(this).next(".tdw_list_memo_regi").show();
+			var memo_width = $(this).parent(".tdw_list_memo_conts_txt").width();
+			$(this).next(".tdw_list_memo_regi").css({"width":memo_width+199});
+		});
+		$(".tdw_list .btn_memo_del").click(function(){
+			$(this).closest(".tdw_list_memo_desc").remove();
+		});
+		$(".tdw_list .tdw_list_memo").click(function(){
+			$(".layer_memo").show();
+		});
+		$(".layer_memo_cancel").click(function(){
+			$(".layer_memo").hide();
+		});
+		$(".layer_memo_submit").click(function(){
+			$(".layer_memo").hide();
+			$(".tdw_list_memo").addClass("on");
+		});
+
+
+	});
+
+	
+</script>
+<div class="rew_warp live_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02 on">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_07">
+							<div class="rew_mypage_07_in">
+								<div class="rew_mypage_title">
+									<strong><span>🤝</span> 함께해요</strong>
+								</div>
+								<div class="rew_mypage_section">
+									<div class="tdw_live_tab">
+										<div class="tdw_live_tab_in">
+											<ul>
+												<li>
+													<button class="on"><span>전체보기</span><em>3</em></button>
+												</li>
+												<li>
+													<button><span>나의 파티</span><em>2</em></button>
+												</li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="live_drop_left">
+										<div class="ldl_in">
+											<div class="ldl_box">
+												<div class="ldl_box_in">
+													<button class="ldl_box_close">닫기</button>
+													<div class="ldl_box_tit">리워디 프로젝트</div>
+													<div class="ldl_box_time">최신 업데이트</div>
+													<div class="ldl_box_user">
+														<ul>
+															<li class="ldl_me">
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_02.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>하병호</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+															<li>
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_03.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>윤지혜</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+											<div class="ldl_box">
+												<div class="ldl_box_in">
+													<button class="ldl_box_close" style="display:none;">닫기</button>
+													<div class="ldl_box_tit">비즈폼 매출분석 및 특이사항 공유 요청</div>
+													<div class="ldl_box_time">04/28 10:43 업데이트</div>
+													<div class="ldl_box_user">
+														<ul>
+															<li>
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_03.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>윤지혜</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+															<li>
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_04.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>정현주</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+											<div class="ldl_box">
+												<div class="ldl_box_in">
+													<button class="ldl_box_close" style="display:none;">닫기</button>
+													<div class="ldl_box_tit">어른문방구 핫트랙스 입점 PJ</div>
+													<div class="ldl_box_time">04/28 10:35 업데이트</div>
+													<div class="ldl_box_user">
+														<ul>
+															<li>
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_03.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>윤지혜</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+															<li>
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_04.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>정현주</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+															<li class="ldl_me">
+																<div class="ldl_box_img" style="background-image:url(./images/pre/img_prof_02.png)"></div>
+																<div class="ldl_box_user">
+																	<strong>하병호</strong>
+																	<span>디자인팀</span>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<button class="ldl_box_out">
+														<span>파티에서 나가기</span>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+						<!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+						<div class="rew_live_my">
+							<div class="rew_live_my_in">
+								<div class="rew_live_my_left">
+									<div class="rew_live_my_user_img">
+										<div class="rew_live_my_user_img_bg"></div>
+										<div class="rew_live_my_user_imgs" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="rew_live_my_user_name">
+										<strong>하병호</strong>
+										<span>디자인팀</span>
+									</div>
+									<div class="rew_live_my_list_today">
+										<button class="btn_today">
+											<div class="rew_live_my_list_today_tit">오늘업무</div>
+											<div class="rew_live_my_list_today_count"><strong>1</strong> / 2</div>
+										</button>
+									</div>
+									<div class="rew_live_my_list_cha">
+										<button class="btn_cha">
+											<div class="rew_live_my_list_cha_tit">챌린지</div>
+											<div class="rew_live_my_list_cha_count"><strong>0</strong></div>
+										</button>
+									</div>
+									<div class="rew_live_my_eval">
+										<button class="btn_eval"><span>역량평가 리포트</span></button>
+									</div>
+								</div>
+
+								<div class="rew_live_my_right">
+									<div class="rew_live_my_tit">
+										<span>나의 상태</span>
+									</div>
+									<div class="rew_grid_onoff">
+										<div class="rew_grid_onoff_inner">
+											<ul>
+												<li class="onoff_01">
+													<em>업무시작</em>
+													<div class="btn_switch">
+														<strong class="btn_switch_on"></strong>
+														<span>버튼</span>
+														<strong class="btn_switch_off"></strong>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="rew_grid_onoff">
+										<div class="rew_grid_onoff_in">
+											<ul>
+												<li class="onoff_02">
+													<em>집중</em>
+													<div class="btn_switch">
+														<strong class="btn_switch_on"></strong>
+														<span>버튼</span>
+														<strong class="btn_switch_off"></strong>
+													</div>
+												</li>
+												<li class="onoff_03">
+													<em>자리비움</em>
+													<div class="btn_switch">
+														<strong class="btn_switch_on"></strong>
+														<span>버튼</span>
+														<strong class="btn_switch_off"></strong>
+													</div>
+												</li>
+												<li class="onoff_04">
+													<em>업무종료</em>
+													<div class="btn_switch">
+														<strong class="btn_switch_on"></strong>
+														<span>버튼</span>
+														<strong class="btn_switch_off"></strong>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_07">
+
+							<div class="rew_live">
+								<div class="rew_live_in">
+
+									<div class="rew_live_func">
+										<div class="rew_live_func_in">
+											<div class="rew_live_count">
+												<span>LIVE</span>
+												<strong><span>17</span>(18)</strong>
+											</div>
+
+											<div class="rew_live_sort">
+												<div class="rew_live_sort_in">
+													<button class="btn_sort_on"><span>전체보기</span></button>
+													<ul>
+														<li><button><span>전체보기</span></button></li>
+														<li><button><span>접속자보기</span></button></li>
+														<li><button><span>미접속자보기</span></button></li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rew_live_search">
+												<div class="rew_live_search_box">
+													<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+													<button><span>검색</span></button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="live_drop_right">
+										<div class="ldr_in">
+											<ul class="ldr_ul" id="ldr">
+												<li class="ldr_li ldr_me">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu jjim_only"><span>좋아요</span></button>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu jjim_only"><span>좋아요</span></button>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																		<div class="ldr_user_penalty"><span></span></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>출근 제일 빨리 함</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																		<div class="ldr_user_penalty"><span></span></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>출근 제일 빨리 함</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>출근 제일 빨리 함</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu jjim_only"><span>좋아요</span></button>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>출근 제일 빨리 함</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>출근 제일 빨리 함</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+												<li class="ldr_li">
+													<div class="ldr_li_in">
+														<div class="ldr_function">
+															<div class="ldr_function_in">
+																<div class="ldr_time">08:30</div>
+																<button class="ldr_menu"><span>좋아요</span></button>
+															</div>
+															<div class="ldr_popup">
+																<div class="ldr_popup_in">
+																	<ul>
+																		<li><button><span>오늘업무 제일 많이 씀</span></button></li>
+																		<li><button><span>그냥 마음전하기</span></button></li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="ldr_user">
+															<div class="ldr_user_in">
+																<div class="ldr_user_desc">
+																	<div class="ldr_user_name">하병호</div>
+																	<div class="ldr_user_team">디자인팀</div>
+																</div>
+																<div class="ldr_user_style">
+																	<div class="ldr_user_img">
+																		<div class="ldr_circle circle_01"><canvas width="64" height="64"></canvas></div>
+																		<div class="ldr_user_img_bg"></div>
+																		<div class="ldr_user_imgs" style="background-image:url(./images/pre/img_prof_02.png);"></div>
+																	</div>
+																	<div class="ldr_user_state">
+																		<div class="ldr_user_state_in">
+																			<ul>
+																				<li class="state_01">
+																					<div class="ldr_user_state_circle">
+																						<strong>집중</strong>
+																					</div>
+																					<div class="layer_state layer_state_01">
+																						<div class="layer_state_in">
+																							<p>업무에 집중하고 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																				<li class="state_04">
+																					<div class="ldr_user_state_circle">
+																						<strong>일정</strong>
+																					</div>
+																					<div class="layer_state layer_state_04">
+																						<div class="layer_state_in">
+																							<p><span>반차, 미팅</span> 일정이 있습니다.</p>
+																							<em></em>
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="ldr_numbers">
+															<div class="ldr_today">
+																<button class="ldr_today_num">
+																	<strong>2</strong>
+																	<span>업무</span>
+																</button>
+															</div>
+															<div class="ldr_chall">
+																<button class="ldr_chall_num">
+																	<strong>0</strong>
+																	<span>챌린지</span>
+																</button>
+															</div>
+															<div class="ldr_jjim">
+																<button class="ldr_jjim_num">
+																	<strong>2</strong>
+																	<span>좋아요</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</li>
+
+											</ul>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+	<!-- 찜 -->
+	<div class="jjim_first" id="jjim_first" style="display:none;">
+		<div class="jf_deam"></div>
+		<div class="jf_in">
+			<div class="jf_box">
+				<div class="jf_box_in">
+					<div class="jf_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="jf_top">
+						<strong><span>이선규</span>님께 마음을 전하세요.</strong>
+					</div>
+					<div class="jf_area">
+						<ul>
+							<li>
+								<button class="btn_jf_01">
+									<strong></strong>
+									<em>성과를</em>
+									<span>인정하기</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_jf_02">
+									<strong></strong>
+									<em>열렬히</em>
+									<span>응원하기</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_jf_03">
+									<strong></strong>
+									<em>잘해서</em>
+									<span>칭찬하기</span>
+								</button>
+							</li>
+
+							<li>
+								<button class="btn_jf_04">
+									<strong></strong>
+									<em>힘내라고</em>
+									<span>격려하기</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_jf_05">
+									<strong></strong>
+									<em>좋은일에</em>
+									<span>축하하기</span>
+								</button>
+							</li>
+							<li>
+								<button class="btn_jf_06">
+									<strong></strong>
+									<em>도움에</em>
+									<span>감사하기</span>
+								</button>
+							</li>
+
+						</ul>
+					</div>
+					<div class="jf_bottom">
+						<button class="btn_off">다음</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="jjim_layer" id="jjim_layer" style="display:none;">
+		<div class="jl_deam"></div>
+		<div class="jl_in">
+			<div class="jl_box">
+				<div class="jl_box_in">
+					<div class="jl_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="jl_top">
+						<strong><span>이선규</span>님께 마음을 전하세요.</strong>
+					</div>
+					<div class="jl_area">
+						<div class="jl_desc">
+							<strong></strong>
+							<em>♥ +1</em>
+							<p>좋은일에 축하합니다!</p>
+						</div>
+						<div class="jl_input">
+							<input type="text" class="input_jl" placeholder="" value="좋은일에 축하합니다!" />
+						</div>
+					</div>
+					<div class="jl_bottom">
+						<button>보내기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="jjim_graph" id="jjim_graph" style="display:none;">
+		<div class="jg_deam"></div>
+		<div class="jg_in">
+			<div class="jg_box">
+				<div class="jg_box_in">
+					<div class="jg_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="jg_top">
+						<strong>좋아요</strong>
+					</div>
+					<div class="jg_area">
+						<div class="jg_user_area">
+							<div class="jg_user_left">
+								<div class="jg_user_left_in">
+									<div class="jg_user_img">
+										<div class="jg_user_img_in" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="jg_name">
+										<div class="jg_name_user">윤지혜</div>
+										<div class="jg_name_team">디자인팀</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="jg_user_right">
+								<div class="jg_user_right_in">
+									<div class="jg_user_heart_all">
+										<span>44</span>
+									</div>
+									<button class="jg_user_btn_coin"><span>코인으로 보상하기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="jg_graph_area">
+							<div class="jg_graph_area_in">
+								<ul class="jg_graph_list">
+									<li class="jg_g01">
+										<span>12</span>
+										<strong></strong>
+									</li>
+									<li class="jg_g02">
+										<span>5</span>
+										<strong></strong>
+									</li>
+									<li class="jg_g03">
+										<span>4</span>
+										<strong></strong>
+									</li>
+									<li class="jg_g04">
+										<span>5</span>
+										<strong></strong>
+									</li>
+									<li class="jg_g05">
+										<span>7</span>
+										<strong></strong>
+									</li>
+									<li class="jg_g06">
+										<span>5</span>
+										<strong></strong>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="jg_icon_area">
+							<div class="jg_icon_area_in">
+								<ul class="jg_icon_list">
+									<li class="jg_i01">
+										<button>
+											<strong></strong>
+											<span>인정</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+									<li class="jg_i02">
+										<button>
+											<strong></strong>
+											<span>응원</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+									<li class="jg_i03">
+										<button>
+											<strong></strong>
+											<span>칭찬</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+									<li class="jg_i04">
+										<button>
+											<strong></strong>
+											<span>격려</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+									<li class="jg_i05">
+										<button>
+											<strong></strong>
+											<span>축하</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+									<li class="jg_i06">
+										<button>
+											<strong></strong>
+											<span>감사</span>
+											<em>상세보기</em>
+										</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="jjim_table" id="jjim_table" style="display:none;">
+		<div class="jt_deam"></div>
+		<div class="jt_in">
+			<div class="jt_box">
+				<div class="jt_box_in">
+					<div class="jt_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="jt_top">
+						<button class="jg_i03"><strong>잘해서 칭찬하기</strong></button>
+					</div>
+					<div class="jt_area">
+						<div class="jt_user_area">
+							<div class="jt_user_left">
+								<div class="jt_user_left_in">
+									<div class="jt_user_img">
+										<div class="jt_user_img_in" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="jt_name">
+										<div class="jt_name_user">윤지혜</div>
+										<div class="jt_name_team">디자인팀</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="jt_user_right">
+								<div class="jt_user_right_in">
+									<div class="jt_user_heart_all">
+										<span>4</span>
+									</div>
+									<button class="jt_user_btn_coin"><span>코인으로 보상하기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<div class="jt_table_area">
+							<div class="jt_table_area_in">
+								<div class="jt_table_head">
+									<div class="jt_table_01"><span>카테고리</span></div>
+									<div class="jt_table_02"><span>구분</span></div>
+									<div class="jt_table_03"><span>내용</span></div>
+									<div class="jt_table_04"><span>보낸이</span></div>
+									<div class="jt_table_05"><span>일시</span></div>
+								</div>
+								<div class="jt_table_body">
+									<ul>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>오늘업무 최다 작성</span></div>
+											<div class="jt_table_04"><span>김광재</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>오늘업무 최다 작성</span></div>
+											<div class="jt_table_04"><span>이선규</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>오늘업무 최다 작성</span></div>
+											<div class="jt_table_04"><span>김명선</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>가장 일찍 출근</span></div>
+											<div class="jt_table_04"><span>이선규</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>가장 일찍 출근</span></div>
+											<div class="jt_table_04"><span>이선규</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+										<li>
+											<div class="jt_table_01"><span>라이브</span></div>
+											<div class="jt_table_02"><span>칭찬하기</span></div>
+											<div class="jt_table_03"><span>가장 일찍 출근</span></div>
+											<div class="jt_table_04"><span>김명선</span></div>
+											<div class="jt_table_05"><span>2022.03.30 15:23</span></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 드래그 -->
+	<div class="layer_sort" id="layer_sort" style="display: none;">
+		<div class="ls_deam"></div>
+		<div class="ls_in">
+			<div class="ls_box">
+				<div class="ls_box_in">
+					<div class="ls_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="ls_top">
+						<strong>협업 모드</strong>
+					</div>
+					<div class="ls_area">
+						<div class="ls_ul_01">
+							<button class="ll_li ll_li_01">
+								<div class="ll_li_in">
+									<div class="ll_img">
+										<div class="ll_img_user" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="ll_name">
+										<div class="ll_name_team">디자인팀</div>
+										<div class="ll_name_user">윤지혜</div>
+									</div>
+									<div class="ll_btn">
+										
+									</div>
+								</div>
+							</button>
+							<button class="ll_li ll_li_02">
+								<div class="ll_li_in">
+									<div class="ll_img">
+										<div class="ll_img_user" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="ll_name">
+										<div class="ll_name_team">디자인팀</div>
+										<div class="ll_name_user">정현주</div>
+									</div>
+									<div class="ll_btn">
+										
+									</div>
+								</div>
+							</button>
+						</div>
+						<div class="ls_ul_02">
+							<button>업무요청(예정)</button>
+							<button class="on">회의</button>
+						</div>
+					</div>
+					<div class="ls_bottom">
+						<button class="btn_off">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 드래그 -->
+	<div class="layer_plus" id="layer_plus" style="display:none;">
+		<div class="lp_deam"></div>
+		<div class="lp_in">
+			<div class="lp_box">
+				<div class="lp_box_in">
+					<div class="lp_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="lp_top">
+						<strong class="lp_tit">
+							제목
+						</strong>
+					</div>
+					<div class="lp_bottom">
+						<button class="btn_on">참여하기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_team" id="layer_team" style="display:none;">
+		<div class="lt_deam"></div>
+		<div class="lt_in">
+			<div class="lt_box">
+				<div class="lt_box_in">
+					<div class="lt_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="lt_top">
+						<div class="lt_ul_01">
+							<div class="ll_li">
+								<div class="ll_li_in">
+									<div class="ll_img">
+										<div class="ll_img_user" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="ll_name">
+										<div class="ll_name_user">윤지혜</div>
+										<div class="ll_name_team">디자인팀</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="lt_area">
+						<div class="lt_ul_02">
+							<input type="text" class="textarea_lt" placeholder="내용을 작성해주세요." onkeyup="if(window.event.keyCode==13){ltb()}" />
+						</div>
+					</div>
+					<div class="lt_bottom">
+						<button class="btn_on">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_re_small" id="layer_re_small" style="display:none;">
+		<div class="lrs_deam"></div>
+		<div class="lrs_in">
+			<div class="lrs_box">
+				<div class="lrs_box_in">
+					<div class="lrs_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="lrs_top">
+						<strong>협업 모드</strong>
+					</div>
+					<div class="lrs_area">
+						<div class="lrs_ul_01">
+							<button class="ll_li">
+								<div class="ll_li_in">
+									<div class="ll_img">
+										<div class="ll_img_user" style="background-image:url(images/pre/img_prof_02.png);"></div>
+									</div>
+									<div class="ll_name">
+										<div class="ll_name_team">디자인팀</div>
+										<div class="ll_name_user">윤지혜</div>
+									</div>
+									<div class="ll_btn">
+										
+									</div>
+								</div>
+							</button>
+						</div>
+						<div class="lrs_ul_02">
+							<button>업무요청(예정)</button>
+							<button class="on">회의</button>
+						</div>
+					</div>
+					<div class="lrs_bottom">
+						<button class="btn_on">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="layer_report">
+		<div class="layer_deam"></div>
+		<div class="layer_result_in">
+			<div class="layer_result_box">
+				<div class="layer_result_left">
+					<div class="layer_result_search">
+						<div class="layer_result_search_box">
+							<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+							<button><span>검색</span></button>
+						</div>
+					</div>
+
+					<div class="layer_result_user">
+						<div class="layer_result_user_in">
+							<ul>
+								<li>
+									<button class="on">
+										<img src="images/pre/ico_me.png" alt="" class="user_me" />
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											디자인팀
+										</div>
+										<span class="user_num">
+											<span>21</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김광재</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											마케팅팀
+										</div>
+										<span class="user_num user_num_0">
+											<span>0</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김민경</strong>
+											경영지원팀
+										</div>
+										<span class="user_num">
+											<span>17</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											개발팀
+										</div>
+										<span class="user_num">
+											<span>4</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>9</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박희정</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>12</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											고객행복팀
+										</div>
+										<span class="user_num">
+											<span>20</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="layer_result_right">
+					<div class="layer_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="layer_result_top">
+						<strong>역량평가 리포트</strong>
+					</div>
+					<div class="layer_result_list">
+						<div class="layer_result_list_in">
+							<div class="list_function">
+								<div class="list_function_in">
+									<div class="list_function_left">
+										윤지혜 <span>디자인팀</span><strong>[2021년 10월]</strong>
+									</div>
+									<div class="list_function_right">
+										<div class="list_function_sort">
+											<div class="list_function_sort_in">
+												<button class="btn_sort_on"><span>2021년 10월</span></button>
+												<ul>
+													<li><button><span>2021년 10월</span></button></li>
+													<li><button><span>2021년 9월</span></button></li>
+													<li><button><span>2021-09</span></button></li>
+													<li><button><span>2021.09</span></button></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="report_area">
+								<div class="report_area_in">
+									
+									<div class="report_left">
+										<div id="radarChart2"></div>
+									</div>
+									<div class="report_right">
+										<div class="report_now">
+											<dl>
+												<dt>
+													<strong>2021년 10월 20일</strong>
+													<span>달성율은 일 단위로 산정합니다.</span>
+												</dt>
+												<dd>
+													<strong>노하우</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd class="report_now_low">
+													<strong>자기계발</strong>
+													<span>0%</span>
+													<em>😔</em>
+												</dd>
+												<dd>
+													<strong>협업능력</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd>
+													<strong>성실</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd class="report_now_low">
+													<strong>적극성</strong>
+													<span>0%</span>
+													<em>😔</em>
+												</dd>
+											</dl>
+										</div>
+									</div>
+
+									<div class="report_cha">
+										<!-- <div class="report_cha_banner">추천 챌린지로 능력치를 올려보세요!</div> -->
+										<div class="report_cha_title">📢 추천 챌린지 <span>추천 챌린지로 능력치를 올려보세요!</span></div>
+										<ul class="rew_cha_list_ul">
+											<li class="category_01">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">업무</span>
+															<span class="cha_title">윈도우 업데이트 점검한다면</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 20</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">책 읽고 독서메모를 남긴다면</span>
+															<span class="cha_coin"><strong>1,500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">7/20 명 도전중</span>
+															<span class="cha_dday">D - 10</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_challenge" style="display:none;">
+		<div class="layer_deam"></div>
+		<div class="layer_result_in">
+			<div class="layer_result_box">
+				<div class="layer_result_left">
+					<div class="layer_result_search">
+						<div class="layer_result_search_box">
+							<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+							<button><span>검색</span></button>
+						</div>
+					</div>
+
+					<div class="layer_result_user">
+						<div class="layer_result_user_in">
+							<ul>
+								<li>
+									<button class="on">
+										<img src="images/pre/ico_me.png" alt="" class="user_me" />
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											디자인팀
+										</div>
+										<span class="user_num">
+											<span>21</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김광재</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											마케팅팀
+										</div>
+										<span class="user_num user_num_0">
+											<span>0</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김민경</strong>
+											경영지원팀
+										</div>
+										<span class="user_num">
+											<span>17</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											개발팀
+										</div>
+										<span class="user_num">
+											<span>4</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>9</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박희정</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>12</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											고객행복팀
+										</div>
+										<span class="user_num">
+											<span>20</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="layer_result_right">
+					<div class="layer_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="layer_result_top">
+						<strong>참여 완료한 챌린지</strong>
+					</div>
+					<div class="layer_result_list">
+						<div class="layer_result_list_in">
+							<div class="list_function">
+								<div class="list_function_in">
+									<div class="list_function_left">
+										윤지혜 <span>디자인팀</span><strong>8</strong>
+									</div>
+								</div>
+							</div>
+							<div class="report_area">
+								<div class="report_area_in">
+									<div class="report_cha">
+										<ul class="rew_cha_list_ul">
+											<li class="category_01">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">업무</span>
+															<span class="cha_title">윈도우 업데이트 점검한다면</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 20</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">책 읽고 독서메모를 남긴다면</span>
+															<span class="cha_coin"><strong>1,500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">7/20 명 도전중</span>
+															<span class="cha_dday">D - 10</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_today">
+		<div class="layer_deam"></div>
+		<div class="layer_result_in">
+			<div class="layer_result_box">
+				<div class="layer_result_left">
+					<div class="layer_result_search">
+						<div class="layer_result_search_box">
+							<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+							<button><span>검색</span></button>
+						</div>
+					</div>
+
+					<div class="layer_result_user">
+						<div class="layer_result_user_in">
+							<ul>
+								<li>
+									<button class="on">
+										<img src="images/pre/ico_me.png" alt="" class="user_me" />
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											디자인팀
+										</div>
+										<span class="user_num">
+											<span>21</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김광재</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											마케팅팀
+										</div>
+										<span class="user_num user_num_0">
+											<span>0</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김민경</strong>
+											경영지원팀
+										</div>
+										<span class="user_num">
+											<span>17</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											개발팀
+										</div>
+										<span class="user_num">
+											<span>4</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>9</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박희정</strong>
+											콘텐츠팀
+										</div>
+										<span class="user_num">
+											<span>12</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											고객행복팀
+										</div>
+										<span class="user_num">
+											<span>20</span>
+										</span>
+									</button>
+								</li>
+
+								<li>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/ico_user_005.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											마케팅팀
+										</div>
+										<span class="user_num">
+											<span>2</span>
+										</span>
+									</button>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="layer_result_right">
+					<div class="layer_close">
+						<button><span>닫기</span></button>
+					</div>
+					<div class="layer_result_top">
+						<!-- <strong>오늘업무</strong> -->
+						<div class="layer_result_tab">
+							<ul>
+								<li><button class="btn_lr_01"><span>오늘업무</span></button></li>
+								<li><button class="btn_lr_02"><span>챌린지</span></button></li>
+								<li><button class="btn_lr_03"><span>역량평가</span></button></li>
+								<li><button class="btn_lr_04"><span>페널티</span></button></li>
+							</ul>
+						</div>
+					</div>
+					<div class="layer_result_list desc_lr_01">
+						<div class="layer_result_list_in">
+							<div class="list_function">
+								<div class="list_function_in">
+									<div class="list_function_left">
+										윤지혜 <span>디자인팀</span><strong>4</strong>
+									</div>
+									<div class="list_function_right">
+										<div class="list_function_calendar">
+											<button class="calendar_prev"><span>이전</span></button>
+											<input type="text" class="calendar_num" value="2021.12.20" />
+											<button class="calendar_next"><span>다음</span></button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="report_area">
+								<div class="report_area_in">
+									<div class="report_cha">
+										
+										<div class="tdw_penalty_banner">
+											<div class="tdw_pb_in">
+												<img src="images/pre/img_penalty.png" alt="" />
+												<p><span>[긴급]</span>지각 페널티 카드가 발동했습니다.</p>
+												<button class="btn_penalty_banner" style="display:none;"><span>미션 수행하기</span></button>
+												<strong class="penalty_comp"><span>미션 완료</span></strong><!-- 미션 완료 -->
+											</div>
+										</div>
+
+										<div class="tdw_list">
+											<div class="tdw_list_in">
+												<ul class="tdw_list_ul">
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[15:00]</span>엑셀 뷰페이지 추천서식 영역 디자인 교체</p>
+															</div>
+															<div class="tdw_list_func">
+																<button class="tdw_list_memo"><span>메모</span></button>
+																<button class="tdw_list_memo"><span>메모</span></button>
+															</div>
+														</div>
+
+														<div class="tdw_list_memo_area">
+															<div class="tdw_list_memo_area_in">
+																<div class="tdw_list_memo_desc">
+																	<div class="tdw_list_memo_name">윤지혜</div>
+																	<div class="tdw_list_memo_conts">
+																		<div class="tdw_list_memo_conts_txt">
+																			<strong>메모입니다.</strong>
+																			<div class="tdw_list_memo_regi">
+																				<textarea name="" class="textarea_regi">메모입니다.</textarea>
+																				<div class="btn_regi_box">
+																					<button class="btn_regi_submit"><span>확인</span></button>
+																					<button class="btn_regi_cancel"><span>취소</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40<button class="btn_memo_del"><span>삭제</span></button></em>
+																	</div>
+																</div>
+
+																<div class="tdw_list_memo_desc">
+																	<div class="tdw_list_memo_name">윤지혜</div>
+																	<div class="tdw_list_memo_conts">
+																		<div class="tdw_list_memo_conts_txt">
+																			<strong>메모입니다. 메모입니다.메모입니다. 메모입니다.메모입니다. 메모입니다.메모입니다. 메모입니다.</strong>
+																			<div class="tdw_list_memo_regi">
+																				<textarea name="" class="textarea_regi">메모입니다. 메모입니다.메모입니다. 메모입니다.메모입니다. 메모입니다.메모입니다. 메모입니다.</textarea>
+																				<div class="btn_regi_box">
+																					<button class="btn_regi_submit"><span>확인</span></button>
+																					<button class="btn_regi_cancel"><span>취소</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40<button class="btn_memo_del"><span>삭제</span></button></em>
+																	</div>
+																</div>
+
+																<div class="tdw_list_memo_desc">
+																	<div class="tdw_list_memo_name">윤지혜</div>
+																	<div class="tdw_list_memo_conts">
+																		<div class="tdw_list_memo_conts_txt">
+																			<strong>asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </strong>
+																			<div class="tdw_list_memo_regi">
+																				<textarea name="" class="textarea_regi">asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </textarea>
+																				<div class="btn_regi_box">
+																					<button class="btn_regi_submit"><span>확인</span></button>
+																					<button class="btn_regi_cancel"><span>취소</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40<button class="btn_memo_del"><span>삭제</span></button></em>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p>비즈폼 리워드 뷰페이지 시안 확인 및 수정사항 체크</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[2021-01-01 14:00 반차]</span>오후 반차</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[최순영 → 김상엽 업무요청]</span>월결제 관련 통계 자료 추출</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[2021-01-01 14:00 반차]</span>오후 반차</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[최순영 → 김상엽 업무요청]</span>월결제 관련 통계 자료 추출</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[2021-01-01 14:00 반차]</span>오후 반차</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[최순영 → 김상엽 업무요청]</span>월결제 관련 통계 자료 추출</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[2021-01-01 14:00 반차]</span>오후 반차</p>
+															</div>
+														</div>
+													</li>
+
+													<li class="tdw_list_li">
+														<div class="tdw_list_box">
+															<div class="tdw_list_chk">
+																<button class="btn_tdw_list_chk"><span>완료체크</span></button>
+															</div>
+															<div class="tdw_list_desc">
+																<p><span>[최순영 → 김상엽 업무요청]</span>월결제 관련 통계 자료 추출</p>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="layer_result_btns">
+							<div class="layer_result_btns_in">
+								<div class="btns_right">
+									<button class="btns_write" onclick="location.href='./0008.html'"><span>작성하러 가기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="layer_result_list desc_lr_02">
+						<div class="layer_result_list_in">
+							<div class="list_function">
+								<div class="list_function_in">
+									<div class="list_function_left">
+										윤지혜 <span>디자인팀</span><strong>8</strong>
+									</div>
+								</div>
+							</div>
+							<div class="report_area">
+								<div class="report_area_in">
+									<div class="report_cha">
+										<ul class="rew_cha_list_ul">
+											<li class="category_01">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">업무</span>
+															<span class="cha_title">윈도우 업데이트 점검한다면</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 20</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">책 읽고 독서메모를 남긴다면</span>
+															<span class="cha_coin"><strong>1,500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">7/20 명 도전중</span>
+															<span class="cha_dday">D - 10</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="layer_result_list desc_lr_03">
+						<div class="layer_result_list_in">
+							<div class="list_function">
+								<div class="list_function_in">
+									<div class="list_function_left">
+										윤지혜 <span>디자인팀</span><strong>[2021년 10월]</strong>
+									</div>
+									<div class="list_function_right">
+										<div class="list_function_sort">
+											<div class="list_function_sort_in">
+												<button class="btn_sort_on"><span>2021년 10월</span></button>
+												<ul>
+													<li><button><span>2021년 10월</span></button></li>
+													<li><button><span>2021년 9월</span></button></li>
+													<li><button><span>2021-09</span></button></li>
+													<li><button><span>2021.09</span></button></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="report_area">
+								<div class="report_area_in">
+									
+									<div class="report_left">
+										<div id="radarChart"></div>
+									</div>
+									<div class="report_right">
+										<div class="report_now">
+											<dl>
+												<dt>
+													<strong>2021년 10월 20일</strong>
+													<span>달성율은 일 단위로 산정합니다.</span>
+												</dt>
+												<dd>
+													<strong>노하우</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd class="report_now_low">
+													<strong>자기계발</strong>
+													<span>0%</span>
+													<em>😔</em>
+												</dd>
+												<dd>
+													<strong>협업능력</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd>
+													<strong>성실</strong>
+													<span>100%</span>
+													<em>😀</em>
+												</dd>
+												<dd class="report_now_low">
+													<strong>적극성</strong>
+													<span>0%</span>
+													<em>😔</em>
+												</dd>
+											</dl>
+										</div>
+									</div>
+
+									<div class="report_cha">
+										<!-- <div class="report_cha_banner">추천 챌린지로 능력치를 올려보세요!</div> -->
+										<div class="report_cha_title">📢 추천 챌린지 <span>추천 챌린지로 능력치를 올려보세요!</span></div>
+										<ul class="rew_cha_list_ul">
+											<li class="category_01">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">업무</span>
+															<span class="cha_title">윈도우 업데이트 점검한다면</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 20</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">책 읽고 독서메모를 남긴다면</span>
+															<span class="cha_coin"><strong>1,500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">7/20 명 도전중</span>
+															<span class="cha_dday">D - 10</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_05">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">신입사원</span>
+															<span class="cha_title">보고서 작성법을 배우면</span>
+															<span class="cha_coin"><strong>1,000</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">1/1 명 도전중</span>
+															<span class="cha_dday">D - 30</span>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li class="category_02">
+												<a href="#">
+													<div class="cha_box">
+														<div class="cha_box_t">
+															<span class="cha_cate">생활</span>
+															<span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+															<span class="cha_coin"><strong>500</strong>코인</span>
+														</div>
+														<div class="cha_box_b">
+															<span class="cha_member">12/20 명 도전중</span>
+															<span class="cha_dday">D - 60</span>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+			<div class="layer_memo" style="display:none;">
+				<div class="layer_deam"></div>
+				<div class="layer_memo_in">
+					<div class="layer_memo_box">
+						<textarea name="" class="textarea_memo" placeholder="메모를 작성해주세요."></textarea>
+					</div>
+					<div class="layer_memo_btn">
+						<button class="layer_memo_cancel"><span>취소</span></button>
+						<button class="layer_memo_submit"><span>등록하기</span></button>
+						<button class="layer_memo_submit on"><span>등록하기</span></button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- Step 1) Load D3.js -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<!-- Step 2) Load billboard.js with style -->
+	<script src="./js/billboard.js"></script>
+	<!-- Load with base style -->
+	<link rel="stylesheet" href="./css/billboard.css">
+	<script>
+		var chart = bb.generate({
+			data: {
+				x: "x",
+				columns: [
+				["x", "노하우", "자기계발", "협업능력", "성실", "적극성", "셀프"],
+				["역량평가 리포트", 75, 95, 80, 65, 90, 50]
+				//["역량평가 리포트 9월", 80, 50, 50, 90, 70, 60]
+				],
+				color: "#aaa",
+				type: "radar",
+				labels: false,
+				colors: {
+				"역량평가 리포트": "#ffaf04"
+				// "역량평가 리포트 9월": "#c5c5c5"
+				}
+			},
+			size: {
+				//width: 400,
+				height: 300
+			},
+			radar: {
+				axis: {
+					max: 100
+				},
+				level: {
+					depth: 4
+				},
+				direction: {
+					clockwise: true
+				}
+			},
+			tooltip: {
+				show: false
+			},
+			point: {
+				show: true
+			},
+			transition: {
+			   duration: 500
+			},
+			bindto: "#radarChart"
+		});
+	</script>
+
+	
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$(".lt_close").click(function(){
+				$("#layer_team").hide();
+			});
+			$(".ls_close").click(function(){
+				$("#layer_sort").hide();
+			});
+			$(".lrs_close").click(function(){
+				$("#layer_re_small").hide();
+			});
+
+			$(".ls_ul_01 .ll_li").click(function(){
+				$(this).siblings().removeClass("on");
+				$(this).addClass("on");
+				$(".ls_bottom button").removeClass("btn_off").addClass("btn_on");
+			});
+
+			$(".gf_cate button").click(function(){
+				$(this).siblings().removeClass("on");
+				$(this).addClass("on");
+			});
+
+			$(".ls_bottom button").click(function(){
+				if($(this).hasClass("btn_on")){
+					var ls_user = $(".ls_ul_01 .ll_li.on").find(".ll_name_user").text();
+					$("#layer_sort").hide();
+					$("#gridDemo .ll_li").each(function(){
+						var gdli = $(this);
+						var gdlit = gdli.find(".ll_name_user").text();
+						var met = $("#gridDemo .ll_me").find(".ll_name_user").text();
+						if(gdlit == ls_user){
+							$("#gridDemo .ll_li").removeClass("ll_on");
+							gdli.addClass("ll_on");
+							$("#gridDemo .ll_me").addClass("ll_on");
+							$("#gridDemo .ll_li").find(".ll_meeting_list strong").remove();
+							gdli.find(".ll_meeting_list").append("<strong>"+met+"</strong>");
+							$("#gridDemo .ll_me").find(".ll_meeting_list").append("<strong>"+gdlit+"</strong>");
+						}
+					});
+
+				}
+			});
+
+			
+
+			$(".lrs_bottom button").click(function(){
+				if($(this).hasClass("btn_on")){
+					var lt_user = $(".lrs_ul_01 .lls_li .lls_name_user").text();
+					$("#layer_re_small").hide();
+
+					$("#gridSmall .lls_li").removeClass("lls_on");
+					$("#gridSmall .lls_li").find(".lls_meeting_list em").remove();
+					$("#gridSmall .lls_li").find(".lls_meeting_list strong").remove();
+
+					var gdlit0 = $("#gridSmall .lls_li.on").find(".lls_name_user").text();
+					var gdlit00 = $("#gridSmall .lls_li.on").find(".lls_name_team").text();
+					var met0 = $("#gridSmall .lls_me").find(".lls_name_user").text();
+					var met00 = $("#gridSmall .lls_me").find(".lls_name_team").text();
+
+					$("#gridSmall .lls_li.on .lls_meeting").addClass("on");
+					$("#gridSmall .lls_li.on .lls_meeting_list").append("<em>"+met00+"</em>");
+					$("#gridSmall .lls_li.on .lls_meeting_list").append("<strong>"+met0+"</strong>");
+					$("#gridSmall .lls_me .lls_meeting").addClass("on");
+					$("#gridSmall .lls_me .lls_meeting_list").append("<em>"+gdlit00+"</em>");
+					$("#gridSmall .lls_me .lls_meeting_list").append("<strong>"+gdlit0+"</strong>");
+
+					$("#gridSmall .lls_li.on").addClass("lls_on").removeClass("on");
+					$("#gridSmall .lls_me").addClass("lls_on")
+
+				}
+			});
+
+
+
+			
+
+
+
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

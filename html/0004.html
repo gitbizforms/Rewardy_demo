@@ -1,0 +1,904 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".rew_mypage_04").click(function (e) {
+			if (!$(e.target).is(".rew_mypage_04 *")) {
+				$(".rew_box").removeClass("on");
+				$(".rew_menu_onoff button").removeClass("on");
+			}
+		});
+
+		$(".rew_conts_list_in ul").sortable({
+			axis: "y",
+            opacity: 0.7,
+			zIndex: 9999,
+			//placeholder:"sort_empty",
+			cursor: "move"
+		});
+		$(".rew_conts_list_in ul").disableSelection();
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+		},400);
+		
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+		$(".rew_conts_scroll_04").scroll(function(){
+			var rct = $(".rew_cha_list_in").offset().top;
+			console.log(rct);
+			if(rct<216){
+				$(".rew_cha_list_func").addClass("pos_fix");
+			}else{
+				$(".rew_cha_list_func").removeClass("pos_fix");
+			}
+		});
+
+		$(".rew_cha_list_ul li").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			setTimeout(function(){
+				tis.addClass("sli");
+			},700+tindex*150);
+		});
+
+		$(".rew_cha_tab_sort .btn_sort_on").click(function(){
+			$(".rew_cha_tab_sort").addClass("on");
+		});
+		$(".rew_cha_tab_sort").mouseleave(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+		$(".rew_cha_tab_sort ul li button").click(function(){
+			$(".rew_cha_tab_sort").removeClass("on");
+		});
+
+		$(".rew_cha_sort .btn_sort_on").click(function(){
+			$(".rew_cha_sort").addClass("on");
+		});
+		$(".rew_cha_sort").mouseleave(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+		$(".rew_cha_sort ul li button").click(function(){
+			$(".rew_cha_sort").removeClass("on");
+		});
+
+		$(".rew_cha_more button").click(function(){
+
+			$(".rew_cha_list_ul").append('<li class="sli2 category_06 offset0"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_06"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">기타</span><span class="cha_title">하루에 칭찬 3번을 했을 뿐인데 </span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">18/20 명 도전중</span><span class="cha_dday">D - 7</span></div></div></a></li><li class="sli2 category_01"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">업무</span><span class="cha_title">윈도우 업데이트 점검한다면</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 20</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">책 읽고 독서메모를 남긴다면</span><span class="cha_coin"><strong>1,500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">7/20 명 도전중</span><span class="cha_dday">D - 10</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">보고서 작성법을 배우면</span><span class="cha_coin"><strong>1,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li><li class="sli2 category_02"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">생활</span><span class="cha_title">캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span><span class="cha_coin"><strong>500</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">12/20 명 도전중</span><span class="cha_dday">D - 60</span></div></div></a></li><li class="sli2 category_05"><a href="./0006.html"><div class="cha_box"><div class="cha_box_t"><span class="cha_cate">신입사원</span><span class="cha_title">비즈니스 명함 예절을 배우면</span><span class="cha_coin"><strong>10,000</strong>코인</span></div><div class="cha_box_b"><span class="cha_member">1/1 명 도전중</span><span class="cha_dday">D - 30</span></div></div></a></li>');
+
+			
+			setTimeout(function(){
+				var offset = $(".offset0").position();
+				$(".rew_conts_scroll_04").animate({scrollTop : offset.top - 5}, 700);
+			},400);
+
+			setTimeout(function(){
+				$(".offset0").removeClass("offset0");
+			},1100);
+
+			$(".rew_cha_list_ul li:not('.sli')").each(function(aa){
+				var tis = $(this);
+				var tindex = $(this).index();
+				//alert(tindex);
+				setTimeout(function(){
+					tis.addClass("sli");
+				},700+(aa+1)*150);
+			});
+
+			
+		});
+
+
+	});
+
+	
+</script>
+<div class="rew_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert" style="display:none;"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04 on">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_04">
+							<div class="rew_mypage_04_in">
+								<div class="rew_mypage_title">
+									<strong><a href="./0004.html">챌린지</a></strong>
+								</div>
+
+								<div class="rew_mypage_tab_03">
+									<ul>
+										<li>
+											<span>도전가능</span>
+											<strong>0</strong>
+										</li>
+										<li>
+											<span>도전중</span>
+											<strong>0</strong>
+										</li>
+										<li>
+											<span>도전완료</span>
+											<strong>0</strong>
+										</li>
+									</ul>
+								</div>
+
+								<div class="rew_mypage_section">
+									<div class="rew_mypage_section_title">
+										<strong><span>🏆</span> 코인 현황</strong>
+									</div>
+									<div class="rew_mypage_coin_now">
+										<ul>
+											<li>
+												<span>내 코인</span>
+												<strong>120,000</strong>
+											</li>
+											<li>
+												<span>획득 가능한 코인</span>
+												<strong>0</strong>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="rew_mypage_section">
+									<div class="rew_mypage_section_title">
+										<strong><span>📢</span> 마감임박 챌린지</strong>
+									</div>
+									<div class="rew_mypage_chall_ing">
+										<ul>
+											<li>
+												<a href="./0006.html">
+													<span class="chall_ing_title">[신입사원] 보고서 작성법을 배우면</span>
+													<span class="chall_ing_coin"><strong>1,000</strong>코인</span>
+													<span class="chall_ing_dday"><strong>D - 1</strong></span>
+												</a>
+											</li>
+											<li>
+												<a href="./0006.html">
+													<span class="chall_ing_title">[생활] 캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+													<span class="chall_ing_coin"><strong>500</strong>코인</span>
+													<span class="chall_ing_dday"><strong>D - 2</strong></span>
+												</a>
+											</li>
+											<li>
+												<a href="./0006.html">
+													<span class="chall_ing_title">[생활] 책 읽고 독서메모를 남긴다면</span>
+													<span class="chall_ing_coin"><strong>1,500</strong>코인</span>
+													<span class="chall_ing_dday"><strong>D - 2</strong></span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="rew_mypage_cha_write">
+								<a href="./0004t.html" class="btn_mypage_cha_write"><span>챌린지 만들기</span></a>
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+						<!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+						<!-- <div class="rew_cha_tab">
+							<div class="rew_cha_tab_in">
+								<ul>
+									<li class="on"><button><span>전체</span></button></li>
+									<li><button><span>업무</span></button></li>
+									<li><button><span>생활</span></button></li>
+									<li><button><span>교육</span></button></li>
+									<li><button><span>문화</span></button></li>
+									<li><button><span>신입사원</span></button></li>
+									<li><button><span>기타</span></button></li>
+								</ul>
+							</div>
+						</div> -->
+						<div class="rew_cha_list_func">
+							<div class="rew_cha_list_func_in">
+								<div class="rew_cha_count">
+									<span>전체</span>
+									<strong>182</strong>
+								</div>
+								<div class="rew_cha_tab_sort" style="right:406px">
+									<div class="rew_cha_tab_sort_in">
+										<button class="btn_sort_on"><span>전체</span></button>
+										<ul>
+											<li><button><span>전체</span></button></li>
+											<li><button><span>업무</span></button></li>
+											<li><button><span>생활</span></button></li>
+											<li><button><span>교육</span></button></li>
+											<li><button><span>문화</span></button></li>
+											<li><button><span>신입사원</span></button></li>
+											<li><button><span>기타</span></button></li>
+										</ul>
+									</div>
+								</div>
+								<div class="rew_cha_sort" style="right:240px">
+									<div class="rew_cha_sort_in">
+										<button class="btn_sort_on"><span>최신 순</span></button>
+										<ul>
+											<li><button><span>최신 순</span></button></li>
+											<li><button><span>참여자 많은 순</span></button></li>
+											<li><button><span>코인 높은 순</span></button></li>
+											<li><button><span>기간 짧은 순</span></button></li>
+										</ul>
+									</div>
+								</div>
+								<div class="rew_cha_search" style="right:10px">
+									<div class="rew_cha_search_box">
+										<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+										<button><span>검색</span></button>
+									</div>
+								</div>
+								<div class="rew_cha_chk_tab">
+									<ul>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_all" checked />
+												<label for="cha_chk_tab_all">전체</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_wait">
+												<label for="cha_chk_tab_wait">도전가능한 챌린지</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_ing">
+												<label for="cha_chk_tab_ing">도전중인 챌린지</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_comp">
+												<label for="cha_chk_tab_comp">내가 완료한 챌린지</label>
+											</div>
+										</li>
+										<li>
+											<div class="chk_tab">
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_end">
+												<label for="cha_chk_tab_end">종료된 챌린지</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_04">
+
+							<div class="rew_cha_list">
+								<div class="rew_cha_list_in">
+									<ul class="rew_cha_list_ul">
+										<li class="category_01">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">중간보고</span>
+														</div>
+														<span class="cha_coin"><strong>3,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">일 잘하는 사람은<br />중간보고 꼭 한다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">업무 우선순위</span>
+														</div>
+														<span class="cha_coin"><strong>1,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">우선순위를 정하면<br />일 잘한다는 소리 듣는다!</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_04">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">포토샵 단축키</span>
+														</div>
+														<span class="cha_coin"><strong>500</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">작업 속도 두배로 올리는<br />포토샵 단축키</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_06">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">법정의무교육</span>
+														</div>
+														<span class="cha_coin"><strong>3,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">1년에 한 번씩 무조건<br />법정의무교육 듣는 거 알지?</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="cha_dend category_02">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">업무 우선순위</span>
+														</div>
+														<span class="cha_coin"><strong>1,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">아직도 비즈니스 메일<br />쓰는 법을 몰라?</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_02">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">지각</span>
+														</div>
+														<span class="cha_coin"><strong>500</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">꼭 1분씩 지각하는<br />직원이 있다?</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_06">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">안전교육</span>
+														</div>
+														<span class="cha_coin"><strong>3,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">소화기가<br />어디에 있는지 알고 있나요?</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_04">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">1일 1보고</span>
+														</div>
+														<span class="cha_coin"><strong>3,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">1일 1보고<br />간단히 보고해요</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="category_01">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">업무 백업</span>
+														</div>
+														<span class="cha_coin"><strong>3,000</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">나의 업무를 부탁해~<br />비상 시 업무 백업 보고서</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>0</strong>/20명(도전중)</span>
+														<span class="cha_dday">D - 5</span>
+													</div>
+												</div>
+											</a>
+										</li>
+
+									</ul>
+									<div class="rew_cha_more">
+										<button><span>more</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+
+
+			var delay = 300;
+			var timer = null;
+ 
+			//jQuery
+			$(window).on('resize', function(){
+				//clearTimeout(timer);
+				//timer = setTimeout(function(){
+				//	console.log('resize event!');
+				//}, delay);
+				var winw = $(window).width();
+				console.log(winw);
+				var rss = $(".rew_cha_list .rew_cha_list_ul li").first().width();
+				$(".rew_cha_list .rew_cha_list_ul .cha_title").html($(".rew_cha_list .rew_cha_list_ul .cha_title").html().replace(/(<br>|<br\/>|<br \/>)/g, '&nbsp;'));
+				
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

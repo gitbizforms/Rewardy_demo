@@ -1,0 +1,88 @@
+@charset "utf-8"; body { background: #f0f1f4; } 
+
+
+.tdw_logo_area_in{position:relative;}
+
+.logo_file_box{ text-align: center;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    position: relative;
+    height: 48px;
+    overflow: hidden;
+    width: 15%; }
+
+.logo_input_file{
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.logo_label_file{
+    display: block;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.logo_label_file span{
+    font-size: 15px;
+    color: #38c9d2;
+    font-weight: 400;
+    letter-spacing: -0.075em;
+    line-height: 48px;
+    padding-left: 24px;
+    background: url(../images/pre/ico_btn_file.png) 0 50% no-repeat;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.logo_file_desc{
+    text-align: left;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    position: relative;
+    height: 53px;
+    overflow: hidden;
+    margin-top: 10px;
+    width: 15%;
+}
+
+.logo_file_desc span{
+    font-size: 15px;
+    color: #858585;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    line-height: 53px;
+    padding-left: 20px;
+    padding-right: 5px;
+    width: calc(100% - 56px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo_file_desc button{
+    width: 16px;
+    height: 16px;
+    border: none;
+    text-indent: -9999px;
+    background: url(../images/pre/ico_file_xx.png) 50% 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo_btn button {
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.05em;
+    width: 15%;
+    height: 55px;
+    background: #38c9d2;
+    border-radius: 10px;
+}

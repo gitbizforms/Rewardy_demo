@@ -1,0 +1,2942 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+	<title>Rewardy</title>
+
+	<meta name="title" content="Rewardy">
+	<meta name="description" content="Rewardy 입니다.">
+	<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+	<meta property="og:description" content="Rewardy 입니다.">
+	<meta property="og:title" content="Rewardy">
+	<meta property="og:image" content="../images/main/img_meta.jpg">
+
+	<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+	<!-- 노토산스 -->
+	<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+	<link rel="stylesheet" type="text/css" href="./css/rew_head.css" />
+	<link rel="stylesheet" type="text/css" href="./css/challenge_03.css" />
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+	<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script>
+	<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+	<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+	<script src="./js/window-date-picker.js"></script>
+	<script type="text/javascript" src="./js/circle-progress.js"></script>
+	<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$(".rew_conts_list_in ul").sortable({
+				axis: "y",
+				opacity: 0.7,
+				zIndex: 9999,
+				//placeholder:"sort_empty",
+				cursor: "move"
+			});
+			$(".rew_conts_list_in ul").disableSelection();
+
+			$(".rew_conts_list_in ul li button").click(function () {
+				$(this).parent("li").toggleClass("on");
+			});
+
+			$(".rew_btn_icons_more").click(function () {
+				$(".rew_icons").toggle();
+			});
+
+			$(".rew_mypage_tab_04 a").click(function () {
+				$(".rew_mypage_tab_04 li").removeClass("on");
+				$(this).parent("li").addClass("on");
+			});
+
+
+			setTimeout(function () {
+				//$(".rew_box").addClass("on");
+			}, 400);
+
+			setTimeout(function () {
+				$(".tabs_on").addClass("now_01");
+			}, 1100);
+
+			$(".btn_next_step_02").click(function () {
+				$(".rew_cha_step_01").addClass("step_z");
+				$(".rew_cha_step_02").addClass("step_z");
+				$(".rew_cha_step_03").removeClass("step_z");
+				$(".rew_cha_step_01").animate({
+					"left": -100 + "%"
+				}, 700);
+				$(".rew_cha_step_02").animate({
+					"left": 0 + "%"
+				}, 700);
+				$(".rew_cha_step_03").animate({
+					"left": 100 + "%"
+				}, 700);
+
+				setTimeout(function () {
+					$(".rew_cha_step_01").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_02").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_03").animate({
+						scrollTop: 0
+					}, 0);
+				}, 200);
+
+				setTimeout(function () {
+					$(".tabs_on").addClass("now_02");
+				}, 1100);
+			});
+			$(".btn_prev_step_01").click(function () {
+				$(".rew_cha_step_01").addClass("step_z");
+				$(".rew_cha_step_02").addClass("step_z");
+				$(".rew_cha_step_03").removeClass("step_z");
+				$(".rew_cha_step_01").animate({
+					"left": 0 + "%"
+				}, 700);
+				$(".rew_cha_step_02").animate({
+					"left": 100 + "%"
+				}, 700);
+				$(".rew_cha_step_03").animate({
+					"left": -100 + "%"
+				}, 700);
+
+				setTimeout(function () {
+					$(".rew_cha_step_01").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_02").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_03").animate({
+						scrollTop: 0
+					}, 0);
+				}, 200);
+
+				setTimeout(function () {
+					$(".tabs_on").removeClass("now_02");
+				}, 1100);
+			});
+			$(".btn_next_step_03").click(function () {
+				$(".rew_cha_step_01").removeClass("step_z");
+				$(".rew_cha_step_02").addClass("step_z");
+				$(".rew_cha_step_03").addClass("step_z");
+				$(".rew_cha_step_01").animate({
+					"left": 100 + "%"
+				}, 700);
+				$(".rew_cha_step_02").animate({
+					"left": -100 + "%"
+				}, 700);
+				$(".rew_cha_step_03").animate({
+					"left": 0 + "%"
+				}, 700);
+
+				setTimeout(function () {
+					$(".rew_cha_step_01").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_02").animate({
+						scrollTop: 0
+					}, 0);
+					$(".rew_cha_step_03").animate({
+						scrollTop: 0
+					}, 0);
+				}, 200);
+
+				setTimeout(function () {
+					$(".tabs_on").addClass("now_03");
+				}, 1100);
+			});
+
+
+			$(".btn_sort_on").click(function () {
+				$(".list_function_sort").addClass("on");
+			});
+			$(".list_function_sort").mouseleave(function () {
+				$(".list_function_sort").removeClass("on");
+			});
+			$(".list_function_sort ul li button").click(function () {
+				$(".list_function_sort").removeClass("on");
+			});
+
+			$(".rew_menu_onoff button").click(function () {
+				var thisonoff = $(this);
+				if (thisonoff.hasClass("on")) {
+					thisonoff.removeClass("on");
+					$(".rew_box").removeClass("on");
+
+				} else {
+					thisonoff.addClass("on");
+					$(".rew_box").addClass("on");
+
+				}
+			});
+
+			var vut = $(".view_user").offset().top;
+			if (vut > 0) {
+				setTimeout(function () {
+					$(".view_user").addClass("on");
+				}, 1300);
+			} else {
+				$(".view_user").removeClass("on");
+			}
+
+			$(".rew_conts_scroll_06").scroll(function () {
+				var vbt = $(".rew_cha_view").offset().top;
+				if (vbt < 0) {
+					$(".rew_cha_view_top").addClass("pos_fix");
+				} else {
+					$(".rew_cha_view_top").removeClass("pos_fix");
+				}
+
+				var vut = $(".view_user").offset().top;
+				if (vut > 0) {
+					$(".view_user").addClass("on");
+				} else {
+					$(".view_user").removeClass("on");
+				}
+
+				var vrt = $(".rew_cha_view_result ul").offset().top;
+				var sc6h = $(".rew_conts_scroll_06").height();
+				if (vrt < sc6h) {
+					$(".rew_cha_view_result ul").addClass("on");
+				} else {
+					$(".rew_cha_view_result ul").removeClass("on");
+				}
+
+				$(".rew_cha_view_masage .masage_zone > div").each(function () {
+					var mzthis = $(this);
+					var mzt = $(this).offset().top;
+					var sc6h = $(".rew_conts_scroll_06").height();
+					if (mzt < sc6h) {
+						mzthis.addClass("on");
+					} else {
+						mzthis.removeClass("on");
+					}
+				});
+
+				$(".rew_cha_view_mix .mix_zone > div").each(function () {
+					var mzthis = $(this);
+					var mzt = $(this).offset().top;
+					var sc6h = $(".rew_conts_scroll_06").height();
+					if (mzt < sc6h) {
+						mzthis.addClass("on");
+					} else {
+						mzthis.removeClass("on");
+					}
+				});
+
+				var offset01 = $(".rew_conts_scroll_06").offset();
+				var offset02 = $(".rew_cha_view_result").position();
+				var offset03 = $(".rew_cha_view_masage").position();
+				if (offset01.top < (offset02.top - 150)) {
+					$(".rew_cha_view_top .view_top_nav li button").removeClass("on");
+					$("#go_view_01").addClass("on");
+				}
+				if (offset01.top > (offset02.top - 150)) {
+					$(".rew_cha_view_top .view_top_nav li button").removeClass("on");
+					$("#go_view_02").addClass("on");
+				}
+				if (offset01.top > (offset03.top - 150)) {
+					$(".rew_cha_view_top .view_top_nav li button").removeClass("on");
+					$("#go_view_03").addClass("on");
+				}
+
+			});
+			$(".list_area").scroll(function () {
+				var rct = $(".list_area_in").position().top;
+				if (rct < 60) {
+					$(".layer_result_right").addClass("pos_fix");
+				} else {
+					$(".layer_result_right").removeClass("pos_fix");
+				}
+			});
+			$(".masage_zone").scroll(function () {
+				var rct = $(".masage_zone_in").position().top;
+				if (rct < 60) {
+					$(".layer_result_right").addClass("pos_fix");
+				} else {
+					$(".layer_result_right").removeClass("pos_fix");
+				}
+			});
+			$(".mix_zone").scroll(function () {
+				var rct = $(".mix_zone_in").position().top;
+				if (rct < 60) {
+					$(".layer_result_right").addClass("pos_fix");
+				} else {
+					$(".layer_result_right").removeClass("pos_fix");
+				}
+			});
+
+
+			$("#go_view_01").click(function () {
+				var offset1 = $(".rew_conts_scroll_06").offset();
+				$(".rew_conts_scroll_06").animate({
+					scrollTop: 0
+				}, 400 + (offset1.top / 2));
+			});
+			var offset2 = $(".rew_cha_view_result").position();
+			$("#go_view_02").click(function () {
+				var offset1 = $(".rew_conts_scroll_06").offset();
+				var offset_sum = Math.abs(offset1.top - offset2.top);
+				setTimeout(function () {
+					$(".rew_conts_scroll_06").animate({
+						scrollTop: offset2.top - 155
+					}, offset_sum / 4 + 200);
+				}, 100);
+			});
+			var offset3 = $(".rew_cha_view_masage").position();
+			$("#go_view_03").click(function () {
+				var offset1 = $(".rew_conts_scroll_06").offset();
+				//console.log(offset2.top);
+				var offset_sum = Math.abs(offset1.top - offset3.top);
+				setTimeout(function () {
+					$(".rew_conts_scroll_06").animate({
+						scrollTop: offset3.top - 155
+					}, offset_sum / 4 + 200);
+				}, 100);
+			});
+
+
+			$(".conts_tab ul li button").click(function () {
+				var drM_li = $(this).parent("li").index();
+
+				var offt = $(".conts_main > div:eq(" + drM_li + ")").offset();
+				var tabt = $(".conts_tab").offset();
+				var matht = Math.abs(tabt.top - offt.top);
+				$("html, body").animate({
+					scrollTop: offt.top - 101
+				}, matht / 8 + 200);
+
+				return false;
+			});
+
+			$(".layer_user_info dt button").click(function () {
+				$(this).parent().parent("dl").toggleClass("on");
+			});
+			$(".layer_user_info dd button").click(function () {
+				$(this).toggleClass("on");
+				if ($(".layer_user_info dd button").hasClass("on")) {
+					$(".layer_user_submit").addClass("on");
+				} else {
+					$(".layer_user_submit").removeClass("on");
+				}
+			});
+
+			$(".layer_test_01").click(function () {
+				$("#layer_test_02").hide();
+				$("#layer_test_03").hide();
+				$("#layer_test_01").show();
+				$(".layer_user_info dl").addClass("on");
+				$(".layer_user_info dd button").removeClass("on");
+				$(".layer_user_submit").removeClass("on");
+				$(".layer_user_info").animate({
+					scrollTop: 0
+				}, 0);
+			});
+			$(".layer_test_02").click(function () {
+				$("#layer_test_01").hide();
+				$("#layer_test_03").hide();
+				$("#layer_test_02").show();
+				$(".layer_user_info dl").addClass("on");
+				$(".layer_user_info dd button").removeClass("on");
+				$(".layer_user_submit").removeClass("on");
+				$(".layer_user_info").animate({
+					scrollTop: 0
+				}, 0);
+			});
+			$(".layer_test_03").click(function () {
+				$("#layer_test_01").hide();
+				$("#layer_test_02").hide();
+				$("#layer_test_03").show();
+				$(".layer_user_info dl").addClass("on");
+				$(".layer_user_info dd button").removeClass("on");
+				$(".layer_user_submit").removeClass("on");
+				$(".layer_user_info").animate({
+					scrollTop: 0
+				}, 0);
+			});
+			$(".layer_user_cancel").click(function () {
+				$(".layer_user").hide();
+			});
+			$(".layer_user_submit").click(function () {
+				if ($(this).hasClass("on")) {
+					$(".layer_user").hide();
+				}
+			});
+			$("#open_layer_user").click(function () {
+				$(".layer_user").show();
+				$("#layer_test_02").hide();
+				$("#layer_test_03").hide();
+				$("#layer_test_01").show();
+				$(".layer_user_info dl").addClass("on");
+				$(".layer_user_info dd button").removeClass("on");
+				$(".layer_user_submit").removeClass("on");
+				$(".layer_user_info").animate({
+					scrollTop: 0
+				}, 0);
+			});
+
+			$(".list_function_type .type_list").click(function () {
+				$(".list_function_type button").removeClass("on");
+				$(this).addClass("on");
+				$(".list_box .list_conts").removeClass("type_img");
+				$(".list_box .list_conts").removeClass("type_on");
+				$(".list_box .list_conts").addClass("type_list");
+				$(".list_box .list_conts").addClass("type_on");
+			});
+			$(".list_function_type .type_img").click(function () {
+				$(".list_function_type button").removeClass("on");
+				$(this).addClass("on");
+				$(".list_box .list_conts").removeClass("type_list");
+				$(".list_box .list_conts").removeClass("type_on");
+				$(".list_box .list_conts").addClass("type_img");
+				$(".list_box .list_conts").addClass("type_on");
+			});
+
+			$(".list_conts .list_ul li .list_thumb_select").click(function () {
+				$(this).closest(".list_thumb_wrap").toggleClass("on");
+			});
+			$(".list_conts .list_ul li .list_thumb_preview").click(function () {
+				$(".layer_cha_image").show();
+			});
+
+			$(".rew_cha_view_result .title_area .title_more").click(function () {
+				$(".layer_result").show();
+			});
+			$(".rew_cha_view_result li button").not(".rew_cha_view_result_last").click(function () {
+				$(".layer_cha_image").show();
+			});
+			$(".rew_cha_view_result li .rew_cha_view_result_last").click(function () {
+				$(".layer_result").show();
+			});
+			$(".rew_cha_view_header .view_user li button").click(function () {
+				$(".layer_result").show();
+			});
+			$(".layer_result .layer_close button").click(function () {
+				$(".layer_result").hide();
+			});
+			$(".layer_result_user li button").click(function () {
+				$(".layer_result_user li button").removeClass("on");
+				$(this).addClass("on");
+			});
+
+			$(".rew_cha_view_masage .title_area .title_more").click(function () {
+				$(".layer_masage").show();
+			});
+			$(".masage_zone").click(function () {
+				$(".layer_masage").show();
+			});
+			$(".mix_zone").click(function () {
+				$(".layer_mix").show();
+			});
+			$(".masage_chk").click(function () {
+				$(this).closest(".masage_area_in").toggleClass("on");
+			});
+			$(".mix_chk").click(function () {
+				$(this).closest(".mix_area_in").toggleClass("on");
+			});
+			$(".layer_masage .layer_close button").click(function () {
+				$(".layer_masage").hide();
+			});
+			$(".layer_mix .layer_close button").click(function () {
+				$(".layer_mix").hide();
+			});
+			$(".layer_coin_give .layer_close button").click(function () {
+				$(".layer_coin_give").hide();
+			});
+
+			$(".join_type_file .btns_cha_cancel").click(function () {
+				$(".join_type_file").hide();
+			});
+			$(".join_type_masage .btns_cha_cancel").click(function () {
+				$(".join_type_masage").hide();
+			});
+			$(".join_type_mix .btns_cha_cancel").click(function () {
+				$(".join_type_mix").hide();
+			});
+			$(".btn_join_ok").click(function () {
+				$(".layer_cha_join").show();
+			});
+
+			$(".rew_cha_view_img .file_desc span img").click(function () {
+				$(".layer_cha_image").show();
+			});
+			$(".layer_cha_image .layer_cha_image_in, .layer_cha_image .layer_deam").click(function () {
+				$(".layer_cha_image").hide();
+			});
+
+			$(".layer_mix .mix_imgs_box img").click(function () {
+				$(".layer_cha_image").show();
+			});
+			$(".layer_cha_image .layer_cha_image_in, .layer_cha_image .layer_deam").click(function () {
+				$(".layer_cha_image").hide();
+			});
+
+			setTimeout(function () {
+				$(".rew_cha_view_quick").addClass("on");
+			}, 1100);
+
+			//setTimeout(function(){
+			//	var vbl = $(".rew_cha_view_box").offset().left;
+			//	var vbw = $(".rew_cha_view_box").width();
+			//	var wbw = $(window).width();
+			//	var vblw = vbl+vbw;
+			//	if(vblw < (wbw-80)){
+			//		$(".rew_cha_view_quick").css({left:vblw-80,right:"auto",opacity:1});
+			//	}else{
+			//		$(".rew_cha_view_quick").css({left:"auto",right:80,opacity:1});
+			//	}
+			//},1100);
+
+			//$(window).resize(function(){
+			//	var vbl = $(".rew_cha_view_box").offset().left;
+			//	var vbw = $(".rew_cha_view_box").width();
+			//	var wbw = $(window).width();
+			//	var vblw = vbl+vbw;
+			//	if(vblw < (wbw-80)){
+			//		$(".rew_cha_view_quick").css({left:vblw-80,right:"auto"});
+			//	}else{
+			//		$(".rew_cha_view_quick").css({left:"auto",right:80});
+			//	}
+			//});
+
+			$("#btn_coin_give").click(function () {
+				$(".layer_coin_give").show();
+			});
+
+		});
+	</script>
+	<div class="rew_warp">
+		<div class="rew_warp_in">
+			<div class="rew_box">
+				<div class="rew_box_in">
+					<!-- menu -->
+					<div class="rew_menu">
+						<div class="rew_menu_in">
+							<div class="rew_bar">
+								<span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+								<div class="rew_bar_in">
+									<div class="rew_bar_logo">
+										<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+									</div>
+									<ul>
+										<li class="rew_bar_li_01">
+											<a href="./0008.html"><strong>오늘업무</strong></a>
+										</li>
+										<li class="rew_bar_li_02">
+											<a href="./0007.html"><strong>LIVE</strong></a>
+										</li>
+										<li class="rew_bar_li_03">
+											<a href="./0009.html"><strong>보상</strong></a>
+										</li>
+										<li class="rew_bar_li_04 on">
+											<a href="./0004.html"><strong>챌린지</strong></a>
+										</li>
+									</ul>
+									<div class="rew_bar_setting">
+										<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+										<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="rew_mypage_08">
+								<div class="rew_mypage_08_in">
+									<div class="rew_mypage_title">
+										<strong>챌린지</strong>
+										<a href="./0004.html">챌린지 메인으로 가기</a>
+									</div>
+
+									<div class="rew_mypage_tab_04">
+										<ul>
+											<li class="tab_chall_01">
+												<a href="./0005.html"><span>챌린지 만들기</span></a>
+											</li>
+											<li class="tab_chall_02">
+												<a href="./0004.html"><span>챌린지 샘플보기</span></a>
+											</li>
+											<li class="tab_chall_03">
+												<a href="./0004.html"><span>정복한 챌린지</span></a>
+											</li>
+											<li class="tab_chall_04">
+												<a href="./0004.html"><span>내가 만든 챌린지</span></a>
+											</li>
+										</ul>
+									</div>
+
+									<div class="rew_mypage_section">
+										<div class="rew_mypage_section_title">
+											<strong><span>💰</span> 획득 가능한 코인</strong>
+										</div>
+										<div class="rew_mypage_coin_chall">
+											<strong><span>943,000</span></strong>
+										</div>
+									</div>
+
+									<div class="rew_mypage_section">
+										<div class="rew_mypage_section_title">
+											<strong><span>⭐</span> 도전 중인 챌린지</strong>
+										</div>
+										<div class="rew_mypage_chall_ing">
+											<ul>
+												<li>
+													<a href="#">
+														<span class="chall_ing_title">[신입사원] 보고서 작성법을 배우면</span>
+														<span class="chall_ing_coin"><strong>1,000</strong>코인</span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="chall_ing_title">[생활] 캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+														<span class="chall_ing_coin"><strong>500</strong>코인</span>
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="chall_ing_title">[생활] 책 읽고 독서메모를 남긴다면</span>
+														<span class="chall_ing_coin"><strong>1,500</strong>코인</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="rew_menu_onoff">
+							<button class="">열고 닫기</button>
+						</div>
+					</div>
+					<!-- //menu -->
+
+					<!-- 콘텐츠 -->
+					<div class="rew_conts">
+						<div class="rew_conts_in">
+							<!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+							<div class="rew_cha_view_top">
+								<div class="rew_cha_view_top_in">
+									<div class="view_top_title">
+										<div class="view_top_title_in">
+											<button class="btn_back_list"><span>목록으로</span></button>
+											<strong>[직무] 마감일 하루 전 인사평가 자료 제출한다면</strong>
+											<button class="btn_join_cancel" style="display:none;"><span>참여취소</span></button>
+											<button class="btn_join_ok"><span>참여하기</span></button>
+										</div>
+									</div>
+									<div class="view_top_nav">
+										<div class="view_top_nav_in">
+											<ul>
+												<li><button class="on" id="go_view_01"><span>챌린지 보기</span></button></li>
+												<li><button id="go_view_02"><span>결과물 파일</span></button></li>
+												<li><button id="go_view_03"><span>확인메시지</span></button></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="rew_conts_scroll_06">
+
+								<div class="rew_cha_view">
+									<div class="rew_cha_view_in">
+										<div class="rew_cha_view_box">
+											<div class="rew_cha_view_header">
+												<div class="rew_cha_view_header_in">
+													<div class="view_left">
+														<div class="view_title">[직무] 마감일 하루 전 인사평가 자료 제출한다면</div>
+														<div class="view_coin">
+															<strong>5,000</strong>
+															<span>코인</span>
+														</div>
+														<div class="view_info">
+															<ul>
+																<li><span>하루 1회</span></li>
+																<li><span>최대 5회</span></li>
+																<li><span>공휴일제외</span></li>
+																<li><span class="view_date">2021.01.01 ~ 2021.01.07</span></li>
+															</ul>
+														</div>
+													</div>
+													<div class="view_right">
+														<div class="view_user">
+															<ul>
+																<li><button><img src="images/pre/ico_user_001.png" alt="" /></button></li>
+																<li><button><img src="images/pre/ico_user_002.png" alt="" /></button></li>
+																<li><button><img src="images/pre/ico_user_003.png" alt="" /></button></li>
+																<li><button><span>+ 13</span></button></li>
+															</ul>
+														</div>
+														<div class="view_writer">
+															<span>editor.</span>
+															<strong>김명선(마케팅팀)</strong>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="rew_cha_view_editor">
+												<div class="rew_cha_view_editor_in">
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+													에디터 뷰<br />
+												</div>
+											</div>
+
+											<div class="rew_cha_view_file">
+												<div class="rew_cha_view_file_in">
+													<div class="title_area">
+														<strong class="title_main">[필수 확인] 파일을 확인하세요!</strong>
+													</div>
+													<ul>
+														<li>
+															<div class="file_box">
+																<div class="file_desc">
+																	<span>인사챌린지_참고01.hwp</span>
+																	<strong>다운로드</strong>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="file_box">
+																<div class="file_desc">
+																	<span>인사챌린지_참고2222222.ppt</span>
+																	<strong>다운로드</strong>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<div class="rew_cha_view_img">
+												<div class="rew_cha_view_img_in">
+													<div class="title_area">
+														<strong class="title_main">[인증샷 예시] 이렇게 찍어주세요!</strong>
+													</div>
+													<ul>
+														<li>
+															<div class="file_box">
+																<div class="file_desc">
+																	<span><img src="images/pre/sample_01.png" alt="" /></span>
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+
+										<div class="rew_cha_view_result">
+											<div class="rew_cha_view_result_in">
+												<div class="title_area">
+													<strong class="title_main">결과물 파일</strong>
+													<span class="title_point">250</span>
+													<a href="#" class="title_more"><span>더보기</span></a>
+												</div>
+												<ul>
+													<li>
+														<button>
+															<img src="images/pre/sample_01.png" alt="" />
+															<span>더보기</span>
+														</button>
+													</li>
+													<li>
+														<button>
+															<img src="images/pre/sample_01.png" alt="" />
+															<span>더보기</span>
+														</button>
+													</li>
+													<li>
+														<button>
+															<img src="images/pre/sample_01.png" alt="" />
+															<span>더보기</span>
+														</button>
+													</li>
+													<li>
+														<button>
+															<img src="images/pre/sample_01.png" alt="" />
+															<span>더보기</span>
+														</button>
+													</li>
+													<li>
+														<button class="rew_cha_view_result_last">
+															<img src="images/pre/sample_01.png" alt="" />
+															<span>더보기</span>
+														</button>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="rew_cha_view_masage">
+											<div class="rew_cha_view_masage_in">
+												<div class="title_area">
+													<strong class="title_main">확인메시지</strong>
+													<span class="title_point">160</span>
+													<a href="#" class="title_more"><span>더보기</span></a>
+												</div>
+												<div class="masage_zone">
+													<div class="masage_date">
+														<span>10월 15일 금요일</span>
+													</div>
+													<div class="masage_area">
+														<div class="masage_img">
+															<img src="images/pre/ico_user_001.png" alt="" />
+														</div>
+														<div class="masage_info">
+															<div class="masage_user">
+																<strong>서민정</strong>
+																<span>고객행복팀</span>
+															</div>
+															<div class="masage_box">
+																<p class="masage_txt">정답은 7입니다.</p>
+																<span class="masage_time">오후 3:00</span>
+																<button class="masage_jjim on"><span>좋아요</span></button>
+															</div>
+														</div>
+													</div>
+
+													<div class="masage_date">
+														<span>10월 14일 목요일</span>
+													</div>
+													<div class="masage_area">
+														<div class="masage_img">
+															<img src="images/pre/ico_user_002.png" alt="" />
+														</div>
+														<div class="masage_info">
+															<div class="masage_user">
+																<strong>윤지혜</strong>
+																<span>디자인팀</span>
+															</div>
+															<div class="masage_box">
+																<p class="masage_txt">정답은 7입니다.<br />이번 챌린지는 이전보다 더 재밌었습니다.^^<br />파이팅!</p>
+																<span class="masage_time">오후 4:21</span>
+																<button class="masage_jjim"><span>좋아요</span></button>
+															</div>
+															<div class="mesage_btn">
+																<button class="mesage_corr"><span>수정</span></button>
+																<button class="mesage_del"><span>삭제</span></button>
+															</div>
+														</div>
+													</div>
+													<div class="masage_area">
+														<div class="masage_img">
+															<img src="images/pre/ico_user_003.png" alt="" />
+														</div>
+														<div class="masage_info">
+															<div class="masage_user">
+																<strong>유상길</strong>
+																<span>개발팀</span>
+															</div>
+															<div class="masage_box">
+																<p class="masage_txt">정답은 7입니다. 이번 챌린지는 이전보다 더 재밌었습니다. 재미있게 참여할 수 있어서 좋았 습니다. ^^ 파이팅!
+																</p>
+																<span class="masage_time">오후 1:49</span>
+																<button class="masage_jjim"><span>좋아요</span></button>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="rew_cha_view_mix">
+											<div class="rew_cha_view_mix_in">
+												<div class="title_area">
+													<strong class="title_main">인증파일 + 인증메시지</strong>
+													<span class="title_point">160</span>
+													<a href="#" class="title_more"><span>더보기</span></a>
+												</div>
+												<div class="mix_zone">
+													<div class="mix_date">
+														<span>10월 15일 금요일</span>
+													</div>
+													<div class="mix_area">
+														<div class="mix_img">
+															<img src="images/pre/ico_user_001.png" alt="" />
+														</div>
+														<div class="mix_info">
+															<div class="mix_user">
+																<strong>서민정</strong>
+																<span>고객행복팀</span>
+															</div>
+															<div class="mix_box">
+																<p class="mix_txt">정답은 7입니다.</p>
+																<span class="mix_time">오후 3:00</span>
+																<button class="mix_jjim"><span>좋아요</span></button>
+																<button class="mix_memo"><span>메모하기</span></button>
+															</div>
+														</div>
+														<div class="mix_imgs">
+															<div class="mix_imgs_box">
+																<img src="images/pre/sample_01.png" alt="" />
+															</div>
+														</div>
+													</div>
+
+													<div class="mix_date">
+														<span>10월 14일 목요일</span>
+													</div>
+													<div class="mix_area">
+														<div class="mix_img">
+															<img src="images/pre/ico_user_002.png" alt="" />
+														</div>
+														<div class="mix_info">
+															<div class="mix_user">
+																<strong>윤지혜</strong>
+																<span>디자인팀</span>
+															</div>
+															<div class="mix_box">
+																<p class="mix_txt">정답은 7입니다.<br />이번 챌린지는 이전보다 더 재밌었습니다.^^<br />파이팅!</p>
+																<span class="mix_time">오후 4:21</span>
+																<button class="mix_jjim on"><span>좋아요</span></button>
+															</div>
+														</div>
+														<div class="mix_imgs">
+															<div class="mix_imgs_box">
+																<img src="images/pre/sample_01.png" alt="" />
+															</div>
+														</div>
+													</div>
+													<div class="mix_area">
+														<div class="mix_img">
+															<img src="images/pre/ico_user_003.png" alt="" />
+														</div>
+														<div class="mix_info">
+															<div class="mix_user">
+																<strong>유상길</strong>
+																<span>개발팀</span>
+															</div>
+															<div class="mix_box">
+																<p class="mix_txt">정답은 7입니다. 이번 챌린지는 이전보다 더 재밌었습니다. 재미있게 참여할 수 있어서 좋았 습니다. ^^ 파이팅!</p>
+																<span class="mix_time">오후 1:49</span>
+																<button class="mix_jjim"><span>좋아요</span></button>
+																<button class="mix_memo"><span>메모하기</span></button>
+															</div>
+														</div>
+														<div class="mix_imgs">
+															<div class="mix_imgs_box">
+																<img src="images/pre/sample_01.png" alt="" />
+																<img src="images/pre/sample_01.png" alt="" />
+																<img src="images/pre/sample_01.png" alt="" />
+																<img src="images/pre/sample_01.png" alt="" />
+																<img src="images/pre/sample_01.png" alt="" />
+															</div>
+														</div>
+														<div class="tdw_list_file_box">
+															<button class="btn_list_file" id="btn_list_file_0">
+																<span>123132131.jpg</span>
+															</button>
+															<button class="btn_list_file" id="btn_list_file_0">
+																<span>123132131.jpg</span>
+															</button>
+															<button class="btn_list_file" id="btn_list_file_0">
+																<span>123132131.jpg</span>
+															</button>
+															<button class="btn_list_file" id="btn_list_file_0">
+																<span>123132131.jpg</span>
+															</button>
+															<button class="btn_list_file" id="btn_list_file_0">
+																<span>123132131.jpg</span>
+															</button>
+														</div>
+														<div class="mesage_btn">
+															<button class="mesage_corr"><span>수정</span></button>
+															<button class="mesage_del"><span>삭제</span></button>
+														</div>
+
+														<div class="tdw_list_memo_area">
+															<div class="tdw_list_memo_area_in">
+																<div class="tdw_list_memo_desc">
+																	<div class="tdw_list_memo_name">윤지혜</div>
+																	<div class="tdw_list_memo_conts">
+																		<div class="tdw_list_memo_conts_txt">
+																			<strong>메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																				메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																				메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																				메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																				메모입니다. 메모입니다. 메모입니다. 메모입니다.</strong>
+																			<div class="tdw_list_memo_regi">
+																				<textarea name=""
+																					class="textarea_regi">메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.</textarea>
+																				<div class="btn_regi_box">
+																					<button class="btn_regi_submit"><span>확인</span></button>
+																					<button class="btn_regi_cancel"><span>취소</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40
+																			<!-- <button class="btn_memo_jjim"><span>좋아요</span></button> -->
+																			<button class="btn_memo_del"><span>삭제</span></button>
+																		</em>
+																	</div>
+																</div>
+																<div class="tdw_list_memo_desc">
+																	<div class="tdw_list_memo_name">윤지혜</div>
+																	<div class="tdw_list_memo_conts">
+																		<div class="tdw_list_memo_conts_txt">
+																			<strong>메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																				메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.</strong>
+																			<div class="tdw_list_memo_regi">
+																				<textarea name=""
+																					class="textarea_regi">메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.</textarea>
+																				<div class="btn_regi_box">
+																					<button class="btn_regi_submit"><span>확인</span></button>
+																					<button class="btn_regi_cancel"><span>취소</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40
+																			<!-- <button class="btn_memo_jjim"><span>좋아요</span></button> -->
+																			<button class="btn_memo_del"><span>삭제</span></button>
+																		</em>
+																	</div>
+																</div>
+															</div>
+															<!-- <div class="tdw_list_memo_onoff">
+																<button class="btn_list_memo_onoff on"><span>메모 접기/펼치기</span></button>
+															</div> -->
+														</div>
+												
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="cha_view_btn">
+											<div class="view_btn_type_01" style="display: none;">
+												<button class="btn_white" id="btn_back_list">이전</button>
+												<button class="btn_black" id="btn_coin_give">코인지급</button>
+												<button class="btn_gray">숨기기 OFF</button>
+												<button class="btn_ok">사용하기</button>
+												<button class="btn_black">수정하기</button>
+											</div>
+											<div class="view_btn_type_02">
+												<button class="btn_white" id="btn_back_list">이전</button>
+												<button class="btn_ok" id="btn_challenge">도전하기</button>
+											</div>
+											<div class="view_btn_type_03">
+												<button class="btn_black">수정하기</button>
+												<button class="btn_gray">삭제하기</button>
+												<button class="btn_white" id="btn_back_list">이전</button>
+												<button class="btn_ok" id="btn_challenge">도전하기</button>
+											</div>
+										</div>
+
+										<!-- <div class="cha_view_btn">
+										<button class="btn_white" id="btn_back_list">이전</button>
+										<button class="btn_gray" id="">삭제하기</button>
+										<button class="btn_black" id="">수정하기</button>
+										<button class="btn_ok" id="btn_challenge">도전하기</button>
+										<button class="btn_gray" id="btn_challenge_file" value="">인증파일 등록</button>
+									</div> -->
+
+									</div>
+								</div>
+
+							</div>
+
+							<!-- <div class="rew_cha_view_quick">
+							<ul>
+								<li><button><span>수정하기</span></button></li>
+								<li><button><span>삭제하기</span></button></li>
+							</ul>
+						</div> -->
+
+						</div>
+					</div>
+					<!-- //콘텐츠 -->
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_coin_give" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_coin_give_in">
+				<div class="coin_give_title">
+					<strong>코인 수동 지급</strong>
+					<span>성과자에게 차등 지급하거나 균등하게 나누어 지급할 수 있습니다.</span>
+				</div>
+				<div class="layer_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="coin_give_area">
+					<div class="coin_give_left">
+						<div class="coin_give_left_in">
+							<div class="coin_give_box">
+								<ul>
+									<li>
+										<span>지급 가능 코인</span>
+										<strong><em>100,000</em> 코인</strong>
+									</li>
+									<li>
+										<span>지급한 코인</span>
+										<strong class="coin_minus"><em>- 80,000</em> 코인</strong>
+									</li>
+									<li>
+										<span>남은 코인</span>
+										<strong><em>20,000</em>코인</strong>
+									</li>
+								</ul>
+								<button><span>코인 균등 배분</span></button>
+							</div>
+							<div class="coin_give_dot">
+								<ul>
+									<li><strong>백단위</strong>로 절삭</li>
+									<li>남은 코인은 <strong>공용코인으로 자동회수</strong></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="coin_give_right">
+						<div class="coin_give_right_in">
+							<div class="coin_give_list">
+								<ul>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>김광재</strong>
+											<span>콘텐츠팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>김명선</strong>
+											<span>마케팅팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>김민경</strong>
+											<span>경영지원팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>김상엽</strong>
+											<span>개발팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>박정헌</strong>
+											<span>마케팅팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>박희정</strong>
+											<span>콘텐츠팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+									<li>
+										<div class="coin_give_list_user">
+											<strong>서민정</strong>
+											<span>고객팀</span>
+										</div>
+										<div class="coin_give_list_box">
+											<input type="text" class="input_coin_give" />
+											<span>코인</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+							<div class="coin_give_btn">
+								<button class="btn_coin_give"><span>코인 지급</span></button>
+								<button class="btn_coin_give on"><span>코인 지급</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_result" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_result_in">
+				<div class="layer_result_box">
+					<div class="layer_result_left">
+						<div class="layer_result_search">
+							<div class="layer_result_search_box">
+								<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+								<button><span>검색</span></button>
+							</div>
+						</div>
+
+						<div class="layer_result_user">
+							<div class="layer_result_user_in">
+								<ul>
+									<li>
+										<button class="on">
+											<div class="user_img">
+												<img src="images/pre/ico_user_all.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>전체</strong>
+											</div>
+											<span class="user_num">
+												<span>250</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<img src="images/pre/ico_me.png" alt="" class="user_me" />
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>윤지혜</strong>
+												디자인팀
+											</div>
+											<span class="user_num">
+												<span>21</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김광재</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김명선</strong>
+												마케팅팀
+											</div>
+											<span class="user_num user_num_0">
+												<span>0</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김민경</strong>
+												경영지원팀
+											</div>
+											<span class="user_num">
+												<span>17</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김상엽</strong>
+												개발팀
+											</div>
+											<span class="user_num">
+												<span>4</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박정헌</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>9</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박희정</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>12</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>서민정</strong>
+												고객행복팀
+											</div>
+											<span class="user_num">
+												<span>20</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>성지훈</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="layer_result_right">
+						<div class="layer_close">
+							<button><span>닫기</span></button>
+						</div>
+						<div class="layer_result_top">
+							<strong>결과물 파일</strong>
+						</div>
+						<div class="layer_result_list" style="opacity:1;">
+							<div class="layer_result_list_in">
+								<div class="list_function">
+									<div class="list_function_in">
+										<div class="list_function_left">
+											김광재 <span>콘텐츠팀</span><strong>250</strong>
+										</div>
+										<div class="list_function_right">
+											<div class="list_function_sort">
+												<div class="list_function_sort_in">
+													<button class="btn_sort_on"><span>전체보기</span></button>
+													<ul>
+														<li><button><span>전체보기</span></button></li>
+														<li><button><span>2021년 10월 15일</span></button></li>
+														<li><button><span>2021-10-15</span></button></li>
+														<li><button><span>2021.10.15</span></button></li>
+													</ul>
+												</div>
+											</div>
+											<div class="list_function_type">
+												<button class="type_list"><span>리스트형</span></button>
+												<button class="type_img on"><span>이미지형</span></button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="list_area">
+									<div class="list_area_in">
+										<div class="list_box">
+											<div class="list_date">
+												<span>2021년 10월 15일 금요일</span>
+											</div>
+											<div class="list_conts type_img">
+												<ul class="list_ul">
+													<li>
+														<div class="list_thumb_wrap lrt_none">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_001.png" alt="" />
+																</div>
+																<div class="list_thumb_none">
+																	<span></span>
+																	<strong>취소상태</strong>
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물사진.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>깅광재 콘텐츠팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 4:30</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap lrt_me">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_002.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>윤지혜 디자인팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 3:00</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_003.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>서민정 고객행복팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 2:10</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_004.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>이선규 경영지원팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 1:30</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_005.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>박희정 콘텐츠팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 11:30</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_006.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>유상길 개발팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 11:00</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_007.png" alt="" />
+																</div>
+																<div class="list_thumb_none">
+																	<span></span>
+																	<strong>취소상태</strong>
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>하병호 디자인팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 10:15</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+																<div class="list_thumb_img">
+																	<img src="images/pre/img_result_008.png" alt="" />
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물사진.</strong>
+																	<span>jpg</span>
+																</div>
+																<div class="list_user">
+																	<span>김민경 경영지원팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 9:30</span>
+															</div>
+														</div>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+
+										<div class="list_box">
+											<div class="list_date">
+												<span>2021년 10월 14일 금요일</span>
+											</div>
+											<div class="list_conts type_img">
+												<ul class="list_ul">
+													<li>
+														<div class="list_thumb_wrap lrt_none">
+															<div class="list_thumb">
+
+																<div class="list_thumb_none">
+																	<span></span>
+																	<strong>취소상태</strong>
+																</div>
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물사진.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>깅광재 콘텐츠팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 5:10</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap lrt_me">
+															<div class="list_thumb">
+
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>윤지혜 디자인팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 4:20</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>서민정 고객행복팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 3:15</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>이선규 경영지원팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오후 1:50</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지_결과물.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>박희정 콘텐츠팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 11:20</span>
+															</div>
+														</div>
+													</li>
+
+													<li>
+														<div class="list_thumb_wrap">
+															<div class="list_thumb">
+
+																<div class="list_thumb_cover">
+																	<span></span>
+																	<button class="list_thumb_select"><strong>선택하기</strong></button>
+																	<button class="list_thumb_preview"><strong>미리보기</strong></button>
+																</div>
+															</div>
+															<div class="list_desc">
+																<div class="list_title">
+																	<strong>줍깅_챌린지.</strong>
+																	<span>zip</span>
+																</div>
+																<div class="list_user">
+																	<span>유상길 개발팀</span>
+																</div>
+															</div>
+															<div class="list_time">
+																<span>오전 10:30</span>
+															</div>
+														</div>
+													</li>
+
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="list_area_none">
+									<strong>등록된 결과물이 없습니다.</strong>
+								</div>
+
+							</div>
+						</div>
+						<div class="layer_result_btns">
+							<div class="layer_result_btns_in">
+								<div class="btns_left">
+									<button class="btns_cancel"><span>취소</span></button>
+									<strong>5 개 선택</strong>
+								</div>
+								<div class="btns_right">
+									<button class="btns_del"><span>삭제</span></button>
+									<button class="btns_down"><span>다운로드</span></button>
+									<button class="btns_down on"><span>다운로드</span></button>
+									<button class="btns_coin"><span>무효 후 코인 회수</span></button>
+									<button class="btns_re_coin"><span>코인 다시 지급</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_masage" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_result_in">
+				<div class="layer_result_box">
+					<div class="layer_result_left">
+						<div class="layer_result_search">
+							<div class="layer_result_search_box">
+								<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+								<button><span>검색</span></button>
+							</div>
+						</div>
+
+						<div class="layer_result_user">
+							<div class="layer_result_user_in">
+								<ul>
+									<li>
+										<button class="on">
+											<div class="user_img">
+												<img src="images/pre/ico_user_all.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>전체</strong>
+											</div>
+											<span class="user_num">
+												<span>250</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<img src="images/pre/ico_me.png" alt="" class="user_me" />
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>윤지혜</strong>
+												디자인팀
+											</div>
+											<span class="user_num">
+												<span>21</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김광재</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김명선</strong>
+												마케팅팀
+											</div>
+											<span class="user_num user_num_0">
+												<span>0</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김민경</strong>
+												경영지원팀
+											</div>
+											<span class="user_num">
+												<span>17</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김상엽</strong>
+												개발팀
+											</div>
+											<span class="user_num">
+												<span>4</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박정헌</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>9</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박희정</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>12</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>서민정</strong>
+												고객행복팀
+											</div>
+											<span class="user_num">
+												<span>20</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>성지훈</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="layer_result_right">
+						<div class="layer_close">
+							<button><span>닫기</span></button>
+						</div>
+						<div class="layer_result_top">
+							<strong>확인 메시지</strong>
+						</div>
+						<div class="layer_result_list" style="opacity:1;">
+							<div class="layer_result_list_in">
+								<div class="list_function">
+									<div class="list_function_in">
+										<div class="list_function_left">
+											김광재 <span>콘텐츠팀</span><strong>250</strong>
+										</div>
+										<div class="list_function_right">
+											<div class="list_function_sort">
+												<div class="list_function_sort_in">
+													<button class="btn_sort_on"><span>전체보기</span></button>
+													<ul>
+														<li><button><span>전체보기</span></button></li>
+														<li><button><span>2021년 10월 15일</span></button></li>
+														<li><button><span>2021-10-15</span></button></li>
+														<li><button><span>2021.10.15</span></button></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="masage_zone">
+									<div class="masage_zone_in">
+										<div class="masage_date">
+											<span>2021년 10월 15일 금요일</span>
+										</div>
+										<div class="masage_area">
+											<div class="masage_area_in chk_none">
+												<div class="masage_img">
+													<img src="images/pre/ico_user_001.png" alt="" />
+													<button class="masage_chk"><span>선택</span></button>
+												</div>
+												<div class="masage_info">
+													<div class="masage_user">
+														<strong>서민정</strong>
+														<span>고객행복팀</span>
+													</div>
+													<div class="masage_box">
+														<p class="masage_txt">정답은 2입니다.</p>
+														<span class="masage_time">오후 3:00</span>
+													</div>
+													<div class="masage_warning">
+														<span>무효 후 코인 회수 처리되었습니다.</span>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="masage_date">
+											<span>2021년 10월 14일 목요일</span>
+										</div>
+										<div class="masage_area">
+											<div class="masage_area_in">
+												<div class="masage_img">
+													<img src="images/pre/ico_user_006.png" alt="" />
+													<button class="masage_chk"><span>선택</span></button>
+												</div>
+												<div class="masage_info">
+													<div class="masage_user">
+														<strong>윤지혜</strong>
+														<span>디자인팀</span>
+													</div>
+													<div class="masage_box">
+														<p class="masage_txt">정답은 7입니다.<br />이번 챌린지는 이전보다 더 재밌었습니다.^^<br />파이팅!</p>
+														<span class="masage_time">오후 4:21</span>
+													</div>
+													<div class="mesage_btn">
+														<button class="mesage_corr"><span>수정</span></button>
+														<button class="mesage_del"><span>삭제</span></button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="masage_area">
+											<div class="masage_area_in">
+												<div class="masage_img">
+													<img src="images/pre/ico_user_007.png" alt="" />
+													<button class="masage_chk"><span>선택</span></button>
+												</div>
+												<div class="masage_info">
+													<div class="masage_user">
+														<strong>유상길</strong>
+														<span>개발팀</span>
+													</div>
+													<div class="masage_box">
+														<p class="masage_txt">정답은 7입니다. 이번 챌린지는 이전보다 더 재밌었습니다. 재미있게 참여할 수 있어서 좋았 습니다. ^^ 파이팅!</p>
+														<span class="masage_time">오후 1:49</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="masage_area_none">
+									<strong>등록된 메시지가 없습니다.</strong>
+								</div>
+
+							</div>
+						</div>
+						<div class="layer_result_btns">
+							<div class="layer_result_btns_in">
+								<div class="btns_left">
+									<button class="btns_cancel"><span>취소</span></button>
+									<strong>5 개 선택</strong>
+								</div>
+								<div class="btns_right">
+									<button class="btns_del"><span>삭제</span></button>
+									<button class="btns_coin"><span>무효 후 코인 회수</span></button>
+									<button class="btns_re_coin"><span>코인 다시 지급</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_mix" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_result_in">
+				<div class="layer_result_box">
+					<div class="layer_result_left">
+						<div class="layer_result_search">
+							<div class="layer_result_search_box">
+								<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+								<button><span>검색</span></button>
+							</div>
+						</div>
+
+						<div class="layer_result_user">
+							<div class="layer_result_user_in">
+								<ul>
+									<li>
+										<button class="on">
+											<div class="user_img">
+												<img src="images/pre/ico_user_all.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>전체</strong>
+											</div>
+											<span class="user_num">
+												<span>250</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<img src="images/pre/ico_me.png" alt="" class="user_me" />
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>윤지혜</strong>
+												디자인팀
+											</div>
+											<span class="user_num">
+												<span>21</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김광재</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김명선</strong>
+												마케팅팀
+											</div>
+											<span class="user_num user_num_0">
+												<span>0</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김민경</strong>
+												경영지원팀
+											</div>
+											<span class="user_num">
+												<span>17</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>김상엽</strong>
+												개발팀
+											</div>
+											<span class="user_num">
+												<span>4</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박정헌</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>9</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>박희정</strong>
+												콘텐츠팀
+											</div>
+											<span class="user_num">
+												<span>12</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>서민정</strong>
+												고객행복팀
+											</div>
+											<span class="user_num">
+												<span>20</span>
+											</span>
+										</button>
+									</li>
+
+									<li>
+										<button>
+											<div class="user_img">
+												<img src="images/pre/ico_user_005.png" alt="" />
+											</div>
+											<div class="user_name">
+												<strong>성지훈</strong>
+												마케팅팀
+											</div>
+											<span class="user_num">
+												<span>2</span>
+											</span>
+										</button>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="layer_result_right">
+						<div class="layer_close">
+							<button><span>닫기</span></button>
+						</div>
+						<div class="layer_result_top">
+							<strong>인증파일 + 인증메시지</strong>
+						</div>
+						<div class="layer_result_list" style="opacity:1;">
+							<div class="layer_result_list_in">
+								<div class="list_function">
+									<div class="list_function_in">
+										<div class="list_function_left">
+											김광재 <span>콘텐츠팀</span><strong>250</strong>
+										</div>
+										<div class="list_function_right">
+											<div class="list_function_sort">
+												<div class="list_function_sort_in">
+													<button class="btn_sort_on"><span>전체보기</span></button>
+													<ul>
+														<li><button><span>전체보기</span></button></li>
+														<li><button><span>2021년 10월 15일</span></button></li>
+														<li><button><span>2021-10-15</span></button></li>
+														<li><button><span>2021.10.15</span></button></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mix_zone">
+									<div class="mix_zone_in">
+										<div class="mix_date">
+											<span>2021년 10월 15일 금요일</span>
+										</div>
+										<div class="mix_area">
+											<div class="mix_area_in chk_none">
+												<div class="mix_img">
+													<img src="images/pre/ico_user_001.png" alt="" />
+													<button class="mix_chk"><span>선택</span></button>
+												</div>
+												<div class="mix_info">
+													<div class="mix_user">
+														<strong>서민정</strong>
+														<span>고객행복팀</span>
+													</div>
+													<div class="mix_box">
+														<p class="mix_txt">정답은 2입니다.</p>
+														<span class="mix_time">오후 3:00</span>
+													</div>
+													<div class="mix_warning">
+														<span>무효 후 코인 회수 처리되었습니다.</span>
+													</div>
+												</div>
+												<div class="mix_imgs">
+													<div class="mix_imgs_box">
+														<img src="images/pre/sample_01.png" alt="" />
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="mix_date">
+											<span>2021년 10월 14일 목요일</span>
+										</div>
+										<div class="mix_area">
+											<div class="mix_area_in">
+												<div class="mix_img">
+													<img src="images/pre/ico_user_006.png" alt="" />
+													<button class="mix_chk"><span>선택</span></button>
+												</div>
+												<div class="mix_info">
+													<div class="mix_user">
+														<strong>윤지혜</strong>
+														<span>디자인팀</span>
+													</div>
+													<div class="mix_box">
+														<p class="mix_txt">정답은 7입니다.<br />이번 챌린지는 이전보다 더 재밌었습니다.^^<br />파이팅!</p>
+														<span class="mix_time">오후 4:21</span>
+													</div>
+												</div>
+												<div class="mix_imgs">
+													<div class="mix_imgs_box">
+														<img src="images/pre/sample_01.png" alt="" />
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="mix_area">
+											<div class="mix_area_in">
+												<div class="mix_img">
+													<img src="images/pre/ico_user_007.png" alt="" />
+													<button class="mix_chk"><span>선택</span></button>
+												</div>
+												<div class="mix_info">
+													<div class="mix_user">
+														<strong>유상길</strong>
+														<span>개발팀</span>
+													</div>
+													<div class="mix_box">
+														<p class="mix_txt">정답은 7입니다. 이번 챌린지는 이전보다 더 재밌었습니다. 재미있게 참여할 수 있어서 좋았 습니다. ^^ 파이팅!</p>
+														<span class="mix_time">오후 1:49</span>
+														<button class="mix_jjim"><span>좋아요</span></button>
+														<button class="mix_memo"><span>메모하기</span></button>
+													</div>
+												</div>
+												<div class="mix_imgs">
+													<div class="mix_imgs_box">
+														<img src="images/pre/sample_01.png" alt="" />
+														<img src="images/pre/sample_01.png" alt="" />
+														<img src="images/pre/sample_01.png" alt="" />
+														<img src="images/pre/sample_01.png" alt="" />
+														<img src="images/pre/sample_01.png" alt="" />
+													</div>
+												</div>
+												<div class="tdw_list_file_box">
+													<button class="btn_list_file" id="btn_list_file_0">
+														<span>1231321231131.jpg</span>
+													</button>
+													<button class="btn_list_file" id="btn_list_file_0">
+														<span>123132131.jpg</span>
+													</button>
+													<button class="btn_list_file" id="btn_list_file_0">
+														<span>123132131.jpg</span>
+													</button>
+													<button class="btn_list_file" id="btn_list_file_0">
+														<span>123132131.jpg</span>
+													</button>
+													<button class="btn_list_file" id="btn_list_file_0">
+														<span>123132131.jpg</span>
+													</button>
+												</div>
+											</div>
+											<div class="mesage_btn">
+												<button class="mesage_corr"><span>수정</span></button>
+												<button class="mesage_del"><span>삭제</span></button>
+											</div>
+
+											<div class="tdw_list_memo_area">
+												<div class="tdw_list_memo_area_in">
+													<div class="tdw_list_memo_desc">
+														<div class="tdw_list_memo_name">윤지혜</div>
+														<div class="tdw_list_memo_conts">
+															<div class="tdw_list_memo_conts_txt">
+																<strong>메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																	메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																	메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																	메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.
+																	메모입니다. 메모입니다. 메모입니다. 메모입니다.</strong>
+																<div class="tdw_list_memo_regi">
+																	<textarea name=""
+																		class="textarea_regi">메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다. 메모입니다.</textarea>
+																	<div class="btn_regi_box">
+																		<button class="btn_regi_submit"><span>확인</span></button>
+																		<button class="btn_regi_cancel"><span>취소</span></button>
+																	</div>
+																</div>
+															</div>
+															<em class="tdw_list_memo_conts_date">2022-01-14 오후 02:21:40
+																<!-- <button class="btn_memo_jjim"><span>좋아요</span></button> -->
+																<button class="btn_memo_del"><span>삭제</span></button>
+															</em>
+														</div>
+													</div>
+												</div>
+												<!-- <div class="tdw_list_memo_onoff">
+													<button class="btn_list_memo_onoff on"><span>메모 접기/펼치기</span></button>
+												</div> -->
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+
+								<div class="mix_area_none">
+									<strong>등록된 메시지가 없습니다.</strong>
+								</div>
+
+							</div>
+						</div>
+						<div class="layer_result_btns">
+							<div class="layer_result_btns_in">
+								<div class="btns_left">
+									<button class="btns_cancel"><span>취소</span></button>
+									<strong>5 개 선택</strong>
+								</div>
+								<div class="btns_right">
+									<button class="btns_del"><span>삭제</span></button>
+									<button class="btns_coin"><span>무효 후 코인 회수</span></button>
+									<button class="btns_re_coin"><span>코인 다시 지급</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_cha_join join_type_file" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_cha_join_in">
+				<div class="layer_cha_join_box">
+					<div class="layer_cha_join_title">
+						<strong>챌린지 참여하기</strong>
+						<span>사진 및 파일로 챌린지를 인증하세요!</span>
+					</div>
+					<div class="layer_cha_join_area">
+						<div class="layer_cha_join_file">
+							<div class="file_box">
+								<input type="file" id="file_01" class="input_file" />
+								<label for="file_01" class="label_file"><span>파일첨부</span></label>
+								<div class="file_desc">
+									<span>인사챌린지_참고01.hwp</span>
+									<button>삭제</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_result_btns">
+						<div class="layer_result_btns_in">
+							<div class="btns_right">
+								<button class="btns_cha_cancel"><span>취소</span></button>
+								<button class="btns_cha_join"><span>참여하기</span></button>
+								<button class="btns_cha_join on"><span>참여하기</span></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_cha_join join_type_masage" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_cha_join_in">
+				<div class="layer_cha_join_box">
+					<div class="layer_cha_join_title">
+						<strong>챌린지 참여하기</strong>
+						<span>확인 메시지 작성으로 챌린지를 인증하세요!</span>
+					</div>
+					<div class="layer_cha_join_area">
+						<div class="layer_cha_join_input">
+							<textarea name="" placeholder="메시지를 작성하세요."></textarea>
+						</div>
+					</div>
+					<div class="layer_result_btns">
+						<div class="layer_result_btns_in">
+							<div class="btns_right">
+								<button class="btns_cha_cancel"><span>취소</span></button>
+								<button class="btns_cha_join"><span>참여하기</span></button>
+								<button class="btns_cha_join on"><span>참여하기</span></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_cha_join join_type_mix" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_cha_join_in">
+				<div class="layer_cha_join_box">
+					<div class="layer_cha_join_title">
+						<strong>챌린지 참여하기</strong>
+						<span>확인 메시지를 작성하고 사진 및 파일을 등록해 챌린지를 인증하세요!</span>
+					</div>
+					<div class="layer_cha_join_area">
+						<div class="layer_cha_join_input">
+							<textarea name="" placeholder="메시지를 작성하세요."></textarea>
+						</div>
+						<div class="layer_cha_join_file">
+							<div class="file_box">
+								<input type="file" id="file_01" class="input_file" />
+								<label for="file_01" class="label_file"><span>파일첨부</span></label>
+								<div class="file_desc">
+									<span>인사챌린지_참고01.hwp</span>
+									<button>삭제</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layer_result_btns">
+						<div class="layer_result_btns_in">
+							<div class="btns_right">
+								<button class="btns_cha_cancel"><span>취소</span></button>
+								<button class="btns_cha_join"><span>참여하기</span></button>
+								<button class="btns_cha_join on"><span>참여하기</span></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="layer_cha_image" style="display:none;">
+			<div class="layer_deam"></div>
+			<div class="layer_cha_image_in">
+				<div class="layer_cha_image_box">
+					<div class="layer_cha_image_box_in">
+						<img src="images/pre/20210927_01.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="t_layer rew_layer_join" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>가입하기</strong>
+					<span>리워디에서 인증을요청합니다. <br />
+						리워디와 함께 하세요!</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z5" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>인증메일 발송</span></button>
+				</div>
+				<div class="tl_descript">
+					<p>리워디에서 인증을 요청합니다.<br />
+						아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+						링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+						넣어주세요.<br />
+						<br />
+						https://www.rewardy.co.kr/<br />
+						<br />
+						기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+						리워디와 함께 해주셔서 감사합니다.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_repass" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>비밀번호 재설정</strong>
+					<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+						리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z3" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>비밀번호 재설정 메일 보내기</span></button>
+				</div>
+				<div class="tl_back">
+					<button><span>이전으로</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_login" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>로그인</strong>
+					<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z1" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+								<label for="z2" class="label_001">
+									<strong class="label_tit">비밀번호를 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_chk_wrap">
+					<div class="tl_chk">
+						<input type="checkbox" name="chk_login" id="chk_login" />
+						<label for="chk_login">로그인 상태 유지</label>
+					</div>
+					<ul>
+						<li>
+							<button>가입하기</button>
+						</li>
+						<li>
+							<button>비밀번호 재설정</button>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button id="loginbtn"><span>로그인</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_setting" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_prof">
+					<div class="tl_prof_box">
+						<div class="tl_prof_img">
+						</div>
+						<div class="tl_prof_slc">
+							<div class="tl_prof_slc_in">
+								<button class="button_prof"><span>프로필 변경</span></button>
+								<ul>
+									<li>
+										<input type="file" id="prof" class="input_prof" />
+										<label for="prof" class="label_prof"><span>사진 변경</span></label>
+									</li>
+									<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+									<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+								<label for="z7" class="label_001">
+									<strong class="label_tit">이메일</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input tc_50">
+								<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+								<label for="z8" class="label_001">
+									<strong class="label_tit">이름을 입력하세요</strong>
+								</label>
+							</div>
+							<div class="tc_input tc_50">
+								<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+								<label for="z9" class="label_001">
+									<strong class="label_tit">이름을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+								<label for="z10" class="label_001">
+									<strong class="label_tit">비밀번호를 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+								<label for="z11" class="label_001">
+									<strong class="label_tit">비밀번호를 확인하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="tl_btn">
+					<button><span>가입하기</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_character" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_tit">
+					<strong>캐릭터 설정</strong>
+					<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+				</div>
+				<div class="tl_profile">
+					<ul>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+									<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+									<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+									<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+									<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>적용</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="rew_qck">
+			<button class="btn_open_join"><span>회원가입</span></button>
+			<button class="btn_open_login"><span>로그인</span></button>
+			<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+			<button class="btn_open_setting"><span>프로필 변경</span></button>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("#btn_challenge").click(function () {
+					$("#btn_challenge_file").addClass("on");
+				});
+				$(".btn_open_join").click(function () {
+					$(".rew_layer_join").show();
+				});
+				$(".btn_open_login").click(function () {
+					$(".rew_layer_login").show();
+				});
+				$(".btn_open_repass").click(function () {
+					$(".rew_layer_repass").show();
+				});
+				$(".btn_open_setting").click(function () {
+					$(".rew_layer_setting").show();
+				});
+				$(".tl_close button").click(function () {
+					$(this).closest(".t_layer").hide();
+				});
+
+				$(".button_prof").click(function () {
+					$(".tl_prof_slc ul").show();
+				});
+				$("#btn_slc_character").click(function () {
+					$(".rew_layer_character").show();
+				});
+				$(".rew_layer_character .tl_btn").click(function () {
+					$(".rew_layer_character").hide();
+				});
+				$(".btn_profile").click(function () {
+					$(".btn_profile").removeClass("on");
+					$(this).addClass("on");
+				});
+				$(".tl_prof_slc").mouseleave(function () {
+					$(".tl_prof_slc ul").hide();
+				});
+			});
+		</script>
+	</div>
+	<script language="JavaScript">
+		/* FOR BIZ., COM. AND ENT. SERVICE. */
+		_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+	</script>
+
+</body>
+
+
+</html>

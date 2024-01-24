@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>������</title>
+
+<meta name="title" content="������">
+<meta name="description" content="������">
+<meta name="keywords" content="������, ����Ʈ, SMART, ������">
+
+<meta property="og:description" content="������">
+<meta property="og:title" content="������">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- ����꽺 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="../css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".tc_tab .tab_day").click(function(){
+			$(".tc_index_list_week").hide();
+			$(".tc_index_list_month").hide();
+			$(".tc_index_list").show();
+			$(".tc_tab button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".tc_tab .tab_week").click(function(){
+			$(".tc_index_list_month").hide();
+			$(".tc_index_list").hide();
+			$(".tc_index_list_week").show();
+			$(".tc_tab button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".tc_tab .tab_month").click(function(){
+			$(".tc_index_list").hide();
+			$(".tc_index_list_week").hide();
+			$(".tc_index_list_month").show();
+			$(".tc_tab button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".tc_tab_slc_in").click(function(){
+			$(".tc_tab_slc ul").show();
+		});
+
+		$(".tc_tab_slc ul button").click(function(){
+			var slc_this = $(this);
+			$(".tc_tab_slc_in button span").text(slc_this.text());
+			$(".tc_tab_slc ul").hide();
+		});
+
+		$(".th_login").click(function(){
+			$(".t_layer").show();
+		});
+
+		$(".tab_request").click(function(){
+			$(".t_layer_req").show();
+		});
+
+		$(".tab_goal").click(function(){
+			$(".t_layer_goal").show();
+		});
+
+		$(".tl_close, .tl_deam").click(function(){
+			$(".t_layer, .t_layer_req, .t_layer_goal").hide();
+		});
+
+		$(".label_01").click(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusin(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusout(function(){
+			var this_val = $(this).val();
+			if(this_val==0){
+				$(this).parent(".tc_input").removeClass("now_focus");
+			}else{
+				//$(this).parent(".tc_input").addClass("now_ok");
+				//$(this).parent(".tc_input").addClass("now_no");
+			}
+		});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+
+<div class="todaywork_wrap">
+	<div class="t_in">
+		<!-- header -->
+		<div class="t_header">
+			<script type="text/javascript">
+				$(document).ready(function(){
+					if($(window).width() > 640){
+						$(".menu_open").mouseenter(function(){
+							if($(".menu_box").hasClass("off")){
+								
+							}else{
+								$(".menu_box").show();
+							}
+						});
+						
+						$(".menu_list").mouseleave(function(){
+							$(".menu_box").removeClass("off");
+							$(".menu_box").hide();
+						});
+					}else{
+						
+					}
+
+					$(".menu_open").click(function(){
+						$(".menu_box").removeClass("off");
+						$(".menu_box").show();
+					});
+
+					$(".menu_close").click(function(){
+						$(".menu_box").addClass("off");
+						$(".menu_box").hide();
+					});
+
+					$(window).resize(function(){
+						if($(window).width() > 640){
+							$(".menu_open").mouseenter(function(){
+								if($(".menu_box").hasClass("off")){
+									
+								}else{
+									$(".menu_box").show();
+								}
+							});
+							
+							$(".menu_list").mouseleave(function(){
+								$(".menu_box").removeClass("off");
+								$(".menu_box").hide();
+							});
+						}else{
+							
+						}
+					});
+					
+				});
+			</script>
+			<div class="th_in">
+				<div class="th_menu_logo">
+					<a href="../index.html" class="menu_logo_biz" target="_blank"><span>������</span></a>
+					<a href="../index.html" class="menu_logo_today"><span>���þ���</span></a>
+				</div>
+				<div class="th_menu">
+					<div class="th_menu_in">
+						<!-- <div class="menu_login">
+							<a href="#" class="th_login"><span>�α���</span></a>
+						</div> -->
+						<div class="menu_coin">
+							<a href="../coins/reward.html"><i class="far fa-copyright"></i><span>10,250</span></a>
+							<strong>coin</strong>
+							<em class="menu_coin_arrow arrow_up">��</em>
+							<strong>100</strong>
+						</div>
+						<div class="menu_reward">
+							<a href="../coins/list.html"><i class="fas fa-gift"></i><span>����</span><strong class="menu_reward_ico">2</strong></a>
+						</div>
+						<div class="menu_challenge">
+							<a href="../challenge/list.html"><i class="fas fa-medal"></i><span>ç����</span><strong class="menu_challenge_ico">1</strong></a>
+						</div>
+						<div class="menu_list">
+							<button class="menu_open"><i class="fas fa-bars"></i></button>
+							<div class="menu_box">
+								<button class="menu_close"><span>X</span></button>
+								<ul>
+									<li><a href="#"><span>�����</span></a></li>
+									<li><a href="../works/list.html"><span>���þ���</span></a></li>
+									<li><a href="#"><span>ȸ�Ƿ�</span></a></li>
+									<li><a href="#"><span>��������</span></a></li>
+									<li><a href="../challenge/list.html"><span>ç����</span></a></li>
+									<li><a href="../coins/reward.html"><span>����</span></a></li>
+									<li><a href="#"><span>�α׾ƿ�</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //header -->
+
+		<div class="t_contents">
+			<div class="tc_in">
+				<div class="tc_page">
+					<div class="tc_page_in">
+						<div class="tc_box_09">
+							<div class="tc_box_09_in">
+								<div class="tc_box_tit">
+									<strong>ç����</strong>
+								</div>
+
+								<div class="tc_chall_write">
+									<ul>
+										<li>
+											<div class="tc_box_area">
+												<div class="tc_input">
+													<textarea name="" id="h1" class="input_01"></textarea>
+													<label for="h1" class="label_01">
+													<strong class="label_tit">ç������</strong>
+												</label>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tc_date_area">
+												<div class="tc_date_calendar">
+													<i class="far fa-calendar-alt"></i>
+												</div>
+												<div class="tc_date_before">
+													<input type="text" id="" name="" class="input_01" value="" />
+												</div>
+												<div class="tc_date_by">
+													<span>~</span>
+												</div>
+												<div class="tc_date_after">
+													<input type="text" id="" name="" class="input_01" value="" />
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tc_chall_slc">
+												<em>�Ⱓ ��</em>
+												<button class="on"><span>�ѹ���</span></button>
+												<button><span>����</span></button>
+											</div>
+										</li>
+										<li>
+											<div class="tc_chall_edit">
+												<span><textarea name="" id=""></textarea></span>
+											</div>
+										</li>
+										<!-- <li>
+											<div class="tc_chall_file">
+												<input type="file" id="file1" />
+												<label for="file1"><i class="fas fa-plus-circle"></i><span>����÷��</span></label>
+												<strong>���� ÷�ν� ÷���� ���ϸ� ǥ��</strong>
+											</div>
+										<li> -->
+										<li>
+											<div class="tc_chall_project">
+												<em>�ൿ��ħ</em>
+												<div class="tc_box_area">
+													<div class="tc_input">
+														<textarea name="" id="h2" class="input_01"></textarea>
+														<label for="h2" class="label_01">
+															<strong class="label_tit">1. �ൿ��ħ �Է�</strong>
+														</label>
+													</div>
+												</div>
+												<div class="tc_box_area">
+													<div class="tc_input">
+														<textarea name="" id="h3" class="input_01"></textarea>
+														<label for="h3" class="label_01">
+															<strong class="label_tit">2. �ൿ��ħ �Է�</strong>
+														</label>
+													</div>
+												</div>
+												<button class="tc_chall_plus"><i class="fas fa-plus-circle"></i><span>�ൿ��ħ �߰�</span></button>
+											</div>
+										</li>
+										<li>
+											<div class="tc_chall_coin">
+												<em>���� coin</em>
+												<div class="tc_input">
+													<input type="text" id="h4" name="" class="input_01" />
+													<label for="h4" class="label_01">
+														<strong class="label_tit">������ coin �Է�</strong>
+													</label>
+													<span>coin</span>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tc_chall_chk">
+												<input type="checkbox" name="" id="chk01" />
+												<label for="chk01">ç���� ������� ����ؾ� �Ϸ�˴ϴ�.</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<div class="tc_box_btn">
+									<a href="../challenge/list.html">ç���� ����</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_footer">
+			<div class="tf_in">
+				<ul class="tf_list">
+					<li><span>����� ������ ����� 204 (���ﵿ) 604ȣ, �λ�� �ؿ�뱸 �ؿ���غ��� 257, 1601ȣ (�Ϲ�Ÿ��)</span></li>
+					<li><span>����ڵ�Ϲ�ȣ : 605-81-38178</span></li>
+					<li><span>����Ǹž� �Ű���ȣ : ��2002-29ȣ</span></li>
+					<li><span>��ǥ�̻�:�̼���</span></li>
+					<li><span>��������å���� : �վ�</span></li>
+					<li><span>Tel:1588-8443</span></li>
+					<li><span>Fax:080-082-4990</span></li>
+				</ul>
+				<p class="tf_copy">Copyright (c) 2000-2021 by bizforms.co.kr All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="t_layer">
+	<div class="tl_deam"></div>
+	<div class="tl_in">
+		<div class="tl_close">
+			<button><span>�ݱ�</span></button>
+		</div>
+		<div class="tl_tit">
+			<strong>�α���</strong>
+		</div>
+		<div class="tl_list">
+			<ul>
+				<li>
+					<div class="tc_input">
+						<input type="text" id="z1" name="" class="input_01" />
+						<label for="z1" class="label_01">
+						<strong class="label_tit">�̸����� �Է��ϼ���</strong>
+					</label>
+					</div>
+				</li>
+				<li>
+					<div class="tc_input">
+						<input type="password" id="z2" name="" class="input_01" />
+						<label for="z2" class="label_01">
+						<strong class="label_tit">��й�ȣ�� �Է��ϼ���</strong>
+					</label>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="tl_btn">
+			<button><span>�α���</span></button>
+		</div>
+	</div>
+</div>
+
+<div class="t_layer_req">
+	<div class="tl_deam"></div>
+	<div class="tl_in">
+		<div class="tl_close">
+			<button><span>�ݱ�</span></button>
+		</div>
+		<div class="tc_box_08">
+			<div class="tc_box_08_in">
+				<div class="tc_box_area">
+					<div class="tc_area">
+						<textarea name="" id="" class="area_01"></textarea>
+					</div>
+				</div>
+				<div class="tc_user_list">
+					<div class="chk_all">
+						<input type="checkbox" name="" id="chkall" />
+						<label for="chkall">��ü����</label>
+					</div>
+					<ul>
+						<li>
+							<input type="checkbox" name="" id="chk1" />
+							<label for="chk1">�̼���<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk2" />
+							<label for="chk2">�վ�<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk3" />
+							<label for="chk3">������<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk4" />
+							<label for="chk4">�����<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk5" />
+							<label for="chk5">�Ϻ�ȣ<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk6" />
+							<label for="chk6">�����<span>(����Ʈ)</span></label>
+						</li>
+						<li>
+							<input type="checkbox" name="" id="chk7" />
+							<label for="chk7">������<span>(����Ʈ)</span></label>
+						</li>
+					</ul>
+				</div>
+				<div class="tc_timer">
+					<div class="tc_timer_in">
+						<div class="tc_timer_chk">
+							<input type="checkbox" name="" id="chk_t" />
+							<label for="chk_t">�ð� ���ϱ�</label>
+						</div>
+						<div class="tc_timer_box">
+							<div class="tc_timer_date">
+								<input type="text" id="" name="" class="input_01" value="2021-05-10" />
+							</div>
+							<div class="tc_timer_before">
+								<input type="text" id="" name="" class="input_01" value="10:00" />
+							</div>
+							<div class="tc_timer_by">
+								<span>~</span>
+							</div>
+							<div class="tc_timer_after">
+								<input type="text" id="" name="" class="input_01" value="11:00" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tc_box_btn">
+					<a href="../works/list.html">��û�ϱ�</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="t_layer_goal">
+	<div class="tl_deam"></div>
+	<div class="tl_in">
+		<div class="tl_close">
+			<button><span>�ݱ�</span></button>
+		</div>
+		<div class="tc_box_09">
+			<div class="tc_box_09_in">
+				<div class="tc_goal_select">
+					<ul>
+						<li><button class="on"><span>���ϸ�ǥ</span></button></li>
+						<li><button><span>�ְ���ǥ</span></button></li>
+						<li><button><span>������ǥ</span></button></li>
+					</ul>
+				</div>
+				<div class="tc_box_area">
+					<div class="tc_input">
+						<textarea name="" id="u1" class="input_01"></textarea>
+						<label for="u1" class="label_01">
+						<strong class="label_tit">��ǥ</strong>
+					</label>
+					</div>
+				</div>
+				<div class="tc_box_area area_02">
+					<div class="tc_input">
+						<textarea name="" id="u2" class="input_01"></textarea>
+						<label for="u2" class="label_01">
+						<strong class="label_tit">�ٽɰ��</strong>
+					</label>
+					</div>
+				</div>
+				<div class="tc_box_area">
+					<div class="tc_input">
+						<input type="text" id="u3" name="" class="input_01" />
+						<label for="u3" class="label_01">
+						<strong class="label_tit">�Ϸ�����</strong>
+					</label>
+					</div>
+				</div>
+				<div class="tc_box_btn">
+					<a href="../works/list.html">�ۼ��ϱ�</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script language="JavaScript">
+	/* FOR BIZ., COM. AND ENT. SERVICE. */
+	_TRK_CP = "/������"; /* ������ �̸� ���� Contents Path */
+</script>
+
+</body>
+
+
+</html>

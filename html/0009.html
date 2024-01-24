@@ -1,0 +1,1410 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".rew_mypage_09").click(function (e) {
+			if (!$(e.target).is(".rew_mypage_09 *")) {
+				$(".rew_box").removeClass("on");
+				$(".rew_menu_onoff button").removeClass("on");
+			}
+		});
+
+		$(".rew_grid_onoff_in .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".btn_switch").not($(this)).removeClass("on");
+				$(".btn_switch").not($(this)).prev("em").removeClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".rew_conts_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".rew_mypage_tab_04 a").click(function(){
+			$(".rew_mypage_tab_04 li").removeClass("on");
+			$(this).parent("li").addClass("on");
+		});
+
+
+		setTimeout(function(){
+			$(".rew_box").addClass("on");
+
+			var bar_t = $(".rew_mypage_section .live_list_today_bar strong").text();
+			var bar_b = $(".rew_mypage_section .live_list_today_bar span").text();
+			var bar_w = bar_t/bar_b*100;
+			$(".rew_mypage_section .live_list_today_bar strong").css({width:bar_w+"%"});
+
+		},400);
+
+		setTimeout(function(){
+			$(".tabs_on").addClass("now_01");
+		},1100);
+
+		$(".btn_next_step_02").click(function(){
+			$(".rew_cha_step_01").addClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").removeClass("step_z");
+			$(".rew_cha_step_01").animate({"left":-100+"%"},700);
+			$(".rew_cha_step_02").animate({"left":0+"%"},700);
+			$(".rew_cha_step_03").animate({"left":100+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+
+			setTimeout(function(){
+				$(".tabs_on").addClass("now_02");
+			},1100);
+		});
+		$(".btn_prev_step_01").click(function(){
+			$(".rew_cha_step_01").addClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").removeClass("step_z");
+			$(".rew_cha_step_01").animate({"left":0+"%"},700);
+			$(".rew_cha_step_02").animate({"left":100+"%"},700);
+			$(".rew_cha_step_03").animate({"left":-100+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+			
+			setTimeout(function(){
+				$(".tabs_on").removeClass("now_02");
+			},1100);
+		});
+		$(".btn_next_step_03").click(function(){
+			$(".rew_cha_step_01").removeClass("step_z");
+			$(".rew_cha_step_02").addClass("step_z");
+			$(".rew_cha_step_03").addClass("step_z");
+			$(".rew_cha_step_01").animate({"left":100+"%"},700);
+			$(".rew_cha_step_02").animate({"left":-100+"%"},700);
+			$(".rew_cha_step_03").animate({"left":0+"%"},700);
+			
+			setTimeout(function(){
+				$(".rew_cha_step_01").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_02").animate({scrollTop :0}, 0);
+				$(".rew_cha_step_03").animate({scrollTop :0}, 0);
+			},200);
+			
+			setTimeout(function(){
+				$(".tabs_on").addClass("now_03");
+			},1100);
+		});
+	
+
+		$(".rew_ard_sort .btn_sort_on").click(function(){
+			$(".rew_ard_sort").addClass("on");
+		});
+		$(".rew_ard_sort").mouseleave(function(){
+			$(".rew_ard_sort").removeClass("on");
+		});
+		$(".rew_ard_sort ul li button").click(function(){
+			$(".rew_ard_sort").removeClass("on");
+		});
+
+		$(".tl_team_sort .btn_sort_on").click(function(){
+			$(".tl_team_sort").addClass("on");
+		});
+		$(".tl_team_sort").mouseleave(function(){
+			$(".tl_team_sort").removeClass("on");
+		});
+		$(".tl_team_sort ul li button").click(function(){
+			$(".tl_team_sort").removeClass("on");
+		});
+
+		$(".rew_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".rew_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".rew_box").addClass("on");
+
+			}
+		});
+
+
+		$(".rew_conts_scroll_08").scroll(function(){
+			var tbt = $(".rew_todaywork").offset().top;
+			if(tbt < 140){
+				$(".tdw_date").addClass("pos_fix");
+			}else{
+				$(".tdw_date").removeClass("pos_fix");
+			}
+
+		});
+		$(".list_area").scroll(function(){
+			var rct = $(".list_area_in").position().top;
+			if(rct<60){
+				$(".layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+		$(".layer_report .report_area").scroll(function(){
+			var rct = $(".layer_report .report_area_in").position().top;
+			if(rct<60){
+				$(".layer_report .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_report .layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+		$(".layer_challenge .report_area").scroll(function(){
+			var rat = $(".layer_challenge .report_area_in").position().top;
+			if(rat<50){
+				$(".layer_challenge .layer_result_right").addClass("pos_fix");
+			}else{
+				$(".layer_challenge .layer_result_right").removeClass("pos_fix");
+			}
+		});
+
+
+		$("#go_view_01").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			$(".rew_conts_scroll_06").animate({scrollTop : 0}, 400+(offset1.top/2));
+		});
+		var offset2 = $(".rew_cha_view_result").position();
+		$("#go_view_02").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			var offset_sum = Math.abs(offset1.top - offset2.top);
+			setTimeout(function(){
+				$(".rew_conts_scroll_06").animate({scrollTop : offset2.top - 155}, offset_sum/4+200);
+			},100);
+		});
+		var offset3 = $(".rew_cha_view_masage").position();
+		$("#go_view_03").click(function(){
+			var offset1 = $(".rew_conts_scroll_06").offset();
+			//console.log(offset2.top);
+			var offset_sum = Math.abs(offset1.top - offset3.top);
+			setTimeout(function(){
+				$(".rew_conts_scroll_06").animate({scrollTop : offset3.top - 155}, offset_sum/4+200);
+			},100);
+		});
+
+
+		$(".conts_tab ul li button").click(function(){
+			var drM_li = $(this).parent("li").index();
+
+			var offt = $(".conts_main > div:eq("+drM_li+")").offset();
+			var tabt = $(".conts_tab").offset();
+			var matht = Math.abs(tabt.top - offt.top);
+			$("html, body").animate({scrollTop:offt.top-101},matht/8+200);
+
+			return false;
+		});
+
+		$(".layer_user_info dt button").click(function(){
+			$(this).parent().parent("dl").toggleClass("on");
+		});
+		$(".layer_user_info dd button").click(function(){
+			$(this).toggleClass("on");
+			if($(".layer_user_info dd button").hasClass("on")){
+				$(".layer_user_submit").addClass("on");
+			}else{
+				$(".layer_user_submit").removeClass("on");
+			}
+		});
+
+		$(".layer_test_01").click(function(){
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_02").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_02").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_03").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_user_cancel").click(function(){
+			$(".layer_user").hide();
+		});
+		$(".layer_user_submit").click(function(){
+			if($(this).hasClass("on")){
+				$(".layer_user").hide();
+			}
+		});
+		$("#btn_coin_reward").click(function(){
+			$(".layer_user").show();
+		});
+		$("#open_layer_user").click(function(){
+			$(".layer_user").show();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+
+		$(".list_function_type .type_list").click(function(){
+			$(".list_function_type button").removeClass("on");
+			$(this).addClass("on");
+			$(".list_box .list_conts").removeClass("type_img");
+			$(".list_box .list_conts").removeClass("type_on");
+			$(".list_box .list_conts").addClass("type_list");
+			$(".list_box .list_conts").addClass("type_on");
+		});
+		$(".list_function_type .type_img").click(function(){
+			$(".list_function_type button").removeClass("on");
+			$(this).addClass("on");
+			$(".list_box .list_conts").removeClass("type_list");
+			$(".list_box .list_conts").removeClass("type_on");
+			$(".list_box .list_conts").addClass("type_img");
+			$(".list_box .list_conts").addClass("type_on");
+		});
+
+		$(".list_conts .list_ul li button").click(function(){
+			$(this).toggleClass("on");
+		});
+		$(".rew_cha_view_result .title_area .title_more").click(function(){
+			$(".layer_result").show();
+		});
+		$(".rew_cha_view_result li button").click(function(){
+			$(".layer_result").show();
+		});
+		$(".rew_cha_view_header .view_user li button").click(function(){
+			$(".layer_result").show();
+		});
+		$(".layer_result .layer_close button").click(function(){
+			$(".layer_result").hide();
+		});
+		$(".layer_result_user li button").click(function(){
+			$(".layer_result_user li button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".rew_cha_view_masage .title_area .title_more").click(function(){
+			$(".layer_masage").show();
+		});
+		$(".masage_zone").click(function(){
+			$(".layer_masage").show();
+		});
+		$(".masage_area_in").click(function(){
+			$(this).toggleClass("on");
+		});
+		$(".layer_masage .layer_close button").click(function(){
+			$(".layer_masage").hide();
+		});
+
+		$(".layer_report .layer_close button").click(function(){
+			$(".layer_report").hide();
+		});
+
+		$(".layer_challenge .layer_close button").click(function(){
+			$(".layer_challenge").hide();
+			$(".layer_challenge .report_cha .rew_cha_list_ul li").removeClass("sli");
+		});
+
+		$(".join_type_file .btns_cha_cancel").click(function(){
+			$(".join_type_file").hide();
+		});
+		$(".join_type_masage .btns_cha_cancel").click(function(){
+			$(".join_type_masage").hide();
+		});
+		$(".join_type_mix .btns_cha_cancel").click(function(){
+			$(".join_type_mix").hide();
+		});
+		$(".btn_join_ok").click(function(){
+			$(".layer_cha_join").show();
+		});
+
+
+		$(".btn_eval").click(function(){
+			$(".layer_report").show();
+		});
+		$(".live_list_cha_tit, .live_list_cha_count").click(function(){
+			$(".layer_challenge .report_cha .rew_cha_list_ul li").removeClass("sli");
+			$(".layer_challenge").show();
+			$(".layer_challenge .report_cha .rew_cha_list_ul li").each(function(){
+				var tis = $(this);
+				var tindex = $(this).index();
+				setTimeout(function(){
+					tis.addClass("sli");
+				},600+tindex*200);
+			});
+		});
+
+		$(".live_list .live_list_box").each(function(){
+			var tis = $(this);
+			var tindex = $(this).index();
+			var bar_t = tis.find(".live_list_today_bar strong").text();
+			var bar_b = tis.find(".live_list_today_bar span").text();
+			var bar_w = bar_t/bar_b*100;
+			setTimeout(function(){
+				tis.addClass("sli");
+				tis.find(".live_list_today_bar strong").css({width:bar_w+"%"});
+			},600+tindex*200);
+		});
+
+
+		$(".live_user_state li .live_user_state_circle").mouseenter(function(){
+			$(".layer_state").removeClass("on");
+			$(this).next(".layer_state").addClass("on");
+			$(".live_list_box").removeClass("zindex");
+			$(this).closest(".live_list_box").addClass("zindex");
+		});
+		$(".live_user_state li .live_user_state_circle").mouseleave(function(){
+			$(".layer_state").removeClass("on");
+			$(".live_list_box").removeClass("zindex");
+		});
+
+		$(".layer_report").hide();
+
+		$("#write_tab_01").click(function(){
+			$(".tdw_write_tab button").removeClass("on");
+			$(this).addClass("on");
+			$(".input_write").attr("placeholder", "할 일을 입력해주세요.");
+			$(".input_write").val("");
+			$(".tdw_write_date").hide();
+			$(".tdw_write_btns").hide();
+			$(".tdw_write_req").hide();
+		});
+		$("#write_tab_02").click(function(){
+			$(".tdw_write_tab button").removeClass("on");
+			$(this).addClass("on");
+			$(".input_write").attr("placeholder", "예약할 업무를 입력해주세요.");
+			$(".input_write").val("");
+			$(".tdw_write_date").show();
+			$(".tdw_write_btns button").removeClass("on");
+			mouseWheel.scrollLeft = 0;
+			$(".tdw_write_btns").show();
+			$(".tdw_write_req").hide();
+		});
+		$("#write_tab_03").click(function(){
+			$(".tdw_write_tab button").removeClass("on");
+			$(this).addClass("on");
+			$(".input_write").attr("placeholder", "요청할 업무를 입력해주세요.");
+			$(".input_write").val("");
+			$(".tdw_write_date").hide();
+			$(".tdw_write_btns").hide();
+			$(".tdw_write_req").show();
+		});
+
+		$(".tdw_date_select button").click(function(){
+			$(".tdw_date_select button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".btn_tdw_list_chk").click(function(){
+			$(this).closest(".tdw_list_box").toggleClass("on");
+		});
+
+		$(".tdw_write_btns button").click(function(){
+			$(".tdw_write_btns button").removeClass("on");
+			$(this).addClass("on");
+		});
+
+		$(".layer_user_info dt button").click(function(){
+			$(this).parent().parent("dl").toggleClass("on");
+		});
+		$(".layer_user_info dd button").click(function(){
+			$(this).toggleClass("on");
+			if($(".layer_user_info dd button").hasClass("on")){
+				$(".layer_user_submit").addClass("on");
+			}else{
+				$(".layer_user_submit").removeClass("on");
+			}
+		});
+
+		$(".layer_test_01").click(function(){
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_02").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_02").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_test_03").click(function(){
+			$("#layer_test_01").hide();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+		$(".layer_user_cancel").click(function(){
+			$(".layer_user").hide();
+		});
+		$(".layer_user_submit").click(function(){
+			if($(this).hasClass("on")){
+				$(".layer_user").hide();
+			}
+		});
+		$(".btn_req").click(function(){
+			$(".layer_user").show();
+			$("#layer_test_02").hide();
+			$("#layer_test_03").hide();
+			$("#layer_test_01").show();
+			$(".layer_user_info dl").addClass("on");
+			$(".layer_user_info dd button").removeClass("on");
+			$(".layer_user_submit").removeClass("on");
+			$(".layer_user_info").animate({scrollTop :0}, 0);
+		});
+
+		$(".rew_mypage_tab_04 li.tab_reward_01 button").click(function(){
+			$(".rew_layer_join").show();
+			$(".rew_layer_repass").show();
+			$(".rew_layer_login").show();
+			$(".rew_layer_setting").show();
+		});
+
+
+
+		$(".layer_withdraw_bank .btn_bank_on").click(function(){
+			$(".layer_withdraw_bank").addClass("on");
+		});
+		$(".layer_withdraw_bank").mouseleave(function(){
+			$(".layer_withdraw_bank").removeClass("on");
+		});
+		$(".layer_withdraw_bank ul li button").click(function(){
+			$(".layer_withdraw_bank").removeClass("on");
+		});
+		$(".rew_mypage_coin_box .rew_mypage_btn button").click(function(){
+			$(".layer_withdraw").show();
+		});
+		$(".btn_withdraw_off").click(function(){
+			$(".layer_withdraw").hide();
+		});
+
+	});
+
+	
+</script>
+<div class="rew_warp">
+	<div class="rew_warp_in">
+		<div class="rew_box">
+			<div class="rew_box_in">
+				<!-- menu -->
+				<div class="rew_menu">
+					<div class="rew_menu_in">
+						<div class="rew_bar">
+							<span class="rew_bar_alert"><em>멤버를 먼저 초대하세요.</em></span>
+							<div class="rew_bar_in">
+								<div class="rew_bar_logo">
+									<a href="./0000.html"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="rew_bar_li_01">
+										<a href="./0008.html"><strong>오늘업무</strong></a>
+									</li>
+									<li class="rew_bar_li_02">
+										<a href="./0007.html"><strong>LIVE</strong></a>
+									</li>
+									<li class="rew_bar_li_03 on">
+										<a href="./0009.html"><strong>보상</strong></a>
+									</li>
+									<li class="rew_bar_li_04">
+										<a href="./0004.html"><strong>챌린지</strong></a>
+									</li>
+								</ul>
+								<div class="rew_bar_setting">
+									<a href="./0001.html" class="rew_bar_setting_01"><strong>설정</strong></a>
+									<a href="./0002.html" class="rew_bar_setting_02"><strong>관리자</strong></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_mypage_09">
+							<div class="rew_mypage_09_in">
+								<div class="rew_mypage_title">
+									<strong>보상</strong>
+								</div>
+
+								<!-- <div class="rew_mypage_tab_04">
+									<ul>
+										<li class="tab_reward_01">
+											<button><span>출금신청</span></button>
+										</li>
+										<li class="tab_reward_02">
+											<button><span>코인 이용안내</span></button>
+										</li>
+										<li class="tab_reward_03">
+											<button><span>보상하기</span></button>
+										</li>
+										<li class="tab_reward_04">
+											<button><span>충전하기</span></button>
+										</li>
+									</ul>
+								</div> -->
+
+								<div class="rew_mypage_section">
+									<div class="rew_mypage_coin_box">
+										<div class="title_area">
+											<div class="qna">
+												<strong class="title_main">내가 획득한 코인</strong>
+												<span class="qna_q">?</span>
+												<div class="qna_a">
+													<span>챌린지 성공, 동료의 보상으로 획득한<br />코인으로, 현금으로 출금 가능한 코인<br />(출금 시 수수료율 5% 적용)</span>
+												</div>
+											</div>
+										</div>
+										<div class="rew_mypage_coin_chall">
+											<strong><span>120,000</span></strong>
+										</div>
+										<div class="rew_mypage_coin_chall_s">
+											( <strong>출금가능 코인 <span>120,000</span></strong> )
+										</div>
+										<div class="rew_mypage_btn">
+											<button><span>출금 신청</span></button>
+										</div>
+									</div>
+								</div>
+
+								<div class="rew_mypage_section">
+									<div class="rew_mypage_coin_box">
+										<div class="title_area">
+											<div class="qna">
+												<strong class="title_main">사용 가능한 공용 코인</strong>
+												<span class="qna_q">?</span>
+												<div class="qna_a">
+													<span>챌린지 만들기, 보상하기 등을 위해 회사에서<br />각 개인들에게 지급한 코인으로, 출금이 불가능한 코인<br />(공용 코인은 회사에서 회수할 수 있습니다.)</span>
+												</div>
+											</div>
+										</div>
+										<div class="rew_mypage_coin_chall">
+											<strong><span>589,000</span></strong>
+										</div>
+										<div class="rew_mypage_btns">
+											<button id="btn_coin_reward"><span>보상하기</span></button>
+											<button><span>챌린지 만들기</span></button>
+										</div>
+									</div>
+								</div>
+
+								<div class="rew_mypage_section">
+									<div class="rew_mypage_section_title">
+										<strong><span>🔍</span> 코인 이용 안내</strong>
+									</div>
+									<div class="rew_mypage_coin_use">
+										<ul>
+											<li>
+												<strong>내가 획득한 코인</strong>
+												<p>챌린지 성공, 동료의 보상으로 획득한 코인으로 현금으로 출금 가능한 코인 (출금 시 수수료율 5% 적용)</p>
+											</li>
+											<li>
+												<strong>공용 코인</strong>
+												<p>챌린지 만들기, 보상하기 등을 위해 회사에서 각 개인들에게 지급한 코인으로 출금이 불가능한 코인 (공용 코인은 회사에서 회수할 수 있습니다.)</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<div class="rew_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="rew_conts">
+					<div class="rew_conts_in">
+						<!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+						<div class="rew_ard_tab">
+							<div class="rew_ard_tab_in">
+								<div class="rew_ard_sort">
+									<div class="rew_ard_sort_in">
+										<button class="btn_sort_on"><span>전체보기</span></button>
+										<ul>
+											<li><button><span>전체보기</span></button></li>
+											<li><button><span>전체보기</span></button></li>
+											<li><button><span>전체보기</span></button></li>
+										</ul>
+									</div>
+								</div>
+								<div class="rew_ard_calendar">
+									<div class="rew_ard_btns">
+										<button class="on"><span>1주일</span></button>
+										<button><span>1개월</span></button>
+										<button><span>3개월</span></button>
+									</div>
+									<div class="rew_ard_period">
+										<div class="rew_ard_period_box">
+											<input type="text" class="input_date_l" value="2021-11-01" />
+											<button class="btn_calendar_l">달력</button>
+											<span>~</span>
+											<input type="text" class="input_date_r" value="2021-11-11" />
+											<button class="btn_calendar_r">달력</button>
+										</div>
+										<button class="btn_inquiry"><span>조회</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="rew_conts_scroll_09">
+
+							<div class="rew_ard">
+								<div class="rew_ard_in">
+									<div class="rew_ard_list">
+										<div class="rew_ard_list_in">
+											<div class="rew_ard_list_tab">
+												<span class="rew_ard_tab_tit">상세내용</span>
+												<span class="rew_ard_tab_coin">코인</span>
+												<span class="rew_ard_tab_date">일시</span>
+												<span class="rew_ard_tab_type">구분</span>
+											</div>
+											<div class="rew_ard_list_desc">
+												<ul>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.11.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.11.11&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.11.10&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.10.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">현금 인출</a></span>
+														<span class="rew_ard_desc_coin coin_minus">-2,000</span>
+														<span class="rew_ard_desc_date">2021.09.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">출금</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">최초 가입 후 로그인 시 웰컴코인</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+5,000</span>
+														<span class="rew_ard_desc_date">2021.08.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">보상지급(유상길)</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.07.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.06.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.05.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+													<li>
+														<span class="rew_ard_desc_tit"><a href="#">일반 충전</a></span>
+														<span class="rew_ard_desc_coin coin_plus">+1,000,000</span>
+														<span class="rew_ard_desc_date">2021.04.26&nbsp;&nbsp;17:23:47</span>
+														<span class="rew_ard_desc_type">충전</span>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div class="rew_ard_paging">
+										<div class="rew_ard_paging_in">
+											<button class="paging_first">첫페이지로 이동</button>
+											<button class="paging_prev">이전 10페이지 이동</button>
+											<button class="paging_num on">1</button>
+											<button class="paging_num">2</button>
+											<button class="paging_num">3</button>
+											<button class="paging_num">4</button>
+											<button class="paging_num">5</button>
+											<button class="paging_next">다음 10페이지 이동</button>
+											<button class="paging_last">마지막 페이지로 이동</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_withdraw" style="display: none;">
+		<div class="layer_deam"></div>
+		<div class="layer_withdraw_in">
+			<div class="layer_withdraw_box">
+				<div class="layer_withdraw_top">
+					<div class="layer_withdraw_qna">
+						<div class="qna">
+							<strong class="layer_withdraw_qna_tit">남은 공용 코인</strong>
+							<span class="qna_q">?</span>
+							<div class="qna_a">
+								<span>남은 공용 코인</span>
+							</div>
+						</div>
+					</div>
+					<div class="layer_withdraw_coin">
+						<strong><span>120,000</span></strong>
+					</div>
+				</div>
+				<div class="layer_withdraw_mid">
+					<div class="layer_withdraw_btns">
+						<ul>
+							<li><button><span>+ 1만</span></button></li>
+							<li><button><span>+ 3만</span></button></li>
+							<li><button><span>+ 5만</span></button></li>
+							<li><button><span>전액</span></button></li>
+						</ul>
+						<button class="btn_coin_reset"><span>초기화</span></button>
+					</div>
+					<div class="layer_withdraw_input">
+						<input type="text" class="input_withdraw" placeholder="출금할 금액을 입력하세요." />
+					</div>
+					<div>
+						<span>출금예상수수료 : 1,000원</span>
+					</div>
+					<div class="layer_withdraw_info">
+						<div class="layer_withdraw_bank">
+							<div class="layer_withdraw_bank_in">
+								<button class="btn_bank_on"><span>은행</span></button>
+								<ul>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+									<li><button><span>XX은행</span></button></li>
+								</ul>
+							</div>
+						</div>
+						<input type="text" class="input_bank_num" placeholder="계좌번호" />
+						<input type="text" class="input_bank_user" placeholder="예금주" />
+					</div>
+					<div class="layer_withdraw_desc">
+						<ul>
+							<li>출금 신청한 코인은 돌아오는 주 화요일에 일괄 지급됩니다.</li>
+							<li>작성해 주신 계좌로 입금되며, 오기입으로 인해 잘못 송금된 코인에 대해서는 책임지지 않습니다.</li>
+						</ul>
+					</div>
+					<div class="layer_withdraw_btn">
+						<button class="btn_withdraw_off"><span>취소</span></button>
+						<button class="btn_withdraw_on"><span>출금 신청하기</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="layer_user type_coin" style="display:none;">
+		<div class="layer_deam"></div>
+		<div class="layer_user_in">
+			<div class="layer_user_box">
+				<div class="layer_user_search">
+					<div class="layer_user_search_desc">
+						<strong>보상하기</strong>
+						<span>전체 30명, 1명 선택</span>
+					</div>
+					<div class="layer_user_search_box">
+						<input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+						<button><span>검색</span></button>
+					</div>
+				</div>
+				<div class="layer_user_info">
+					<ul>
+						<li>
+							<dl class="on">
+								<dt><button><span>고객행복팀 3</span></button></dt>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>이수아</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>정혜윤</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt><button><span>개발팀 2</span></button></dt>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>유상길</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt><button><span>디자인팀 4</span></button></dt>
+								<dd>
+									<button>
+										<img src="images/pre/ico_me.png" alt="" class="user_me" />
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>이나윤</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>정현주</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>하병호</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl class="on">
+								<dt><button><span>마케팅팀 3</span></button></dt>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+								<dd>
+									<button>
+										<div class="user_img">
+											<img src="images/pre/img_user_002.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="layer_user_coin">
+					<div class="layer_user_coin_num">
+						<input type="text" placeholder="얼마를" class="input_coin" />
+						<span>(현재보유 코인 : <strong>1,100</strong>코인)</span>
+					</div>
+					<div class="layer_user_coin_reason">
+						<input type="text" placeholder="보상 사유를 작성하세요." class="input_reason" />
+					</div>
+				</div>
+			</div>
+
+			<div class="layer_user_btn">
+				<button class="layer_user_cancel"><span>취소</span></button>
+				<button class="layer_user_submit"><span>보상하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn_open_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

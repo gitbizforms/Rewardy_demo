@@ -1,0 +1,245 @@
+label,
+button { cursor: pointer; } 
+
+button { border: none; background: none; } 
+
+input[type="checkbox"],
+input[type="radio"] { display: none; } 
+
+.background_black { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 7000; background: rgba(0,0,0,0.4); } 
+
+/* ---------- */
+
+.replay_set { width: 80vw; max-width: 410px; max-height: 90vh; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 10px; background: #fff; padding: 30px; box-sizing: border-box; z-index: 8000; } 
+
+/* replay_tab_navi */
+
+.replay_tab_navi { width: 100%; height: 55px; display: block; border-radius: 10px; background: #f6f7f9; } 
+
+.replay_tab_navi ul { width: 100%; height: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 5px; box-sizing: border-box; } 
+
+.replay_tab_navi ul li { width: calc(100%/4); height: 100%; position: relative; } 
+
+
+.replay_tab_navi ul li button { width: 100%; height: 100%; border-radius: 8px; transition: all 0.3s; } 
+
+.replay_tab_navi ul li button span { font-size: 15px; line-height: 29px; font-weight: 500; color: #aaa; text-align: center; } 
+
+.replay_tab_navi ul li button span::after { content: ''; width: 1px; height: 15px; position: absolute; top: 50%; left: 0; transform: translateY(-50%); display: inline-block; background: #c8c8c8; } 
+
+.replay_tab_navi ul li:first-child button span::after { display: none; } 
+
+.replay_tab_navi ul li.on button span::after { display: none; } 
+
+.replay_tab_navi ul li.on+li button span::after { display: none; } 
+
+/* replay_tab_navi > on event */
+
+.replay_tab_navi ul li.on button { background: #fff; box-shadow: 1px 1px 5px #4545451e; transition: all 0.3s; } 
+
+.replay_tab_navi ul li.on button span { color: #454545; } 
+
+/* replay_checkbox setting */
+
+.replay_day,
+.replay_week,
+.replay_month,
+.replay_year { display: none; } 
+
+.replay_checkbox>div.on { display: block; } 
+
+/* replay_title */
+
+.replay_title { margin-top: 20px; text-align: center; font-size: 17px; line-height: 20px; color: #353535; } 
+
+.replay_title_week { margin-top: 20px; text-align: center; font-size: 17px; line-height: 20px; color: #353535; } 
+
+/* .replay_title span { font-size: 13px; line-height: 20px; font-weight: 100; color: #aaa; } */
+
+/* replay_setbox */
+
+.replay_setbox { width: 100%; margin: 20px 0; padding: 25px 0; border-radius: 10px; background: #f7f8f9; box-sizing: border-box; } 
+
+input[type="radio"]+label,
+input[type="checkbox"]+label { padding-left: 30px; margin-bottom: 15px; font-size: 15px; line-height: 20px; vertical-align: middle; color: #555; background: url(../images/replay_popup/check_off.png) no-repeat 0% 0%; box-sizing: border-box; } 
+
+input[type="radio"]:checked+label,
+input[type="checkbox"]:checked+label { background: url(../images/replay_popup/check_on.png) no-repeat 0% 0%; } 
+
+.replay_setbox>ul>li::after { content: ''; width: 100%; height: 1px; display: block; margin: 24px 0; background: #eee; } 
+
+.replay_setbox>ul>li:last-child:after { display: none; } 
+
+/* replay_set_play */
+
+.replay_set_play { display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; } 
+
+.replay_set_play .check_end_select { width: 100%; display: none; margin-top: 15px; transition: all 0.3s; } 
+
+.replay_set_play .check_end_select.on { display: flex; transition: all 0.3s; } 
+
+.replay_set_play .check_end_select>div { margin-left: 5px; } 
+
+.replay_set_play .check_end_select>div:first-child { margin-left: 0; } 
+
+.replay_set_play .check_end_select>div>button { width: 100%; height: 100%; border: 1px solid #e5e5e5; border-radius: 5px; font-size: 15px; color: #555; vertical-align: middle; } 
+
+.end_year { width: 105px; height: 44px; } 
+
+.end_year button,
+.end_month button,
+.end_day button { padding-left: 20px; background: #fff url(../images/replay_popup/arrow_down2.png) no-repeat 100% 50%; text-align: left; box-sizing: border-box; } 
+
+.end_month,
+.end_day { width: 83px; height: 44px; } 
+
+.end_year ul,
+.end_month ul,
+.end_day ul { display: none; } 
+
+input[type="radio"]+label:last-child { width: 100%; margin-bottom: 0; } 
+
+/* replay_set_cancel */
+
+.replay_set_cancel { margin: 0 20px; } 
+
+/* set_button */
+
+.set_button ul { display: flex; flex-direction: row; justify-content: space-between; } 
+
+.set_button ul li button { font-size: 17px; font-weight: 400; text-align: center; color: #fff; } 
+
+.set_button ul .cancel_button { width: 30%; height: 55px; } 
+
+.set_button ul .cancel_button button { width: 100%; height: 100%; border-radius: 10px; background: #ccc; } 
+
+.set_button ul .submit_button { width: 67%; height: 55px; } 
+
+.set_button ul .submit_button button { width: 100%; height: 100%; border-radius: 10px; background: #38c9d2; } 
+
+/* replay_day */
+
+/* replay_day_set */
+
+.replay_day_set { display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; } 
+
+.day_set_checkbox_01 .replay_day { display: flex; flex-direction: row; align-items: center; } 
+
+.day_set_checkbox_01 input[type="radio"]+label:last-child { margin-bottom: 0; background-position: 0 50%; } 
+
+.day_setting { position: relative; } 
+
+.day_setting .day_setting_btn { width: 58px; height: 34px; padding-left: 10px; margin-right: 5px; border: 1px solid #e5e5e5; border-radius: 5px; background: #fff url(../images/replay_popup/arrow_down.png) no-repeat 100% 50%; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+.day_setting #day_setting { width: 58px; height: 34px; padding-left: 10px; margin-right: 5px; border: 1px solid #e5e5e5; border-radius: 5px; background: #fff; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+
+.day_setting .day_setting_btn span { font-size: 15px; vertical-align: center; color: #555; } 
+.day_setting #day_setting span { font-size: 15px; vertical-align: center; color: #555; } 
+
+.day_setting>ul { width: 58px; position: absolute; top: 0; left: 0; display: none; } 
+
+.day_setting>ul>li { width: 100%; height: 34px; padding-left: 10px; } 
+
+.replay_day_set input[type="radio"]+label:last-child { display: flex; flex-direction: row; align-items: center; margin-bottom: 0; background-position: 0% 50%; } 
+
+/* replay_week */
+
+
+
+.replay_week_set { margin: 0 20px; display: flex; flex-direction: row; justify-content: space-between; } 
+
+.replay_week_set input[type=checkbox]+label { width: 40px; height: 40PX; padding: 0; border: 1px solid #e5e5e5; border-radius: 5px; background: #fff; line-height: 40px; text-align: center; } 
+
+.replay_week_set input[type=checkbox]:checked+label { border: 1px solid #38c9d2; background: #38c9d2; color: #fff; } 
+
+.week_replay_type { display: flex; margin: 0 20px; } 
+
+.week_replay_type input[type=checkbox]+label { margin-bottom: 0; background-position: 0 50%; } 
+
+.choice_week { display: inline-block; vertical-align: middle; margin-right: 5px; width: 58px; } 
+
+.week_setting { position: relative; } 
+
+.week_setting .week_setting_btn { font-size: 15px; color: #454545; font-weight: 300; letter-spacing: -0.062em; line-height: 42px; text-align: left; width: 100%; height: 44px; padding-left: 14px; background: #fff url(../images/pre/ico_arrow_slc.png) 150% 50% no-repeat; border: 1px solid #e5e5e5; border-radius: 5px; transition: all 0.2s; } 
+
+ .choice_week ul { position: absolute; opacity: 0; top: 0; right: 0; z-index: 4; width: calc(100% - 2px); background: #fff; border: 1px solid #43454c; border-radius: 5px; overflow-y: auto; max-height: 70vh; -ms-overflow-style: none; scrollbar-width: none; } 
+
+
+ .choice_week ul::-webkit-scrollbar { display: none; } 
+ 
+ .choice_week.on ul { opacity: 1; } 
+ 
+ .choice_week ul li { margin-bottom: -44px; position: relative; background: #fff; } 
+ 
+ .choice_week.on ul li { margin-bottom: 0; } 
+ 
+ .choice_week ul li button { font-size: 15px; color: #454545; font-weight: 300; letter-spacing: -0.062em; line-height: 42px; text-align: left; width: 100%; height: 42px; padding-left: 14px; } 
+ 
+ .choice_week ul li button:hover { color: #fff; background: #43454c; } 
+/* replay_month */
+
+.replay_month_set { display: flex; flex-direction: column; align-items: flex-start; margin: 0 20px; } 
+
+/* replay_year */
+
+.replay_year_set { margin: 0 20px; } 
+
+/* 반응형 */
+/* 480px */
+@media all and (max-width: 480px){
+ .replay_tab_navi,
+ .replay_tab_navi ul li.on button,
+ .replay_setbox,
+ .set_button ul .submit_button button,
+ .set_button ul .cancel_button button { border-radius: 5px; } 
+ 
+ .replay_tab_navi { height: 47px; } 
+ .replay_tab_navi ul li button span { font-size: 14px; } 
+ 
+ .replay_title { font-size: 14px; } 
+
+ .replay_week_set { width: calc(100% - 40px); overflow-x: scroll; } 
+
+ .replay_day_set,
+ .replay_set_play,
+ .replay_set_cancel { margin: 0 15px; } 
+
+ .replay_set { padding: 20px; } 
+ .replay_setbox { margin: 20px 0; padding: 20px 0; } 
+ .replay_setbox>ul>li::after { margin: 20px 0; } 
+ .end_year button, .end_month button, .end_day button { background: #fff url(../images/replay_popup/arrow_down2.png) no-repeat 130% 50%; } 
+
+
+ /* 매주 */
+ .replay_week_set { width: calc(100% - 30px); margin: 0 15px; display: flex; } 
+ .replay_week_set input[type=checkbox]+label { width: 29px; height: 29px; line-height: 25px; } 
+ .replay_week_set input[type=checkbox]+label:last-child { margin-right: 0; } 
+ input[type="radio"]+label, input[type="checkbox"]+label { margin-bottom: 10px; font-size: 13px; } 
+ .replay_week_set label { margin-right: 4px; } 
+
+ .week_setting .week_setting_btn { height: 38px; line-height: 36px; font-size: 13px; background: #fff url(../images/pre_m/ico_arrow_slc.png) 125% 50% no-repeat; background-size: 27px; } 
+ .choice_week ul li button { height: 38px; line-height: 37px; font-size: 13px; } 
+
+ /* 버튼 */
+ .set_button ul .cancel_button,
+ .set_button ul .submit_button { height: 47px; } 
+
+ .set_button ul .cancel_button button,
+ .set_button ul .submit_button button { font-size: 13px; } 
+
+ input[type="radio"]+label, input[type="checkbox"]+label { background: url(../images/pre_m/replay_check_off.png) no-repeat 0% 50%; background-size: 16px; } 
+ input[type="radio"]:checked+label, input[type="checkbox"]:checked+label { background: url(../images/pre_m/replay_check_on.png) no-repeat 0% 50%; background-size: 16px; } 
+ }
+
+/* 420px */
+@media all and (max-width: 420px){
+ .end_year button, .end_month button, .end_day button { padding-left: 10px; } 
+
+ .end_year { width: 40%; } 
+
+ .end_month, .end_day { width: 29%; } 
+ }
+
+/* 360px */
+@media all and (max-width: 360px){
+ .replay_set { padding: 15px; } 
+ }

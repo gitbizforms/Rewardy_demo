@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 노토산스 -->
+  <link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/pro_pop.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      $(".button_prof").click(function () {
+        $(".tl_prof_slc ul").show();
+      });
+
+      $('.text_area').keyup(function (e) {
+        console.log('키업');
+        var content = $(this).val();
+
+        $('.text_count').text(content.length + '자 / 28자');
+
+        if (content.length > 28) {
+
+          console.log('키다운'); 
+          $(this).val($(this).val().substring(0, 28));
+          alert('글자수는 28자까지 입력 가능합니다.');
+        };
+
+        // $(".text_count").val(content.length + "자 / 28자");
+        // if (content.length > 28) {
+        //   alert("최대 28자까지 입력 가능합니다.");
+        //   $(this).val(content.substring(0, 28));
+        //   $('.text_count').html("28자 / 28자");
+        // }
+      })
+    })
+  </script>
+</head>
+<div class="layer_pro">
+  <div class="layer_deam"></div>
+  <div class="layer_pro_in">
+
+    <div class="layer_close">
+      <button><span>닫기</span></button>
+    </div>
+
+    <div class="layer_top">
+      <strong class="layer_tit">
+        프로필
+      </strong>
+    </div>
+
+    <div class="layer_area">
+
+      <div class="tl_prof_box">
+        <div class="tl_prof_img"></div>
+        <div class="tl_prof_slc">
+          <div class="tl_prof_slc_in">
+            <button class="button_prof"><span>프로필 변경</span></button>
+            <ul>
+              <li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+              <li>
+                <input type="file" id="prof" class="input_prof" />
+                <label for="prof" class="label_prof"><span>나만의 이미지 선택</span></label>
+              </li>
+              <li><button class="default_on"><span>MBTI 선택</span></button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="text_area">
+        <div class="text_lengh">
+          <p class="text_count">0자 / 28자</p>
+        </div>
+        <input type="text" id="layer_text" class="layer_text" name="layer_text" placeholder="상태메세지를 입력하세요."
+          maxlength='28' />
+      </div>
+
+    </div>
+
+    <div class="submit_btn">
+      <button class="btn_on">확인</button>
+    </div>
+  </div>
+</div>
+
+</html>

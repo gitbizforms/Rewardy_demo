@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>오늘일</title>
+
+<meta name="title" content="오늘일">
+<meta name="description" content="오늘일">
+<meta name="keywords" content="비즈폼, 스마트, SMART, 오늘일">
+
+<meta property="og:description" content="오늘일">
+<meta property="og:title" content="오늘일">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="../css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".th_login").click(function(){
+			$(".t_layer").show();
+		});
+
+		$(".tl_close, .tl_deam").click(function(){
+			$(".t_layer").hide();
+		});
+
+		$(".label_01").click(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusin(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusout(function(){
+			var this_val = $(this).val();
+			if(this_val==0){
+				$(this).parent(".tc_input").removeClass("now_focus");
+			}else{
+				//$(this).parent(".tc_input").addClass("now_ok");
+				//$(this).parent(".tc_input").addClass("now_no");
+			}
+		});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+
+<div class="todaywork_wrap">
+	<div class="todaywork_wrap_in">
+		<!-- header -->
+		<div class="t_header">
+			<script type="text/javascript">
+				$(document).ready(function(){
+					if($(window).width() > 640){
+						$(".menu_open").mouseenter(function(){
+							if($(".menu_box").hasClass("off")){
+								
+							}else{
+								$(".menu_box").show();
+							}
+						});
+						
+						$(".menu_list").mouseleave(function(){
+							$(".menu_box").removeClass("off");
+							$(".menu_box").hide();
+						});
+					}else{
+						
+					}
+
+					$(".menu_open").click(function(){
+						$(".menu_box").removeClass("off");
+						$(".menu_box").show();
+					});
+
+					$(".menu_close").click(function(){
+						$(".menu_box").addClass("off");
+						$(".menu_box").hide();
+					});
+
+					$(window).resize(function(){
+						if($(window).width() > 640){
+							$(".menu_open").mouseenter(function(){
+								if($(".menu_box").hasClass("off")){
+									
+								}else{
+									$(".menu_box").show();
+								}
+							});
+							
+							$(".menu_list").mouseleave(function(){
+								$(".menu_box").removeClass("off");
+								$(".menu_box").hide();
+							});
+						}else{
+							
+						}
+					});
+					
+				});
+			</script>
+			<div class="t_header_in">
+				<div class="h_logo">
+					<a href="#"><img src="../images/pc/img_logo.png" alt="Rewardy" /></a>
+				</div>
+				<div class="h_menu">
+					<div class="h_menu_in">
+						<ul>
+							<li class="hm_today">
+								<a href="#"><span>오늘 업무</span></a>
+							</li>
+							<li class="hm_Live">
+								<a href="#"><span>Live</span></a>
+							</li>
+							<li class="hm_reward">
+								<a href="#"><span>보상</span><em>1</em></a>
+							</li>
+							<li class="hm_challenge">
+								<a href="#"><span>챌린지</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="h_coin">
+					<div class="h_coin_in">
+						<em class="hc_variation hc_plus">8,000</em>
+						<strong class="hc_total">13,000</strong>
+						<span class="hc_c">&copy;</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //header -->
+
+		<div class="t_contents">
+			<div class="t_contents_in">
+				<div class="c_write">
+					<div class="c_write_in">
+						<div class="cw_tit'">
+							<strong>오늘 업무</strong>
+						</div>
+						<div class="cw_input">
+							<input type="text" class="inp_text" placeholder="할 일을 입력해주세요." />
+						</div>
+						<div class="cw_btns">
+							<button class="btn_reserve"><span>업무예약</span></button>
+							<button class="btn_request"><span>업무예약</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_footer">
+			<div class="tf_in">
+				<ul class="tf_list">
+					<li><span>서울시 강남구 역삼로 204 (역삼동) 604호, 부산시 해운대구 해운대해변로 257, 1601호 (하버타운)</span></li>
+					<li><span>사업자등록번호 : 605-81-38178</span></li>
+					<li><span>통신판매업 신고번호 : 제2002-29호</span></li>
+					<li><span>대표이사:이선규</span></li>
+					<li><span>개인정보책임자 : 손언영</span></li>
+					<li><span>Tel:1588-8443</span></li>
+					<li><span>Fax:080-082-4990</span></li>
+				</ul>
+				<p class="tf_copy">Copyright (c) 2000-2021 by bizforms.co.kr All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="t_layer">
+	<div class="tl_deam"></div>
+	<div class="tl_in">
+		<div class="tl_close">
+			<button><span>닫기</span></button>
+		</div>
+		<div class="tl_tit">
+			<strong>로그인</strong>
+		</div>
+		<div class="tl_list">
+			<ul>
+				<li>
+					<div class="tc_input">
+						<input type="text" id="z1" name="" class="input_01" />
+						<label for="z1" class="label_01">
+						<strong class="label_tit">이메일을 입력하세요</strong>
+					</label>
+					</div>
+				</li>
+				<li>
+					<div class="tc_input">
+						<input type="password" id="z2" name="" class="input_01" />
+						<label for="z2" class="label_01">
+						<strong class="label_tit">비밀번호를 입력하세요</strong>
+					</label>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="tl_chk">
+			<input type="checkbox" name="" id="chk_login" />
+			<label for="chk_login">로그인 상태 유지</label>
+		</div>
+		<div class="tl_btn">
+			<button><span>로그인</span></button>
+		</div>
+	</div>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/오늘일"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

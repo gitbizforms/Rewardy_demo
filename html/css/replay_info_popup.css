@@ -1,0 +1,29 @@
+@charset "utf-8";
+input, button, select, textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+button { cursor: pointer; } 
+
+.layer_re_info { text-align: left; } 
+
+.layer_deam { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 5000; background: rgba(0, 0, 0, 0.4); border-radius: 0; } 
+
+.layer_re_info_in { position: fixed; left: 50%; transform: translate(-50%, -50%); width: 500px; top: 50%; background: #fff; border-radius: 10px; z-index: 6000; overflow: hidden; } 
+
+.layer_re_info_tit { text-align: left; padding: 30px 0 20px 0; margin: 0 30px; transition: all 0.3s; } 
+.layer_re_info_tit strong { display: block; font-size: 18px; text-align: center; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.layer_re_info_box { position: relative; height: calc(100% - 130px); margin: 0 30px 30px 30px; padding: 50px 0; border-radius: 10px; background: #f6f7f9; box-sizing: border-box; } 
+.layer_re_info_box span { width: 100%; display: inline-block; text-align: center; font-size: 16px; letter-spacing: -0.05em; color: #454545; } 
+.layer_re_info_btn { padding: 0 30px 20px 20px; text-align: right; font-size: 0; position: relative; } 
+.layer_re_info_btn .layer_re_info_cancel { font-size: 18px; font-weight: 400; letter-spacing: -0.05em; color: #fff; line-height: 55px; width: 30%; text-align: center; background: #ccc; display: inline-block; vertical-align: top; border-radius: 5px; } 
+.layer_re_info_btn .layer_re_info_submit { font-size: 18px; font-weight: 400; letter-spacing: -0.05em; color: #fff; line-height: 55px; width: 65%; margin-left: 10px; background: #38c9d2; display: inline-block; vertical-align: top; border-radius: 5px; } 
+.layer_re_info_btn .layer_re_info_submit.on { background: #38c9d2; cursor: pointer; } 
+
+@media all and (max-width: 480px){
+ .layer_re_info_in { width: 90%; } 
+ .layer_re_info_tit strong { font-size: 15px; } 
+ .layer_re_info_box { border-radius: 5px; margin: 0 20px 20px 20px; } 
+ .layer_re_info_box span { font-size: 12px; } 
+
+ .layer_re_info_btn { padding: 0 20px 20px 20px; } 
+ .layer_re_info_btn .layer_re_info_cancel, .layer_re_info_btn .layer_re_info_submit { font-size: 13px; line-height: 47px; } 
+ }

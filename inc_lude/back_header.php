@@ -1,0 +1,182 @@
+<?
+	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
+
+
+	//윈도우서버용 php-mssql 사용, 도메인 : https://rewardy.co.kr
+
+	//리눅스 환경 변수 : /inc_lude/conf_mysqli.php
+	//리눅스 환경 함수 : /inc_lude/func_mysqli.php
+
+	include $home_dir . "inc_lude/conf_mysqli.php";
+	include DBCON_MYSQLI;
+	include FUNC_MYSQLI;
+
+	//백오피스 접근 권한
+	$back_auth = backoffice_auth();
+	if(!$back_auth){
+		header("Location:https://rewardy.co.kr/team/index.php");
+		echo "<script>
+			alert('백오피스 접근 권한이 없습니다!!!')
+			</script>";
+		exit;
+	}
+
+	//디렉토리 추출
+	$get_dirname = str_replace(NAS_HOME_DIR,"", get_dirname());
+
+
+	//쿼리스트링은 메일으로 통해서 가입하는 사용자 경우
+	if($_SERVER['QUERY_STRING']){
+		parse_str(Decrypt($_SERVER['QUERY_STRING']), $output);
+		if($user_id){
+
+			//보낸이메일, 받는이메일, 멤버idx
+			if($output['send_email'] && $output['to_email'] && $output['sendno']){
+
+				//쿠키값(아이디, 아이디저장여부:아이디, 아이디저장여부)
+				$DelNotCookieArr = array("cid", "id_save");
+				if($_COOKIE){
+					foreach( $_COOKIE as $key => $value ){
+						//쿠키삭제예외
+						if(!in_array($key, $DelNotCookieArr)) {
+							setcookie( $key, $value, time()-3600 , '/', C_DOMAIN);
+							unset($_COOKIE[$key]);
+							header("Location:https://".$_SERVER['HTTP_HOST']."/team/?".$_SERVER['QUERY_STRING']);
+						}
+					}
+				}
+			}
+		}else{
+			//챌린지 idx, 파티 idx경우 메인으로
+			if(strstr( $_SERVER['QUERY_STRING'] , "idx" )){
+				parse_str($_SERVER['QUERY_STRING'], $output);
+				if($output['idx']){
+					header("Location:https://".$_SERVER['HTTP_HOST']."/");
+				}
+			}
+		}
+	}else{
+		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
+		
+			header("Location:https://rewardy.co.kr/index.php");
+			exit;
+		
+		}
+	}
+
+	if(isset($_COOKIE['sideopen'])){
+		$sidebar = $_COOKIE['sideopen'];
+	}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+		<title>Rewardy</title>
+
+		<meta name="title" content="Rewardy">
+		<meta name="description" content="Rewardy 입니다.">
+		<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+		<meta property="og:description" content="Rewardy 입니다.">
+		<meta property="og:title" content="Rewardy">
+		<meta property="og:image" content="/images/main/img_meta.jpg">
+
+		<link href="../choco/css/styles.css" rel="stylesheet" /> 
+
+		<!--부트스트랩-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+		<script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<!--폰트-->
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&family=Noto+Sans+KR:wght@800&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+
+		<!-- 노토산스 -->
+		<link rel="stylesheet" type="text/css" href="../html/css/window-date-picker.css<?php echo VER;?>" />
+		<link rel="stylesheet" type="text/css" href="../html/css/common.css<?php echo VER;?>" />
+		<link rel="stylesheet" type="text/css" href="../html/css/back_mainy.css<?php echo VER;?>" />
+		<script>
+		</script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+		<!-- slick -> work_process -->
+		<!-- <script src="/js/slick.js"></script> -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+		<!--  circle-progess -> team/live -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+		<!-- counterup -> Team / index-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+		<!-- counterup -> Team / index-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery.touchflow@1.6.7/jquery.touchFlow.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+		<link href="/css/datepicker.css<?php echo VER;?>" rel="stylesheet" type="text/css">
+		<script src="/js/datepicker.js<?php echo VER;?>"></script>
+		<script src="/js/datepicker.kr.js<?php echo VER;?>"></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+		<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+
+		<!-- 0608 추가 -->
+		<script type="text/javascript" src="/js/re_common.js"></script>
+
+		<?
+		if($get_dirname == $reward_type['13']){?>
+			<script src="/js/common.js<?php echo VER;?>"></script>
+			<script src="/js/backoffice_common.js<?php echo VER;?>"></script>
+		<?}
+
+		if($get_dirname != $reward_type['13']){?>
+			<script src="/js/common.js<?php echo VER;?>"></script>
+		<?}?>
+
+
+		<script src="/js/jquery.fileDownload.js<?php echo VER;?>"></script>
+		<script src="/js/jquery.mousewheel.min.js"></script>
+
+	</head>
+
+	<body>	
+		<input type="hidden" id="sidebarOpen" value="<?=$sidebar?>">
+		<input type="text" name="user_name" autocomplete="false" required="" style="display:none;">
+		<input style="display:none" aria-hidden="true">
+		<input type="password" style="display:none" aria-hidden="true">
+		<?php
+			//login페이지
+			include $home_dir  . "inc_lude/login_layer.php";
+		//회원 전체 정보가져오기
+		$member_info = member_list_all();
+		$member_total_cnt = $member_info['total_cnt'];
+
+		//부서별 정렬순
+		$part_info = member_part_info();
+		//로그인상태
+		if($user_id){  
+			//회원등급(관리:1, 일반:5) : manager:1, normal:5
+			//$grade_arr['normal']
+			if($companyno){
+				$where_challenge = " and companyno='".$companyno."'";
+				$company_info = company_info();
+				$company_comcoin = company_comcoin_total();
+			}
+		}
+	?>
+

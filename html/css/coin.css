@@ -1,0 +1,354 @@
+@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.rew_warp button { cursor:pointer; } 
+.tuto_pop button { cursor:pointer; } 
+
+.rew_qck { display: none; } 
+
+.rew_warp { background:#dee1e7; width:100%; height:100%; background:#dee1e7 url(../images/pre/img_intro.png) 50% 50% no-repeat; overflow: hidden; } 
+
+.rew_warp_in { height:100%; } 
+
+html { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 50% 50% no-repeat; } 
+body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 50% 50% no-repeat; } 
+.rew_warp { background:#fff6e0; min-height:1px; background:#fff6e0 url(../images/pre/img_intro.png) 50% 50% no-repeat; position:relative; } 
+
+.rew_box { min-width:480px; height:100%; width:100%; margin:0 auto; overflow:hidden; background:#fff; } 
+.rew_box_in { height:100%; font-size:0; text-align:left; position:relative; } 
+
+.rew_box.on .rew_menu { width:580px; transition:all 0.8s; } 
+.rew_conts_in { height:100%; position:relative; } 
+#work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+#r_work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+
+.rew_menu_onoff { position:absolute; top:50%; margin-top:-30px; right:-30px; width:30px; height:60px; overflow:hidden; background:#fff; border-top-right-radius:30px; border-bottom-right-radius:30px; box-shadow:0px 0px 10px 0px rgba(0,0,0,0.15); } 
+.rew_menu_onoff button { text-indent:-9999px; height:100%; width:100%; background:url(../images/pre/ico_arrow_r.png) 50% 50% no-repeat; transition:all 0.2s 0.3s; font-size:0; } 
+.rew_menu_onoff button.on { transform:translateX(2px) rotate(180deg); transition:all 0.2s; } 
+
+.rew_menu_in { height:100%; width:100%; position:relative; z-index:2; } 
+
+/* rew_mypage_08 */
+.rew_mypage_title { text-align:left; padding-top:45px; margin-bottom:25px; font-size:23px; font-weight:bold; color:#252525; letter-spacing:-0.05em; line-height:33px; } 
+.rew_mypage_title strong { } 
+
+.rew_mypage_08 .rew_mypage_section { padding-bottom:20px; } 
+.rew_mypage_08 .rew_mypage_section_title { margin-top:10px; } 
+.rew_mypage_coin_box { background:#f6f7f9; border-radius:10px; padding:25px 30px 30px 30px; } 
+.rew_mypage_coin_box .title_area { font-size:16px; margin-bottom:10px; } 
+.rew_mypage_coin_box .rew_mypage_btn { margin-top:20px; } 
+.rew_mypage_coin_box .rew_mypage_btn button { font-size:15px; color:#353535; font-weight:400; letter-spacing:-0.05em; width:100%; height:52px; border:1px solid #e5e5e5; background:#fff; transition:all 0.2s; border-radius:10px; } 
+.rew_mypage_coin_box .rew_mypage_btn button:hover { border-color:#a2a2a2; transition:all 0.2s; } 
+
+.rew_mypage_coin_chall { } 
+.rew_mypage_04 .rew_mypage_coin_chall { background:#f6f7f9; padding:18px 30px 18px 0; border-radius:10px; } 
+.rew_mypage_coin_chall strong { display:block; text-align:right; padding-right:37px; background:url(../images/pre/ico_coin_new.png) 100% 50% no-repeat; background-size:29px; } 
+.rew_mypage_coin_chall span { font-size:30px; font-weight:bold; color:#252525; letter-spacing:0; line-height:40px; } 
+.rew_mypage_coin_chall_s { margin-top:10px; font-size:14px; font-weight:400; color:#454545; text-align:right; line-height:25px; } 
+.rew_mypage_coin_chall_s strong { display:inline-block; vertical-align:top; font-size:14px; font-weight:400; color:#454545; letter-spacing:-0.05em; line-height:25px; text-align:right; padding-right:20px; background:url(../images/pre/ico_c.png) 100% 5px no-repeat; } 
+.rew_mypage_coin_chall_s span { font-size:16px; font-weight:400; color:#454545; letter-spacing:0; line-height:25px; margin-left:5px; } 
+
+.title_area .qna { display:inline-block; vertical-align:top; } 
+.title_area .qna .qna_a { bottom:30px; left:auto; right:-191px; margin-left:0; } 
+
+.title_area { font-size:17px; color:#252525; line-height:27px; margin-bottom:15px; position:relative; } 
+.title_area .title_main { font-weight:500; letter-spacing:-0.05em; } 
+.title_area .title_point { font-weight:bold; font-weight:900; letter-spacing:-0.05em; color:#38c9d2; } 
+.title_area .title_sub { font-weight:400; letter-spacing:-0.05em; color:#858585; } 
+.title_area .title_desc { font-weight:300; letter-spacing:-0.05em; color:#858585; font-size:15px; margin-left:5px; } 
+.title_area .title_more { } 
+.title_area .title_more { height:16px; width:16px; border:1px solid #252525; border-radius:3px; text-indent:-9999px; position:absolute; top:50%; margin-top:-9px; right:10px; } 
+.title_area .title_more span { } 
+.title_area .title_more:before { content:""; position:absolute; top:0; right:0; font-size:15px; color:#000; text-indent:0px; width:16px; height:16px; text-align:center; font-weight:bold; transition:all 0.2s; background:url(../images/pre/ico_plus.png) 50% 50% no-repeat; } 
+.title_area .title_more:hover:before { transition:all 0.3s; transform:rotate(180deg); } 
+
+.rew_mypage_08 .rew_mypage_section_title { margin-top:10px; } 
+.rew_mypage_section_title { text-align: left; margin-bottom: 15px; font-size: 18px; font-weight: bold; color: #252525; letter-spacing: -0.05em; line-height: 28px; position: relative; } 
+.rew_mypage_section_title strong span { font-size: 22px; margin-right: 2px; font-weight: normal; } 
+
+.rew_cha_write_type { margin-bottom:20px; } 
+.rew_cha_write_type ul { font-size:0; } 
+.rew_cha_write_type li { width:calc(100% / 3 - 20px); margin:0 10px; display:inline-block; vertical-align:top; } 
+.rew_cha_write_type .qna { position:relative; } 
+.rew_cha_write_type { } 
+.qna { position:relative; } 
+.qna .qna_q { width:16px; height:100%; background:url(../images/pre/ico_q.png) 50% 50% no-repeat; margin-left:5px; display:inline-block; vertical-align:top; text-indent:-9999px; } 
+.qna .qna_a { position:absolute; bottom:60px; left:50%; margin-left:-200px; width:400px; text-align:center; z-index:20; overflow:hidden; height:0; opacity:0; transition:all 0.2s; } 
+.qna .qna_q:hover + .qna_a { height:auto; opacity:1; transition:all 0.3s; } 
+.qna .qna_a span { position:relative; margin-bottom:8px; font-size:15px; font-weight:300; color:#fff; line-height:23px; letter-spacing:-0.05em; padding:16px 20px; border-radius:20px; background:#43454c; box-shadow:0 0 8px 0 rgba(0,0,0,0.1); display:inline-block; vertical-align:top; } 
+.qna .qna_a span:after { content:""; display:block; position:absolute; bottom:-8px; left:50%; margin-left:-8px; width:16px; height:8px; background:url(../images/pre_m/ico_arrow_qna.png) 50% 50% no-repeat; background-size: 15px; } 
+
+.layer_withdraw_in { position:fixed; left:50%; margin-left:-225px; width:450px; height:676px; top:50%; margin-top:-338px; background:#fff; border-radius:10px; z-index:6000; overflow:hidden; } 
+.layer_withdraw_box { } 
+.layer_withdraw_top { background:#38c9d2; padding:20px 30px; } 
+.layer_withdraw_top .layer_withdraw_qna { text-align:left; margin-bottom:12px; } 
+.layer_withdraw_top .qna { height:22px; } 
+.layer_withdraw_top .layer_withdraw_qna_tit { font-size:16px; font-weight:400; color:#fff; letter-spacing:-0.05em; display:inline-block; vertical-align:top; line-height:20px; } 
+.layer_withdraw_top .qna .qna_q { color:#fff; background:url(../images/pre/ico_q_w.png) 50% 50% no-repeat; margin-left:3px; line-height:22px; } 
+.layer_withdraw_top .qna .qna_a { bottom:auto; top:30px; width:222px; } 
+.layer_withdraw_top .qna .qna_a span { margin-bottom:0; margin-top:8px; } 
+.layer_withdraw_top .qna .qna_a span:after { transform:rotate(180deg); bottom:auto; top:-8px; } 
+.layer_withdraw_top .layer_withdraw_coin { } 
+.layer_withdraw_top .layer_withdraw_coin strong { display:block; text-align:right; padding-right:35px; background:url(../images/pre/ico_coin_w.png) 100% 50% no-repeat; } 
+.layer_withdraw_top .layer_withdraw_coin span { font-size:30px; font-weight:bold; color:#fff; letter-spacing:0; line-height:40px; } 
+.layer_withdraw_mid { padding:24px 30px; } 
+.layer_withdraw_mid .layer_withdraw_btns { margin-bottom:15px; display:flex; justify-content:space-between; } 
+.layer_withdraw_mid .layer_withdraw_btns ul { font-size:0; } 
+.layer_withdraw_mid .layer_withdraw_btns li { display:inline-block; vertical-align:top; margin-right:5px; } 
+.layer_withdraw_mid .layer_withdraw_btns li button { min-width:55px; padding:0 11.5px; height:33px; line-height:31px; text-align:center; font-size:14px; font-weight:400; color:#858585; letter-spacing:-0.05em; border:1px solid #e5e5e5; border-radius:10px; } 
+.layer_withdraw_mid .layer_withdraw_btns li button span { } 
+.layer_withdraw_mid .btn_coin_reset { width:75px; height:33px; text-align:center; font-size:14px; font-weight:400; color:#858585; letter-spacing:-0.05em; line-height:31px; border:1px solid #e5e5e5; border-radius:10px; } 
+.layer_withdraw_mid .btn_coin_reset span { } 
+.layer_withdraw_mid .layer_withdraw_input { margin-bottom:20px; } 
+.layer_withdraw_mid .layer_withdraw_input + div > span { display:block; text-align:right; font-size:13px; font-weight:300; color:#353535; letter-spacing:-0.05em; line-height:22px; padding-right:10px; margin-top:-15px; margin-bottom:15px; } 
+.layer_withdraw_mid .input_withdraw { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:right; height:53px; border:1px solid #e5e5e5; border-radius:10px; padding-right:20px; display:block; width:calc(100% - 22px); } 
+
+.layer_withdraw_mid .layer_withdraw_info { margin-bottom:20px; } 
+
+.layer_withdraw_bank { font-size:15px; } 
+.layer_withdraw_bank_in { position:relative; } 
+.layer_withdraw_bank .btn_bank_on { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; width:100%; height:55px; padding-left:20px; background:#fff url(../images/pre/ico_arrow_slc.png) 100% 50% no-repeat; border:1px solid #e5e5e5; border-radius:10px 10px 0 0; } 
+.layer_withdraw_bank .btn_bank_on span { } 
+.layer_withdraw_bank ul { position:absolute; opacity:0; top:0; right:0; width:calc(100% - 2px); background:#fff; border:1px solid #e5e5e5; border-radius:10px; overflow:hidden; max-height:240px; overflow-y:scroll; -ms-overflow-style:none; } 
+.layer_withdraw_bank ul::-webkit-scrollbar { width:0px; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-thumb { border-radius:3px 7px 7px 3px; background-color:#f5f5f5; width:4px; border-right:5px solid transparent; background-clip:padding-box; transition:all 0.2s; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-thumb:hover { background-color:#ddd; } 
+.layer_withdraw_bank ul::-webkit-scrollbar-track { background-color:transparent; margin:10px 0; } 
+.layer_withdraw_bank.on ul { opacity:1; } 
+.layer_withdraw_bank ul li { margin-bottom:-55px; border-top:1px solid #e5e5e5; position:relative; background:#fff; } 
+.layer_withdraw_bank ul li:first-child { z-index:4; border-top:none; } 
+.layer_withdraw_bank ul li:first-child+li { z-index:3; } 
+.layer_withdraw_bank ul li:first-child+li+li { z-index:2; } 
+.layer_withdraw_bank ul li:last-child { /* margin-bottom:0; */ z-index:1; } 
+
+.layer_withdraw_bank.on ul li { margin-bottom:0; } 
+
+.layer_withdraw_bank ul li button { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; width:100%; height:53px; padding-left:20px; } 
+.layer_withdraw_bank ul li button:hover { color:#fff; background:#43454c; } 
+.layer_withdraw_bank ul li span { } 
+
+.layer_withdraw_mid .input_bank_num { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; padding-left:20px; display:block; width:calc(100% - 22px); } 
+.layer_withdraw_mid .input_bank_user { font-size:16px; color:#858585; font-weight:300; letter-spacing:-0.05em; text-align:left; height:53px; border:1px solid #e5e5e5; border-top:none; border-radius:0 0 10px 10px; padding-left:20px; display:block; width:calc(100% - 22px); } 
+
+.layer_withdraw_desc { background:#f4f4f4; border-radius:10px; margin-bottom:20px; } 
+.layer_withdraw_desc ul { padding:21px 15px 17px 15px; text-align:left; } 
+.layer_withdraw_desc li { font-size:14px; font-weight:300; color:#aaa; letter-spacing:0; line-height:21px; margin-bottom:5px; word-break:keep-all; padding-left:14px; background:url(../images/pre/ico_dot_g.png) 0 9px no-repeat; } 
+
+.layer_withdraw_btn { display:flex; justify-content:space-between; } 
+.layer_withdraw_btn button { height:55px; border-radius:10px; text-align:center; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+.layer_withdraw_btn button.btn_withdraw_off { width:130px; background:#ccc; } 
+.layer_withdraw_btn button.btn_withdraw_on { width:calc(100% - 140px); background:#43454c; } 
+
+.rew_mypage_coin_box .rew_mypage_btns { font-size:0; text-align:center; margin-top:20px; } 
+.rew_mypage_coin_box .rew_mypage_btns button { width:calc(50% - 5px); display:inline-block; vertical-align:top; font-size:15px; color:#353535; font-weight:400; letter-spacing:-0.05em; height:52px; border:1px solid #e5e5e5; background:#fff; transition:all 0.2s; border-radius:10px; } 
+.rew_mypage_coin_box .rew_mypage_btns button:first-child { margin-right:10px; } 
+.rew_mypage_coin_box .rew_mypage_btns button:hover { border-color:#a2a2a2; transition:all 0.2s; } 
+
+.rew_mypage_coin_use { padding:0 3px 0 8px; height:174px; background:#f6f7f9; border-radius:10px; } 
+.rew_mypage_coin_use ul { text-align:left; height:174px; overflow-y:scroll; -ms-overflow-style:none; } 
+.rew_mypage_coin_use ul::-webkit-scrollbar { width:13px; } 
+.rew_mypage_coin_use ul::-webkit-scrollbar-thumb { border-radius:7px; background-color:#ddd; width:3px; border:5px solid transparent; background-clip:padding-box; transition:all 0.2s; } 
+.rew_mypage_coin_use ul::-webkit-scrollbar-thumb:hover { border-width:4px; transition:all 0.2s; } 
+.rew_mypage_coin_use ul::-webkit-scrollbar-track { background-color:#f6f7f9; margin:15px 0; } 
+.rew_mypage_coin_use li { padding:12px 7px 27px 12px; font-size:14px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:21px; } 
+.rew_mypage_coin_use li:first-child { padding:27px 7px 15px 12px; } 
+.rew_mypage_coin_use li strong { display:block; font-size:16px; font-weight:500; color:#252525; letter-spacing:-0.05em; line-height:21px; } 
+
+/* contents */
+.rew_conts { background: #ececec; height: 100%; padding-left: 70px; transition: all 0.6s 0.4s; } 
+.rew_box.on .rew_conts { padding-left: 580px; transition: all 0.8s; } 
+.rew_conts_in { height:100%; position:relative; } 
+
+.rew_conts_scroll_09 { height:calc(100% - 249px); overflow-y:scroll; overflow-x:auto; -ms-overflow-style:none; min-width:640px; position:relative; } 
+.rew_conts_scroll_09::-webkit-scrollbar { height:10px; width:10px; } 
+.rew_conts_scroll_09::-webkit-scrollbar-thumb { border-radius:5px; background-color:rgba(0,0,0,0.05); border:none; height:10px; width:10px; background-color:rgba(0,0,0,0.05); } 
+.rew_conts_scroll_09::-webkit-scrollbar-track { background-color:#ececec; } 
+.rew_conts_scroll_09::-webkit-scrollbar-corner { background-color:#ececec; } 
+
+.rew_ard_tab { padding:50px 95px 0 95px; transition:all 0.3s; } 
+.rew_ard_tab_in { border:1px solid #e8ebee; border-radius:10px; padding:19px; background:#f6f7f9; font-size:0; text-align:right; } 
+
+.rew_ard_tab .rew_ard_sort { width:140px; float:left; } 
+.rew_ard_sort_in { position:relative; text-align:left; } 
+.rew_ard_sort .btn_sort_on { font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; line-height:42px; text-align:left; width:140px; height:44px; padding-left:20px; background:#fff url(../images/pre/ico_arrow_slc.png) 100% 50% no-repeat; border:1px solid #e5e5e5 !important; border-radius:5px; } 
+.rew_ard_sort .btn_sort_on span { } 
+.rew_ard_sort ul { position:absolute; opacity:0; top:0; right:0; z-index:4; width:calc(100% - 2px); background:#fff; border:1px solid #43454c; border-radius:5px; overflow:hidden; } 
+.rew_ard_sort.on ul { opacity:1; } 
+.rew_ard_sort ul li { margin-bottom:-45px; position:relative; background:#fff; } 
+
+.rew_ard_sort.on ul li { margin-bottom:0; } 
+.rew_ard_sort ul li button { font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; line-height:43px; text-align:left; width:100%; height:43px; padding-left:20px; } 
+.rew_ard_sort ul li button:hover { color:#fff; background:#43454c; } 
+.rew_ard_sort ul li span { } 
+
+.rew_ard_calendar { display:inline-block; vertical-align:top; } 
+.rew_ard_btns { font-size:0; display:inline-block; vertical-align:top; } 
+.rew_ard_btns button { text-align:center; border:1px solid #e1e1e1 !important; background:#fff; height:46px; line-height:44px; font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:5px; display:inline-block; vertical-align:top; } 
+.rew_ard_btns button.on { background:#38c9d2; border-color:#38c9d2; color:#fff; } 
+.rew_ard_btns button span { padding:0 15px; } 
+
+.rew_ard_period { margin-left:10px; display:inline-block; vertical-align:top; } 
+.rew_ard_period_box { padding:0 5px; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
+.rew_ard_period .input_date_l { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_ard_period .btn_calendar_l { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
+.rew_ard_period .rew_ard_period_box > span { width:28px; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; display:inline-block; vertical-align:top; } 
+.rew_ard_period .input_date_r { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_ard_period .btn_calendar_r { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:10px; display:inline-block; vertical-align:top; } 
+
+.rew_ard_period .btn_inquiry { margin-left:10px; width:85px; height:46px; font-size:15px; color:#fff; font-weight:400; letter-spacing:-0.05em; text-align:center; background:#414141; border-radius:5px; display:inline-block; vertical-align:top; } 
+
+.rew_ard { padding:30px 85px 50px 95px; } 
+.rew_ard_in { } 
+
+.rew_ard_list { border:1px solid #e8ebee; border-radius:10px; overflow:hidden; } 
+.rew_ard_list_in { } 
+
+.rew_ard_list_tab { background:#f6f7f9; position:relative; padding:20px 190px 20px 176px; } 
+.rew_ard_list_tab span { font-size:17px; font-weight:400; color:#000; line-height:24px; letter-spacing:-0.05em; text-align:center; display:inline-block; vertical-align:top; } 
+.rew_ard_list_tab .rew_ard_tab_tit { padding:0 15px; width:calc(100% - 260px); } 
+.rew_ard_list_tab .rew_ard_tab_coin { width:110px; } 
+.rew_ard_list_tab .rew_ard_tab_date { position:absolute; top:20px; left:0; width:176px; } 
+.rew_ard_list_tab .rew_ard_tab_kind { letter-spacing:-0.05em; width:100px; padding:0 10px; } 
+.rew_ard_list_tab .rew_ard_tab_type { position:absolute; top:20px; right:0; width:170px; padding:0 10px; } 
+
+.rew_ard_list_desc { } 
+.rew_ard_list_desc ul { } 
+.rew_ard_list_desc li { position:relative; padding:20px 190px 20px 176px; background:#fff; border-top:1px solid #f2f2f2; transition:all 0.3s; } 
+.rew_ard_list_desc li span { font-size:14px; font-weight:300; color:#666; line-height:22px; letter-spacing:0; text-align:center; display:inline-block; vertical-align:top; transition:all 0.3s; } 
+.rew_ard_list_desc li .rew_ard_desc_tit { text-align:left; padding:0 15px; color:#252525; width:calc(100% - 260px); } 
+.rew_ard_list_desc li .rew_ard_desc_tit a { color:#252525; } 
+.rew_ard_list_desc li .rew_ard_desc_tit a br { display:none; } 
+.rew_ard_list_desc li .rew_ard_desc_coin { width:110px; } 
+.rew_ard_list_desc li .rew_ard_desc_coin.coin_plus { font-weight:400; color:#f10006; } 
+.rew_ard_list_desc li .rew_ard_desc_coin.coin_minus { font-weight:400; color:#337bf6; } 
+.rew_ard_list_desc li .rew_ard_desc_date { position:absolute; top:20px; left:0; width:176px; text-align:center; letter-spacing:0.01em; } 
+.rew_ard_list_desc li .rew_ard_desc_kind { letter-spacing:-0.05em; width:100px; padding:0 10px; } 
+.rew_ard_list_desc li .rew_ard_desc_type { letter-spacing:-0.05em; position:absolute; top:50%; right:0; transform: translateY(-50%); width:170px; padding:0 10px; } 
+
+.rew_ard_paging { border:1px solid #e8ebee; border-radius:10px; overflow:hidden; background:#fff; margin-top:20px; } 
+.rew_ard_paging_in { text-align:center; padding:14px 0; } 
+.rew_ard_paging button { width:36px; height:36px; border-radius:18px; text-indent:-9999px; font-size:15px; font-weight:400; color:#999; letter-spacing:-0.05em; display:inline-block; vertical-align:top; } 
+.rew_ard_paging .paging_first { background:url(../images/pre/ico_paging_first.png) 50% 50% no-repeat; margin-right:15px; } 
+.rew_ard_paging .paging_prev { background:url(../images/pre/ico_paging_prev.png) 50% 50% no-repeat; margin-right:15px; } 
+.rew_ard_paging .paging_num { text-indent:0; } 
+.rew_ard_paging .paging_num:hover { background:#f6f7f9; } 
+.rew_ard_paging .paging_num.on { background:#252525; color:#fff; } 
+.rew_ard_paging .paging_next { background:url(../images/pre/ico_paging_next.png) 50% 50% no-repeat; margin-left:15px; } 
+.rew_ard_paging .paging_last { background:url(../images/pre/ico_paging_last.png) 50% 50% no-repeat; margin-left:15px; } 
+
+/* 팝업 */
+.layer_withdraw, .layer_user { position: relative; z-index: 99999; } 
+@media screen and (max-width: 960px){
+ .rew_box.on .rew_conts { padding-left: 0; } 
+ .rew_conts { padding-left: 0; height: 100%; overflow-y: scroll; } 
+
+ .rew_mypage_08_in { overflow-y: scroll !important; } 
+ .rew_mypage_08_in::-webkit-scrollbar { display: none; } 
+
+ .rew_box.on .rew_mypage_close button { position: fixed !important; background: #fff; border-radius: 15px; z-index: 9; } 
+ /* main */
+ /* title */
+ .rew_ard_tab { padding: 25px 25px 20px 15px; } 
+ .rew_ard_tab_in { border-radius: 5px; padding: 15px; } 
+
+ .rew_ard_tab .rew_ard_sort { width: 131px; display: inline-block; vertical-align: top; } 
+ .rew_ard_sort .btn_sort_on { font-size: 13px; height: 42px; width: 131px; padding-left: 15px; background: #fff url(../images/pre_m/ico_arrow_slc.png) 105% 50% no-repeat; background-size: 24px; } 
+ 
+ .rew_ard_calendar { width: 100%; position: relative; } 
+ .rew_ard_btns { position: absolute; top: -42px; right: 0; width: calc(100% - 131px); } 
+ .rew_ard_btns button { height: 42px; line-height: 41px; font-size: 13px; margin-left: 5px; width: calc(100% / 3 - 5px); } 
+ .rew_ard_sort ul li button { font-size: 13px; height: 42px; width: 131px; padding-left: 15px; } 
+
+ .rew_ard_period { width: 100%; margin-top: 8px; margin-left: 0; } 
+ .rew_ard_period_box { width: calc(100% - 92px); display: flex; } 
+ .rew_ard_period .input_date_l { font-size: 13px; width: 72px; line-height: 40px; order: 2; } 
+ .rew_ard_period .btn_calendar_l { width: 21px; height: 40px; -webkit-background-size: 16px; background-size: 16px; order: 1; } 
+ .rew_ard_period .rew_ard_period_box > span { width: 15px; font-size: 15px; line-height: 40px; order: 3; } 
+ .rew_ard_period .input_date_r { font-size: 13px; width: 72px; line-height: 40px; order: 4; } 
+ .rew_ard_period .btn_calendar_r { width: 21px; height: 40px; display: none; -webkit-background-size: 16px; background-size: 16px; } 
+
+ .rew_ard_period .btn_inquiry { width: 75px; margin-left: 5px; height: 42px; font-size: 13px; margin-top: -42px; } 
+
+ /* .qna .qna_a span:after { background: url(../images/pre_m/ico_arrow_qna.png) 50% 50% no-repeat; background-size: 15px; } */
+
+ /* cont */
+ .rew_conts_scroll_09 { height: calc(100% - 250px); min-width: 1px; } 
+ .rew_conts_scroll_09::-webkit-scrollbar { display: none;}
+
+ .rew_ard_btns button span { padding: 0; } 
+
+ .rew_ard { padding: 0 15px; } 
+ .rew_ard_list { border-radius: 5px; } 
+ .rew_ard_list_tab { display: none; } 
+
+ .rew_ard_list_desc li { padding: 10px 15px; } 
+ .rew_ard_list_desc li .rew_ard_desc_tit { width: 70%; padding: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } 
+ .rew_ard_list_desc li .rew_ard_desc_date { width: 130px; position: static; font-size: 12px; text-align: left; } 
+
+ .rew_ard_list_desc li .rew_ard_desc_coin.coin_plus,
+ .rew_ard_list_desc li .rew_ard_desc_coin.coin_minus { width: calc(30% - 20px); font-size: 14px; text-align: right; margin-left: 20px; } 
+ .rew_ard_list_desc li .rew_ard_desc_type { width: calc(30% - 20px); top: 38px; right: 15px; font-size: 10px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: right; line-height: 10px; padding: 0; } 
+ .rew_ard_list_desc li .rew_ard_desc_kind { font-size: 12px; padding: 0; text-align: left; } 
+ 
+ .rew_ard_paging { border-radius: 5px !important; margin-top: 15px; margin-bottom: 20px; } 
+ .rew_ard_paging_in { padding: 10px 0 !important; } 
+
+ /* rew_mypage_08 */
+ .rew_box .rew_menu { width: 100%; } 
+
+ .rew_mypage_title { font-size: 17px; margin-bottom: 18px; line-height: normal; padding-top: 0; margin-top: 43px; } 
+ 
+ .mypage_section { height: calc(100% - 170px); overflow-y: scroll; padding-bottom: 20px; } 
+
+ .rew_mypage_coin_box { position: relative; border-radius: 5px; padding: 15px 20px; } 
+ .title_area { line-height: 18px; } 
+ .title_area .title_main { font-size: 14px; line-height: 12px; margin-bottom: 12px; padding-top: 0; } 
+ .qna .qna_q { margin-top: 2px; background-size: 14px; } 
+ .rew_mypage_coin_chall { position: absolute; top: 5px; right: 15px; } 
+ .rew_mypage_coin_chall strong { background-size: 19px; padding-right: 28px; } 
+ .rew_mypage_coin_chall span { font-size: 15px; } 
+ .rew_mypage_coin_box .rew_mypage_btn { margin-top: 10px; } 
+ .rew_mypage_coin_box .rew_mypage_btn button { height: 47px; font-size: 14px; border-radius: 5px; } 
+ .rew_mypage_08 .rew_mypage_section { padding-bottom: 15px; } 
+
+ .rew_mypage_coin_box .rew_mypage_btns { margin-top: 10px; } 
+ .rew_mypage_coin_box .rew_mypage_btns button { width: calc(50% - 2.5px); height: 47px; border-radius: 5px; font-size: 14px; } 
+ .rew_mypage_coin_box .rew_mypage_btns button:first-child { margin-right: 5px; } 
+
+ .title_area .qna .qna_a { bottom: 20px; } 
+ .qna .qna_a span { font-size: 12px; line-height: 16px; border-radius: 5px; } 
+
+ .rew_mypage_08 .rew_mypage_section_title { font-size: 15px; margin-top: 5px; margin-bottom: 14px; } 
+ .rew_mypage_section_title strong span { font-size: 20px; } 
+
+ .rew_mypage_coin_use { border-radius: 5px; padding: 0; } 
+ .rew_mypage_coin_use li { font-size: 12px; } 
+ .rew_mypage_coin_use li:first-child { padding: 15px 20px; } 
+ .rew_mypage_coin_use li strong { font-size: 14px; } 
+
+ /* icon_hover */
+ .title_area .qna .qna_a span { font-size: 12px; line-height: 16px; border-radius: 5px; } 
+
+ /* icon */
+ .rew_mypage_coin_box .qna .qna_q { background: url(../images/pre_m/ico_qe.png) 50% 50% no-repeat; background-size: 16px; } 
+
+ .rew_ard_paging .paging_first { background: url(../images/pre_m/ico_paging_first.png) 50% 50% no-repeat !important; margin-right: 5px !important; background-size: 12px !important; } 
+ .rew_ard_paging .paging_prev { background: url(../images/pre_m/ico_paging_prev.png) 50% 50% no-repeat !important; margin-right: 10px !important; background-size: 6px !important; } 
+ .rew_ard_paging button { width: 30px !important; height: 30px !important; font-size: 12px !important; } 
+ .rew_ard_paging .paging_next { background: url(../images/pre_m/ico_paging_next.png) 50% 50% no-repeat !important; margin-left: 10px !important; background-size: 6px !important; } 
+ .rew_ard_paging .paging_last { background: url(../images/pre_m/ico_paging_last.png) 50% 50% no-repeat !important; margin-left: 5px !important; background-size: 12px !important; } 
+ }
+ .tdw_open_btn { width: 100%; display: block; position: fixed; bottom: 0; background: #fff; border-radius: 10px 10px 0 0; padding: 10px 15px; box-sizing: border-box; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); padding: 10px 15px; z-index: 9999; } 
+ .tdw_open_btn button { height: 43px; font-size: 14px; font-weight: 500; color: #fff; letter-spacing: -0.05em; width: 100%; background: #38c9d2; border-radius: 5px; } 
+
+@media screen and (max-width: 560px) { } 
+@media screen and (max-width: 480px){
+ .rew_ard_period .btn_inquiry { width: 70px; } 
+ .rew_ard_period_box { width: calc(100% - 87px); } 
+ .rew_ard_period .btn_calendar_r { margin-right: 0; } 
+
+ /* 달력 */
+ .datepicker.active { left: 90px; } 
+ .-bottom-left- .datepicker--pointer { left: 120px; } 
+ }
+@media screen and (max-width: 420px) { } 
+@media screen and (max-width: 360px) { } 

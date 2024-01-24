@@ -1,0 +1,922 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="./js/scrolloverflow.min.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("#fullpage").fullpage({
+			//sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff']
+			'scrollOverflow':true,
+			'css3': true,
+			'navigation': true,
+			'navigationPosition': 'right',
+			'navigationTooltips': ['리워디', '필요성', 'LIVE', '챌린지', '역량평가', '보상', 'UI', '성장', '리워디'],
+			"afterLoad": function(anchorLink, index){
+				if(index == 3){
+					$(".section2_right li").each(function(){
+						var tis = $(this);
+						var tindex = $(this).index();
+						setTimeout(function(){
+							tis.addClass("sli5");
+						},200+tindex*150);
+					});
+				}
+				var s3ih = $(".section3_in").height();
+				var s3h = $("#section3 .fp-tableCell").height();
+				if((s3ih+80) >= s3h){
+					$(".section3_bottom li").eq(5).remove();
+					$(".section3_bottom li").eq(4).remove();
+					$(".section3_bottom li").eq(3).remove();
+				}
+
+				if(index == 4){
+					$(".section3_bottom li").each(function(){
+						var tis = $(this);
+						var tindex = $(this).index();
+						setTimeout(function(){
+							tis.addClass("sli5");
+						},200+tindex*150);
+					});
+				}
+
+				if(index == 5){
+					$("#rb_radarChart").addClass("on");
+				}
+
+				if(index == 6){
+					$(".mobile_list li").each(function(){
+						var tis = $(this);
+						var tindex = $(this).index();
+						setTimeout(function(){
+							tis.addClass("sli5");
+						},200+tindex*150);
+					});
+				}
+
+				if(index == 7){
+					$(".ui_pc").addClass("on");
+					$(".ui_tb").addClass("on");
+					$(".ui_mb").addClass("on");
+				}
+			},
+		});
+
+		$(".depth_01 strong.depth_01_link").mouseenter(function(){
+			$(this).next(".depth_02_area").show();
+		});
+		$(".depth_01").mouseleave(function(){
+			$(this).find(".depth_02_area").hide();
+		});
+
+
+		
+
+		$(".live_user_state li .live_user_state_circle").mouseenter(function(){
+			$(".layer_state").removeClass("on");
+			$(this).next(".layer_state").addClass("on");
+			$(".live_list_box").removeClass("zindex");
+			$(this).closest(".live_list_box").addClass("zindex");
+		});
+		$(".live_user_state li .live_user_state_circle").mouseleave(function(){
+			$(".layer_state").removeClass("on");
+			$(".live_list_box").removeClass("zindex");
+		});
+
+		$(".input_main").keyup(function(){
+			var input_length = $(this).val().length; //입력한 값의 글자수
+			if(input_length>0){
+				$(".btn_grid_02").addClass("on");
+			}else{
+				$(".btn_grid_02").removeClass("on");
+			}
+		});
+
+		$(".btn_grid_02").click(function(){
+			if($(".btn_grid_02").hasClass("on")){
+				$(".rew_grid_list_none").hide();
+				var textspan = $(".input_main").val();
+				var text01 = $(".rew_grid_list_in ul li.rew_grid_list_01 span").text();
+				var text02 = $(".rew_grid_list_in ul li.rew_grid_list_02 span").text();
+				var text03 = $(".rew_grid_list_in ul li.rew_grid_list_03 span").text();
+				$(".rew_grid_list_in ul li.rew_grid_list_01 span").text(textspan);
+				$(".rew_grid_list_in ul li.rew_grid_list_02 span").text(text01);
+				$(".rew_grid_list_in ul li.rew_grid_list_03 span").text(text02);
+				//$(".rew_grid_list_in ul").prepend("<li class='ui-sortable-handle'><button></button><div><span>"+textspan+"</span></div></li>");
+				//$(".rew_grid_list_in ul li:eq(3)").remove();
+			}
+			//var textspan = $(".input_main").value();
+			//$(".rew_grid_list_in ul").prepend("<li class='ui-sortable-handle'><button></button><div><span>"+textspan+"</span></div></li>");
+
+			if($(".rew_grid_list_in ul li.rew_grid_list_01 span").is(':empty')){
+				
+			}else{
+				$(".rew_grid_list_in ul li.rew_grid_list_01").addClass("view");
+			}
+			if($(".rew_grid_list_in ul li.rew_grid_list_02 span").is(':empty')){
+				
+			}else{
+				$(".rew_grid_list_in ul li.rew_grid_list_02").addClass("view");
+			}
+			if($(".rew_grid_list_in ul li.rew_grid_list_03 span").is(':empty')){
+				
+			}else{
+				$(".rew_grid_list_in ul li.rew_grid_list_03").addClass("view");
+			}
+		});
+
+		$(".rew_grid_list_in ul li button").click(function(){
+			$(this).parent("li").toggleClass("on");
+		});
+
+		$(".rew_btn_icons_more").click(function(){
+			$(".rew_icons").toggle();
+		});
+
+		$(".onoff_01 .btn_switch").click(function(){
+			$(".onoff_04 .btn_switch").removeClass("on");
+			$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+			$(this).addClass("on");
+			$(this).prev("em").addClass("on");
+		});
+
+		$(".onoff_02 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_03 .btn_switch").removeClass("on");
+				$(".onoff_03 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_04 .btn_switch").removeClass("on");
+				$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_01 .btn_switch").addClass("on");
+				$(".onoff_01 .btn_switch").prev("em").addClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".onoff_03 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_02 .btn_switch").removeClass("on");
+				$(".onoff_02 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_04 .btn_switch").removeClass("on");
+				$(".onoff_04 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_01 .btn_switch").addClass("on");
+				$(".onoff_01 .btn_switch").prev("em").addClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".onoff_04 .btn_switch").click(function(){
+			var switchon = $(this);
+			if(switchon.hasClass("on")){
+				$(this).removeClass("on");
+				$(this).prev("em").removeClass("on");
+			}else{
+				$(".onoff_01 .btn_switch").removeClass("on");
+				$(".onoff_01 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_02 .btn_switch").removeClass("on");
+				$(".onoff_02 .btn_switch").prev("em").removeClass("on");
+				$(".onoff_03 .btn_switch").removeClass("on");
+				$(".onoff_03 .btn_switch").prev("em").removeClass("on");
+				$(this).addClass("on");
+				$(this).prev("em").addClass("on");
+			}
+		});
+
+		$(".rew_grid_state_in .rew_grid_state_circle").mouseenter(function(){
+			$(".layer_state").removeClass("on");
+			$(this).next(".layer_state").addClass("on");
+		});
+		$(".rew_grid_state_in .rew_grid_state_circle").mouseleave(function(){
+			$(".layer_state").removeClass("on");
+		});
+
+		setTimeout(function(){
+			$("#bar_graph_05 strong").animate({"height":70+"%","background-color":"#f7241f"},1400,"linear");
+			$("#bar_graph_04 strong").animate({"height":50+"%","background-color":"#334ff9"},1000,"linear");
+			$("#bar_graph_03 strong").animate({"height":40+"%","background-color":"#334ff9"},800,"linear");
+			$("#bar_graph_02 strong").animate({"height":100+"%","background-color":"#f7241f"},2000,"linear");
+			$("#bar_graph_01 strong").animate({"height":60+"%","background-color":"#334ff9"},1200,"linear");
+		}, 1400);
+
+		setTimeout(function(){
+			$(".rew_mains_company_coin p strong").text("1,500,000");
+			$(".rew_mains_company_coin p strong").counterUp({
+				delay:35,
+				time:1600
+			});
+		}, 1000);
+
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+<style type="text/css">
+	html, body{background:none; height:100%;}
+</style>
+<div class="rb_warp fp-notransition">
+	<div class="rb_warp_in fp-notransition">
+		<div class="rb_nav" id="menu">
+			<div class="rb_nav_in">
+				<div class="rb_nav_logo">
+					<a href="./000a.html"><img src="images/pre/img_nav_logo.png" alt="" /></a>
+				</div>
+				<div class="rb_nav_depth">
+					<ul class="depth_01_area">
+						<li class="depth_01">
+							<a href="./000a.html" class="depth_01_link"><span>서비스 소개</span></a>
+						</li>
+
+						<li class="depth_01">
+							<strong class="depth_01_link"><span>기능 소개</span></strong>
+							<ul class="depth_02_area">
+								<li class="depth_02">
+									<a href="./0021.html" class="depth_02_link"><span>오늘업무</span></a>
+								</li>
+								<li class="depth_02">
+									<a href="./0022.html" class="depth_02_link lts_0"><span>LIVE</span></a>
+								</li>
+								<li class="depth_02">
+									<a href="./0023.html" class="depth_02_link"><span>보상</span></a>
+								</li>
+								<li class="depth_02">
+									<a href="./0024.html" class="depth_02_link"><span>챌린지</span></a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="depth_01">
+							<a href="./0031.html" class="depth_01_link"><span>가격정책</span></a>
+						</li>
+
+						<li class="depth_01">
+							<a href="https://rewardy.co.kr/team/" target="_blank" class="depth_01_link"><span>데모보기</span></a>
+						</li>
+						<li class="depth_01">
+							<a href="./0041.html" class="depth_01_link"><span>공지사항(임시)</span></a>
+						</li>
+						<li class="depth_01">
+							<a href="./0043.html" class="depth_01_link"><span>FAQ(임시)</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="rb_nav_member">
+					<ul>
+						<li>
+							<strong class="open_layer_login"><span>로그인</span></strong>
+						</li>
+						<li>
+							<strong class="open_layer_join"><span>회원가입</span></strong>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="rb_main fp-notransition">
+			<div class="rb_fullpage fp-notransition" id="fullpage">
+				<div class="section active" id="section0">
+					<div class="section0_in">
+						<p>
+							<strong>업무가 보이면 사람이 변합니다. <br>보상이 있으면 인재가 모입니다.</strong>
+							<span>보상을 통한 역량 개발 플랫폼, 리워디와 함께 성장하세요.</span>
+						</p>
+						<a href="https://rewardy.co.kr/team/" target="_blank"><span>무료 체험</span></a>
+					</div>
+				</div>
+				<div class="section" id="section1">
+					<div class="section1_in">
+						<p>
+							<span>적극적인 인재가 회사를 이끌어 간다는 사실은 누구나 잘 알지만, <br>
+							어떻게 적극적인 인재를 만들 것인가가 늘 과제였습니다. <br>
+							면담을 해봐도, 성과금을 걸어도 늘 제자리였다면 리워드가 필요한 때입니다. <br>
+							구성원 스스로 업무를 관리하고, 챌린지에 도전하며 역량을 개발합니다. <br>
+							회사는 단지 작은 보상만 지급하면 됩니다.</span>
+						</p>
+					</div>
+				</div>
+				<div class="section" id="section2">
+					<div class="section2_in">
+						<div class="section2_left">
+							<dl>
+								<dt>LIVE</dt>
+								<dd><strong>회사가 한눈에 보입니다.</strong></dd>
+								<dd>오늘 어떤 일을 하고, 완료한 일은 무엇인지, 관심사가 무엇이고, <br>
+								어떤 역량을 개발하고 있는지, 업무에 집중하는 중인지, <br>
+								잠시 자리를 비웠는지, 어떤 역량을 더 개발해고, 보충해야 하는지 <br>
+								이 모든 것을 한눈에 볼 수 있습니다.</dd>
+								<dd>LIVE 한 회사를 실시간 확인해 보세요.</dd>
+							</dl>
+							<ul>
+								<li>
+									<a href="./0021.html"><span>오늘업무 기능소개</span></a>
+								</li>
+								<li>
+									<a href="./0022.html"><span>LIVE 기능소개</span></a>
+								</li>
+							</ul>
+						</div>
+						<div class="section2_right">
+							<ul>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_01.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_02.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_03.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_04.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_05.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_06.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_07.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_01.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_02.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_03.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_04.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_05.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_06.jpg" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0022.html"><img src="images/pre/img_slider_01_07.jpg" alt="" /></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="section" id="section3">
+					<div class="section3_in">
+						<div class="section3_top">
+							<dl>
+								<dt>챌린지</dt>
+								<dd>신입사원 교육, 직무 교육, 법정의무교육을 신경 쓸 필요 없습니다.</dd>
+								<dd>리워디에서는 챌린지를 통해 쉽게 관리할 수 있습니다.</dd>
+								<dd><strong>담당 인력이 없어도 구성원 스스로 교육을 완료하는 마법 같은 일</strong></dd>
+								<dd>리워디 챌린지를 통해 가능합니다.</dd>
+							</dl>
+							<ul>
+								<li>
+									<a href="./0024.html"><span>챌린지 기능소개</span></a>
+								</li>
+							</ul>
+						</div>
+						<div class="section3_bottom">
+							<ul>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_01.png" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_02.png" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_03.png" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_04.png" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_05.png" alt="" /></a>
+								</li>
+								<li>
+									<a href="./0024.html"><img src="images/pre/img_slider_02_06.png" alt="" /></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="section" id="section4">
+					<div class="section4_in">
+						<div class="section4_left">
+							<dl>
+								<dt>역량평가 지표</dt>
+								<dd>적극적인 구성원, 자기계발을 위해 노력하는 구성원을 어떻게 찾아내냐고요?</dd>
+								<dd>역량평가 지표 하나면 해결됩니다.</dd>
+								<dd><strong>수치화할 수 없는 정성적인 역량을 수치화</strong>해 보여드립니다.</dd>
+								<dd>구성원 개개인의 노하우, 자기계발, 협업 능력, 성실, 적극성을 볼 수 있습니다.</dd>
+							</dl>
+						</div>
+						<div class="section4_right">
+							<div class="chart_graph">
+								<div id="rb_radarChart"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section" id="section5">
+					<div class="section5_in">
+						<div class="section5_left">
+							<div class="mobile_list">
+								<ul>
+									<li><img src="images/pre/img_slider_03_01.png" alt=""></li>
+									<li><img src="images/pre/img_slider_03_02.png" alt=""></li>
+									<li><img src="images/pre/img_slider_03_03.png" alt=""></li>
+									<li><img src="images/pre/img_slider_03_04.png" alt=""></li>
+									<li><img src="images/pre/img_slider_03_05.png" alt=""></li>
+								</ul>
+							</div>
+						</div>
+						<div class="section5_right">
+							<dl>
+								<dt>보상</dt>
+								<dd>격려와 보상은 구성원의 잠재력을 폭발시킵니다.</dd>
+								<dd>챌린지 달성 시 보상을 지급하고 구성원의 사기를 북돋아 줍니다.</dd>
+								<dd><strong>보상을 통해 습관을 만들고, 습관이 구성원을 성장</strong>시킵니다.</dd>
+								<dd>적극적인 인재가 필요하시다면 리워디를 시작해 보세요.</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<div class="section" id="section6">
+					<div class="section6_in">
+						<div class="section6_top">
+							<dl>
+								<dt>사용자 친화적 UI</dt>
+								<dd>PC, 테블릿, 모바일에 완벽하게 호환됩니다.</dd>
+								<dd>비주얼한 디자인, 역동적인 UI로 재미를 더합니다.</dd>
+							</dl>
+						</div>
+						<div class="section6_bottom">
+							<div class="ui_area">
+								<div class="ui_bg_pc">
+									<img src="images/pre/bg_ui_pc.png" alt="" />
+								</div>
+								<div class="ui_pc">
+									<img src="images/pre/img_ui_pc.png" alt="" />
+								</div>
+								<div class="ui_bg_tb">
+									<img src="images/pre/bg_ui_tb.png" alt="" />
+								</div>
+								<div class="ui_tb">
+									<img src="images/pre/img_ui_tb.png" alt="" />
+								</div>
+								<div class="ui_bg_mb">
+									<img src="images/pre/bg_ui_mb.png" alt="" />
+								</div>
+								<div class="ui_mb">
+									<img src="images/pre/img_ui_mb.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section" id="section7">
+					<div class="section7_in">
+						<p>
+							<strong>역량 개발은 개인의 몫이 아닙니다. <br>구성원이 성장하면 회사도 성장합니다.</strong>
+							<span>보상을 통한 역량 개발 플랫폼, 리워디와 함께 성장하세요.</span>
+						</p>
+						<a href="https://rewardy.co.kr/team/" target="_blank"><span>무료 체험</span></a>
+					</div>
+				</div>
+				<div class="section fp-auto-height" id="section8">
+					<div class="section8_in">
+						<div class="section8_footer">
+							<p>Copyright (c) 2000-2022 by bizforms.co.kr All rights reserved.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_join" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>가입하기</strong>
+				<span>리워디에서 인증을요청합니다. <br />
+				리워디와 함께 하세요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z5" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>인증메일 발송</span></button>
+			</div>
+			<div class="tl_descript">
+				<p>리워디에서 인증을 요청합니다.<br />
+				아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+				링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+				넣어주세요.<br />
+				<br />
+				https://www.rewardy.co.kr/<br />
+				<br />
+				기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+				리워디와 함께 해주셔서 감사합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_repass" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>비밀번호 재설정</strong>
+				<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+				리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z3" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>비밀번호 재설정 메일 보내기</span></button>
+			</div>
+			<div class="tl_back">
+				<button><span>이전으로</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_login" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>로그인</strong>
+				<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<label for="z1" class="label_001">
+								<strong class="label_tit">이메일을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z2" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<div class="tl_chk">
+					<input type="checkbox" name="chk_login" id="chk_login" />
+					<label for="chk_login">로그인 상태 유지</label>
+				</div>
+				<ul>
+					<li>
+						<button>가입하기</button>
+					</li>
+					<li>
+						<button>비밀번호 재설정</button>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button id="loginbtn"><span>로그인</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_setting" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_prof">
+				<div class="tl_prof_box">
+					<div class="tl_prof_img">
+					</div>
+					<div class="tl_prof_slc">
+						<div class="tl_prof_slc_in">
+							<button class="button_prof"><span>프로필 변경</span></button>
+							<ul>
+								<li>
+									<input type="file" id="prof" class="input_prof" />
+									<label for="prof" class="label_prof"><span>사진 변경</span></label>
+								</li>
+								<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+								<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+							<label for="z7" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input tc_50">
+							<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+							<label for="z8" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+						<div class="tc_input tc_50">
+							<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+							<label for="z9" class="label_001">
+								<strong class="label_tit">이름을 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+							<label for="z10" class="label_001">
+								<strong class="label_tit">비밀번호를 입력하세요</strong>
+							</label>
+						</div>
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+							<label for="z11" class="label_001">
+								<strong class="label_tit">비밀번호를 확인하세요</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tl_btn">
+				<button><span>가입하기</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="t_layer rew_layer_character" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_tit">
+				<strong>캐릭터 설정</strong>
+				<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+			</div>
+			<div class="tl_profile">
+				<ul>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+								<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+								<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+								<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tl_profile_box">
+							<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+								<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_btn">
+				<button><span>적용</span></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rew_qck" style="display:none;">
+		<button class="btn_open_join"><span>회원가입</span></button>
+		<button class="btn_open_login"><span>로그인</span></button>
+		<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+		<button class="btn_open_setting"><span>프로필 변경</span></button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".btn_open_join, .open_layer_join").click(function(){
+				$(".rew_layer_join").show();
+			});
+			$(".btn_open_login, .open_layer_login").click(function(){
+				$(".rew_layer_login").show();
+			});
+			$(".btn_open_repass").click(function(){
+				$(".rew_layer_repass").show();
+			});
+			$(".btn_open_setting").click(function(){
+				$(".rew_layer_setting").show();
+			});
+			$(".tl_close button").click(function(){
+				$(this).closest(".t_layer").hide();
+			});
+
+			$(".button_prof").click(function(){
+				$(".tl_prof_slc ul").show();
+			});
+			$("#btn_slc_character").click(function(){
+				$(".rew_layer_character").show();
+			});
+			$(".rew_layer_character .tl_btn").click(function(){
+				$(".rew_layer_character").hide();
+			});
+			$(".btn_profile").click(function(){
+				$(".btn_profile").removeClass("on");
+				$(this).addClass("on");
+			});
+			$(".tl_prof_slc").mouseleave(function(){
+				$(".tl_prof_slc ul").hide();
+			});
+		});
+	</script>
+
+	<!-- Step 1) Load D3.js -->
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<!-- Step 2) Load billboard.js with style -->
+	<script src="./js/billboard.js"></script>
+	<!-- Load with base style -->
+	<link rel="stylesheet" href="./css/billboard.css">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var chart = bb.generate({
+				data: {
+					x: "x",
+					columns: [
+					["x", "노하우", "성과", "셀프\n리더십", "협업", "성실", "적극성"],
+					["역량평가 리포트", 80, 95, 50, 60, 85, 70],
+					//["역량평가 평균", 70, 70, 70, 70, 70, 70]
+					],
+					color: "#aaa",
+					type: "radar",
+					labels: false,
+					colors: {
+					"역량평가 리포트": "#ffaf04"
+					//"역량평가 평균": "#ffaf04"
+					}
+				},
+				size: {
+					width: 400//,
+					//height: 360
+				},
+				radar: {
+					axis: {
+						max: 100
+					},
+					level: {
+						depth: 4
+					},
+					direction: {
+						clockwise: true
+					}
+				},
+				tooltip: {
+					show: false
+				},
+				point: {
+					show: true
+				},
+				transition: {
+				   duration: 500
+				},
+				bindto: "#rb_radarChart"
+			});
+
+		});
+	</script>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

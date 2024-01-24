@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		setTimeout(function(){
+			$(".re_box").addClass("on");
+		},400);
+		
+		$(".re_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".re_box").removeClass("on");
+				$(".circle_graph_m").circleProgress('value', 0);
+			}else{
+				thisonoff.addClass("on");
+				$(".re_box").addClass("on");
+				$(".circle_graph_m").circleProgress({
+					startAngle: -Math.PI / 4 * 2,
+					value: 0,
+					thickness : 30,
+					emptyFill :'#a59ccb',
+					size:200,
+					lineCap: 'round',
+					fill: {gradient: ['#585cf8', '#8c4af2']},
+					animation: {
+					  duration:800
+					}
+				});
+				setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},1800);
+				//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 1.0);},2200);
+				//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.5);},3200);
+				//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},4000);
+			}
+			
+			
+		});
+
+		$(".circle_graph_m").circleProgress({
+			startAngle: -Math.PI / 4 * 2,
+			value: 0,
+			thickness : 30,
+			emptyFill :'#a59ccb',
+			size:200,
+			lineCap: 'round',
+			fill: {gradient: ['#585cf8', '#8c4af2']},
+			animation: {
+			  duration:800
+			}
+		});
+
+		setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},1800);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 1.0);},2200);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.5);},3200);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},4000);
+
+		//$(".re_menu_onoff button").click(function(){
+		//	$(".re_box").toggleClass("on");
+		//});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+<div class="re_warp wrap2">
+	<div class="re_warp_in">
+		<div class="re_box">
+			<div class="re_box_in">
+				<!-- menu -->
+				<div class="re_menu">
+					<div class="re_menu_in">
+						<div class="re_bar">
+							<div class="re_bar_in">
+								<div class="re_bar_logo">
+									<a href="#"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="re_bar_li_01 on">
+										<a href="./002.html"><strong><i class="fas fa-pen"></i></strong></a>
+										<!-- <div class="re_on_bg">
+											<span class="re_on_bg_t"></span>
+											<span class="re_on_bg_m"></span>
+											<span class="re_on_bg_b"></span>
+										</div> -->
+									</li>
+									<li class="re_bar_li_02">
+										<a href="./003.html"><strong><i class="fas fa-power-off"></i></strong></a>
+									</li>
+									<li class="re_bar_li_03">
+										<a href="./001.html"><strong><i class="fas fa-donate"></i></strong></a>
+									</li>
+									<li class="re_bar_li_04">
+										<a href="#"><strong><i class="fas fa-trophy"></i></strong></a>
+									</li>
+								</ul>
+								<div class="re_bar_setting">
+									<a href="#"><strong><i class="fas fa-cog"></i></strong></a>
+								</div>
+							</div>
+						</div>
+						<div class="re_mypage">
+							<div class="re_mypage_in">
+								<div class="re_mypage_top"></div>
+								<div class="re_mypage_2">
+									<div class="re_mypage_2_in">
+										<div class="re_textarea">
+											<strong class="re_abs00">오늘업무</strong>
+											<textarea name="" id="" placeholder="오늘업무 입력하고 코인 가져가세요~"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="re_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="re_conts">
+					<div class="re_conts_in">
+						<div class="re_conts_list">
+							<div class="re_conts_list_in">
+								<ul>
+									<li><button></button><div><span>오늘 진행해야할 업무입니다.</span><em>업무요청 from. 손언영</em></div></li>
+									<li><button></button><div><span>오늘 진행해야할 업무입니다.</span></div></li>
+									<li><button></button><div><span>오늘 진행해야할 업무입니다.</span></div></li>
+									<li class="on"><button></button><div><span>완료한 오늘업무 내용입니다.</span><em>일정 2021.05.28 AM 11:30</em></div></li>
+									<li class="on"><button></button><div><span>완료한 오늘업무 내용입니다.</span></div></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+	<div class="re_q">
+		<a href="01.html" target="_blank">(구)버전</a>
+		<a href="002.html" target="_blank">(신)버전</a>
+	</div>
+	
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

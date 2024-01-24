@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(".r_mypage_04 li").click(function(){
+			$(this).hide();
+		});
+		$(".r_bar .onoff").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".r_box").removeClass("on");
+				setTimeout(function(){
+					$(".r_mypage_03 span").text("20,000");
+					$(".r_mypage_03 span").counterUp({
+						delay:35,
+						time:100
+					});
+
+					$(".circle_graph_m").circleProgress({
+						startAngle: -Math.PI / 4 * 2,
+						value: 0,
+						thickness : 20,
+						size:100,
+						emptyFill :'#eee',
+						lineCap: 'round',
+						fill: {color: '#21c8be'},
+						animation: {
+						  duration: 100
+						}
+					});
+				},300);
+			}else{
+				thisonoff.addClass("on");
+				$(".r_box").addClass("on");
+				setTimeout(function(){
+					$(".r_mypage_03 span").text("20,000");
+					$(".r_mypage_03 span").counterUp({
+						delay:35,
+						time:1100
+					});
+
+					$(".scroll_num_m strong").text("60");
+					$(".scroll_num_m strong").counterUp({
+						delay:30,
+						time:1100
+					});
+
+					$(".circle_graph_m").circleProgress({
+						startAngle: -Math.PI / 4 * 2,
+						value: 0.6,
+						thickness : 20,
+						size:100,
+						emptyFill :'#eee',
+						lineCap: 'round',
+						fill: {color: '#21c8be'},
+						animation: {
+						  duration: 1100
+						}
+					});
+				},400);
+			}
+			
+			
+		});
+
+		//$(".scroll_num strong").text("60");
+		//$(".scroll_num strong").css("visibility", "visible");
+		setTimeout(function(){
+			$(".scroll_num strong").text("60");
+			$(".scroll_num strong").counterUp({
+				delay:30,
+				time:1400
+			});
+		},1100);
+
+		$(".circle_graph").circleProgress({
+			startAngle: -Math.PI / 4 * 2,
+			value: 0,
+			thickness : 20,
+			size:150,
+			emptyFill :'#eee',
+			lineCap: 'round',
+			fill: {color: '#21c8be'}
+		});
+
+		
+
+		setTimeout(function() { $(".circle_graph").circleProgress('value', 0.6); }, 1100);
+	
+
+		$(".tl_close, .tl_deam").click(function(){
+			$(".t_layer").hide();
+		});
+
+		$(".label_01").click(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusin(function(){
+			$(this).parent(".tc_input").addClass("now_focus");
+		});
+
+		$(".input_01").focusout(function(){
+			var this_val = $(this).val();
+			if(this_val==0){
+				$(this).parent(".tc_input").removeClass("now_focus");
+			}else{
+				//$(this).parent(".tc_input").addClass("now_ok");
+				//$(this).parent(".tc_input").addClass("now_no");
+			}
+		});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+<div class="r_warp">
+	<div class="r_warp_in">
+		<div class="r_box">
+			<div class="r_box_in">
+				<!-- menu -->
+				<div class="r_menu">
+					<div class="r_menu_in">
+						<div class="r_bar">
+							<div class="r_bar_in">
+								<strong><img src="./images/pre/logo.png" alt="" /></strong>
+								<button class="onoff"><i class="fas fa-power-off"></i></button>
+								<ul>
+									<li>
+										<a href="05.html"><i class="fas fa-pen"></i></a>
+									</li>
+									<li>
+										<a href="05.html"><i class="fas fa-user-clock"></i></a>
+									</li>
+									<li>
+										<a href="05.html"><i class="fas fa-coins"></i></a>
+									</li>
+									<li>
+										<a href="05.html"><i class="fas fa-trophy"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="r_mypage">
+							<div class="r_mypage_in">
+								<div class="r_mypage_01">
+									<img src="./images/pre/01.png" alt="" />
+								</div>
+								<div class="r_mypage_02">
+									<img src="./images/pre/02.png" alt="" />
+									<span><strong>&nbsp;</strong></span>
+								</div>
+								<div class="r_mypage_03">
+									<span>0</span>
+								</div>
+								<div class="r_mypage_04">
+									<ul>
+										<li>
+											<div class="r_list_area_001">
+												<div class="circle_graph_m">
+													<strong></strong>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="r_list_area_002">
+												<div class="scroll_num_m">
+													<strong>0</strong><span>%</span>
+												</div>
+												<div class="user_img">
+													<div class="user_img_on"></div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="r_list_area_003">
+												<div class="box_graph">
+													<div class="box_graph_t">
+														<strong></strong>
+														<span>13,400 C</span>
+													</div>
+													<div class="box_graph_b">
+														<strong></strong>
+														<span>6,600 C</span>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="r_list_area_004">
+												<div class="chall_num">
+													<strong><em class="num_0">0</em><em class="num_1">1</em></strong><span>/3</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="r_conts">
+					<div class="r_conts_in">
+						
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+	<div class="r_q">
+		<a href="01.html" target="_blank">틀(가변)콘텐츠(가변)</a>
+		<a href="02.html" target="_blank">틀(가변)콘텐츠(고정)</a>
+		<a href="03.html" target="_blank">틀(고정)콘텐츠(가변)</a>
+		<a href="04.html" target="_blank">틀(고정)콘텐츠(고정)</a>
+	</div>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

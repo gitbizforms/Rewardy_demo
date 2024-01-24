@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100; 300; 400; 500; 700; 900&display=swap'); * { font-family: 'Noto Sans KR', sans-serif; } 
+
+
+button { cursor: pointer; border: none; background: none; } 
+
+.feeling_first { } 
+.jf_deam { position:fixed; top:0; left:0; width:100%; height:100%; z-index:7000; background:rgba(0,0,0,0.4); } 
+.jf_in { position:fixed; left:50%; margin-left:-222px; width:443px; height:auto; top:50%; margin-top:-288px; background:#fff; border-radius:10px; z-index:8000; overflow:hidden; } 
+.jf_box { position:relative; height:100%; font-size:0; } 
+.jf_box_in { position:relative; height:100%; } 
+.jf_close { position:absolute; top:15px; right:15px; z-index:10; transition:all 0.3s } 
+.pos_fix .jf_close { top:20px; transition:all 0.3s } 
+.jf_close button { width:20px; height:20px; background:url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent:-9999px; } 
+.jf_top { text-align:center; padding:30px 0 15px 0; margin:0 30px; border-bottom:1px solid #f2f2f2; transition:all 0.3s } 
+.pos_fix .jf_top { margin-top:-74px; transition:all 0.3s } 
+.jf_top strong { display:block; font-size:18px; font-weight:bold; color:#252525; letter-spacing:-0.05em; line-height:28px; padding-left:0; } 
+.jf_top strong span { font-weight:bold; color:#38c9d2; } 
+.jf_top strong em { font-weight:bold; color:#f10000; padding:0 1px; } 
+.jf_area { padding:38px 30px 0 30px; margin-bottom:20px; } 
+.jf_area ul { font-size:0; text-align:center; } 
+.jf_area li { width:70px; margin:0 23px 18px 23px; display:inline-block; } 
+.jf_area li button { padding-top:70px; width:100%; position:relative; } 
+.jf_area li button strong { width:70px; height:70px; position:absolute; top:0; left:0; border:1px solid #e5e5e5; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; border-radius:10px; } 
+
+.jf_area li button strong:hover { animation:admii 1.0s infinite linear; } 
+@keyframes admii { 
+ 0% { transform:rotate(0deg); } 
+25% { transform:rotate(10deg); } 
+75% { transform:rotate(-10deg); } 
+100% { transform:rotate(0deg); } 
+ }
+
+
+.jf_area li button.btn_jf_01 strong { background:url(../images/pre/ico_jl_01.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_02 strong { background:url(../images/pre/ico_jl_02.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_03 strong { background:url(../images/pre/ico_jl_03.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_04 strong { background:url(../images/pre/ico_jl_04.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_05 strong { background:url(../images/pre/ico_jl_05.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_06 strong { background:url(../images/pre/ico_jl_06.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_07 strong { background:url(../images/pre/ico_jl_07.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_08 strong { background:url(../images/pre/ico_jl_08.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_09 strong { background:url(../images/pre/ico_jl_09.png) 50% 50% no-repeat; } 
+.jf_area li button.btn_jf_01.on strong { background-color:#fde5e1; border-color:#fde5e1; } 
+.jf_area li button.btn_jf_02.on strong { background-color:#fff6d9; border-color:#fff6d9; } 
+.jf_area li button.btn_jf_03.on strong { background-color:#ffeade; border-color:#ffeade; } 
+.jf_area li button.btn_jf_04.on strong { background-color:#e9f1d3; border-color:#e9f1d3; } 
+.jf_area li button.btn_jf_05.on strong { background-color:#fde9f2; border-color:#fde9f2; } 
+.jf_area li button.btn_jf_06.on strong { background-color:#dbf1fe; border-color:#dbf1fe; } 
+.jf_area li button.btn_jf_07.on strong { background-color:#e1e6fc; border-color:#e1e6fc; } 
+.jf_area li button.btn_jf_08.on strong { background-color:#e8d3e6; border-color:#e8d3e6; } 
+.jf_area li button.btn_jf_09.on strong { background-color:#e5e5e5; border-color:#e5e5e5; } 
+.jf_area li button em { font-size:13px; font-weight:400; color:#aaa; letter-spacing:-0.05em; line-height:19px; display:block; margin-top:11px; display:none; } 
+.jf_area li button span { font-size:15px; font-weight:400; color:#151515; letter-spacing:-0.05em; line-height:19px; display:block; margin-top:11px; } 
+.jf_area li button.btn_jf_01.on span { font-weight:500; color:#ff5c5c; } 
+.jf_area li button.btn_jf_02.on span { font-weight:500; color:#ff9805; } 
+.jf_area li button.btn_jf_03.on span { font-weight:500; color:#ff7221; } 
+.jf_area li button.btn_jf_04.on span { font-weight:500; color:#55bb4a; } 
+.jf_area li button.btn_jf_05.on span { font-weight:500; color:#fb4890; } 
+.jf_area li button.btn_jf_06.on span { font-weight:500; color:#2daeff; } 
+.jf_area li button.btn_jf_07.on span { font-weight:500; color:#4d61b5; } 
+.jf_area li button.btn_jf_08.on span { font-weight:500; color:#913084; } 
+.jf_area li button.btn_jf_09.on span { font-weight:500; color:#555; } 
+.jf_area .jf_input { padding-top:17px; } 
+.jf_area .input_jf { width:calc(100% - 42px); padding:0 20px; margin-right:0px; height:53px; line-height:53px; border:1px solid #e5e5e5; border-radius:10px; text-align:left; background:#fff; font-size:16px; color:#555; letter-spacing:-0.05em; font-weight:300; } 
+.jf_bottom { padding:0 30px 40px 30px; } 
+.jf_bottom button { width:100%; height:57px; line-height:56px; text-align:center; display:block; background:#38c9d2; border-radius:10px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+.jf_bottom button.btn_off { background:#c5c5c5; cursor:default; } 
+.jf_bottom button.btn_on { background:#38c9d2; cursor:pointer; } 
+
+.jf_area .input_jf { border-color: none; outline: none; } 
+
+@media all and (max-width: 480px) {
+    .jf_in { width: 90%; margin-left: 0; transform: translateX(-50%); } 
+.jf_close { top:20px; } 
+.jf_top { padding:15px 0 15px 0; margin:0 20px; text-align:left; } 
+.jf_top strong { font-size:16px; } 
+.jf_area { padding:20px 20px 0 20px; margin-bottom:15px; } 
+.jf_area li { margin:0 11px 15px 11px; } 
+.jf_area li button em { font-size:12px; font-weight:300; margin-top:5px; } 
+.jf_area li button span { font-size:14px; margin-top:5px; } 
+.jf_area li button strong { border-radius: 5px; } 
+.jf_area .jf_input { padding-top:7px; } 
+.jf_area .input_jf { width:calc(100% - 32px); border-radius: 5px; padding:0 15px; margin-right:0; height:43px; line-height:43px; font-size:14px; } 
+.jf_bottom { padding:0 20px 20px 20px; } 
+.jf_bottom button { height:47px; line-height:46px; font-size:15px; border-radius: 5px; } 
+
+.jf_close button { background: url(../images/pre_m/ico_close.png) 50% 50% no-repeat; background-size: 12px; } 
+ }
+
+ @media all and (max-width: 420px) {
+    /* .jf_in { margin-left: 0; transform: translateX(-50%); }  */
+ }
+
+ @media all and (max-width: 360px) { } 

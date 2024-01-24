@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $( '.re_conts_live_in li' ).draggable({
+			containment : 'parent' // 부모요소 안에 종속
+		});
+		var css_test_idx = 10;
+		 $( '.re_conts_live_in li' ).mousedown(function(){ // mousedown 이벤트 생성
+				$(this).css('z-index', css_test_idx); // 클릭한 이미지만 z-index 증가시킴
+				css_test_idx++;
+				// 그러면 이미지가 겹칠경우 클릭한 것이 항상 위에 표시됨
+			});
+
+		setTimeout(function(){
+			$( '.re_conts_live_in li' ).each(function(){
+				var rand1 = Math.floor(Math.random() * ((70-1)+1) + 1);
+				var rand2 = Math.floor(Math.random() * ((70-1)+1) + 1);
+				$(this).css({
+					"top":rand1+"%",
+					"left":rand2+"%",
+					"opacity":1
+				});
+			});
+			//$( '.re_conts_live_in .live_on' ).each(function(){
+			//	var rand3 = Math.floor(Math.random() * ((100-1)+1) + 1);
+			//	$(this).css({
+			//		"height":rand3+"%"
+			//	});
+			//});
+		},1100);
+		
+		setTimeout(function(){
+			$(".re_box").addClass("on");
+		},400);
+		
+		$(".re_menu_onoff button").click(function(){
+			var thisonoff = $(this);
+			if(thisonoff.hasClass("on")){
+				thisonoff.removeClass("on");
+				$(".re_box").removeClass("on");
+
+			}else{
+				thisonoff.addClass("on");
+				$(".re_box").addClass("on");
+
+			}
+			
+			
+		});
+
+		setTimeout(function(){
+			$(".re_abs1 em").text("60");
+			$(".re_abs1 em").counterUp({
+				delay:20,
+				time:800
+			});
+			
+		},2400);
+
+		setTimeout(function(){
+			$(".re_abs2 em").text("17");
+
+			$(".re_abs2 em").counterUp({
+				delay:20,
+				time:800
+			});
+
+		},2400);
+
+		setTimeout(function(){
+			$(".re_abs3 em").text("3");
+
+			$(".re_abs3 em").counterUp({
+				delay:20,
+				time:800
+			});
+		},2400);
+
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},1800);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 1.0);},2200);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.5);},3200);
+		//setTimeout(function(){$(".circle_graph_m").circleProgress('value', 0.7);},4000);
+
+		//$(".re_menu_onoff button").click(function(){
+		//	$(".re_box").toggleClass("on");
+		//});
+
+	});
+
+	$(window).scroll(function(){
+		
+	});
+</script>
+<div class="re_warp wrap2 wrap3">
+	<div class="re_warp_in">
+		<div class="re_box">
+			<div class="re_box_in">
+				<!-- menu -->
+				<div class="re_menu">
+					<div class="re_menu_in">
+						<div class="re_bar">
+							<div class="re_bar_in">
+								<div class="re_bar_logo">
+									<a href="#"><img src="./images/pre/logo.png" alt="" /></a>
+								</div>
+								<ul>
+									<li class="re_bar_li_01">
+										<a href="./002.html"><strong><i class="fas fa-pen"></i></strong></a>
+										<!-- <div class="re_on_bg">
+											<span class="re_on_bg_t"></span>
+											<span class="re_on_bg_m"></span>
+											<span class="re_on_bg_b"></span>
+										</div> -->
+									</li>
+									<li class="re_bar_li_02 on">
+										<a href="#"><strong><i class="fas fa-power-off"></i></strong></a>
+									</li>
+									<li class="re_bar_li_03">
+										<a href="./001.html"><strong><i class="fas fa-donate"></i></strong></a>
+									</li>
+									<li class="re_bar_li_04">
+										<a href="#"><strong><i class="fas fa-trophy"></i></strong></a>
+									</li>
+								</ul>
+								<div class="re_bar_setting">
+									<a href="#"><strong><i class="fas fa-cog"></i></strong></a>
+								</div>
+							</div>
+						</div>
+						<div class="re_mypage">
+							<div class="re_mypage_in">
+								<div class="re_mypage_top"></div>
+								<div class="re_mypage_2">
+									<div class="re_mypage_2_in">
+										<div class="re_textarea">
+											<strong class="re_abs0">Live</strong>
+											<ul>
+												<li class="re_abs1">
+													<span>진행율</span>
+													<strong><em>0</em>%</strong>
+												</li>
+												<li class="re_abs2">
+													<span>참여자</span>
+													<strong><em>0</em>명</strong>
+												</li>
+												<li class="re_abs3">
+													<span>열외자</span>
+													<strong><em>0</em>명</strong>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="re_menu_onoff">
+						<button class="on">열고 닫기</button>
+					</div>
+				</div>
+				<!-- //menu -->
+
+				<!-- 콘텐츠 -->
+				<div class="re_conts">
+					<div class="re_conts_in">
+						<div class="re_conts_live">
+							<div class="re_conts_live_in">
+								<ul>
+									<li>
+										<div><p>
+											<span class="live_on" style="height:90%;"><i class="fas fa-biking"></i></span>
+											<span class="live_off"><i class="fas fa-biking"></i></span>
+											</p>
+											<strong>이선규</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+
+									<li>
+										<div><p>
+											<span class="live_on" style="height:70%;"><i class="fas fa-running"></i></span>
+											<span class="live_off"><i class="fas fa-running"></i></span>
+											</p>
+											<strong>손언영</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+
+									<li>
+										<div><p>
+											<span class="live_on" style="height:50%;"><i class="fas fa-running"></i></span>
+											<span class="live_off"><i class="fas fa-running"></i></span>
+											</p>
+											<strong>유상길</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+
+									<li>
+										<div>
+											<p>
+												<!-- <span class="live_on"><i class="fas fa-male"></i></span> -->
+												<span class="live_off no_off"><i class="fas fa-male"></i></span>
+											</p>
+											<strong>윤지혜</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+
+									<li>
+										<div><p>
+											<span class="live_on" style="height:10%;"><i class="fas fa-walking"></i></span>
+											<span class="live_off"><i class="fas fa-walking"></i></span>
+											</p>
+											<strong>하병호</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+
+									<li>
+										<div><p>
+											<span class="live_on" style="height:30%;"><i class="fas fa-walking"></i></span>
+											<span class="live_off"><i class="fas fa-walking"></i></span>
+											</p>
+											<strong>김명선</strong>
+											<a href="#">Go</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //콘텐츠 -->
+			</div>
+		</div>
+	</div>
+	<div class="re_q">
+		<a href="01.html" target="_blank">(구)버전</a>
+		<a href="002.html" target="_blank">(신)버전</a>
+	</div>
+	
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

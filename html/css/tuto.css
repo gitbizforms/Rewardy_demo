@@ -1,0 +1,145 @@
+@charset "utf-8";
+.todaywork_wrap input, .todaywork_wrap button, .todaywork_wrap select, .todaywork_wrap textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+/* .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; background:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } */
+.t_layer input, .t_layer button, .t_layer select, .t_layer textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_req input, .t_layer_req button, .t_layer_req select, .t_layer_req textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_date input, .t_layer_date button, .t_layer_date select, .t_layer_date textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_goal input, .t_layer_goal button, .t_layer_goal select, .t_layer_goal textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.todaywork_wrap button { cursor:pointer; outline:none; border:none; } 
+/* .rew_warp button { cursor:pointer; outline:none; border:none; background:none; } */
+.t_layer button { cursor:pointer; outline:none; } 
+button { cursor:pointer; outline:none; } 
+input[type=text]::-ms-clear { display:none; } 
+input[type=number]::-ms-clear { display:none; } 
+
+html { height:100%; background:#fafafa; } 
+body { /* font-family:AppleSDGothicNeo-Regular, HelveticaNeue, sans-serif; */ height:100%; } 
+img { max-width:100%; } 
+
+.rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+
+.tuto_link { position:fixed; right:4.7%; bottom:10.5%; z-index:60030; } 
+.tuto_link .tuto_link_in { position:relative; text-align:right; } 
+.tuto_link .btn_tuto_link_close { position:absolute; top:-10px; right:0; text-align:left; text-indent:-9999px; width:20px; height:20px; border-radius:50%; background:#f4f4f4 url(../images/pre/ico_tuto_close.png) 50% 50% no-repeat; box-shadow:1px 1px 1px 1px rgba(0,0,0,0.1); z-index:2; } 
+.tuto_link .tuto_link_area { margin-right:10px; text-align:left; padding:18px 14px 18px 14px; border-radius:40px; background:#000; display:block; animation:tuto_link 0.4s 2.5s both; } 
+.tuto_link .tuto_link_area p { font-size:16px; font-weight:300; color:transparent; letter-spacing:-0.06em; line-height:22px; height:44px; width:0px; padding-right:52px; background:url(../images/pre/ico_tuto_link.png) 100% 50% no-repeat; overflow:hidden; animation:tuto_link2 0.4s 2.5s both; } 
+@keyframes tuto_link { 
+ 0% { padding:18px 14px 18px 14px; } 
+100% { padding:18px 30px 18px 33px; } 
+ }
+@keyframes tuto_link2 { 
+ 0% { color:transparent; width:0; } 
+100% { color:#fff; width:211px; } 
+ }
+ 
+.tuto_start { } 
+.tuto_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
+.tuto_start_in { max-width:420px; width:90%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; } 
+.tuto_start_tit { padding:51px 10% 0 10%; text-align:center; } 
+.tuto_start_tit img { margin:0 auto; display:block; width:auto; } 
+.tuto_start_tit p { font-size:16px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:26px; display:block; margin-top:14px; } 
+.tuto_start_tit p em { font-style:italic; } 
+.tuto_start_btn { padding:212px 30px 40px 30px; background:url(../images/pre/bg_tuto_coin.png) 50% 100% no-repeat; } 
+.tuto_start_btn button { width:100%; height:57px; line-height:56px; text-align:center; display:block; background:#000; border-radius:10px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+
+
+.tuto_phase { } 
+.tuto_phase_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
+.tuto_phase_in { max-width:750px; width:90%; max-height:95%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; overflow-y:auto; } 
+.tuto_phase_tit { padding:45px 0 0 0; text-align:center; } 
+.tuto_phase_tit strong { font-size:28px; font-weight:bold; color:#353535; letter-spacing:-0.05em; line-height:38px; display:block; margin-bottom:10px; } 
+.tuto_phase_tit span { font-size:16px; font-weight:300; color:#454545; letter-spacing:-0.05em; line-height:26px; display:block; } 
+.tuto_phase_list { padding-top:35px; text-align:center; font-size:0; padding-bottom:10px; } 
+.tuto_phase_list .tuto_phase_box { display:inline-block; vertical-align:top; margin:0 15px 30px 15px; position:relative; } 
+.tuto_phase_list .tuto_phase_box:after { content:""; width:41px; height:13px; background:url(../images/pre/ico_tuto_arrow.png) 50% 50% no-repeat; position:absolute; right:-20px; bottom:89px; z-index:9; } 
+.tuto_phase_list .tuto_phase_box.phase_03:after { bottom:-5px; right:75px; transform:rotate(90deg); } 
+.tuto_phase_list .tuto_phase_box.phase_04:after { right:auto; left:-20px; transform:rotate(180deg); } 
+.tuto_phase_list .tuto_phase_box.phase_05:after { right:auto; left:-20px; transform:rotate(180deg); } 
+.tuto_phase_list .tuto_phase_box.phase_06:after { display: none; } 
+.tuto_phase_list .tuto_phase_box p { width:36px; height:36px; line-height:35px; font-size:15px; font-weight:500; color:#fff; letter-spacing:0; background:#e0e0e0; border-radius:50%; margin:0 auto -18px auto; position:relative; z-index:5; text-align:center; } 
+.tuto_phase_list .tuto_phase_box button { display:block; width:190px; height:190px; border-radius:50%; background:#f7f8f9; overflow:hidden; position:relative; cursor:default; } 
+.tuto_phase_list .tuto_phase_box dl { font-size:0; margin-bottom:14px; padding-top:34px; } 
+.tuto_phase_list .tuto_phase_box dt { font-size:18px; font-weight:bold; color:#252525; letter-spacing:-0.075em; line-height:28px; margin-bottom:9px; } 
+.tuto_phase_list .tuto_phase_box dd { display:inline-block; vertical-align:top; width:calc(50% - 5px); text-align:left; padding-left:5px; filter:saturate(0.3); } 
+.tuto_phase_list .tuto_phase_box dt + dd { text-align:right; padding-right:5px; padding-left:0; } 
+.tuto_phase_list .tuto_phase_box dd span { display:block; background:url(../images/pre/ico_tuto_03.png) 0 50% no-repeat; height:30px; } 
+.tuto_phase_list .tuto_phase_box dt + dd span { background:url(../images/pre/ico_tuto_01.png) 100% 50% no-repeat; } 
+.tuto_phase_list .tuto_phase_box.phase_03 dt + dd span { background:url(../images/pre/ico_tuto_03.png) 100% 50% no-repeat; } 
+.tuto_phase_list .tuto_phase_box.phase_06 dt + dd span { background:url(../images/pre/ico_tuto_03.png) 100% 50% no-repeat; } 
+.tuto_phase_list .tuto_phase_box dd strong { font-size:15px; font-weight:500; color:#353535; letter-spacing:-0.05em; line-height:25px; display:inline-block; vertical-align:top; width:30px; text-align:center; margin-top:4px; } 
+.tuto_phase_list .tuto_phase_box em { display:block; height:46px; line-height:45px; background:#e0e0e0; font-size:15px; font-weight:400; color:#fff; letter-spacing:-0.05em; text-align:center; } 
+.tuto_phase_pause { text-align:right; margin:0 60px; padding-bottom:50px; } 
+.tuto_phase_pause button { font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; line-height:54px; height:55px; display:block; width:100%; background:#38c9d2; border-radius:10px; } 
+
+.tuto_phase_list .tuto_phase_box.tuto_clear button:after { content:""; width:100%; height:100%; position:absolute; top:0; left:0; background:url(../images/pre/img_clear.png) 50% 50% no-repeat; z-index:6; } 
+.tuto_phase_list .tuto_phase_box.tuto_clear em { opacity:0; } 
+.tuto_phase_list .tuto_phase_box.tuto_on p { background:#000; } 
+.tuto_phase_list .tuto_phase_box.tuto_on dd { filter:saturate(1); } 
+.tuto_phase_list .tuto_phase_box.tuto_on em { background:#000; } 
+.tuto_phase_list .tuto_phase_box.tuto_on button { cursor:pointer; box-shadow:0 0 5px 2px #ff001e; } 
+
+
+.tuto_end { } 
+.tuto_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
+.tuto_end_in { max-width:420px; width:90%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; } 
+.tuto_end_tit { padding:59px 10% 0 10%; text-align:center; } 
+.tuto_end_tit img { margin:0 auto; display:block; width:auto; } 
+.tuto_end_tit p { font-size:16px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:26px; display:block; margin-top:14px; } 
+.tuto_end_tit p em { font-style:italic; } 
+.tuto_end_coin { margin-top:33px; background:url(../images/pre/ico_tuto_coin.png) 50% 0 no-repeat; padding-top:138px; } 
+.tuto_end_coin strong { font-size:21px; font-weight:bold; color:#353535; letter-spacing:-0.025em; line-height:31px; display:block; text-align:center; } 
+.tuto_end_btn { padding:33px 30px 40px 30px; } 
+.tuto_end_btn button { width:100%; height:57px; line-height:56px; text-align:center; display:block; background:#38c9d2; border-radius:10px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+
+@media screen and (max-width: 760px){
+ .tuto_phase_tit { padding-top:35px; } 
+.tuto_phase_tit strong { font-size:25px; line-height:35px; margin-bottom:8px; } 
+.tuto_phase_tit span { font-size:14px; line-height:24px; } 
+.tuto_phase_list { padding-top:30px; padding-bottom:5px; } 
+.tuto_phase_list .tuto_phase_box:after { bottom:74px; } 
+.tuto_phase_list .tuto_phase_box.phase_03:after { right:60px; } 
+.tuto_phase_list .tuto_phase_box p { width:31px; height:31px; line-height:30px; font-size:14px; } 
+.tuto_phase_list .tuto_phase_box button { width:160px; height:160px; } 
+.tuto_phase_list .tuto_phase_box dl { margin-bottom:10px; padding-top:25px; } 
+.tuto_phase_list .tuto_phase_box dt { font-size:16px; line-height:26px; } 
+.tuto_phase_list .tuto_phase_box dd span { height:25px; background-size:auto 25px; } 
+.tuto_phase_list .tuto_phase_box dt + dd span { background-size:auto 25px; } 
+.tuto_phase_list .tuto_phase_box.phase_03 dt + dd span { background-size:auto 18px; } 
+.tuto_phase_list .tuto_phase_box.phase_06 dt + dd span { background-size:auto 18px; } 
+.tuto_phase_list .tuto_phase_box dd strong { font-size:14px; width:25px; line-height:20px; } 
+.tuto_phase_list .tuto_phase_box em { height:41px; line-height:40px; font-size:14px; } 
+.tuto_phase_pause { margin:0 40px; padding-bottom:40px; } 
+ }
+
+@media all and (max-width:639px){
+ .tuto_phase_tit { padding-top:30px; } 
+ .tuto_phase_tit strong { font-size:21px; line-height:31px; margin-bottom:5px; } 
+ .tuto_phase_tit span { font-size:13px; line-height:23px; } 
+ .tuto_phase_list { padding-top:20px; padding-bottom:0; } 
+ .tuto_phase_list .tuto_phase_box { margin:0 10px 25px 10px; } 
+ .tuto_phase_list .tuto_phase_box:after { bottom:59px; } 
+ .tuto_phase_list .tuto_phase_box.phase_03:after { right:45px; } 
+ .tuto_phase_list .tuto_phase_box p { width:26px; height:26px; line-height:25px; font-size:13px; } 
+ .tuto_phase_list .tuto_phase_box button { width:130px; height:130px; } 
+ .tuto_phase_list .tuto_phase_box dt { margin-bottom:7px; } 
+ .tuto_phase_list .tuto_phase_box dd span { width:20px; height:20px; background-size:auto 20px; display:inline-block; vertical-align:top; } 
+ .tuto_phase_list .tuto_phase_box dt + dd span { background-size:auto 18px; } 
+ .tuto_phase_list .tuto_phase_box.phase_03 dt + dd span { background-size:auto 14px; } 
+ .tuto_phase_list .tuto_phase_box.phase_06 dt + dd span { background-size:auto 14px; } 
+ .tuto_phase_list .tuto_phase_box dd strong { margin-top:0; height:20px; line-height:20px; } 
+ .tuto_phase_pause { margin:0 30px; padding-bottom:30px; } 
+ .tuto_phase_pause button { font-size:15px; line-height:49px; height:50px; } 
+ }
+
+@media screen and (max-width: 480px){
+ .tuto_phase_list .tuto_phase_box { margin:0 8px 20px 8px; } 
+.tuto_phase_list .tuto_phase_box:after { width:30px; background-size:100%; bottom:12vw; margin-bottom:-7px; } 
+.tuto_phase_list .tuto_phase_box.phase_03:after { right:12vw; margin-right:-15px; } 
+.tuto_phase_list .tuto_phase_box button { width:24vw; height:24vw; } 
+.tuto_phase_list .tuto_phase_box dl { height:calc(8vw - 9px); padding-top:6vw; } 
+.tuto_phase_list .tuto_phase_box dt { font-size:14px; } 
+.tuto_phase_list .tuto_phase_box dd { display:none; } 
+.tuto_phase_list .tuto_phase_box em { height:10vw; line-height:10vw; font-size:13px; } 
+.tuto_phase_list .tuto_phase_box.tuto_clear button:after { background-size:28vw; } 
+}

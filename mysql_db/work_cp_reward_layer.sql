@@ -1,0 +1,4 @@
+INSERT work_cp_reward_layer ( state, companyno, service, act, memo, editdate, regdate) VALUES (0, 1, N'work', N'0001', N'오늘업무를 작성하여 실행 1점이 올라갔습니다', NULL, CAST(N'2023-01-20T13:28:55.740' AS DateTime));
+INSERT work_cp_reward_layer ( state, companyno, service, act, memo, editdate, regdate) VALUES (0, 1, N'work', N'0004', N'요청업무를 작성하여 협업 1점이 올라갔습니다', NULL, CAST(N'2023-01-20T13:29:16.833' AS DateTime));
+INSERT work_cp_reward_layer ( state, companyno, service, act, memo, editdate, regdate) VALUES (0, 1, N'work', N'0007', N'공유업무를 작성하여 협업 1점이 올라갔습니다', NULL, CAST(N'2023-01-20T13:29:26.130' AS DateTime));
+INSERT work_cp_reward_layer ( state, companyno, service, act, memo, editdate, regdate) VALUES (0, 1, N'work', N'0010', N'보고업무를 작성하여 협업 1점이 올라갔습니다', NULL, CAST(N'2023-01-20T13:29:45.193' AS DateTime));

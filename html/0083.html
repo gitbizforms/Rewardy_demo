@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+<title>Rewardy</title>
+
+<meta name="title" content="Rewardy">
+<meta name="description" content="Rewardy 입니다.">
+<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+<meta property="og:description" content="Rewardy 입니다.">
+<meta property="og:title" content="Rewardy">
+<meta property="og:image" content="../images/main/img_meta.jpg">
+
+<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+<!-- 노토산스 -->
+<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/slick.css" />
+<link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script> 
+<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script> 
+<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+<script src="./js/window-date-picker.js"></script>
+<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="./js/scrolloverflow.min.js"></script>
+<script type="text/javascript" src="./js/slick.js"></script>
+<script type="text/javascript" src="./js/circle-progress.js"></script>
+<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script> 
+</head>
+<body>
+<style type="text/css">
+	html{font-size:5px;}
+	html, body{height:100vh;}
+</style>
+<div class="ra_warp">
+	<!-- <div class="ra_quick">
+		<a href="./0081.html">1</a>
+		<a href="./0082.html">2</a>
+		<a href="./0083.html">3</a>
+		<a href="./0084.html">4</a>
+	</div> -->
+	<div class="ra_warp_in">
+		<div class="ra_header">
+			<div class="ra_header_in">
+				<a href="./0081.html" class="ra_header_back"><span>뒤로가기</span></a>
+				<div class="ra_header_logo">
+					<img src="images/pre/img_logo_ra.png" alt="Rewardy"/ >
+				</div>
+			</div>
+		</div>
+		<div class="ra_contents">
+			<div class="ra_contents_in">
+				<div class="ra_box">
+					<div class="ra_box_in">
+						<div class="ra_box_tit">
+							<span>알림 리스트</span>
+						</div>
+						<!-- css 추가 -->
+						<style type="text/css">
+							.ra_contents .ra_box{background:#f1f2f5;}
+							.ra_alert_list{margin-top:4.63vw;overflow-y:scroll;-ms-overflow-style:none;position:relative;}
+							.ra_alert_list::-webkit-scrollbar{width:0;display:none;}
+							.ra_alert_list ul{padding-bottom:3.889vw;}
+							.ra_alert_list li{margin-bottom:2.778vw;border-radius:2.778vw;position:relative;overflow:hidden;}
+							.ra_alert_list .ra_alert_box{display:block;background:#fff;width:100%;text-align:left;}
+							.ra_alert_list .ra_alert_box_tit{padding:6.111vw 10.185vw 0px 4.815vw;font-size:3.889vw;font-weight:300;color:#353535;letter-spacing:-0.062em;line-height:5.556vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+							.ra_alert_list .ra_alert_box_tit img{width:5.556vw;margin-right:1.389vw;}
+							.ra_alert_list .ra_alert_box_tit strong{font-weight:500;}
+							.ra_alert_list .ra_alert_box_desc{padding:3.074vw 4.815vw 0px 4.815vw;font-size:4.167vw;font-weight:300;color:#353535;letter-spacing:-0.062em;line-height:6.111vw;display:block;display:-webkit-box;word-wrap:break-word;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:ellipsis;overflow:hidden;max-height:12.222vw;}
+							.ra_alert_list .ra_alert_box_info{margin-top:5.111vw;padding:3.3vw 4.815vw;background:#fafafa;display:flex;justify-content:space-between;}
+							.ra_alert_list .ra_alert_box_info span{font-size:3.611vw;font-weight:300;color:#808080;letter-spacing:-0.03em;line-height:5.611vw;}
+							.ra_alert_list .ra_alert_box_info strong{font-weight:500;color:#353535;}
+							.ra_alert_list .ra_alert_close{display:block;position:absolute;top:2.778vw;right:2.778vw;width:5.093vw;height:5.093vw;text-indent:-9999px;background:url(https://rewardy.co.kr/html/images/pre_m/ico_close_b.png) 50% 50% no-repeat;background-size:100%;opacity:0.5;z-index:3;}
+							@media all and (min-width:500px){
+								.ra_alert_list{margin-top:4.63rem;}
+								.ra_alert_list ul{padding-bottom:3.889rem;}
+								.ra_alert_list li{margin-bottom:2.778rem;border-radius:2.778rem;}
+								.ra_alert_list .ra_alert_box_tit{padding:6.111rem 10.185rem 0px 4.815rem;font-size:3.889rem;line-height:5.556rem;}
+								.ra_alert_list .ra_alert_box_tit img{width:5.556rem;margin-right:1.389rem;}
+								.ra_alert_list .ra_alert_box_desc{padding:3.074rem 4.815rem 0px 4.815rem;font-size:4.167rem;line-height:6.111rem;max-height:12.222rem;}
+								.ra_alert_list .ra_alert_box_info{margin-top:5.111rem;padding:3.3rem 4.815rem;}
+								.ra_alert_list .ra_alert_box_info span{font-size:3.611rem;line-height:5.611rem;}
+								.ra_alert_list .ra_alert_close{top:2.778rem;right:2.778rem;width:5.093rem;height:5.093rem;}
+							}
+						</style>
+						<!-- 날짜 삭제
+						<div class="ra_box_date">
+							<span>2023.03.02</span>
+						</div>
+						-->
+
+						<!-- 신규 리스트 추가 -->
+						<div class="ra_alert_list">
+							<ul>
+								<li>
+									<a href="#" class="ra_alert_box">
+										<div class="ra_alert_box_tit">
+											<img src="images/pre_m/ico_bell.png" alt="" />
+											<span><strong>챌린지</strong> 알림</span>
+										</div>
+										<div class="ra_alert_box_desc">
+											<span>[실행] 갓생이 되는 가장 쉬운 첫 걸음</span>
+										</div>
+										<div class="ra_alert_box_info">
+											<span>2023.05.16 PM 03:39</span>
+											<span><strong>300</strong> 코인</span>
+										</div>
+									</a>
+									<button class="ra_alert_close"><span>닫기</span></button>
+								</li>
+								<li>
+									<a href="#" class="ra_alert_box">
+										<div class="ra_alert_box_tit">
+											<img src="images/pre_m/arrow_icon.png" alt="" />
+											<span><strong>이선규</strong>님의 업무요청</span>
+										</div>
+										<div class="ra_alert_box_desc">
+											<span>요즘 핫한 chatGPT 내부교육이 예정되어 있습니다. 요즘 핫한 chatGPT 내부교육이 예정되어 있습니다. 요즘 핫한 chatGPT 내부교육이 예정되어 있습니다.</span>
+										</div>
+										<div class="ra_alert_box_info">
+											<span>2023.05.16 PM 03:39</span>
+											<span>첨부파일 <strong>3</strong></span>
+										</div>
+									</a>
+									<button class="ra_alert_close"><span>닫기</span></button>
+								</li>
+								<li>
+									<a href="#" class="ra_alert_box">
+										<div class="ra_alert_box_tit">
+											<img src="images/pre/ico_coin_new.png" alt="" />
+											<span><strong>이선규</strong>님에게 <strong>1,000 코인</strong> 받음</span>
+										</div>
+										<div class="ra_alert_box_desc">
+											<span>ㄲ ㅑ~ 로딩 멋찜!!!!</span>
+										</div>
+										<div class="ra_alert_box_info">
+											<span>2023.05.16 PM 03:39</span>
+										</div>
+									</a>
+									<button class="ra_alert_close"><span>닫기</span></button>
+								</li>
+								<li>
+									<a href="#" class="ra_alert_box">
+										<div class="ra_alert_box_tit">
+											<img src="images/pre/ico_ht.png" alt="" />
+											<span><strong>김명선</strong>님에게 <strong>좋아요</strong> 받음</span>
+										</div>
+										<div class="ra_alert_box_desc">
+											<span>와우 좋아요~~</span>
+										</div>
+										<div class="ra_alert_box_info">
+											<span>2023.05.16 PM 03:39</span>
+										</div>
+									</a>
+									<button class="ra_alert_close"><span>닫기</span></button>
+								</li>
+							</ul>
+						</div>
+
+						<!-- 기존 리스트 삭제
+						<div class="ra_box_list">
+							<ul>
+								<li class="ra_type_today">
+									<a href="https://rewardy.co.kr/todaywork/index.php" target="_blank" class="ra_box_area">
+										<div class="ra_box_desc">
+											<span><em>N</em>김명선님에게 업무요청 받음</span>
+										</div>
+										<div class="ra_box_title">
+											<span>AM 10. 회의 : 리워디 3월목표 및 일정회의</span>
+										</div>
+										<div class="ra_box_time">
+											<strong>업무</strong>
+											<span>AM 09:35</span>
+										</div>
+									</a>
+									<button class="ra_close"><span>닫기</span></button>
+								</li>
+								<li class="ra_type_chall">
+									<a href="https://rewardy.co.kr/challenges/index.php" target="_blank" class="ra_box_area">
+										<div class="ra_box_desc">
+											<span><em>N</em>새로운 챌린지 알림</span>
+										</div>
+										<div class="ra_box_title">
+											<span>(피드백) 리워디 장점이 뭔지 알아? 메모로 남기는거야</span>
+										</div>
+										<div class="ra_box_time">
+											<strong>챌린지</strong>
+											<span>AM 09:35</span>
+										</div>
+									</a>
+									<button class="ra_close"><span>닫기</span></button>
+								</li>
+								<li class="ra_type_party">
+									<a href="https://rewardy.co.kr/party/index.php" target="_blank" class="ra_box_area">
+										<div class="ra_box_desc">
+											<span>김명선님에게 업무요청 받음</span>
+										</div>
+										<div class="ra_box_title">
+											<span>AM 10. 회의 : 리워디</span>
+										</div>
+										<div class="ra_box_time">
+											<strong>파티</strong>
+											<span>AM 09:35</span>
+										</div>
+									</a>
+									<button class="ra_close"><span>닫기</span></button>
+								</li>
+								<li class="ra_type_heart">
+									<a href="https://rewardy.co.kr/live/index.php" target="_blank" class="ra_box_area">
+										<div class="ra_box_desc">
+											<span>김명선님에게 좋아요 받음</span>
+										</div>
+										<div class="ra_box_title">
+											<span>(오늘업무) 베먼클럽 노출 프로젝트</span>
+										</div>
+										<div class="ra_box_time">
+											<strong>좋아요</strong>
+											<span>AM 09:35</span>
+										</div>
+									</a>
+									<button class="ra_close"><span>닫기</span></button>
+								</li>
+								<li class="ra_type_coin">
+									<a href="https://rewardy.co.kr/reward/index.php" target="_blank" class="ra_box_area">
+										<div class="ra_box_desc">
+											<span>이선규님에게 1,000 코인 받음</span>
+										</div>
+										<div class="ra_box_title">
+											<span>빠른 작업과 공유에 감사의 마음을</span>
+										</div>
+										<div class="ra_box_time">
+											<strong>코인</strong>
+											<span>AM 09:35</span>
+										</div>
+									</a>
+									<button class="ra_close"><span>닫기</span></button>
+								</li>
+							</ul>
+						</div>
+						-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ra_footer">
+			<div class="ra_footer_in">
+				<div class="ra_footer_btn">
+					<button class="ra_footer_link" onclick="window.open('https://rewardy.co.kr/')"><span>접속하기</span></button>
+					<button class="ra_footer_list" onclick="location.href='./0083.html';"><span>알림리스트</span></button>
+					<button class="ra_footer_setting" onclick="location.href='./0084.html';"><span>알림설정</span></button>
+					<button class="ra_footer_logout" onclick="location.href='./0081.html';"><span>로그아웃</span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script language="JavaScript">
+/* FOR BIZ., COM. AND ENT. SERVICE. */
+_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+</script>
+
+</body>
+
+
+</html>

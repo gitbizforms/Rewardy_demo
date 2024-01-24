@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/replay_popup.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/replay_popup.js"></script>
+</head>
+
+<body>
+  <div class="background_black"></div>
+  <div class="replay_set">
+    <div class="replay_tab_navi">
+      <ul>
+        <li class="day on"><button><span>매일</span></button></li>
+        <li class="week"><button><span>매주</span></button></li>
+        <li class="month"><button><span>매달</span></button></li>
+        <li class="year"><button><span>매년</span></button></li>
+      </ul>
+    </div>
+    <div class="replay_checkbox">
+      <div class="replay_day on">
+        <div class="replay_title">
+          <strong>매일 반복<br><span>(계속 반복)</span></strong>  
+        </div>
+        <div class="replay_day_setbox replay_setbox">
+          <ul>
+            <li>
+              <div class="replay_day_set">
+                <input type="radio" id="check_day_01" name="day" checked><label for="check_day_01">매일
+                  반복 </label>
+                <input type="radio" id="check_day_02" name="day"><label for="check_day_02">평일 반복(월~금)</label>
+                <input type="radio" id="check_day_03" name="day"><label for="check_day_03">
+                  <div class="day_setting">
+                    <button class="day_setting_btn on"><span>1</span></button>
+                    <ul>
+                      <li><button value="one"><span>1</span></button></li>
+                      <li><button value="two"><span>2</span></button></li>
+                      <li><button value="three"><span>3</span></button></li>
+                    </ul>
+                  </div>
+                  <span>일 간격으로 반복</span>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_play">
+                <input type="radio" id="check_play_day_01" name="check_play_day" value="check_play_day_01" checked><label for="check_play_day_01">매일
+                  반복</label>
+                <input type="radio" id="check_play_day_02" name="check_play_day" value="check_play_day_02"><label for="check_play_day_02">종료 날짜
+                  <div class="check_end_day_select check_end_select">
+                    <div class="end_year"><button class="on"><span>2023</span></button>
+                      <ul>
+                        <li><button value="year_24"><span>2024</span></button></li>
+                        <li><button value="year_25"><span>2025</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_month"><button class="on"><span>08</span></button>
+                      <ul>
+                        <li><button value="month_01"><span>01</span></button></li>
+                        <li><button value="month_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_day"><button class="on"><span>01</span></button>
+                      <ul>
+                        <li><button value="day_01"><span>01</span></button></li>
+                        <li><button value="day_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_cancel">
+                <input type="checkbox" id="cancel_day" name="cancel_day"><label for="cancel_day">반복취소</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="replay_week">
+        <div class="replay_title">
+          <strong>매주 수,금요일 반복<br><span>(2024년 8월 25일까지)</span></strong>
+        </div>
+        <div class="replay_week_setbox replay_setbox">
+          <ul>
+            <li>
+              <div class="replay_week_set">
+                <input type="checkbox" id="mon" name="week"><label for="mon">월</label>
+                <input type="checkbox" id="tue" name="week"><label for="tue">화</label>
+                <input type="checkbox" id="wed" name="week" checked><label for="wed">수</label>
+                <input type="checkbox" id="thu" name="week"><label for="thu">목</label>
+                <input type="checkbox" id="fri" name="week" checked><label for="fri">금</label>
+                <input type="checkbox" id="sat" name="week"><label for="sat">토</label>
+                <input type="checkbox" id="sun" name="week"><label for="sun">일</label>
+              </div>
+              <div class="week_replay_type">
+                <input type="checkbox" id="week" name="week">
+                <label for="week">
+                  <div class="choice_week">
+                    <div class="day_setting">
+                      <button class="day_setting_btn on"><span>1</span></button>
+                      <ul>
+                        <li><button value="one"><span>1</span></button></li>
+                        <li><button value="two"><span>2</span></button></li>
+                        <li><button value="three"><span>3</span></button></li>
+                      </ul>
+                      <span>주 간격으로 반복</span>
+                    </div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_play">
+                <input type="radio" id="check_play_week_01" name="check_play_week" value="check_play_week_01" checked><label
+                  for="check_play_week_01">매일
+                  반복</label>
+                <input type="radio" id="check_play_week_02" name="check_play_week" value="check_play_week_02"><label for="check_play_week_02">종료 날짜
+                  <div class="check_end_week_select check_end_select">
+                    <div class="end_year"><button class="on"><span>2023</span></button>
+                      <ul>
+                        <li><button value="year_24"><span>2024</span></button></li>
+                        <li><button value="year_25"><span>2025</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_month"><button class="on"><span>08</span></button>
+                      <ul>
+                        <li><button value="month_01"><span>01</span></button></li>
+                        <li><button value="month_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_day"><button class="on"><span>01</span></button>
+                      <ul>
+                        <li><button value="day_01"><span>01</span></button></li>
+                        <li><button value="day_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_cancel">
+                <input type="checkbox" id="cancel_week"><label for="cancel_week">반복취소</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="replay_month">
+        <div class="replay_title">
+          <strong>매월 25일 반복<br><span>(계속 반복)</span></strong>
+        </div>
+        <div class="replay_month_setbox replay_setbox">
+          <ul>
+            <li>
+              <div class="replay_month_set">
+                <input type="radio" id="check_month_01" name="month" checked><label for="check_month_01">매월 25일 마다
+                  반복</label>
+                <input type="radio" id="check_month_02" name="month"><label for="check_month_02">매월 4번째 금요일에 반복</label>
+                <input type="radio" id="check_month_03" name="month"><label for="check_month_03">매월 마지막 주 금요일에
+                  반복</label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_play">
+                <input type="radio" id="check_play_01" name="check_play_month" value="check_play_month_01" checked><label for="check_play_01">매일
+                  반복</label>
+                <input type="radio" id="check_play_02" name="check_play_month" value="check_play_month_02"><label for="check_play_02">종료 날짜
+                  <div class="check_end_month_select check_end_select">
+                    <div class="end_year"><button class="on"><span>2023</span></button>
+                      <ul>
+                        <li><button value="year_24"><span>2024</span></button></li>
+                        <li><button value="year_25"><span>2025</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_month"><button class="on"><span>08</span></button>
+                      <ul>
+                        <li><button value="month_01"><span>01</span></button></li>
+                        <li><button value="month_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_day"><button class="on"><span>01</span></button>
+                      <ul>
+                        <li><button value="day_01"><span>01</span></button></li>
+                        <li><button value="day_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_cancel">
+                <input type="checkbox" id="cancel_month"><label for="cancel_month">반복취소</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="replay_year">
+        <div class="replay_title">
+          <strong>매년 8월 25일 반복<br><span>(2024년8월 25일까지)</span></strong>
+        </div>
+        <div class="replay_week_setbox replay_setbox">
+          <ul>
+            <li>
+              <div class="replay_year_set">
+                <input type="checkbox" id="year" name="year" checked><label for="yaer">매년 8월 25일 반복</label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_play">
+                <input type="radio" id="check_play_year_01" name="check_play_year" value="check_play_year_01" checked><label for="check_play_year_01">매일
+                  반복</label>
+                <input type="radio" id="check_play_year_02" name="check_play_year" value="check_play_year_02"><label for="check_play_year_02">종료 날짜
+                  <div class="check_end_year_select check_end_select">
+                    <div class="end_year"><button class="on"><span>2023</span></button>
+                      <ul>
+                        <li><button value="year_24"><span>2024</span></button></li>
+                        <li><button value="year_25"><span>2025</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_month"><button class="on"><span>08</span></button>
+                      <ul>
+                        <li><button value="month_01"><span>01</span></button></li>
+                        <li><button value="month_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                    <div class="end_day"><button class="on"><span>01</span></button>
+                      <ul>
+                        <li><button value="day_01"><span>01</span></button></li>
+                        <li><button value="day_02"><span>02</span></button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="replay_set_cancel">
+                <input type="checkbox" id="cancel"><label for="cancel">반복취소</label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="replay_set_button">
+      <div class="set_button">
+        <ul>
+          <li class="cancel_button"><button><span>취소</span></button></li>
+          <li class="submit_button"><button><span>적용하기</span></button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.rew_warp button { cursor:pointer; } 
+
+button { cursor:pointer; outline:none; border:none; background:none; } 
+input[type=text]::-ms-clear { display:none; } 
+input[type=number]::-ms-clear { display:none; } 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; } 
+html { height:100%; background:#fafafa; } 
+body { height:100%; } 
+img { max-width:100%; } 
+
+.rew_menu { width:70px; height:100%; position:absolute; top:0; left:0; z-index:20; transition:all 0.6s 0.4s; } 
+.rew_box.on .rew_menu { width:580px; transition:all 0.8s; } 
+#work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+#r_work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+.rew_menu_in { height:100%; width:100%; position:relative; z-index:2; } 
+
+.rew_qck { display: none; } 
+
+/* ------------------------------------------------------------------ */
+.rew_warp { background:#dee1e7; width:100%; height:100%; background:#dee1e7 url(../images/pre/img_intro.png) 50% 50% no-repeat; } 
+.rew_warp { background: #fff6e0; min-height: 800px; background: #fff6e0 url(../images/pre/img_intro.png) 50% 50% no-repeat; position: relative; } 
+.rew_warp_in { height:100%; } 
+
+.rew_box { min-width:480px; height:100%; width:100%; margin:0 auto; overflow:hidden; background:#fff; } 
+.rew_box_in { height: 100%; font-size: 0; text-align: left; position: relative; } 
+
+.rew_head { position:relative; z-index:9; padding-left:70px; transition:all 0.6s 0.4s; } 
+.rew_box.on .rew_head { padding-left:580px; transition:all 0.8s; } 
+
+.rew_conts_in { height:100%; position:relative; } 
+
+.rew_conts { background: #ececec; height: 100%; padding-left: 70px; transition: all 0.6s 0.4s; } 
+/* ------------------------------------------------------------------ */
+/* cont */
+.rew_member_in { padding:50px 40px 90px 40px; width:1100px; margin:0 auto; } 
+
+.rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
+.rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
+.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+
+.rew_member_sub_count { } 
+.rew_member_sub_count span { font-size:20px; font-weight:500; color:#252525; letter-spacing:-0.05em; line-height:46px; margin-right:8px; height:46px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_count strong { font-size:20px; font-weight:bold; font-weight:900; color:#38c9d2; letter-spacing:-0.05em; line-height:46px; height:46px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_count em { font-size:15px; font-weight:300; color:#858585; letter-spacing:-0.05em; line-height:48px; height:46px; display:inline-block; vertical-align:top; } 
+
+.rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
+.rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
+.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+.rew_member_sub_func_qna { text-align: left; position: absolute; bottom:0; left:0; } 
+.rew_member_sub_func_qna button { font-size:16px; font-weight:400; letter-spacing:-0.05em; line-height:45px; } 
+
+.rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
+.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+
+.rew_member_sub_func_calendar { display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns { font-size:0; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns button { text-align:center; border:1px solid #e1e1e1; background:#fff; height:46px; line-height:44px; font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:5px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns button.on { background:#38c9d2; color:#fff; } 
+.rew_member_sub_func_btns button span { padding:0 15px; } 
+
+.rew_member_sub_func_period { margin-left:10px; display:inline-block; vertical-align:top; } 
+.tyle_money .rew_member_sub_func_period { margin-left:0; } 
+.rew_member_sub_func_period_box { padding:0 5px; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period_box.cal_month { padding:0 20px; } 
+.rew_member_sub_func_period .input_date_l { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .cal_month .input_date_l { width:76px; } 
+.rew_member_sub_func_period .btn_calendar_l { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .rew_member_sub_func_period_box > span { width:28px; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .input_date_r { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period .btn_calendar_r { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:10px; display:inline-block; vertical-align:top; } 
+
+.rew_member_sub_func_period .btn_inquiry { margin-left:10px; width:85px; height:46px; font-size:15px; color:#fff; font-weight:400; letter-spacing:-0.05em; text-align:center; background:#414141; border-radius:5px; display:inline-block; vertical-align:top; } 
+
+.rew_member_list { width:1100px; margin:0 auto; border-radius:10px; overflow:hidden; position:relative; z-index:1; } 
+.rew_member_list_in { border:1px solid #e8ebee; border-radius:10px; } 
+
+.tyle_coin .member_list_header { padding:0; } 
+.member_list_header { text-align:center; font-size:0; height:65px; padding:0 10px 0 34px; background:#f6f7f9; } 
+.member_list_header_in > div { display: inline-block; vertical-align: top; padding-top: 18px; } 
+
+.member_list_header .member_list_header_datetime { width:213px; } 
+.member_list_header .member_list_header_deposit { width:160px; } 
+.member_list_header .member_list_header_withdraw { width:160px; } 
+.member_list_header .member_list_header_coin { width:170px; } 
+.member_list_header .member_list_header_admin_user { width:125px; } 
+.member_list_header .member_list_header_detail { width:270px; } 
+.member_list_header .member_list_header_payment { width:160px; } 
+.member_list_header .member_list_header_payment_plan { width:155px; } 
+.member_list_header .member_list_header_tax { width:150px; } 
+.member_list_header .member_list_header_detail_view { width:150px; } 
+
+.member_list_header_in > div strong { font-size:17px; font-weight:400; color:#000; line-height:27px; letter-spacing:-0.05em; display:inline-block; vertical-align:middle; } 
+.member_list_header_in > div em { width:13px; height:18px; margin-left:5px; display:inline-block; vertical-align:middle; } 
+.member_list_header_in > div button { width:13px; height:9px; } 
+.member_list_header_in > div button.btn_sort_up { background:url(../images/pre/ico_sort_up.png) 50% 4px no-repeat; margin-bottom:1px; } 
+.member_list_header_in > div button.btn_sort_up.on { background:url(../images/pre/ico_sort_up_on.png) 50% 4px no-repeat; margin-bottom:1px; } 
+.member_list_header_in > div button.btn_sort_down { background:url(../images/pre/ico_sort_down.png) 50% 1px no-repeat; } 
+.member_list_header_in > div button.btn_sort_down.on { background:url(../images/pre/ico_sort_down_on.png) 50% 1px no-repeat; } 
+
+.member_list_conts { background:#fff; } 
+.member_list_conts_in { } 
+.member_list_conts_in > ul > li { text-align:center; font-size:0; padding:0 10px 0 34px; border-top:1px solid #f2f2f2; } 
+.tyle_coin .member_list_conts_in > ul > li { padding:0; } 
+
+.member_list_conts .member_list_conts_datetime { width:213px; } 
+.member_list_conts .member_list_conts_payment { width:160px; } 
+.member_list_conts .member_list_conts_payment_plan { width:155px; } 
+.member_list_conts .member_list_conts_tax { width:150px; } 
+.member_list_conts .member_list_conts_detail_view { width:150px; } 
+.member_list_conts .member_list_conts_detail { width:270px; text-align:left; } 
+
+.member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding-top:17px; padding-bottom:17px; } 
+.member_list_conts_in > ul > li > div > strong { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; max-width:calc(100% - 2px); display:inline-block; vertical-align:top; } 
+.member_list_conts_in > ul > li > div button { display:inline-block; vertical-align:top; } 
+
+.member_list_conts .member_list_conts_datetime strong { color: #252525; letter-spacing: 0.01em; } 
+.member_list_conts .member_list_conts_detail strong { text-align: left; padding-left: 35px; padding-right: 15px; } 
+.member_list_conts .member_list_conts_payment strong { letter-spacing: 0; text-align: right; } 
+
+.member_list_conts .member_list_conts_tax button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:77px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; } 
+.member_list_conts .member_list_conts_tax button.btn_list_history { } 
+.member_list_conts .member_list_conts_tax button.zero { background:#cbcbcb; border:1px solid #cbcbcb; color:#fff; } 
+.member_list_conts .member_list_conts_detail_view button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:77px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; } 
+.member_list_conts .member_list_conts_detail_view button.btn_list_history { } 
+.member_list_conts .member_list_conts_detail_view button.zero { background:#cbcbcb; border:1px solid #cbcbcb; color:#fff; } 
+
+/* 정산내역보기 팝업 */
+
+.detail_view_layer { } 
+.dvl_deam { position:fixed; top:0; left:0; width:100%; height:100%; z-index:7000; background:rgba(0,0,0,0.4); } 
+.dvl_in { position:fixed; left:50%; margin-left:-270px; width:540px; top:50%; transform:translateY(-50%); background:#fff; border-radius:10px; z-index:8000; } 
+.dvl_box { position:relative; height:100%; font-size:0; } 
+.dvl_box_in { position:relative; height:100%; } 
+.dvl_close { position:absolute; top:15px; right:15px; z-index:10; transition:all 0.3s } 
+.dvl_close button { width:20px; height:20px; background:url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent:-9999px; } 
+.dvl_top { text-align:left; padding:30px 0 15px 0; margin:0 30px; transition:all 0.3s } 
+.dvl_top strong { display:block; font-size:18px; font-weight:500; color:#252525; letter-spacing:-0.05em; line-height:28px; padding-left:2px; } 
+.dvl_area { padding:0 30px 30px 30px; font-size:0; text-align:center; } 
+.dvl_area .layer_member_list_header { padding:0; height:45px; background:#43454c; } 
+.dvl_area .layer_member_list_header_in > div { display:inline-block; vertical-align:top; padding-top:9px; } 
+.dvl_area .layer_member_list_header_in > div strong { font-size:15px; font-weight:400; color:#fff; line-height:27px; letter-spacing:-0.05em; display:inline-block; vertical-align:middle; } 
+.dvl_area .layer_member_list_header .member_list_header_datetime { width:150px; } 
+.dvl_area .layer_member_list_header .member_list_header_payment { width:120px; } 
+.dvl_area .layer_member_list_header .member_list_header_detail { width:210px; } 
+.dvl_area .layer_member_list_footer { padding:0; height:45px; background:#38c9d2; } 
+.dvl_area .layer_member_list_footer_in > div { display:inline-block; vertical-align:top; padding-top:9px; } 
+.dvl_area .layer_member_list_footer_in > div strong { font-size:15px; color: #fff; } 
+.dvl_area .layer_member_list_footer .member_list_footer_sum { width:150px; } 
+.dvl_area .layer_member_list_footer .member_list_footer_payment { width:120px; } 
+.dvl_area .layer_member_list_footer .member_list_footer_none { width:210px; } 
+.dvl_area .layer_member_list_conts_in > ul { max-height:205px; overflow-y:auto; -ms-overflow-style:none; } 
+.dvl_area .layer_member_list_conts_in > ul::-webkit-scrollbar { display:none; } 
+.dvl_area .layer_member_list_conts_in > ul > li { text-align:center; font-size:0; border-top:1px solid #f2f2f2; padding:0; } 
+.dvl_area .layer_member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding-top:10px; padding-bottom:10px; } 
+.dvl_area .layer_member_list_conts_in > ul > li > div strong { font-size:14px; font-weight:300; color:#666; line-height:24px; letter-spacing:-0.05em; max-width:calc(100% - 2px); display:inline-block; vertical-align:top; } 
+.dvl_area .layer_member_list_conts .member_list_conts_datetime { width:150px; } 
+.dvl_area .layer_member_list_conts .member_list_conts_payment { width:120px; background:#f6f7f9; } 
+.dvl_area .layer_member_list_conts .member_list_conts_payment strong { letter-spacing:0; text-align: right; } 
+.dvl_area .layer_member_list_conts .member_list_conts_detail { width:210px; text-align: left; } 
+.dvl_area .layer_member_list_conts .member_list_conts_detail strong { text-align:left; padding-left:20px; padding-right:10px; } 
+
+.rew_member_sub_text { margin-top:20px; } 
+.rew_member_sub_text button { display:inline-block; vertical-align:top; } 
+.rew_member_sub_text span { font-size:16px; font-weight:400; letter-spacing:-0.025em; line-height:26px; display:block; } 
+
+@media screen and (max-width: 1200px){
+ .rew_member_in { width: auto; padding: 40px 30px 0px 40px; } 
+
+ .rew_member_list { width: auto; } 
+ .rew_member_list_in { position: relative; padding-left: 120px; } 
+
+ .member_list_header { position: absolute; top: 0; left: 0; width: 118px; border-right: 2px solid #ececec; padding: 0; height: 100%; text-align: left; overflow: hidden; } 
+ .member_list_header_in { padding: 15px 5px 15px 15px; } 
+ .member_list_header .member_list_header_datetime { width: 100%; } 
+ .member_list_header_in > div { padding-top: 10px; padding-bottom: 10px; } 
+ .member_list_header_in > div strong { font-size: 15px; font-weight: 500; line-height: 25px; } 
+
+ .member_list_conts_in > ul { display: flex; overflow-x: scroll; padding: 10px 0 0 0; } 
+ .member_list_conts_in > ul::-webkit-scrollbar { height:11px; } 
+ .member_list_conts_in > ul::-webkit-scrollbar-thumb { border-radius:5px; height:3px; border:4px solid transparent; background-color:#e5e5e5; background-clip:padding-box; transition:all 0.2s; } 
+ .member_list_conts_in > ul::-webkit-scrollbar-thumb:hover { border-width:2px; transition:all 0.2s; } 
+ .member_list_conts_in > ul::-webkit-scrollbar-track { background-color:transparent; } 
+ .member_list_conts_in > ul::-webkit-scrollbar-corner { background-color:transparent; } 
+ 
+ .member_list_conts_in > ul > li { text-align: left; padding: 5px 15px; border-top: none; border-right: 2px solid #ececec; } 
+ .tyle_coin .member_list_conts_in > ul > li { padding: 5px 15px; } 
+ .member_list_conts_in > ul > li:last-child { border-right:none; } 
+ .member_list_conts_in > ul > li > div { display: block; padding-top: 10px; padding-bottom: 10px; width: auto !important; min-width: 155px; } 
+ .tyle_coin .member_list_conts_in > ul > li > div { min-width: 140px; max-width: 170px; } 
+ .member_list_conts_in > ul > li > div > strong { font-size: 15px; line-height: 25px; width: auto !important; } 
+ .member_list_conts .member_list_conts_detail strong { padding-left: 0; padding-right: 0; } 
+ }
+
+
+
+
+
+
+
+
+
+

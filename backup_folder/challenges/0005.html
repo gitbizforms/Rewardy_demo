@@ -1,0 +1,962 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+    <title>Rewardy</title>
+
+    <meta name="title" content="Rewardy">
+    <meta name="description" content="Rewardy 입니다.">
+    <meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+    <meta property="og:description" content="Rewardy 입니다.">
+    <meta property="og:title" content="Rewardy">
+    <meta property="og:image" content="../images/main/img_meta.jpg">
+
+    <!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+    <!-- 노토산스 -->
+    <link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/html/css/window-date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="/html/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/html/css/mainy.css" />
+    <link rel="stylesheet" type="text/css" href="/html/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script>
+    <!-- <script src="/html/js/timepicki.js"></script> 
+<script src="/html/js/air_datepicker.js"></script>  -->
+    <!-- <script src="/html/js/tui-time-picker.js"></script> 
+<script src="/html/js/tui-date-picker.js"></script>  -->
+    <script src="/html/js/window-date-picker.js"></script>
+    <script type="text/javascript" src="/html/js/circle-progress.js"></script>
+    <script type="text/javascript" src="/html/js/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="/html/js/jquery.ui.touch-punch.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $(".rew_conts_list_in ul").sortable({
+                axis: "y",
+                opacity: 0.7,
+                zIndex: 9999,
+                //placeholder:"sort_empty",
+                cursor: "move"
+            });
+            $(".rew_conts_list_in ul").disableSelection();
+
+            $(".rew_conts_list_in ul li button").click(function() {
+                $(this).parent("li").toggleClass("on");
+            });
+
+            $(".rew_btn_icons_more").click(function() {
+                $(".rew_icons").toggle();
+            });
+
+            $(".rew_mypage_tab_04 a").click(function() {
+                $(".rew_mypage_tab_04 li").removeClass("on");
+                $(this).parent("li").addClass("on");
+            });
+
+
+            setTimeout(function() {
+                $(".rew_box").addClass("on");
+            }, 400);
+
+            setTimeout(function() {
+                $(".tabs_on").addClass("now_01");
+            }, 1100);
+
+            $(".btn_next_step_02").click(function() {
+                $(".rew_cha_step_01").addClass("step_z");
+                $(".rew_cha_step_02").addClass("step_z");
+                $(".rew_cha_step_03").removeClass("step_z");
+                $(".rew_cha_step_01").animate({
+                    "left": -100 + "%"
+                }, 700);
+                $(".rew_cha_step_02").animate({
+                    "left": 0 + "%"
+                }, 700);
+                $(".rew_cha_step_03").animate({
+                    "left": 100 + "%"
+                }, 700);
+
+                setTimeout(function() {
+                    $(".rew_cha_step_01").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_02").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_03").animate({
+                        scrollTop: 0
+                    }, 0);
+                }, 200);
+
+                setTimeout(function() {
+                    $(".tabs_on").addClass("now_02");
+                }, 1100);
+            });
+            $(".btn_prev_step_01").click(function() {
+                $(".rew_cha_step_01").addClass("step_z");
+                $(".rew_cha_step_02").addClass("step_z");
+                $(".rew_cha_step_03").removeClass("step_z");
+                $(".rew_cha_step_01").animate({
+                    "left": 0 + "%"
+                }, 700);
+                $(".rew_cha_step_02").animate({
+                    "left": 100 + "%"
+                }, 700);
+                $(".rew_cha_step_03").animate({
+                    "left": -100 + "%"
+                }, 700);
+
+                setTimeout(function() {
+                    $(".rew_cha_step_01").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_02").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_03").animate({
+                        scrollTop: 0
+                    }, 0);
+                }, 200);
+
+                setTimeout(function() {
+                    $(".tabs_on").removeClass("now_02");
+                }, 1100);
+            });
+            $(".btn_next_step_03").click(function() {
+                $(".rew_cha_step_01").removeClass("step_z");
+                $(".rew_cha_step_02").addClass("step_z");
+                $(".rew_cha_step_03").addClass("step_z");
+                $(".rew_cha_step_01").animate({
+                    "left": 100 + "%"
+                }, 700);
+                $(".rew_cha_step_02").animate({
+                    "left": -100 + "%"
+                }, 700);
+                $(".rew_cha_step_03").animate({
+                    "left": 0 + "%"
+                }, 700);
+
+                setTimeout(function() {
+                    $(".rew_cha_step_01").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_02").animate({
+                        scrollTop: 0
+                    }, 0);
+                    $(".rew_cha_step_03").animate({
+                        scrollTop: 0
+                    }, 0);
+                }, 200);
+
+                setTimeout(function() {
+                    $(".tabs_on").addClass("now_03");
+                }, 1100);
+            });
+
+
+            $(".btn_sort_on").click(function() {
+                $(".rew_cha_write_cate").addClass("on");
+            });
+            $(".rew_cha_write_cate").mouseleave(function() {
+                $(".rew_cha_write_cate").removeClass("on");
+            });
+            $(".rew_cha_write_cate ul li button").click(function() {
+                $(".rew_cha_write_cate").removeClass("on");
+            });
+
+            $(".rew_menu_onoff button").click(function() {
+                var thisonoff = $(this);
+                if (thisonoff.hasClass("on")) {
+                    thisonoff.removeClass("on");
+                    $(".rew_box").removeClass("on");
+
+                } else {
+                    thisonoff.addClass("on");
+                    $(".rew_box").addClass("on");
+
+                }
+            });
+
+            $(".rew_cha_step_01").scroll(function() {
+                var rct = $(".rew_cha_write_type").offset().top;
+                if (rct < 175) {
+                    $(".rew_cha_write_tabs").addClass("pos_fix");
+                    $(".rew_cha_write_in").addClass("pos_fix");
+                } else {
+                    $(".rew_cha_write_tabs").removeClass("pos_fix");
+                    $(".rew_cha_write_in").removeClass("pos_fix");
+                }
+            });
+            $(".rew_cha_step_02").scroll(function() {
+                var rct = $(".rew_cha_setting_date").offset().top;
+                if (rct < 175) {
+                    $(".rew_cha_write_tabs").addClass("pos_fix");
+                    $(".rew_cha_write_in").addClass("pos_fix");
+                } else {
+                    $(".rew_cha_write_tabs").removeClass("pos_fix");
+                    $(".rew_cha_write_in").removeClass("pos_fix");
+                }
+            });
+
+
+            $(".layer_user_info dt button").click(function() {
+                $(this).parent().parent("dl").toggleClass("on");
+            });
+            $(".layer_user_info dd button").click(function() {
+                $(this).toggleClass("on");
+                if ($(".layer_user_info dd button").hasClass("on")) {
+                    $(".layer_user_submit").addClass("on");
+                } else {
+                    $(".layer_user_submit").removeClass("on");
+                }
+            });
+
+            $(".layer_test_01").click(function() {
+                $("#layer_test_02").hide();
+                $("#layer_test_03").hide();
+                $("#layer_test_01").show();
+                $(".layer_user_info dl").addClass("on");
+                $(".layer_user_info dd button").removeClass("on");
+                $(".layer_user_submit").removeClass("on");
+                $(".layer_user_info").animate({
+                    scrollTop: 0
+                }, 0);
+            });
+            $(".layer_test_02").click(function() {
+                $("#layer_test_01").hide();
+                $("#layer_test_03").hide();
+                $("#layer_test_02").show();
+                $(".layer_user_info dl").addClass("on");
+                $(".layer_user_info dd button").removeClass("on");
+                $(".layer_user_submit").removeClass("on");
+                $(".layer_user_info").animate({
+                    scrollTop: 0
+                }, 0);
+            });
+            $(".layer_test_03").click(function() {
+                $("#layer_test_01").hide();
+                $("#layer_test_02").hide();
+                $("#layer_test_03").show();
+                $(".layer_user_info dl").addClass("on");
+                $(".layer_user_info dd button").removeClass("on");
+                $(".layer_user_submit").removeClass("on");
+                $(".layer_user_info").animate({
+                    scrollTop: 0
+                }, 0);
+            });
+            $(".layer_user_cancel").click(function() {
+                $(".layer_user").hide();
+            });
+            $(".layer_user_submit").click(function() {
+                if ($(this).hasClass("on")) {
+                    $(".layer_user").hide();
+                }
+            });
+            $("#open_layer_user").click(function() {
+                $(".layer_user").show();
+                $("#layer_test_02").hide();
+                $("#layer_test_03").hide();
+                $("#layer_test_01").show();
+                $(".layer_user_info dl").addClass("on");
+                $(".layer_user_info dd button").removeClass("on");
+                $(".layer_user_submit").removeClass("on");
+                $(".layer_user_info").animate({
+                    scrollTop: 0
+                }, 0);
+            });
+
+
+        });
+    </script>
+    <div class="rew_warp">
+        <div class="rew_warp_in">
+            <div class="rew_box">
+                <div class="rew_box_in">
+                    <!-- menu -->
+                    <div class="rew_menu">
+                        <div class="rew_menu_in">
+                            <div class="rew_bar">
+                                <div class="rew_bar_in">
+                                    <div class="rew_bar_logo">
+                                        <a href="#"><img src="/html/images/pre/logo.png" alt="" /></a>
+                                    </div>
+                                    <ul>
+                                        <li class="rew_bar_li_01">
+                                            <a href="#"><strong>오늘업무</strong></a>
+                                        </li>
+                                        <li class="rew_bar_li_02">
+                                            <a href="#"><strong>LIVE</strong></a>
+                                        </li>
+                                        <li class="rew_bar_li_03">
+                                            <a href="#"><strong>보상</strong></a>
+                                        </li>
+                                        <li class="rew_bar_li_04 on">
+                                            <a href="#"><strong>챌린지</strong></a>
+                                        </li>
+                                    </ul>
+                                    <div class="rew_bar_setting">
+                                        <a href="#"><strong>설정</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rew_mypage_04">
+                                <div class="rew_mypage_04_in">
+                                    <div class="rew_mypage_title">
+                                        <strong>챌린지</strong>
+                                    </div>
+
+                                    <div class="rew_mypage_tab_04">
+                                        <ul>
+                                            <li class="tab_chall_01">
+                                                <a href="#"><span>챌린지 만들기</span></a>
+                                            </li>
+                                            <li class="tab_chall_02">
+                                                <a href="#"><span>챌린지 샘플보기</span></a>
+                                            </li>
+                                            <li class="tab_chall_03">
+                                                <a href="#"><span>정복한 챌린지</span></a>
+                                            </li>
+                                            <li class="tab_chall_04">
+                                                <a href="#"><span>내가 만든 챌린지</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="rew_mypage_section">
+                                        <div class="rew_mypage_section_title">
+                                            <strong><span>💰</span> 획득 가능한 코인</strong>
+                                        </div>
+                                        <div class="rew_mypage_coin_chall">
+                                            <strong><span>943,000</span></strong>
+                                        </div>
+                                    </div>
+
+                                    <div class="rew_mypage_section">
+                                        <div class="rew_mypage_section_title">
+                                            <strong><span>⭐</span> 도전 중인 챌린지</strong>
+                                        </div>
+                                        <div class="rew_mypage_chall_ing">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="chall_ing_title">[신입사원] 보고서 작성법을 배우면</span>
+                                                        <span class="chall_ing_coin"><strong>1,000</strong>코인</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="chall_ing_title">[생활] 캔크러시 챌린지, 그저 밟기만 했을 뿐인데</span>
+                                                        <span class="chall_ing_coin"><strong>500</strong>코인</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="chall_ing_title">[생활] 책 읽고 독서메모를 남긴다면</span>
+                                                        <span class="chall_ing_coin"><strong>1,500</strong>코인</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rew_menu_onoff">
+                            <button class="on">열고 닫기</button>
+                        </div>
+                    </div>
+                    <!-- //menu -->
+
+                    <!-- 콘텐츠 -->
+                    <div class="rew_conts">
+                        <div class="rew_conts_in">
+                            <!-- <div class="rew_header">
+							<div class="rew_header_in">
+								<div class="rew_header_notice">
+									<span></span>
+								</div>
+							</div>
+						</div> -->
+
+
+                            <div class="rew_cha_write_tabs">
+                                <div class="rew_cha_write_tabs_in">
+                                    <div class="tabs_off">
+                                        <img src="/html/images/pre/bg_write_tab.png" alt="챌린지 작성하기 단계" />
+                                    </div>
+                                    <div class="tabs_on">
+                                        <img src="/html/images/pre/bg_write_tab_on.png" alt="작성하기, 설정하기, 작성완료" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rew_conts_scroll_05">
+
+                                <div class="rew_3_div">
+                                    <div class="rew_3_div_in">
+                                        <!-- 작성하기 -->
+                                        <div class="rew_cha_step_01">
+                                            <div class="rew_cha_write">
+                                                <div class="rew_cha_write_in">
+
+                                                    <div class="rew_cha_write_type">
+                                                        <div class="title_area">
+                                                            <strong class="title_main">챌린지 참여 형태를 선택해주세요.</strong>
+                                                        </div>
+                                                        <div class="chk_tab">
+                                                            <input type="checkbox" name="cha_template_tab" id="cha_template"/>
+                                                            <label for="cha_template">템플릿 적용</label>
+                                                        </div>
+                                                        <button class="btn_thema" id="btn_thema"><span>테마선택</span></button>
+                                                        <div id="thema_che_list" style="display:none;"></div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="qna">
+                                                                    <div class="rdo_box">
+                                                                        <input type="radio" name="write_type" id="write_type_01" class="rdo_input" />
+                                                                        <label for="write_type_01" class="rdo_label">메세지형<span class="qna_q">?</span></label>
+                                                                    </div>
+                                                                    <div class="qna_a">
+                                                                        <span>메세지형 챌린지<br />설명 내용 텍스트영역 입니다.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="qna">
+                                                                    <div class="rdo_box">
+                                                                        <input type="radio" name="write_type" id="write_type_02" class="rdo_input" />
+                                                                        <label for="write_type_02" class="rdo_label">파일첨부형<span class="qna_q">?</span></label>
+                                                                    </div>
+                                                                    <div class="qna_a">
+                                                                        <span>파일첨부형 챌린지<br />설명 내용 텍스트영역 입니다.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="qna">
+                                                                    <div class="rdo_box">
+                                                                        <input type="radio" name="write_type" id="write_type_03" class="rdo_input" />
+                                                                        <label for="write_type_03" class="rdo_label">혼합형<span class="qna_q">?</span></label>
+                                                                    </div>
+                                                                    <div class="qna_a">
+                                                                        <span>혼합형 챌린지<br />설명 내용 텍스트영역 입니다.</span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="rew_cha_write_top">
+                                                        <div class="title_area">
+                                                            <strong class="title_main">챌린지를 소개하세요.</strong>
+                                                        </div>
+                                                        <div class="rew_cha_write_cate">
+                                                            <div class="rew_cha_write_cate_in">
+                                                                <button class="btn_sort_on"><span>카테고리 선택</span></button>
+                                                                <ul>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                    <li><button><span>카테고리</span></button></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_write_title">
+                                                            <input type="text" class="input_cha_title" placeholder="챌린지 제목을 입력해주세요." />
+                                                        </div>
+                                                    </div>
+                                                    <div class="rew_cha_write_editor">
+                                                        <div class="rew_cha_write_editor_in">
+                                                            에디터영역
+                                                        </div>
+                                                    </div>
+                                                    <div class="rew_cha_write_file">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <span class="title_sub">(선택) </span>
+                                                                <strong class="title_main">참여자에게 필요한 파일을 첨부하세요.</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <div class="qna_a">
+                                                                    <span>설명영역입니다.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_01" class="input_file" />
+                                                                    <label for="file_01" class="label_file"><span>파일첨부</span></label>
+                                                                    <div class="file_desc">
+                                                                        <span>인사챌린지_참고01.hwp</span>
+                                                                        <button>삭제</button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_02" class="input_file" />
+                                                                    <label for="file_02" class="label_file"><span>파일첨부</span></label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_03" class="input_file" />
+                                                                    <label for="file_03" class="label_file"><span>파일첨부</span></label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="rew_cha_write_img">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <span class="title_sub">(선택) </span>
+                                                                <strong class="title_main">인증샷 예시를 등록하세요.</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <div class="qna_a">
+                                                                    <span>설명영역입니다.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_04" class="input_file" />
+                                                                    <label for="file_04" class="label_file"><span>이미지첨부</span></label>
+                                                                    <div class="file_desc">
+                                                                        <span><img src="images/pre/sample_01.png" alt="" /></span>
+                                                                        <button>삭제</button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_05" class="input_file" />
+                                                                    <label for="file_05" class="label_file"><span>이미지첨부</span></label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="file_box">
+                                                                    <input type="file" id="file_06" class="input_file" />
+                                                                    <label for="file_06" class="label_file"><span>이미지첨부</span></label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="rew_cha_write_btn">
+                                                        <button class="btn_gray"><span>임시저장</span></button>
+                                                        <button class="btn_black btn_next_step_02"><span>다음</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //작성하기 -->
+                                        <div class="rew_cha_step_02">
+                                            <div class="rew_cha_write">
+                                                <div class="rew_cha_write_in">
+                                                    <div class="rew_cha_setting_date">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <strong class="title_main">기간설정</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <span class="title_desc">최대 한 달까지 설정할 수 있어요.</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_setting_date_area">
+                                                            <div class="date_area_l">
+                                                                <input type="text" class="input_cha_date_l" value="2021-01-01" />
+                                                                <span>~</span>
+                                                                <input type="text" class="input_cha_date_r" value="2021-01-11" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="rew_cha_setting_count">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <strong class="title_main">참여 횟수 설정</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <span class="title_desc">최대 2번까지 참여가능. 1일 1회 한정</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_setting_count_area">
+                                                            <div class="count_area_l">
+                                                                <button class="btn_count_minus count_limit"><span>빼기</span></button>
+                                                                <input type="text" class="input_count" value="1" />
+                                                                <button class="btn_count_plus"><span>더하기</span></button>
+                                                            </div>
+                                                            <div class="count_area_r">
+                                                                <button class="btn_count_toggle btn_on"><span>한번</span></button>
+                                                                <button class="btn_count_toggle btn_off"><span>매일</span></button>
+                                                                <button class="btn_count_chk btn_chk_off"><span>공휴일 제외</span></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="rew_cha_setting_user">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <strong class="title_main">참여자 설정</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <div class="qna_a">
+                                                                    <span>설명영역입니다.</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_setting_user_area">
+                                                            <button class="btn_user_toggle btn_on"><span>전체</span></button>
+                                                            <button class="btn_user_toggle btn_off" id="open_layer_user"><span>일부</span></button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="rew_cha_setting_coin">
+                                                        <div class="title_area">
+                                                            <div class="qna">
+                                                                <strong class="title_main">보상코인 설정</strong>
+                                                                <span class="qna_q">?</span>
+                                                                <span class="title_desc">100코인 단위로 사용할 수 있어요.</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_setting_coin_area">
+                                                            <div class="coin_area_l">
+                                                                <button class="btn_coin_minus count_limit"><span>빼기</span></button>
+                                                                <input type="text" class="input_coin" value="100" />
+                                                                <button class="btn_coin_plus"><span>더하기</span></button>
+                                                            </div>
+                                                            <div class="coin_area_r">
+                                                                <button class="btn_coin_chk btn_chk_off"><span>최대 사용</span></button>
+                                                                <span class="btn_chk_txt">(1인당 최대 사용 코인 : <strong>1,100</strong>코인)</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rew_cha_setting_coin_calc">
+                                                            <div class="calc_01">
+                                                                <span>사용 가능 코인</span>
+                                                                <strong>100,000</strong>
+                                                            </div>
+                                                            <div class="calc_02">
+                                                                <span>지급 예상 코인</span>
+                                                                <strong>99,000</strong>
+                                                            </div>
+                                                            <div class="calc_03">
+                                                                <span>남은 보유 코인</span>
+                                                                <strong>1,000</strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="rew_cha_write_btn">
+                                                        <button class="btn_white btn_prev_step_01"><span>이전</span></button>
+                                                        <button class="btn_gray"><span>임시저장</span></button>
+                                                        <button class="btn_black btn_next_step_03"><span>다음</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="rew_cha_step_03">
+                                            <div class="rew_cha_write">
+                                                <div class="rew_cha_write_in">
+                                                    완료
+                                                    <div class="rew_cha_write_btn">
+                                                        <button><span>완료</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- //콘텐츠 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="layer_user" style="display:none;">
+            <div class="layer_deam"></div>
+            <div class="layer_user_in">
+                <div class="layer_user_box" id="layer_test_01">
+                    <div class="layer_user_search">
+                        <div class="layer_user_search_desc">
+                            <strong>참여자 설정</strong>
+                            <span>전체 30명, 1명 선택</span>
+                        </div>
+                        <div class="layer_user_search_box">
+                            <input type="text" class="input_search" placeholder="이름, 부서명을 검색" />
+                            <button><span>검색</span></button>
+                        </div>
+                    </div>
+                    <div class="layer_user_info">
+                        <ul>
+                            <li>
+                                <dl class="on">
+                                    <dt><button><span>고객행복팀 3</span></button></dt>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>이수아</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>정혜윤</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="on">
+                                    <dt><button><span>개발팀 2</span></button></dt>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김상엽</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>유상길</strong>
+											<span>개발팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="on">
+                                    <dt><button><span>디자인팀 4</span></button></dt>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>윤지혜</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>이나윤</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>정현주</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>하병호</strong>
+											<span>디자인팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="on">
+                                    <dt><button><span>마케팅팀 3</span></button></dt>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>김명선</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>박정헌</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>성지훈</strong>
+											<span>마케팅팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="layer_user_box" id="layer_test_02" style="display:none;">
+                    <div class="layer_user_search">
+                        <div class="layer_user_search_desc">
+                            <strong>참여자 설정</strong>
+                            <span>검색결과 3건</span>
+                        </div>
+                        <div class="layer_user_search_box">
+                            <input type="text" class="input_search" value="고객행복팀" />
+                            <button><span>검색</span></button>
+                        </div>
+                    </div>
+                    <div class="layer_user_info">
+                        <ul>
+                            <li>
+                                <dl class="on">
+                                    <dt></dt>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>서민정</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>이수아</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                    <dd>
+                                        <button>
+										<div class="user_img">
+											<img src="images/pre/img_user_001.png" alt="" />
+										</div>
+										<div class="user_name">
+											<strong>정혜윤</strong>
+											<span>고객행복팀</span>
+										</div>
+									</button>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="layer_user_box" id="layer_test_03" style="display:none;">
+                    <div class="layer_user_search">
+                        <div class="layer_user_search_desc">
+                            <strong>참여자 설정</strong>
+                            <span>검색결과 0건</span>
+                        </div>
+                        <div class="layer_user_search_box">
+                            <input type="text" class="input_search" value="괙괙괙" />
+                            <button><span>검색</span></button>
+                        </div>
+                    </div>
+                    <div class="layer_user_info">
+                        <div class="layer_user_no">
+                            <strong>검색결과가 없습니다.</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer_user_btn">
+                    <div class="layer_test">
+                        <span>임시 버튼(테스트용)</span>
+                        <button class="layer_test_01">레이어초기화</button>
+                        <button class="layer_test_02">검색결과O</button>
+                        <button class="layer_test_03">검색결과X</button>
+                    </div>
+                    <button class="layer_user_cancel"><span>취소</span></button>
+                    <button class="layer_user_submit"><span>설정하기</span></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script language="JavaScript">
+        /* FOR BIZ., COM. AND ENT. SERVICE. */
+        _TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+    </script>
+
+</body>
+
+
+</html>

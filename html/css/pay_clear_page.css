@@ -1,0 +1,18 @@
+@charset "utf-8"; .rew_pay_clear { width: 100%; height: 800px; position: relative; padding-top: 80px; background: #f6f7f9; } 
+.rew_pay_clear_in { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); } 
+
+.rew_pay_clear_in .cl_img { display: inline-block; width: 100%; height: 184px; background: url(../images/pre/pay_clear.png) no-repeat 50% 50%; } 
+.rew_pay_clear_in h2 { width: 100%; display: inline-block; font-size: 40px; letter-spacing: -1px; color: #151515; text-align: center; margin-bottom: 40px; margin-top: 50px;} 
+.rew_pay_clear_in span { width: 100%; display: inline-block; font-size: 18px; letter-spacing: -1px; color: #353535; font-weight: 300; text-align: center; } 
+.rew_pay_clear_in span em { color: #38c9d2; font-weight: 400; }
+.rew_pay_clear_in .cl_btn { width: 100%; display: inline-block; text-align: center; margin-top: 50px; } 
+.rew_pay_clear_in .cl_btn a { width: 240px; height: 55px; display: inline-block; border-radius: 25px; background: #151515;} 
+.rew_pay_clear_in .cl_btn a span { font-size: 17px; font-weight: 500; color: #fff; line-height: 52px;}
+
+@media screen and (max-width: 960px) {
+  .rew_pay_clear_in h2 { font-size: 27px; margin: 20px 0;}
+  .rew_pay_clear_in span { font-size: 16px;}
+  .rew_pay_clear_in .cl_btn a { width: 180px; height: 47px;}
+  .rew_pay_clear_in .cl_btn { margin-top: 30px;}
+  .rew_pay_clear_in .cl_btn a span { font-size: 14px; line-height: 45px;}
+}
