@@ -145,7 +145,7 @@
 	define( "MAX_FILE_SIZE" , 50);
 
 	//NAS홈디렉토리
-	define( "NAS_HOME_DIR" , "/home/todaywork/rewardyNAS/user/");
+	define( "NAS_HOME_DIR" , "/home/todaywork/rewardyNAS/demo/");
 
 	//파일경로
 	//스토리지나스경로 : \\10.17.239.71\storageNAS\todaywork\data
