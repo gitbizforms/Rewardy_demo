@@ -94,11 +94,6 @@
 <link rel="stylesheet" type="text/css" href="/html/css/coin_pop.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/mess_pop.css<?php echo VER;?>" />
 
-<!-- <link rel="stylesheet" type="text/css" href="/html/css/pro_pop.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/feeling_pop.css<?php echo VER;?>" />
-
-<link rel="stylesheet" type="text/css" href="/html/css/char_pop.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/item_pop.css<?php echo VER;?>" /> -->
 
 <link rel="stylesheet" type="text/css" href="/html/css/logo.css<?php echo VER;?>" />
 
@@ -141,62 +136,10 @@ gtag('config', 'G-K2JZRSPQSF');
 <link href="/css/datepicker.css<?php echo VER;?>" rel="stylesheet" type="text/css">
 <script src="/js/datepicker.js<?php echo VER;?>"></script>
 <script src="/js/datepicker.kr.js<?php echo VER;?>"></script>
-
+<script src="/js/lives_common.js<?php echo VER;?>"></script>
+<script src="/js/common.js<?php echo VER;?>"></script>
 <!-- 0608 추가 -->
 <script type="text/javascript" src="/js/re_common.js"></script>
-
-<?
-if ($get_dirname == $reward_type['0']){?>
-<script src="/js/works_common.js<?php echo VER;?>"></script>
-<script src="/js/tutorial_common.js<?php echo VER;?>"></script>
-<?//라이브
-}else if ($get_dirname == $reward_type['1']){?>
-<script src="/js/lives_common.js<?php echo VER;?>"></script>
-
-<?//챌린지
-}else if($get_dirname == $reward_type['2']){?>
-<script src="/js/challenges_common.js<?php echo VER;?>"></script>
-	
-<?//메인페이지
-}else if($get_dirname == $reward_type['3']){?>
-<script src="/js/team_common.js<?php echo VER;?>"></script>
-
-<?//보상
-}else if($get_dirname == $reward_type['4']){?>
-<script src="/js/reward_common.js<?php echo VER;?>"></script>
-
-<?//맴버관리
-}else if($get_dirname == $reward_type['5']){?>
-<script src="/js/member_common.js<?php echo VER;?>"></script>
-
-<? //파티관리
-}else if($get_dirname == $reward_type['9']){?>
-<script src="/js/project_common.js<?php echo VER;?>"></script>
-
-<?
-//insight
-}else if($get_dirname == $reward_type['10']){?>
-<script src="/js/insight_common.js<?php echo VER;?>"></script>
-
-<?
-//alarm
-}else if($get_dirname == $reward_type['11']){?>
-<script src="/js/member_common.js<?php echo VER;?>"></script>
-
-<?
-// itemshop
-}else if($get_dirname == $reward_type['12']){?>
-<script src="/js/item_common.js<?php echo VER;?>"></script>
-
-<?} else if($get_dirname == $reward_type['13']){?>
-	<script src="/js/common.js<?php echo VER;?>"></script>
-	<script src="/js/backoffice_common.js<?php echo VER;?>"></script>
-<?}
-
-if($get_dirname != $reward_type['13']){?>
-	<script src="/js/common.js<?php echo VER;?>"></script>
-<?}?>
-
 
 <script src="/js/jquery.fileDownload.js<?php echo VER;?>"></script>
 <script src="/js/jquery.mousewheel.min.js"></script>
