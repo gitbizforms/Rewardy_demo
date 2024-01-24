@@ -10,6 +10,9 @@ $home_dir = rtrim($urlWithoutLastPath, $lastPath);
 
 include $home_dir . "/inc_lude/header_index_new.php";
 //예정업무날짜  -- 나중에 지워야 할 코드
+var_dump($home_dir . "/inc_lude/header_index_new.php");
+
+
 $wdate = $_POST['wdate'];
 $wdate = str_replace("-",".",$wdate);
 
