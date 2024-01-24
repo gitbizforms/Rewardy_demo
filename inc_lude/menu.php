@@ -10,7 +10,6 @@ $part_info = member_part_info();
 $nowurl = now_url();
 
 $onoff = $_COOKIE['onoff']; 
-
 ?>
 
 <div class="rew_menu">
