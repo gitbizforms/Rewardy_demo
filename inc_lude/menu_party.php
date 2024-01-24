@@ -66,7 +66,6 @@ $nowurl = now_url();
 				}
 
 		//파티, 프로젝트
-		if ($get_dirname=="party"){
 		?>
 		<div class="rew_mypage_08">
 			<div class="rew_mypage_08_in">
@@ -149,7 +148,6 @@ $nowurl = now_url();
 				<button class="btn_mypage_party_make" id="btn_mypage_party_make"><span>파티 만들기</span></button>
 			</div>
 		</div>
-		<? } ?>
 
 	</div>
 

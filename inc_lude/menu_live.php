@@ -64,7 +64,7 @@ $nowurl = now_url();
 					$menu_class = "on";
 				}
 				//라이브 리뉴얼
-	if ($get_dirname=="live"){?>
+?>
 		<div class="rew_mypage_08">
 			<div class="rew_mypage_08_in">
 			<div class="rew_mypage_close"><button><img src="/html/images/pre_m/rew_mypage_close.png"></button></div>
@@ -183,7 +183,6 @@ $nowurl = now_url();
 				</div>
 			</div>
 		</div>
-		<?}?>
 	</div>
 
 	<?if ($get_dirname!="team" && $get_dirname!="admin"){?>
