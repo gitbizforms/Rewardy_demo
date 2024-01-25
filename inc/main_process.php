@@ -147,7 +147,7 @@ if($mode == "main_live_list"){
 			$profile_type = $member_list_info['profile_type'][$i];
 			$profile_img_idx = $member_list_info['profile_img_idx'][$i];
 			$profile_file = $member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
-			$profile_img =  'https://rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
+			$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
 
 
 			//업무일정이 있는경우
@@ -1221,16 +1221,16 @@ if($mode == 'reload_like_index'){
 				$profile_type = $like_list_info['profile_type'][$i];
 				$profile_img_idx = $like_list_info['profile_img_idx'][$i];
 				$profile_file = $like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
-				$profile_img =  'https://rewardy.co.kr'.$like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
+				$profile_img =  'http://demo.rewardy.co.kr'.$like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
 
 				if($like_kind == 'party'){
-					$url = "https://rewardy.co.kr/party/view.php?idx=$like_work_idx";
+					$url = "http://demo.rewardy.co.kr/party/view.php?idx=$like_work_idx";
 				}else if($like_kind == 'party_create'){
-					$url = "https://rewardy.co.kr/party/index.php";
+					$url = "http://demo.rewardy.co.kr/party/index.php";
 				}else if($like_kind == 'challenges_create'){
-					$url = "https://rewardy.co.kr/challenge/index.php";
+					$url = "http://demo.rewardy.co.kr/challenge/index.php";
 				}else if($like_kind == 'chall_limit' || $like_kind == 'chall_today' || $like_kind == 'chall_chamyo'){
-					$url = "https://rewardy.co.kr/challenge/view.php?idx=$like_work_idx";
+					$url = "http://demo.rewardy.co.kr/challenge/view.php?idx=$like_work_idx";
 				}
 
 				if($first_login){

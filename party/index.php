@@ -113,7 +113,7 @@
 		$project_user_list[$project_user_idx]['file_name'][] = $project_user_file_name;
 
 
-		$profile_img =  'https://rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
+		$profile_img =  'http://demo.rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
 		$project_use[$project_user_idx][] = $project_user_email;
 	}
 	//프로필 캐릭터 사진
@@ -326,7 +326,7 @@
 														$project_user_list_file_path = $project_user_list[$project_idx]['file_path'][$j];
 														$project_user_list_file_name = $project_user_list[$project_idx]['file_name'][$j];
 
-														$profile_img =  'https://rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
+														$profile_img =  'http://demo.rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
 
 														if($project_state==0 && $user_id==$project_user_list_email){
 															$li_class = ' cha_user_me';
@@ -358,7 +358,7 @@
 														$project_user_list_file_path = $project_user_list[$project_idx]['file_path'][$j];
 														$project_user_list_file_name = $project_user_list[$project_idx]['file_name'][$j];
 
-														$profile_img =  'https://rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
+														$profile_img =  'http://demo.rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
 
 														if($project_state==0 && $user_id==$project_user_list_email){
 															$li_class = ' cha_user_me';

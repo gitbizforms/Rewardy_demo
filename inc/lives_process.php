@@ -3218,7 +3218,7 @@ if($mode == "jt_table_list"){
 				$reg = $like_info['reg'][$i];
 				$user_part = $like_info['part'][$i];
 				$profile_check = $like_info['file_path'][$i].$like_info['file_name'][$i];
-				$profile_img = 'https://rewardy.co.kr'.$like_info['file_path'][$i].$like_info['file_name'][$i];
+				$profile_img = 'http://demo.rewardy.co.kr'.$like_info['file_path'][$i].$like_info['file_name'][$i];
 
 				if(strpos($reg, "-") !== false) {
 					$reg = str_replace("-", ".", $reg);
