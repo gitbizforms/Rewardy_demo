@@ -7928,19 +7928,19 @@ if($mode == "my_alert_close"){
 								<div class="my_alert_box_tit">
 									<?php if($alarm_info['service'][$i] == 'work'){?>
 										<img src="/html/images/pre_m/arrow_icon.png" alt="" />
-										<span onclick="window.open('https://rewardy.co.kr/todaywork/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
+										<span onclick="window.open('http://demo.rewardy.co.kr/todaywork/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
 									<?php }else if($alarm_info['service'][$i] == 'live'){?>
 										<img src="/html/images/pre/ico_ht.png" alt="" />
-										<span onclick="window.open('https://rewardy.co.kr/team/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
+										<span onclick="window.open('http://demo.rewardy.co.kr/team/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
 									<?php }else if($alarm_info['service'][$i] == 'reward'){?>
 										<img src="/html/images/pre/ico_coin_new.png" alt="" />
-										<span onclick="window.open('https://rewardy.co.kr/reward/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
+										<span onclick="window.open('http://demo.rewardy.co.kr/reward/index.php')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
 									<?php }else if($alarm_info['service'][$i] == 'challenge'){?>
 										<img src="/html/images/pre_m/ico_bell.png" alt="" />
-										<span onclick="window.open('https://rewardy.co.kr/challenge/view.php?idx=<?php echo $alarm_info['work_idx'][$i]?>')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
+										<span onclick="window.open('http://demo.rewardy.co.kr/challenge/view.php?idx=<?php echo $alarm_info['work_idx'][$i]?>')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
 									<?php }else if($alarm_info['service'][$i] == 'party'){?>
 										<img src="/html/images/pre_m/ico_bell.png" alt="" />
-										<span onclick="window.open('https://rewardy.co.kr/party/view.php?idx=<?php echo $alarm_info['work_idx'][$i]?>')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
+										<span onclick="window.open('http://demo.rewardy.co.kr/party/view.php?idx=<?php echo $alarm_info['work_idx'][$i]?>')"><strong><?php echo $alarm_info['title'][$i]?></strong></span>
 									<?php } ?>
 								</div>
 								<div class="my_alert_box_desc">

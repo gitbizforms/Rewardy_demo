@@ -1310,7 +1310,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 
 				$profile_type = $member_info['profile_type'];
 				$profile_img_idx = $member_info['profile_img_idx'];
-				$profile_img =  'https://rewardy.co.kr'.$member_info['file_path'].$member_info['file_name'];
+				$profile_img =  'http://demo.rewardy.co.kr'.$member_info['file_path'].$member_info['file_name'];
 				$profile_use =  $member_info['file_path'].$member_info['file_name'];
 
 				$member_info['profile_img_src'] = $profile_img;
@@ -2871,7 +2871,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 				$file_path = $profile_img_list['file_path'][$i];
 				$file_name = $profile_img_list['file_name'][$i];
 
-				$profile_img_list_info[$profile_img_list['idx'][$i]] = "https://rewardy.co.kr".$file_path.$file_name;
+				$profile_img_list_info[$profile_img_list['idx'][$i]] = "http://demo.rewardy.co.kr".$file_path.$file_name;
 			}
 
 		}
@@ -4997,7 +4997,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 					'title' => $title,
 					'body'=> $message,
 					'sound' => 'default',
-					'url' => 'https://rewardy.co.kr/alarm/alarm_list.php'
+					'url' => 'http://demo.rewardy.co.kr/alarm/alarm_list.php'
 				]
 			]; // 해석여부
 		
