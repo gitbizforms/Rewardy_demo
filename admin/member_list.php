@@ -4,7 +4,7 @@
 	include $home_dir . "/inc_lude/header.php";
 
 	if($user_level != '0'){
-		header("Location:https://rewardy.co.kr/index.php");
+		header("Location:http://demo.rewardy.co.kr/index.php");
 		exit;
 	}
 

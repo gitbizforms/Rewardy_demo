@@ -45,7 +45,7 @@
 		}
 	}else{
 		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
-			header("Location:https://rewardy.co.kr/about/index.php");
+			header("Location:http://demo.rewardy.co.kr/about/index.php");
 			exit;
 		
 		}

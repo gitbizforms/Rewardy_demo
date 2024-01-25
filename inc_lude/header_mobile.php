@@ -20,7 +20,7 @@
 	$get_dirname = str_replace(NAS_HOME_DIR,"", get_dirname());
 
 	if(!$user_id){
-	//	header("Location:https://rewardy.co.kr/myinfo/index.php");z
+	//	header("Location:http://demo.rewardy.co.kr/myinfo/index.php");z
 	//	exit;
 	}
 
