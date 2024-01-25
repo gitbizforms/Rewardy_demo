@@ -2147,65 +2147,70 @@ $(document).on("click", ".jt_jjim_only", function() {
 
 
 // 좋아요 상세보기 리스트 (리스트형)
-    $(document).on("click", ".btn_type_list", function(){
+link_href = window.location.href;
+    var link_arr = link_href.split("/");
+    home_title = link_arr[3];
+    
+    if(home_title == "live" || home_title == "todaywork"){
+        $(document).on("click", ".btn_type_list", function(){
 
-        if($(".user_value").val){
-            var send_userid = $(".user_value").val();
-        }else if ($("#lr_uid").val()) {
-            var send_userid = $("#lr_uid").val();
-        } else if ($("#send_userid").val()) {
-            var send_userid = $("#send_userid").val();
-        }  
-       
-        var send_user = $(".jg_name_user").text();
-        var send_user_team = $(".jg_name_team").text();
-        var send_user_imgs = $("#jg_user_img").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
-
-        // console.log(send_user);
-        // console.log(send_user_team);
-        // console.log(send_user_imgs);
-        // console.log(send_userid);
-        var penalty_idx = $("#user_penalty_like").val();
-        if(penalty_idx == "1"){
-            $("#user_penalty_like").val(penalty_idx);
-        }
+            if($(".user_value").val){
+                var send_userid = $(".user_value").val();
+            }else if ($("#lr_uid").val()) {
+                var send_userid = $("#lr_uid").val();
+            } else if ($("#send_userid").val()) {
+                var send_userid = $("#send_userid").val();
+            }  
         
-        var fdata = new FormData();
-        fdata.append("mode", "jt_table_list");
-        fdata.append("send_userid", send_userid);
-        $.ajax({
-            type: "post",
-            async: false,
-            data: fdata,
-            contentType: false,
-            processData: false,
-            url: '/inc/lives_process.php',
-            success: function(data) {
-                // console.log(data);
-                if (data) {
-                    var tdata = data.split("|");
-                    if (tdata) {
-                        var result = tdata[0];
-                        var cnt = tdata[1];
+            var send_user = $(".jg_name_user").text();
+            var send_user_team = $(".jg_name_team").text();
+            var send_user_imgs = $("#jg_user_img").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
 
-                        $("#jt_table_area").html(result);
-                        $("#jt_user_heart_all span").text(cnt);
-                        $(".jt_name_user").text(send_user);
-                        $(".jt_name_team").text(send_user_team);
-                        $("#jt_user_img").css("background-image", 'url("' + send_user_imgs + '")');
-                        $(".user_value").val(send_userid);
-                        $("#jjim_graph").hide();
-                        $("#jjim_table").show();
+            // console.log(send_user);
+            // console.log(send_user_team);
+            // console.log(send_user_imgs);
+            // console.log(send_userid);
+            var penalty_idx = $("#user_penalty_like").val();
+            if(penalty_idx == "1"){
+                $("#user_penalty_like").val(penalty_idx);
+            }
+            
+            var fdata = new FormData();
+            fdata.append("mode", "jt_table_list");
+            fdata.append("send_userid", send_userid);
+            $.ajax({
+                type: "post",
+                async: false,
+                data: fdata,
+                contentType: false,
+                processData: false,
+                url: '/inc/lives_process.php',
+                success: function(data) {
+                    // console.log(data);
+                    if (data) {
+                        var tdata = data.split("|");
+                        if (tdata) {
+                            var result = tdata[0];
+                            var cnt = tdata[1];
+
+                            $("#jt_table_area").html(result);
+                            $("#jt_user_heart_all span").text(cnt);
+                            $(".jt_name_user").text(send_user);
+                            $(".jt_name_team").text(send_user_team);
+                            $("#jt_user_img").css("background-image", 'url("' + send_user_imgs + '")');
+                            $(".user_value").val(send_userid);
+                            $("#jjim_graph").hide();
+                            $("#jjim_table").show();
+                        }
                     }
                 }
-            }
+            });
+            $("#jjim_graph").hide();
+            $("#jjim_table").show();
+            $(".btn_type_list").addClass("on");
+            $(".btn_type_graph").removeClass("on");
         });
-        $("#jjim_graph").hide();
-        $("#jjim_table").show();
-        $(".btn_type_list").addClass("on");
-        $(".btn_type_graph").removeClass("on");
-    });
-
+    }
     //좋아요 상세보기 클릭
     $("#jg_bottom").click(function() {
 
@@ -3083,9 +3088,7 @@ $(document).on("click", ".jt_jjim_only", function() {
     });
 
 
-    link_href = window.location.href;
-    var link_arr = link_href.split("/");
-    home_title = link_arr[3];
+    
     //보상하기 버튼은 live 페이지에서만 작동하도록 수정
     if(home_title=='live'){
         $(document).on("click", ".lr_btn", function() {
