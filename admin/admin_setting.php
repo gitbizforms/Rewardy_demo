@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/html/css/all.min.css" />
 <?
 	if($user_level != '0'){
-		header("Location:https://rewardy.co.kr/index.php");
+		header("Location:http://demo.rewardy.co.kr/index.php");
 		exit;
 	}
 

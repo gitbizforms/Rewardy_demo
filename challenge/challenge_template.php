@@ -25,7 +25,7 @@
 
 	if(!$temp_auth){
 		echo "<script>alert('템플릿 수정 권한이 없습니다.');</script>";	
-		header("Location:https://rewardy.co.kr/challenge/index.php");	
+		header("Location:http://demo.rewardy.co.kr/challenge/index.php");	
 		exit;
 	}
 	if(!$gp) {

@@ -14,7 +14,7 @@
 	//백오피스 접근 권한
 	$back_auth = backoffice_auth();
 	if(!$back_auth){
-		header("Location:https://rewardy.co.kr/team/index.php");
+		header("Location:http://demo.rewardy.co.kr/team/index.php");
 		echo "<script>
 			alert('백오피스 접근 권한이 없습니다!!!')
 			</script>";
@@ -58,7 +58,7 @@
 	}else{
 		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
 		
-			header("Location:https://rewardy.co.kr/index.php");
+			header("Location:http://demo.rewardy.co.kr/index.php");
 			exit;
 		
 		}
