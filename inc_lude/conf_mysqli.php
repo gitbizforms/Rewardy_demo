@@ -165,10 +165,10 @@
 
 	//쿠키도메인
 	if($_SERVER['HTTP_HOST']){
-		$C_DOMAIN = str_replace("www", "", $_SERVER['HTTP_HOST']);
-		define("C_DOMAIN", $C_DOMAIN);
+		// $C_DOMAIN = str_replace("www", "", $_SERVER['HTTP_HOST']);
+		// define("C_DOMAIN", $C_DOMAIN);
 
-		//define("C_DOMAIN", ".rewardy.co.kr");
+		define("C_DOMAIN", "demo.rewardy.co.kr");
 	}else{
 		echo "not domain";
 		exit;
