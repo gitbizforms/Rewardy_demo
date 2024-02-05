@@ -512,7 +512,11 @@
 	}
 
 
-	var_dump($_COOKIE['url']);
+
+	if($_COOKIE['url'] == 'rewardy.co.kr'){
+		echo "<script>alert('기존 리워디 계정 로그아웃 후 접속 부탁드립니다.')</script>";
+		echo "<script>history.back();</script>";
+	}
 	//47446
 	//42445
 
