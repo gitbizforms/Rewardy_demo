@@ -514,7 +514,8 @@
 
 
 	if($_COOKIE['url'] == 'rewardy.co.kr'){
-		echo "<script>alert('기존 리워디 계정 로그아웃 후 접속 부탁드립니다.')</script>";
+		echo "<script>alert('압! 벌써 리워디 서비스를 사용중이시군요~ \\n 
+		무료체험 서비스를 이용하기 위해서는 기존 리워디 계정에서 로그아웃 하신 이후에 이용하실 수 있습니다. 감사합니다!!')</script>";
 		echo "<script>history.back();</script>";
 	}
 	//47446
