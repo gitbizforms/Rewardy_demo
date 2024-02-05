@@ -77,7 +77,7 @@
 <link rel="stylesheet" type="text/css" href="/html/css/mainy.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/logo.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/demo_start.css<?php echo VER;?>" />
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css<?php echo VER;?>" />
 <!-- slick -> work_process -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css<?php echo VER;?>"/>
