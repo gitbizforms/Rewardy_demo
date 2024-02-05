@@ -48,9 +48,11 @@
 			header("Location:http://demo.rewardy.co.kr/about/index.php");
 			exit;
 		
+		}else if($user_id && $_SERVER['PHP_SELF'] =='/index.php'){
+			echo  "<script>alert('기존의 테스트 계정 로그아웃 후 접속 부탁드립니다.')</script>";
+			echo  "<script>history.back();</script>"; 
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
