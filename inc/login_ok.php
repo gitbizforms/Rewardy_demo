@@ -167,6 +167,9 @@
 
 						//회사폴더명
 						setcookie('comfolder', $comfolder , $cookie_limit_time , '/', C_DOMAIN);
+
+						//접속 url 체크
+						setcookie('url', C_DOMAIN , COOKIE_90DAYS , '/', C_DOMAIN);
 					}
 
 					//회원등급(숫자일경우만)
