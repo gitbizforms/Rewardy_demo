@@ -37,7 +37,7 @@
           <span>개발팀/대리</span>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
-        <div class="demo_user_05 demo_user" value = "게스트05@rewardy.co.kr">
+        <div class="demo_user_05 demo_user" value = "게스트04@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_05.png" alt="user_05"></div>
           <p>정영업</p>
           <span>영업팀/사원</span>
