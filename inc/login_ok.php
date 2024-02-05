@@ -10,6 +10,178 @@
 	include FUNC_MYSQLI;
 	$mode = $_POST['mode'];
 	//로그인
+	if($mode == "demo_login"){
+
+		$user_id = trim($_POST['id']);
+		$user_pw = "0000";
+
+		if($user_id && $user_pw){
+			//아이디 비밀번호 체크
+			//KISA_SHA256암호화
+			$kisa_user_pw = kisa_encrypt($user_pw);
+			$kisa_sha256_chk = true;
+			$sql = "select idx, password, name, highlevel, companyno, part, partno, live_1, left(live_1_regdate, 10) as live_1_regdate from work_member where state='0' and email='".$user_id."'";
+			$res = selectQuery($sql);
+			if($res['idx']){
+				//KISA_SHA256암호화 비밀번호 맞으면
+				if($kisa_sha256_chk && $res['password'] == $kisa_user_pw ){
+					$res["passwd"] = 1;
+				}
+
+				//회사코드
+				$companyno = trim($res["companyno"]);
+
+				$sql = "select idx, code from work_company where state='0' and idx='".$companyno."'";
+				$company_info = selectQuery($sql);
+				if($company_info['idx']){
+					$comfolder = $company_info['code'];
+				}
+
+				//회원정보 없을때
+				if(!$res["passwd"]){
+					echo "use_deny";
+					exit;
+				}
+				elseif($res["passwd"]=="1"){
+					$sql = "update work_member set login_date = ".DBDATE." , login_count = login_count + 1 where companyno='".$companyno."' and email='".$user_id."'";
+					$return = updateQuery($sql);
+
+
+					//회원이름
+					$user_name = $res["name"];
+
+					//회원등급
+					$highlevel = trim($res["highlevel"]);
+					$highlevel = preg_replace("/[^0-9]/", "", $highlevel);
+
+
+					//회사코드
+					$companyno = preg_replace("/[^0-9]/", "", $companyno);
+
+					//부서/팀
+					$partno = trim($res["partno"]);
+					$partno = preg_replace("/[^0-9]/", "", $partno);
+					
+					$partname = $res["part"];
+
+
+					//24시간 쿠키 설정
+					$login_year = date("Y", TODAYTIME); 
+					$login_month = date("m", TODAYTIME);
+					$login_day = date("d", TODAYTIME);
+					$login_h = date("H", TODAYTIME);
+					$login_i = date("i", TODAYTIME);
+					$login_s = date("s", TODAYTIME);
+
+					//$login_tm = mktime($login_h, $login_i, $login_s, $login_month, $login_day, $login_year);	//현재시간
+					$login_harutm = mktime(23,59,59, $login_month, $login_day, $login_year);					//제한시간
+					//$limit_time = $login_harutm - $login_tm;													//남은시간(오늘시간 - 현재시간)
+
+					//쿠키 제한시간(23시 59분 59초)
+					$limit_time = mktime(23,59,59, $login_month, $login_day, $login_year);						//제한시간
+
+					//$cookie_limit_time = TODAYTIME + $limit_time;
+					$cookie_limit_time = $limit_time;
+
+					//쿠키 24시간
+					//$cookie_limit_time = COOKIE_TIME;
+					
+					if($chk_login == true){
+
+						// Example usage
+						// $key = "rewardy";
+						// $valueToEncrypt = $companyno;
+						// $encryptedCookie = encryptCookie($valueToEncrypt, $key);
+
+						//회원아이디
+						setcookie('user_id', $user_id, COOKIE_90DAYS , '/', C_DOMAIN);
+
+						//회원이름
+						setcookie('user_name', $user_name , COOKIE_90DAYS , '/', C_DOMAIN);
+
+						//부서코드
+						setcookie('user_part', $partno , COOKIE_90DAYS , '/', C_DOMAIN);
+
+						//부서명
+						setcookie('part_name', $partname , COOKIE_90DAYS , '/', C_DOMAIN);
+
+						//회사코드
+						setcookie('companyno', $companyno , COOKIE_90DAYS , '/', C_DOMAIN);
+
+						//회사폴더명
+						setcookie('comfolder', $comfolder , COOKIE_90DAYS , '/', C_DOMAIN);
+
+						echo "m_";
+					}else{
+
+						// Example usage
+						$key = "rewardy";
+						$valueToEncrypt = $companyno;
+						$encryptedCookie = encryptCookie($valueToEncrypt, $key);
+						//회원아이디
+						setcookie('user_id', $user_id, $cookie_limit_time , '/', C_DOMAIN);
+
+						//회원이름
+						setcookie('user_name', $user_name , $cookie_limit_time , '/', C_DOMAIN);
+
+						//부서코드
+						setcookie('user_part', $partno , $cookie_limit_time , '/', C_DOMAIN);
+
+						//부서명
+						setcookie('part_name', $partname , $cookie_limit_time , '/', C_DOMAIN);
+
+						//회사코드
+						setcookie('companyno', $companyno , $cookie_limit_time , '/', C_DOMAIN);
+
+						//회사코드 변조
+						setcookie('com_change', $encryptedCookie , $cookie_limit_time , '/', C_DOMAIN);
+
+						//회사폴더명
+						setcookie('comfolder', $comfolder , $cookie_limit_time , '/', C_DOMAIN);
+
+						//접속 url 체크
+						setcookie('url', C_DOMAIN , COOKIE_90DAYS , '/', C_DOMAIN);
+					}
+
+					//회원등급(숫자일경우만)
+					if (is_numeric($highlevel) == true){
+						setcookie('user_level', $highlevel , $cookie_limit_time , '/', C_DOMAIN);
+					}
+
+					//로그인 아이디 저장 여부
+					if($id_save == true){
+						setcookie('id_save', $id_save , COOKIE_MAXTIME , '/', C_DOMAIN);
+						//회원아이디 저장
+						setcookie('cid', $user_id , COOKIE_MAXTIME , '/', C_DOMAIN);
+					}else{
+
+						setcookie('id_save', '' , COOKIE_MAXTIME , '/', C_DOMAIN);
+						//회원아이디 저장
+						setcookie('cid', '' , COOKIE_MAXTIME , '/', C_DOMAIN);
+					}
+						//회원등급
+						if ($highlevel >= 0){
+
+							switch ($highlevel){
+								
+								//일반회원(1~5)
+								case "5":
+									echo "use_ok";
+									break;
+
+								//관리자(0)
+								default :
+									echo "ad_ok";
+									break;
+							}
+
+						}
+					exit;
+				}
+			}
+		}
+	}
+
 	if($mode == "login"){
 		$user_id = trim($_POST['id']);
 		$user_pw = trim($_POST['pwd']);

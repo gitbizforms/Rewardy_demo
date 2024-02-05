@@ -1,0 +1,58 @@
+@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.rew_warp button { cursor:pointer; } 
+
+button { cursor:pointer; outline:none; border:none; background:none; } 
+input[type=text]::-ms-clear { display:none; } 
+input[type=number]::-ms-clear { display:none; } 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; } 
+html { height:100%; background:#fafafa; } 
+body { height:100%; } 
+img { max-width:100%; } 
+
+.rew_menu { width:70px; height:100%; position:absolute; top:0; left:0; z-index:20; transition:all 0.6s 0.4s; } 
+.rew_box.on .rew_menu { width:580px; transition:all 0.8s; } 
+#work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+#r_work_wdate + .rew_warp .rew_box.on .rew_menu { width:380px; } 
+.rew_menu_in { height:100%; width:100%; position:relative; z-index:2; } 
+
+.rew_qck { display: none; } 
+
+/* ------------------------------------------------------------------ */
+
+.demo_s_wrap { width: 100%; height: 100%; position: relative; background: #f6f7f9; overflow: hidden; } 
+
+.demo_s_tit { width: 100%; margin-top: 170px; text-align: center; } 
+.demo_s_tit h1 { width: 100%; font-size: 40px; color: #151515; text-align: center; font-weight: 300; margin-bottom: 12px; } 
+/* .demo_s_tit h1 strong { font-weight: 700; } */
+.demo_s_tit span { font-size: 18px; color: #252525; font-weight: 300; } 
+.demo_s_tit::after { content: ""; position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 150px; height: 43px; background: url(../images/pre/demo_logo.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.demo_cha { width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; margin-top: 70px; } 
+.demo_cha .demo_user { width: 200px; height: 282px; position: relative; display: flex; flex-direction: column; background: #fff; border-radius: 10px; padding: 30px 20px; box-sizing: border-box; transition: all 0.3s; } 
+.demo_cha .demo_user .user_img { width: 100%; } 
+.demo_cha .demo_user img { display: block; margin: 0 auto; border: 2px solid #e1e1e1; border-radius: 50px; } 
+.demo_cha .demo_user p { font-size: 17px; line-height: 17px; color: #252525; letter-spacing: -1px; font-weight: 500; text-align: center; margin-top: 15px; } 
+.demo_cha .demo_user > span { font-size: 13px; line-height: 13px; color: #aaa; letter-spacing: -1px; font-weight: 300; text-align: center; margin-top: 5px; } 
+.demo_cha .demo_user button { width: 100%; height: 50px; display: block; background: #b8b9bb; border-radius: 50px; margin-top: 20px; } 
+.demo_cha .demo_user button span { font-size: 16px; color: #fff; letter-spacing: -1px; font-weight: 400; } 
+
+.bx-viewport { height: 274px !important;}
+.bx-wrapper { margin-top: 75px !important; box-shadow: none !important;}
+
+/* hover */
+.demo_cha .demo_user:hover { box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1); transition: all 0.3s; } 
+.demo_cha .demo_user:hover button { background: #38c9d2; } 
+
+.demo_slide { width: 100%; height: 278px; position: absolute; bottom: 0; background: #fff; padding: 50px 0; box-sizing: border-box; } 
+.demo_slide li { width: 384px; height: 100%; background: #eee; border-radius: 10px; padding: 40px; box-sizing: border-box; } 
+.demo_slide li em { font-size: 13px; color: #fff; letter-spacing: -1px; opacity: 0.6; } 
+.demo_slide li h2 { font-size: 25px; color: #fff; letter-spacing: -1px; } 
+.demo_slide li.demo_slide_01 { background: url(../images/pre/demo_slide_01.png) no-repeat; } 
+.demo_slide li.demo_slide_02 { background: url(../images/pre/demo_slide_02.png) no-repeat; } 
+.demo_slide li.demo_slide_03 { background: url(../images/pre/demo_slide_03.png) no-repeat; } 
+.demo_slide li.demo_slide_04 { background: url(../images/pre/demo_slide_04.png) no-repeat; } 
+.demo_slide li.demo_slide_05 { background: url(../images/pre/demo_slide_05.png) no-repeat; } 
+.demo_slide li.demo_slide_06 { background: url(../images/pre/demo_slide_06.png) no-repeat; } 
+
