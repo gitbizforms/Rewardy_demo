@@ -163,6 +163,12 @@
 	$weekday = $week[date('w' , strtotime(TODATE))];
 	$weekday_num = date('w' , strtotime(TODATE));
 
+
+	if($_COOKIE['url'] == "rewardy.co.kr"){
+		alert("이건에바지");
+	}
+
+	var_dump($_COOKIE['url']);
 	//쿠키도메인
 	if($_SERVER['HTTP_HOST']){
 		// $C_DOMAIN = str_replace("www", "", $_SERVER['HTTP_HOST']);
