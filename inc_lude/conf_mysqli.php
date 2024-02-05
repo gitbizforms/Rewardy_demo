@@ -165,7 +165,7 @@
 
 
 	if($_COOKIE['url'] == "rewardy.co.kr"){
-		echo "에바지";
+		var_dump(11);
 	}
 
 	var_dump($_COOKIE['url']);
