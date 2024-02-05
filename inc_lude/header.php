@@ -14,6 +14,7 @@
 	if($user_id){
 		$sql = "select idx, name, email where state = '0' and companyno = '".$companyno."' and email = '".$user_id."'";
 		$cookie_check = selectQuery($sql);
+		var_dump($sql);
 	}
 	//디렉토리 추출
 	$get_dirname = str_replace(NAS_HOME_DIR,"", get_dirname());
