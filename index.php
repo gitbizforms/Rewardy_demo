@@ -15,32 +15,42 @@
       <div class="demo_cha">
         <div class="demo_user_01 demo_user" value = "게스트01@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_01.png" alt="user_01"></div>
-          <p>김기획</p>
-          <span>기획팀/사원</span>
+          <div class="user_name">
+            <p>김기획</p>
+            <span>기획팀/사원</span>  
+          </div>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
         <div class="demo_user_02 demo_user" value = "게스트03@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_02.png" alt="user_02"></div>
-          <p>박마케터</p>
-          <span>마케팅팀/사원</span>
+          <div class="user_name">
+            <p>박마케터</p>
+            <span>마케팅팀/사원</span>
+          </div>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
         <div class="demo_user_03 demo_user" value = "게스트02@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_03.png" alt="user_03"></div>
-          <p>윤디자인</p>
-          <span>디자인팀/사원</span>
+          <div class="user_name">
+            <p>윤디자인</p>
+            <span>디자인팀/사원</span>
+          </div>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
         <div class="demo_user_04 demo_user" value = "게스트05@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_04.png" alt="user_04"></div>
+          <div class="user_name">
           <p>유개발</p>
           <span>개발팀/대리</span>
+          </div>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
         <div class="demo_user_05 demo_user" value = "게스트04@rewardy.co.kr">
           <div class="user_img"><img src="html/images/pre/demo_user_05.png" alt="user_05"></div>
+          <div class="user_name">
           <p>정영업</p>
           <span>영업팀/사원</span>
+          </div>
           <button class = "demo_loginbtn"><span>입장하기</span></button>
         </div>
       </div>
@@ -87,7 +97,7 @@
     $(document).ready(function(){
       $('.demo_slide').bxSlider({
         slideWidth: 384,
-        minSlides: 5,
+        minSlides: 1,
         maxSlides: 6,
         moveSlides: 1,
         slideMargin: 20,
