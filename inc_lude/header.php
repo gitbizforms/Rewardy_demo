@@ -182,10 +182,6 @@ if($get_dirname != $reward_type['13']){?>
 <input style="display:none" aria-hidden="true">
 <input type="password" style="display:none" aria-hidden="true">
 
-		<?php
-			//login페이지
-			include $home_dir  . "inc_lude/login_layer.php";
-		?>
 
 		<?
 //회원 전체 정보가져오기
