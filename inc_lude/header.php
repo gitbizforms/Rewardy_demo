@@ -58,7 +58,6 @@
 			echo  "<script>history.back();</script>"; 
 		}
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
