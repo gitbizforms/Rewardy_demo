@@ -76,6 +76,7 @@
 <link rel="stylesheet" type="text/css" href="/html/css/common.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/mainy.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/logo.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/demo_start.css<?php echo VER;?>" />
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css<?php echo VER;?>" />
 <!-- slick -> work_process -->
@@ -113,9 +114,10 @@ gtag('config', 'G-K2JZRSPQSF');
 <link href="/css/datepicker.css<?php echo VER;?>" rel="stylesheet" type="text/css">
 <script src="/js/datepicker.js<?php echo VER;?>"></script>
 <script src="/js/datepicker.kr.js<?php echo VER;?>"></script>
-
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <!-- 0608 추가 -->
 <script type="text/javascript" src="/js/re_common.js"></script>
+<script type="text/javascript" src="/js/demo_login.js"></script>
 
 <?
 if ($get_dirname == $reward_type['0']){?>

@@ -139,7 +139,6 @@ if($mode == "rank_list"){
     and (c.state != '9' or c.state is null)
 	  $where_work
     and b.companyno = '".$companyno."'";
-  var_dump($sql);
 	$new_chart = selectQuery($sql);
 
 	$sql = "select 

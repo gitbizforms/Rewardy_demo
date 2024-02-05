@@ -105,7 +105,6 @@ if($month_tmp){
 						            	echo $sql;
 						            }
 						            $rank = selectAllQuery($sql);
-									var_dump($sql);
 						            if($rank){
 						              for($i=0; $i<count($rank[email]); $i++){
 						                $r_email = $rank[email][$i];
