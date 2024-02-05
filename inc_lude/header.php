@@ -11,7 +11,10 @@
 	include FUNC_MYSQLI;
 	
 	// 쿠키 == 회원 구분
-
+	if($user_id){
+		$sql = "select idx, name, email where state = '0' and companyno = '".$companyno."' and email = '".$user_id."'";
+		$cookie_check = selectQuery($sql);
+	}
 	//디렉토리 추출
 	$get_dirname = str_replace(NAS_HOME_DIR,"", get_dirname());
 
@@ -50,6 +53,9 @@
 			header("Location:http://demo.rewardy.co.kr/about/index.php");
 			exit;
 		
+		}else if($user_id == $cookie_check['email'] && $_SERVER['PHP_SELF'] =='/index.php'){
+			echo  "<script>alert('기존의 테스트 계정 로그아웃 후 접속 부탁드립니다.')</script>";
+			echo  "<script>history.back();</script>"; 
 		}
 	}
 
