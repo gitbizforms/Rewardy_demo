@@ -11626,7 +11626,7 @@ br { display: none; }
 .ra_alert_list .ra_alert_box_info { margin-top:5.111vw; padding:3.3vw 4.815vw; background:#fafafa; display:flex; justify-content:space-between; } 
 .ra_alert_list .ra_alert_box_info span { font-size:3.611vw; font-weight:300; color:#808080; letter-spacing:-0.03em; line-height:5.611vw; } 
 .ra_alert_list .ra_alert_box_info strong { font-weight:500; color:#353535; } 
-.ra_alert_list .ra_alert_close { display:block; position:absolute; top:2.778vw; right:2.778vw; width:5.093vw; height:5.093vw; text-indent:-9999px; background:url(https://rewardy.co.kr/html/images/pre_m/ico_close_b.png) 50% 50% no-repeat; background-size:100%; opacity:0.5; z-index:3; } 
+.ra_alert_list .ra_alert_close { display:block; position:absolute; top:2.778vw; right:2.778vw; width:5.093vw; height:5.093vw; text-indent:-9999px; background:url(http://demo.rewardy.co.kr/html/images/pre_m/ico_close_b.png) 50% 50% no-repeat; background-size:100%; opacity:0.5; z-index:3; } 
 @media all and (min-width:500px){
  .ra_alert_list { margin-top:4.63rem; } 
 .ra_alert_list ul { padding-bottom:3.889rem; } 

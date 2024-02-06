@@ -166,7 +166,7 @@ $member_list_info = member_main_team_list();
 																		// $project_user_img = profile_img_info($project_user_email);
 																		$project_pu_heart = $work_like_list[$project_user_idx][$project_user_email];
 																		$profile_file =  $project_file_path.$project_file_name;
-																		$profile_img =  'https://rewardy.co.kr'.$project_file_path.$project_file_name;
+																		$profile_img =  'http://demo.rewardy.co.kr'.$project_file_path.$project_file_name;
 																		//파티장일때 class설정
 																		if($project_user_pma=="1"){
 																			$part_leader = " party_leader ";

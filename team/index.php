@@ -687,49 +687,49 @@ for ($i = 0; $i < count($main_work_count['idx']); $i++) {
 															<div class="rew_main_list_area_in">
 																<ul>
 																	<li class="new <?=$m_count['work'] == '0'?'':"on"?>" <?if ($m_count['work'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>오늘업무</em>
 																			<span><?=$m_count['work']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['no_work'] == '0'?"":"on"?>" <?if ($m_count['no_work'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>미완료</em>
 																			<span><?=$m_count['no_work']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['comment'] == '0'?"":"on"?>" <?if ($m_count['comment'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>메모</em>
 																			<span><?=$m_count['comment']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['report'] == '0'?"":"on"?>" <?if ($m_count['report'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>보고</em>
 																			<span><?=$m_count['report']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['request'] == '0'?"":"on"?>" <?if ($m_count['request'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>요청</em>
 																			<span><?=$m_count['request']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['share'] == '0'?"":"on"?>" <?if ($m_count['share'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/todaywork/index.php">
+																		<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																			<em>공유</em>
 																			<span><?=$m_count['share']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['party'] == '0'?"":"on"?>" <?if ($m_count['party'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/party/index.php">
+																		<a href="http://demo.rewardy.co.kr/party/index.php">
 																			<em>파티</em>
 																			<span><?=$m_count['party']?></span>
 																		</a>
 																	</li>
 																	<li class="<?=$m_count['challenge'] == '0'?"":"on"?>" <?if ($m_count['challenge'] == 0) echo 'style="pointer-events: none;"'; ?>>
-																		<a href="https://rewardy.co.kr/challenge/index.php">
+																		<a href="http://demo.rewardy.co.kr/challenge/index.php">
 																			<em>챌린지</em>
 																			<span><?=$m_count['challenge']?></span>
 																		</a>
@@ -830,7 +830,7 @@ for ($i = 0; $i < count($main_work_count['idx']); $i++) {
 															$profile_type = $member_list_info['profile_type'][$i];
 															$profile_img_idx = $member_list_info['profile_img_idx'][$i];
 															$profile_file = $member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
-															$profile_img =  'https://rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
+															$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
 															
 															//퇴근
 															$ex_tmp_member_list_live_1_time = "";
@@ -985,16 +985,16 @@ for ($i = 0; $i < count($main_work_count['idx']); $i++) {
 																		$profile_type = $like_list_info['profile_type'][$i];
 																		$profile_img_idx = $like_list_info['profile_img_idx'][$i];
 																		$profile_file = $like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
-																		$profile_img =  'https://rewardy.co.kr'.$like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
+																		$profile_img =  'http://demo.rewardy.co.kr'.$like_list_info['file_path'][$i].$like_list_info['file_name'][$i];
 
 																		if($like_kind == 'party'){
-																			$url = "https://rewardy.co.kr/party/view.php?idx=$like_work_idx";
+																			$url = "http://demo.rewardy.co.kr/party/view.php?idx=$like_work_idx";
 																		}else if($like_kind == 'party_create'){
-																			$url = "https://rewardy.co.kr/party/view.php?idx=$like_work_idx";
+																			$url = "http://demo.rewardy.co.kr/party/index.php";
 																		}else if($like_kind == 'challenges_create'){
-																			$url = "https://rewardy.co.kr/challenge/index.php";
+																			$url = "http://demo.rewardy.co.kr/challenge/index.php";
 																		}else if($like_kind == 'chall_limit' || $like_kind == 'chall_today' || $like_kind == 'chall_chamyo'){
-																			$url = "https://rewardy.co.kr/challenge/view.php?idx=$like_work_idx";
+																			$url = "http://demo.rewardy.co.kr/challenge/view.php?idx=$like_work_idx";
 																		}
 
 																		if($first_login){
