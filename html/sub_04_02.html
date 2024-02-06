@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1" />
+	<title>Rewardy</title>
+
+	<meta name="title" content="Rewardy">
+	<meta name="description" content="Rewardy 입니다.">
+	<meta name="keywords" content="비즈폼, 스마트, SMART, Rewardy, 업무, 오늘업무, Rewardy, 챌린지, 보상, live, 업무관리">
+
+	<meta property="og:description" content="Rewardy 입니다.">
+	<meta property="og:title" content="Rewardy">
+	<meta property="og:image" content="../images/main/img_meta.jpg">
+
+	<!--[if lt IE 9]>
+<script src="https://www.bizforms.co.kr/js/html5.js"></script>
+<script src="https://www.bizforms.co.kr/js/imgSizer.js"></script>
+<script src="https://www.bizforms.co.kr/js/html5shiv.js"></script>
+<script src="https://www.bizforms.co.kr/js/respond.min.js"></script>
+<![endif]-->
+
+	<!-- 노토산스 -->
+	<link href="https://www.bizforms.co.kr/magazine/content/hotclick/css/style_font_notosans.css" rel="stylesheet" />
+	<!-- <link rel="stylesheet" type="text/css" href="./css/timepicki.css" />
+<link rel="stylesheet" type="text/css" href="./css/air_datepicker.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="./css/tui-time-picker.css" />
+<link rel="stylesheet" type="text/css" href="./css/tui-date-picker.css" /> -->
+	<link rel="stylesheet" type="text/css" href="./css/window-date-picker.css" />
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/mainy.css" />
+	<link rel="stylesheet" type="text/css" href="./css/all.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+	<script src="https://www.bizforms.co.kr/magazine/content/hotclick/js/clipboard.min.js"></script>
+	<!-- <script src="./js/timepicki.js"></script> 
+<script src="./js/air_datepicker.js"></script>  -->
+	<!-- <script src="./js/tui-time-picker.js"></script> 
+<script src="./js/tui-date-picker.js"></script>  -->
+	<script src="./js/window-date-picker.js"></script>
+	<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="./js/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="./js/circle-progress.js"></script>
+	<script type="text/javascript" src="./js/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.ui.touch-punch.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$(".depth_01 strong.depth_01_link").mouseenter(function () {
+				$(this).next(".depth_02_area").show();
+			});
+			$(".depth_01").mouseleave(function () {
+				$(this).find(".depth_02_area").hide();
+			});
+
+			$(".rb_nav_mb_btn button, .rb_nav_mb_deam").click(function () {
+				$(".rb_nav_depth").toggleClass("on");
+				$(".rb_nav_member").toggleClass("on");
+				$(".rb_nav_mb_deam").toggleClass("on");
+			});
+
+			$(".faq_q").click(function () {
+				$(".faq_q").not(this).next(".faq_a").slideUp(200);
+				$(this).next(".faq_a").slideToggle(200);
+				$(this).toggleClass("on");
+			});
+
+
+
+		});
+	</script>
+	<style type="text/css">
+		html,
+		body {
+			background: none;
+			height: 100%;
+		}
+	</style>
+	<div class="rb_warp fp-notransition">
+		<div class="rb_warp_in fp-notransition">
+			<div class="rb_nav" id="menu">
+				<div class="rb_nav_in">
+					<div class="rb_nav_logo">
+						<a href="./000a.html"><img src="images/pre/img_nav_logo.png" alt="" /></a>
+					</div>
+					<div class="rb_nav_mb_btn">
+						<button>메뉴</button>
+					</div>
+					<div class="rb_nav_mb_deam">
+					</div>
+					<div class="rb_nav_depth">
+						<ul class="depth_01_area">
+							<li class="depth_01">
+								<a href="./000a.html" class="depth_01_link"><span>서비스 소개</span></a>
+							</li>
+
+							<li class="depth_01">
+								<strong class="depth_01_link"><span>기능 소개</span></strong>
+								<ul class="depth_02_area">
+									<li class="depth_02">
+										<a href="./0021.html" class="depth_02_link"><span>오늘업무</span></a>
+									</li>
+									<li class="depth_02">
+										<a href="./0022.html" class="depth_02_link lts_0"><span>LIVE</span></a>
+									</li>
+									<li class="depth_02">
+										<a href="./0023.html" class="depth_02_link"><span>보상</span></a>
+									</li>
+									<li class="depth_02">
+										<a href="./0024.html" class="depth_02_link"><span>챌린지</span></a>
+									</li>
+								</ul>
+							</li>
+
+							<li class="depth_01">
+								<a href="./0031.html" class="depth_01_link"><span>가격정책</span></a>
+							</li>
+
+							<li class="depth_01">
+								<strong class="depth_01_link"><span>고객지원</span></strong>
+								<ul class="depth_02_area">
+									<li class="depth_02">
+										<a href="./0040.html" class="depth_02_link"><span>고객센터</span></a>
+									</li>
+									<li class="depth_02">
+										<a href="./0043.html" class="depth_02_link lts_0"><span>자주묻는질문</span></a>
+									</li>
+									<li class="depth_02">
+										<a href="./0041.html" class="depth_02_link"><span>공지사항</span></a>
+									</li>
+								</ul>
+							</li>
+
+							<li class="depth_01">
+								<a href="https://rewardy.co.kr/team/" target="_blank" class="depth_01_link"><span>데모보기</span></a>
+							</li>
+
+							<li class="depth_01">
+								<a href="./0050.html" target="_blank" class="depth_01_link"><span>회원가입 안내</span></a>
+							</li>
+						</ul>
+					</div>
+					<div class="rb_nav_member">
+						<ul>
+							<li>
+								<a href="https://rewardy.co.kr/team/" target="_blank"><span>리워디 접속하기</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="rb_main fp-notransition">
+				<div class="rb_main_sub_img">
+					<div class="cs_wrap">
+						<div class="cs_in">
+							<div class="cs_slogan">
+								<strong>리워디 고객센터에서 <br />실시간으로 상담받으세요.</strong>
+								<span>자주 묻는 질문에서 찾는내용이 없을 경우, 전화나 온라인으로 문의 바랍니다. </span>
+							</div>
+							<div class="cs_boxs">
+								<div class="cs_box">
+									<span>전화문의</span>
+									<em>평일 09:30-17:30 (점심 12:30-13:30)</em>
+									<strong>1899-6844</strong>
+									<button class="btn_layer_reserv">전화 전 클릭</button>
+								</div>
+								<div class="cs_box">
+									<span>온라인 상담</span>
+									<strong>1:1 문의하기</strong>
+									<button class="btn_layer_ask">온라인 문의하기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="help_wrap">
+						<div class="help_in">
+							<strong>도움이 필요하신가요? 최선을 다해 도와드리겠습니다.</strong>
+							<div class="help_boxs">
+								<div class="help_box">
+									<button class="btn_layer_reserv"><span>전화상담 예약</span></button>
+								</div>
+								<div class="help_box">
+									<button><span>원격지원 요청</span></button>
+								</div>
+								<div class="help_box">
+									<button class="btn_layer_ask"><span>이메일 문의</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="faq_wrap">
+						<div class="faq_header">
+							<strong>무엇을 도와드릴까요?</strong>
+						</div>
+
+						<div class="faq_mid">
+							<ul class="faq_list">
+								<li>
+									<div class="faq_q">
+										<div class="faq_q_txt">
+											<p>리워디 서비스는 무료로 운영되나요?</p>
+										</div>
+									</div>
+									<div class="faq_a">
+										<div class="faq_a_txt">
+											<p>리워디 서비스는 무료로 체험할 수 있습니다. <br />
+												무료 체험 기간이 종료된 후에는 직원 1명당 매월 5,000원이 과금됩니다. <br />
+												리워디 가격정책을 확인해 주세요. <br />
+												<br />
+												<a href="#" target="_blank">가격정책 바로가기 →</a></p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="faq_q">
+										<div class="faq_q_txt">
+											<p>구성원은 어떻게 초대하나요?</p>
+										</div>
+									</div>
+									<div class="faq_a">
+										<div class="faq_a_txt">
+											<p>답변입니다.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="faq_q">
+										<div class="faq_q_txt">
+											<p>챌린지 생성 방법을 알려주세요.</p>
+										</div>
+									</div>
+									<div class="faq_a">
+										<div class="faq_a_txt">
+											<p>답변입니다.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="faq_q">
+										<div class="faq_q_txt">
+											<p>자주 묻는 질문 영역입니다. </p>
+										</div>
+									</div>
+									<div class="faq_a">
+										<div class="faq_a_txt">
+											<p>답변 영역입니다.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="faq_q">
+										<div class="faq_q_txt">
+											<p>자주 묻는 질문 영역입니다. </p>
+										</div>
+									</div>
+									<div class="faq_a">
+										<div class="faq_a_txt">
+											<p>답변 영역입니다.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="faq_bottom">
+							<div class="faq_btn">
+								<button onclick="location.href='./0043.html'"><span>더 보기</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_join" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>가입하기</strong>
+					<span>리워디에서 인증을요청합니다. <br />
+						리워디와 함께 하세요!</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z5" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z5" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>인증메일 발송</span></button>
+				</div>
+				<div class="tl_descript">
+					<p>리워디에서 인증을 요청합니다.<br />
+						아래 링크를 클릭하셔서, 비밀번호를 설정해 주세요.<br />
+						링크가 클릭되지 않으시면 아래 주소를 복사하여 인터넷 브라우저에 붙여<br />
+						넣어주세요.<br />
+						<br />
+						https://www.rewardy.co.kr/<br />
+						<br />
+						기타 문의사항은 1588-8443으로 문의해 주세요.<br />
+						리워디와 함께 해주셔서 감사합니다.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_reserv" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>전화 상담 예약</strong>
+					<span>고객센터 운영 시간 <br>평일 09:30-17:30 (점심 12:30-13:30) </span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="r1" name="" class="input_001" placeholder="이름" />
+								<label for="r1" class="label_001">
+									<strong class="label_tit">이름</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="r2" name="" class="input_001" placeholder="연락처" />
+								<label for="r2" class="label_001">
+									<strong class="label_tit">연락처</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>취소</span></button>
+					<button><span>예약하기</span></button>
+				</div>
+				<div class="tl_descript">
+					<p>· 상담시간 외 토, 일, 공휴일에 예약하시는 경우 상담시간에 복귀 후 안내 드립니다.<br />
+						· 오전 10~11시, 오후 2~4시에는 전화상담이 많아 연결이 원활하지 못하니, 예약을 남겨주시면 신속히 확인 후 연락드리겠습니다.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_ask" style="display:block;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>온라인 문의하기</strong>
+					<span>고객센터 운영 시간 <br>평일 09:30-17:30 (점심 12:30-13:30) </span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="k1" class="input_001" placeholder="이름" />
+								<label for="k1" class="label_001">
+									<strong class="label_tit">이름</strong>
+								</label>
+							</div>
+						</li>
+						<!-- <li class="col_50">
+							<div class="tc_input">
+								<input type="text" id="k2" class="input_001" placeholder="연락처" />
+								<label for="k2" class="label_001">
+									<strong class="label_tit">연락처</strong>
+								</label>
+							</div> -->
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="k3" class="input_001" placeholder="이메일" />
+								<label for="k3" class="label_001">
+									<strong class="label_tit">이메일</strong>
+								</label>
+							</div>
+						</li>
+						<!-- <li>
+							<div class="tc_input">
+								<input type="text" id="k4" class="input_001" placeholder="제목" />
+								<label for="k4" class="label_001">
+									<strong class="label_tit">제목</strong>
+								</label>
+							</div>
+						</li> -->
+						<li>
+							<div class="tc_input">
+								<textarea id="k5" class="input_001" placeholder="문의사항"></textarea>
+								<label for="k5" class="label_001">
+									<strong class="label_tit">문의사항</strong>
+								</label>
+							</div>
+						</li>
+						<li class="col_50">
+							<div class="img_box tc_input"><img src="./images/pre/img_check.png" alt="인증 이미지"></div>
+							<div class="img_check">
+								<button><span>이미지 교체</span></button>
+								<button><span>이미지 읽기</span></button>
+							</div>
+						</li>
+						<li class="col_50">
+							<div class="tc_input">
+								<input type="text" id="k6" class="input_001" placeholder="보안문자 입력" />
+								<label for="k3" class="label_001">
+									<strong class="label_tit">보안문자 입력</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_chk_wrap">
+					<!-- <div class="tl_chk">
+						<input type="checkbox" name="chk_agree" id="chk_agree" />
+						<label for="chk_agree"><span>개인정보처리방침</span>에 동의합니다.</label>
+					</div> -->
+					<div class="tl_descript tl_agree_box">
+						<p>· 상담시간 외 토, 일, 공휴일에 예약하시는 경우 상담시간에 복귀 후 안내 드립니다. <br>
+							· 오전 10~11시, 오후 2~4시에는 전화상담이 많아 연결이 원활하지 못하니, 예약을 남겨주시면 신속히 확인 후 연락드리겠습니다.</p>
+					</div>
+				</div>
+				<div class="tl_btn">
+					<button><span>취소</span></button>
+					<button id=""><span>문의하기</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_repass" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>비밀번호 재설정</strong>
+					<span>비밀번호를 초기화할 수 있는 링크를 보내드립니다.<br />
+						리워디에 가입한 이메일 주소를 입력해 주세요.</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z3" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z3" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>비밀번호 재설정 메일 보내기</span></button>
+				</div>
+				<div class="tl_back">
+					<button><span>이전으로</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_login" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_tit">
+					<strong>로그인</strong>
+					<span>안녕하세요. <br />로그인을 부탁드려요!</span>
+				</div>
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+								<label for="z1" class="label_001">
+									<strong class="label_tit">이메일을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z2" name="user_pwd" class="input_001" placeholder="비밀번호" />
+								<label for="z2" class="label_001">
+									<strong class="label_tit">비밀번호를 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_chk_wrap">
+					<div class="tl_chk">
+						<input type="checkbox" name="chk_login" id="chk_login" />
+						<label for="chk_login">로그인 상태 유지</label>
+					</div>
+					<ul>
+						<li>
+							<button>가입하기</button>
+						</li>
+						<li>
+							<button>비밀번호 재설정</button>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button id="loginbtn"><span>로그인</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_setting" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_login_logo">
+					<span>리워디</span>
+				</div>
+				<div class="tl_prof">
+					<div class="tl_prof_box">
+						<div class="tl_prof_img">
+						</div>
+						<div class="tl_prof_slc">
+							<div class="tl_prof_slc_in">
+								<button class="button_prof"><span>프로필 변경</span></button>
+								<ul>
+									<li>
+										<input type="file" id="prof" class="input_prof" />
+										<label for="prof" class="label_prof"><span>사진 변경</span></label>
+									</li>
+									<li><button id="btn_slc_character"><span>캐릭터 선택</span></button></li>
+									<li><button class="default_on"><span>기본 이미지로 변경</span></button></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tl_list">
+					<ul>
+						<li>
+							<div class="tc_input">
+								<input type="text" id="z7" name="user_id" class="input_002" disabled value="young@bizforms.co.kr" />
+								<label for="z7" class="label_001">
+									<strong class="label_tit">이메일</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input tc_50">
+								<input type="text" id="z8" name="user_name" class="input_002" disabled placeholder="윤지혜" />
+								<label for="z8" class="label_001">
+									<strong class="label_tit">이름을 입력하세요</strong>
+								</label>
+							</div>
+							<div class="tc_input tc_50">
+								<input type="text" id="z9" name="user_name" class="input_002" disabled placeholder="디자인팀" />
+								<label for="z9" class="label_001">
+									<strong class="label_tit">이름을 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z10" name="user_pwd" class="input_001" placeholder="비밀번호" />
+								<label for="z10" class="label_001">
+									<strong class="label_tit">비밀번호를 입력하세요</strong>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="tc_input">
+								<input type="password" id="z11" name="user_repwd" class="input_001" placeholder="비밀번호 재확인" />
+								<label for="z11" class="label_001">
+									<strong class="label_tit">비밀번호를 확인하세요</strong>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="tl_btn">
+					<button><span>가입하기</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="t_layer rew_layer_character" style="display:none;">
+			<div class="tl_deam"></div>
+			<div class="tl_in">
+				<div class="tl_close">
+					<button><span>닫기</span></button>
+				</div>
+				<div class="tl_tit">
+					<strong>캐릭터 설정</strong>
+					<span>리워디에서 기본으로 제공하는 <br />캐릭터입니다.</span>
+				</div>
+				<div class="tl_profile">
+					<ul>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_01.png);">
+									<button class="btn_profile" id="profile_img_01"><span>기본 프로필 이미지1 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_02.png);">
+									<button class="btn_profile" id="profile_img_02"><span>기본 프로필 이미지2 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_03.png);">
+									<button class="btn_profile" id="profile_img_03"><span>기본 프로필 이미지3 선택</span></button>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="tl_profile_box">
+								<div class="tl_profile_img" style="background-image:url(images/pre/img_prof_04.png);">
+									<button class="btn_profile" id="profile_img_04"><span>기본 프로필 이미지4 선택</span></button>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tl_btn">
+					<button><span>적용</span></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="rew_qck" style="display:none;">
+			<button class="btn_open_join"><span>회원가입</span></button>
+			<button class="btn_open_login"><span>로그인</span></button>
+			<button class="btn_open_repass"><span>비밀번호 재설정</span></button>
+			<button class="btn_open_setting"><span>프로필 변경</span></button>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$(".btn_layer_ask").click(function () {
+					$(".rew_layer_ask").show();
+				});
+				$(".btn_layer_reserv").click(function () {
+					$(".rew_layer_reserv").show();
+				});
+
+				$(".btn_open_join, .open_layer_join").click(function () {
+					$(".rew_layer_join").show();
+				});
+				$(".btn_open_login, .open_layer_login").click(function () {
+					$(".rew_layer_login").show();
+				});
+				$(".btn_open_repass").click(function () {
+					$(".rew_layer_repass").show();
+				});
+				$(".btn_open_setting").click(function () {
+					$(".rew_layer_setting").show();
+				});
+				$(".tl_close button").click(function () {
+					$(this).closest(".t_layer").hide();
+				});
+
+				$(".button_prof").click(function () {
+					$(".tl_prof_slc ul").show();
+				});
+				$("#btn_slc_character").click(function () {
+					$(".rew_layer_character").show();
+				});
+				$(".rew_layer_character .tl_btn").click(function () {
+					$(".rew_layer_character").hide();
+				});
+				$(".btn_profile").click(function () {
+					$(".btn_profile").removeClass("on");
+					$(this).addClass("on");
+				});
+				$(".tl_prof_slc").mouseleave(function () {
+					$(".tl_prof_slc ul").hide();
+				});
+			});
+		</script>
+
+		<!-- Step 1) Load D3.js -->
+		<script src="https://d3js.org/d3.v6.min.js"></script>
+		<!-- Step 2) Load billboard.js with style -->
+		<script src="./js/billboard.js"></script>
+		<!-- Load with base style -->
+		<link rel="stylesheet" href="./css/billboard.css">
+		<script type="text/javascript">
+			$(document).ready(function () {
+
+			});
+		</script>
+	</div>
+	<script language="JavaScript">
+		/* FOR BIZ., COM. AND ENT. SERVICE. */
+		_TRK_CP = "/Rewardy"; /* 페이지 이름 지정 Contents Path */
+	</script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,37 @@
+@charset "utf-8"; button { outline: none; border: none; /* background: none; */ resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+.rew_warp input,
+.rew_warp button,
+.rew_warp select,
+.rew_warp textarea { outline: none; border: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+
+button { cursor: pointer; } 
+
+/* ------------------------------- */
+body { background: #eee; } 
+.mail_form { width: 740px; height: auto; margin: 0 auto; position: relative; background: #fff; } 
+
+.form_top { border-bottom: 3px solid #38c9d2; } 
+.form_top img { width: 160px; padding: 40px 0 25px 50px; } 
+
+.form_conts { padding: 50px 50px 90px 50px; } 
+
+.form_conts .form_conts_01 { margin-bottom: 70px; } 
+.form_conts .form_conts_01 h1 { font-size: 30px; color: #252525; letter-spacing: -1px; margin-bottom: 10px; } 
+.form_conts .form_conts_01 span { font-size: 13px; color: #4e4e4e; letter-spacing: -1px; } 
+
+.form_conts .form_conts_02 { } 
+.form_conts .form_conts_02 .conts_02_1 { } 
+.form_conts .form_conts_02 .conts_02_2 { } 
+.form_conts .form_conts_02 h2 { font-size: 18px; font-weight: 700; letter-spacing: -1px; color: #252525; margin-bottom: 15px; } 
+.form_conts .form_conts_02 p { padding: 20px; border-top: 1px solid #252525; border-bottom: 1px solid #e1e1e1; background: #f5f5f5; margin-bottom: 30px; } 
+.form_conts .form_conts_02 .conts_02_2 p { margin-bottom: 50px; } 
+
+.rew_btn { width: 100%; } 
+.rew_btn button { width: 234px; height: 50px; position: absolute; left: 50%; transform: translateX(-50%); background: #38c9d2; color: #fff; } 
+.rew_btn button span { font-size: 17px; letter-spacing: -1px; text-align: center; } 
+
+.form_footer { background: #f1f1f1; margin-top: 50px; } 
+.form_footer p { font-size: 12px; color: #7c7c7c; letter-spacing: -1px; padding: 30px 50px; } 
+.form_footer p a { text-decoration: underline; } 
+.form_footer p em { color: #252525; text-decoration: underline; } 

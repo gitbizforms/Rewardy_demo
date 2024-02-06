@@ -1,0 +1,60 @@
+@charset "utf-8"; input, button, select, textarea { outline: none; border: none; background: none; resize: none; font-family: 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+button { cursor: pointer; } 
+
+.layer_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+.layer_pro_in { width: 460px; min-height: 429px; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 10px; z-index: 6000; overflow: hidden; } 
+
+.layer_close { position: absolute; top: 15px; right: 15px; z-index: 10; transition: all 0.3s; } 
+.layer_close button { width: 20px; height: 20px; background: url(../images/pre/ico_close.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.layer_top { text-align: center; padding: 30px 0 15px 0; margin: 0 30px; margin-bottom: 40px; border-bottom: 1px solid #f2f2f2; transition: all 0.3s; } 
+.layer_top strong { display: block; font-size: 18px; font-weight: 500; color: #252525; letter-spacing: -0.05em; line-height: 28px; padding-left: 2px; } 
+
+.layer_area { margin-bottom: 20px; padding: 0 30px; } 
+
+.t_layer input, .t_layer button, .t_layer select, .t_layer textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_req input, .t_layer_req button, .t_layer_req select, .t_layer_req textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_date input, .t_layer_date button, .t_layer_date select, .t_layer_date textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.t_layer_goal input, .t_layer_goal button, .t_layer_goal select, .t_layer_goal textarea { outline:none; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; resize:none; font-family:'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+.todaywork_wrap button { cursor:pointer; outline:none; } 
+/* .rew_warp button { cursor:pointer; outline:none; border:none; background:none; } */
+.t_layer button { cursor:pointer; outline:none; } 
+
+.t_layer { /* height: 100%; position: relative; */ z-index: 6000 } 
+
+.tl_deam { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3000; background: rgba(0,0,0,0.4); } 
+
+/* coin_out_pop */
+.lay_out { width: 520px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; border-radius: 10px; padding: 60px 40px 50px 40px; z-index: 9999; box-sizing: border-box; } 
+
+.lay_out:after { content: ""; position: absolute; top: 30px; right: 40px; width: 100px; height: 29px; background: url(../images/pre/img_logo.png) 50% 50% no-repeat; text-indent: -9999px; } 
+
+.lay_out .out_tit { } 
+.lay_out .out_tit h2 { font-size: 30px; font-weight: bold; letter-spacing: -0.05em; display: block; text-align: left; color: #353535; line-height: 30px; margin-bottom: 10px; } 
+
+.out_input { } 
+.out_input .out_input_in { } 
+
+.out_input .total_coin { width: 100%; height: 55px; display: flex; justify-content: space-between; border: 1px solid #e1e1e1; border-radius: 10px; background: #fff; padding: 0 20px; box-sizing: border-box; margin-top: 30px; } 
+.out_input .total_coin span { font-size: 15px; letter-spacing: -1px; color: #656565; line-height: 55px; font-weight: 300; } 
+.out_input .total_coin p { font-size: 23px; letter-spacing: -1px; color: #252525; line-height: 50px; font-weight: 700; padding-right: 35px; background: url(../images/pre/ico_coin_new.png) no-repeat 95% 15px; background-size: 22px; } 
+
+.out_input .out_coin { padding: 20px; background: #f6f7f9; border-radius: 10px; margin-top: 20px; } 
+.out_input .out_coin .coin_btn { display: flex; justify-content: space-between; margin-bottom: 15px; } 
+.out_input .out_coin .coin_btn button { font-size: 14px; letter-spacing: -1px; color: #858585; padding: 5px 12px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; margin-right: 5px; } 
+.out_input .out_coin .coin_btn button.coin_last { margin-right: 0; padding: 5px 18px; } 
+.out_input .out_coin .coin_btn button:active { font-size: 14px; letter-spacing: -1px; color: #fff; padding: 5px 18px; border: 1px solid #38c9d2; border-radius: 8px; background: #38c9d2; margin-right: 5px; } 
+
+.out_input .out_coin input { width: 100%; height: 55px; font-size: 16px; color: #aaa; font-weight: 300; text-align: right; letter-spacing: -1px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; padding-right: 20px; } 
+
+.coin_out_txt { width: 100%; height: auto; border-radius: 10px; background: #f4f4f4; margin-top: 20px; padding: 10px 20px; box-sizing: border-box; } 
+.coin_out_txt p { font-size: 14px; color: #aaa; letter-spacing: -1px; line-height: 28px; } 
+
+/* 하단 버튼 */
+.lay_out .bottom_btn { display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin-top: 20px; } 
+
+.lay_out .close_btn { width: 130px; } 
+.lay_out .close_btn button { width: 100%; height: 60px; font-size: 18px; font-weight: bold; line-height: 60px; letter-spacing: -0.05em; color: #fff; vertical-align: top; background: #ccc; border: 0; border-radius: 10px; } 
+.lay_out .submit_btn { width: calc(100% - 140px); margin: 0; } 
+.lay_out .submit_btn button { width: 100%; height: 60px; font-size: 18px; font-weight: bold; line-height: 60px; letter-spacing: -0.05em; color: #fff; vertical-align: top; background: #38c9d2; border: 0; border-radius: 10px; } 
