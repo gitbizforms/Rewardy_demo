@@ -497,18 +497,18 @@
 			//header("Location: https://".$_SERVER["HTTP_HOST"]);
 			//header("Location: https://".$_SERVER["HTTP_HOST"]);
 			//echo "https://".$_SERVER["HTTP_HOST"];
-			//header("Location: https://https://rewardy.co.kr/");
+			//header("Location: https://http://demo.rewardy.co.kr/");
 		}
 		//exit;
 
 		if($_SERVER['HTTP_SEC_FETCH_SITE'] || $_SERVER['HTTP_SEC_FETCH_MODE'] || $_SERVER['HTTP_SEC_FETCH_USER'] || $_SERVER['HTTP_SEC_FETCH_DEST']){
 			//echo "https";
-			//header("Location: https://https://rewardy.co.kr/");
-			//header("Location: https://rewardy.co.kr");
+			//header("Location: https://http://demo.rewardy.co.kr/");
+			//header("Location: http://demo.rewardy.co.kr");
 			//exit;
 		}else{
 			//echo "http";
-			//header("Location: http://https://rewardy.co.kr/");
+			//header("Location: http://http://demo.rewardy.co.kr/");
 			//header("Location: http://rewardy.co.kr");
 			//exit;
 		}

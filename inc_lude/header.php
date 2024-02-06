@@ -1,7 +1,7 @@
 <?
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 
-	//윈도우서버용 php-mssql 사용, 도메인 : https://rewardy.co.kr
+	//윈도우서버용 php-mssql 사용, 도메인 : http://demo.rewardy.co.kr
 
 	//리눅스 환경 변수 : /inc_lude/conf_mysqli.php
 	//리눅스 환경 함수 : /inc_lude/func_mysqli.php
@@ -45,7 +45,7 @@
 		}
 	}else{
 		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
-			header("Location:https://rewardy.co.kr/about/index.php");
+			header("Location:http://demo.rewardy.co.kr/about/index.php");
 			exit;
 		
 		}
@@ -75,19 +75,12 @@
 <link rel="stylesheet" type="text/css" href="/html/css/window-date-picker.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/common.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/mainy.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/home.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/bilboard.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/mess_pop.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/html/css/rew_head.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/logo.css<?php echo VER;?>" />
-
+<link rel="stylesheet" type="text/css" href="/html/css/demo_start.css<?php echo VER;?>" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css<?php echo VER;?>" />
 <!-- slick -> work_process -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css<?php echo VER;?>"/>
-<!-- pinterest-->
-<meta name="p:domain_verify" content="54d2848aa2b5955d8629befce8fcee60"/>
-<!-- naver -->
-<meta name="naver-site-verification" content="39c63061605a312dcfd16492c9e55affa7b628c2" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2JZRSPQSF"></script>
 <script>
@@ -121,9 +114,10 @@ gtag('config', 'G-K2JZRSPQSF');
 <link href="/css/datepicker.css<?php echo VER;?>" rel="stylesheet" type="text/css">
 <script src="/js/datepicker.js<?php echo VER;?>"></script>
 <script src="/js/datepicker.kr.js<?php echo VER;?>"></script>
-
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <!-- 0608 추가 -->
 <script type="text/javascript" src="/js/re_common.js"></script>
+<script type="text/javascript" src="/js/demo_login.js"></script>
 
 <?
 if ($get_dirname == $reward_type['0']){?>
@@ -188,10 +182,6 @@ if($get_dirname != $reward_type['13']){?>
 <input style="display:none" aria-hidden="true">
 <input type="password" style="display:none" aria-hidden="true">
 
-		<?php
-			//login페이지
-			include $home_dir  . "inc_lude/login_layer.php";
-		?>
 
 		<?
 //회원 전체 정보가져오기

@@ -108,7 +108,7 @@ if(!$alarm_setting){
 			<span></span><span></span><span></span>
 		</div>
 		<div class="rew_head_logo">
-			<a href="https://rewardy.co.kr/team/">
+			<a href="http://demo.rewardy.co.kr/team/">
               <span class="mobile_chage_img">
                 <!-- <img src=<?=$companyno == '3'?"/html/images/pre/logo_bizforms_for_rewardy.jpg":"/html/images/pre/logo_bm.png"?> alt="베러먼데이" />  -->
 				<img src="<?=$logo?>" alt="Rewardy_logo" /> 
@@ -151,7 +151,7 @@ if(!$alarm_setting){
 										
 										$re_date =  $re_message['regdate'][$i];
 										$re_profile = $re_message['file_path'][$i].$re_message['file_name'][$i];
-										$re_profile_img =  'https://rewardy.co.kr'.$re_message['file_path'][$i].$re_message['file_name'][$i];
+										$re_profile_img =  'http://demo.rewardy.co.kr'.$re_message['file_path'][$i].$re_message['file_name'][$i];
 										$dateChange = new DateTime($re_date);
 										$ori_date = $dateChange->format('Y.m.d H:i');
 										?>
@@ -186,7 +186,7 @@ if(!$alarm_setting){
 										$se_date =  $se_message['regdate'][$i];
 										$se_email =  $se_message['email'][$i];
 										$se_profile = $se_message['file_path'][$i].$se_message['file_name'][$i];
-										$se_profile_img =  'https://rewardy.co.kr'.$se_message['file_path'][$i].$se_message['file_name'][$i];
+										$se_profile_img =  'http://demo.rewardy.co.kr'.$se_message['file_path'][$i].$se_message['file_name'][$i];
 										$dateChange = new DateTime($re_date);
 										$ori_date = $dateChange->format('Y.m.d H:i');
 										?>
@@ -327,30 +327,30 @@ if(!$alarm_setting){
 										}else if($alarm_info['service_type'][$i]=="req"){
 											$img_src = "/html/images/pre_m/arrow_icon.png";
 										}
-										$click_src = "https://rewardy.co.kr/todaywork/index.php";
+										$click_src = "http://demo.rewardy.co.kr/todaywork/index.php";
 									} else if($alarm_info['service'][$i] == "live") {
 											$img_src = "/html/images/pre/ico_ht.png";
-											$click_src = "https://rewardy.co.kr/team/index.php";
+											$click_src = "http://demo.rewardy.co.kr/team/index.php";
 									} else if($alarm_info['service'][$i] == "reward"){
 											$img_src = "/html/images/pre/ico_coin_new.png";
-											$click_src = "https://rewardy.co.kr/reward/index.php";
+											$click_src = "http://demo.rewardy.co.kr/reward/index.php";
 									} else if($alarm_info['service'][$i] == "challenge"){
 											$img_src = "/html/images/pre_m/ico_bell.png";
-											$click_src = "https://rewardy.co.kr/challenge/index.php";
+											$click_src = "http://demo.rewardy.co.kr/challenge/index.php";
 									} else if($alarm_info['service'][$i] == "party"){
 											$img_src = "/html/images/pre/ico_bell.png";
-											$click_src = "https://rewardy.co.kr/party/index.php";
+											$click_src = "http://demo.rewardy.co.kr/party/index.php";
 									} else if($alarm_info['service'][$i] == "penalty"){
 											$img_src = "/html/images/pre/ico_pe.png";
-											$click_src = "https://rewardy.co.kr/team/index.php";
+											$click_src = "http://demo.rewardy.co.kr/team/index.php";
 									} else if($alarm_info['service'][$i] == "memo"){
 											$img_src = "/html/images/pre/ico_alarm_memo.png";
 											if($alarm_info['service_type'][$i] == "work"){
-												$click_src = "https://rewardy.co.kr/todaywork/index.php";
+												$click_src = "http://demo.rewardy.co.kr/todaywork/index.php";
 											} else if($alarm_info['service_type'][$i] == "chall"){
-												$click_src = "https://rewardy.co.kr/challenge/view.php?idx=<?=$work_idx?>";
+												$click_src = "http://demo.rewardy.co.kr/challenge/view.php?idx=<?=$work_idx?>";
 											} else if($alarm_info['service_type'][$i] == "party"){
-												$click_src = "https://rewardy.co.kr/party/view.php?idx=<?=$work_idx?>";
+												$click_src = "http://demo.rewardy.co.kr/party/view.php?idx=<?=$work_idx?>";
 											}
 									}
 								?>
@@ -427,13 +427,13 @@ if(!$alarm_setting){
 							<div class="my_info_bt">
 								<ul>
 									<li>
-										<a href = "https://rewardy.co.kr/reward/index.php">
+										<a href = "http://demo.rewardy.co.kr/reward/index.php">
 											<span>공용코인</span>
 											<strong><em><?php echo $member_row_info['comcoin']?></em></strong>
 										</a>
 									</li>
 									<li>
-										<a href = "https://rewardy.co.kr/reward/index.php">
+										<a href = "http://demo.rewardy.co.kr/reward/index.php">
 											<span>내 코인</span>
 											<strong><em><?php echo $member_row_info['coin']?></em></strong>
 										</a>

@@ -1184,7 +1184,7 @@ $part_info = member_part_info();
 																		$project_user_file_name = $project_user_info['file_name'][$j];
 																		$project_pu_heart = $work_like_list[$project_user_idx][$project_user_email];
 
-																		$profile_img =  'https://rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
+																		$profile_img =  'http://demo.rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
 
 
 																		$member_row_info = member_row_info($project_user_email);

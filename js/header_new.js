@@ -334,7 +334,7 @@ $(document).on("click", "#my_alert_close", function() {
       $('.my_alert_tit strong').text('알림설정');
       $('.my_alert_tit strong').css({
         'padding-left': '20px',
-        'background': 'url(https://rewardy.co.kr/html/images/pre/ico_back.png) 5px 50% no-repeat',
+        'background': 'url(http://demo.rewardy.co.kr/html/images/pre/ico_back.png) 5px 50% no-repeat',
         'background-size': '5px',
         'cursor' : 'pointer'
       })

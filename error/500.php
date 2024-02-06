@@ -29,11 +29,11 @@
         <div class="rew_error_500_txt error_txt">
           <p>일시적인 오류로 인해 페이지가 정상적으로 호출되지 않고 있습니다.<br>
             잠시 후 다시 이용해 주시기 바랍니다.<br>
-            오류가 반복될 시, <span class="rew_help"><a href="https://rewardy.co.kr/about/customer/center.php">리워디
+            오류가 반복될 시, <span class="rew_help"><a href="http://demo.rewardy.co.kr/about/customer/center.php">리워디
             고객센터</a></span>로 문의해 주시면 빠르게 조치해 드리겠습니다.</p>
         </div>
         <div class="rew_error_btn">
-          <div class="rew_home"><button><a href="https://rewardy.co.kr/team/">홈으로</a></button></div>
+          <div class="rew_home"><button><a href="http://demo.rewardy.co.kr/team/">홈으로</a></button></div>
           <div class="rew_before"><button><a href="javascript:history.back();">이전 페이지</a></button></div>
         </div>
       </div>

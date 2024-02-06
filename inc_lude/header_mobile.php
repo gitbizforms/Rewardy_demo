@@ -3,7 +3,7 @@
 
 	//연결되는 서버에 따라 파일따로 사용함, 사용언어:php-mysql, php-mssql
 
-	// 윈도우서버용 php-mssql 사용, 도메인 : https://rewardy.co.kr
+	// 윈도우서버용 php-mssql 사용, 도메인 : http://demo.rewardy.co.kr
 	//리눅스서버용 php-mysql 사용, 도메인 : http://officeworker.co.kr
 
 	//윈도우 환경 변수 : /inc_lude/conf.php

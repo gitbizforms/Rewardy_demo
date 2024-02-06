@@ -5,7 +5,7 @@
 	///home/todaywork/rewardyNAS/user/
 
 	if($user_level != '0'){
-		header("Location:https://rewardy.co.kr/index.php");
+		header("Location:http://demo.rewardy.co.kr/index.php");
 		exit;
 	}
 

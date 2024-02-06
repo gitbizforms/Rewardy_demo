@@ -474,7 +474,7 @@
 																				$user_char = selectQuery($sql);
 																				$profile_type = $user_char['profile_type'];
 																				$profile_img_idx = $user_char['profile_img_idx'];
-																				$profile_img =  'https://rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
+																				$profile_img =  'http://demo.rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
 																				?>
 																				<div class="tdw_list_chk">
 																					<?if($week_works_email != $user_id){?>
@@ -934,7 +934,7 @@
 																				$user_char = selectQuery($sql);
 																				$profile_type = $user_char['profile_type'];
 																				$profile_img_idx = $user_char['profile_img_idx'];
-																				$profile_img =  'https://rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
+																				$profile_img =  'http://demo.rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
 																				?>
 																					<?if($week_works_email != $user_id){?>
 																							<button class="btn_tdw_list_chk_user" value="<?=$week_works_idx?>" <?=$tdw_list?" id='tdw_dlist_chk'":""?> style="background-image:url('<?=$week_works_email != $user_id ?$profile_img:""?>'); cursor:unset;"><span>완료체크</span></button>

@@ -85,8 +85,8 @@ $sign2 = $SignatureUtil->makeSignature($params);
                 <input type="hidden" name="buyertel" value="01012345678">
                 <input type="hidden" name="buyeremail" class= "buyeremail" value="<?php echo $user_id?>">
                 <input type="hidden" name="merchantData" value="<?php echo $companyno?>">
-                <!-- <input type="hidden" name="returnUrl" value="https://rewardy.co.kr/payment/coin_pay/coin_pay_return.php">
-                <input type="hidden" name="closeUrl" value="https://rewardy.co.kr/payment/coin_pay/close.php"> -->
+                <!-- <input type="hidden" name="returnUrl" value="http://demo.rewardy.co.kr/payment/coin_pay/coin_pay_return.php">
+                <input type="hidden" name="closeUrl" value="http://demo.rewardy.co.kr/payment/coin_pay/close.php"> -->
                 <input type="hidden" name="returnUrl" value="http://localhost:8090/payment/coin_pay/coin_pay_return.php">
                 <input type="hidden" name="closeUrl" value="http://localhost:8090/payment/coin_pay/close.php">
                 <input type="hidden" name="acceptmethod" value="HPP(1):below1000:centerCd(Y)">

@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/html/css/all.min.css" />
 <?
 	if($user_level != '0'){
-		header("Location:https://rewardy.co.kr/index.php");
+		header("Location:http://demo.rewardy.co.kr/index.php");
 		exit;
 	}
 
@@ -336,7 +336,7 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
 
 			// 	if(val){ 
 			// 		if(confirm("\ "+val+"\ 님의 비밀번호를 초기화하시겠습니까?")){
-			// 			location.href="https://rewardy.co.kr/etc/mem_repass.php?mode=passreset&email_str="+val;
+			// 			location.href="http://demo.rewardy.co.kr/etc/mem_repass.php?mode=passreset&email_str="+val;
 			// 		}else{
 			// 			alert("비밀번호 변경이 취소되었습니다."); 
 			// 			parent.close();

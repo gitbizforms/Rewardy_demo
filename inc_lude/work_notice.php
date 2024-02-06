@@ -22,8 +22,8 @@
 
 <script>
 
-	var icon = "https://rewardy.co.kr/favicon.ico";
-	var link = "https://rewardy.co.kr/todaywork/index.php";
+	var icon = "http://demo.rewardy.co.kr/favicon.ico";
+	var link = "http://demo.rewardy.co.kr/todaywork/index.php";
 	var title = '리워디';
 	var time = new Date().getTime();
 

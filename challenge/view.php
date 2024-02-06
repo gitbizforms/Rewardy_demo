@@ -7,7 +7,7 @@
 
 	// if($_SERVER['HTTP_REFERER']){
 	// 	alert("URI 형식으로 접근이 불가능합니다.");
-	// 	location_link('https://rewardy.co.kr/challenge/index.php');
+	// 	location_link('http://demo.rewardy.co.kr/challenge/index.php');
 	// }
 
 ?>
@@ -1475,7 +1475,7 @@
 			//URL 입력 방식 접근 금지
 			if (document.referrer === '') {
 				alert('========URL 형식으로의 접근을 금지합니다========');
-				window.location.href = 'https://rewardy.co.kr/challenge/index.php';
+				window.location.href = 'http://demo.rewardy.co.kr/challenge/index.php';
 			}
 
 			var page_idx = $("#page_state").val();

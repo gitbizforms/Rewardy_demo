@@ -5,7 +5,7 @@
 	include $home_dir. "/inc/PHPExcel-1.8/Classes/PHPExcel.php";
 
 	if($user_level != '0'){
-		header("Location:https://rewardy.co.kr/index.php");
+		header("Location:http://demo.rewardy.co.kr/index.php");
 		exit;
 	}
 

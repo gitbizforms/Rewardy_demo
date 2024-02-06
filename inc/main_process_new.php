@@ -148,7 +148,7 @@ if($mode == "main_live_list"){
 			$profile_type = $member_list_info['profile_type'][$i];
 			$profile_img_idx = $member_list_info['profile_img_idx'][$i];
 			$profile_file = $member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
-			$profile_img =  'https://rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
+			$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
 
 
 			//퇴근

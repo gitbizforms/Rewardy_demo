@@ -661,7 +661,7 @@
 															$member_list_live_4 = $member_list_info['live_4'][$i];
 															$profile_type = $member_list_info['profile_type'][$i];
 															$profile_img_idx = $member_list_info['profile_img_idx'][$i];
-															$profile_img =  'https://rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
+															$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
 
 															//퇴근
 															$ex_tmp_member_list_live_1_time = "";

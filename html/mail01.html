@@ -28,7 +28,7 @@
 										&nbsp;
 									</td>
 									<td width="640px" align="left">
-										<img src="https://rewardy.co.kr/html/images/mail/imglogom.jpg" alt="Rewardy" width="160" height="97" style="display: block;" />
+										<img src="http://demo.rewardy.co.kr/html/images/mail/imglogom.jpg" alt="Rewardy" width="160" height="97" style="display: block;" />
 									</td>
 									<td width="50px" style="font-size:0;line-height:0;">
 										&nbsp;
@@ -58,7 +58,7 @@
 										<table border="0" cellpadding="0" cellspacing="0" width="100%">
 											<tr>
 												<td align="left">
-													<img src="https://rewardy.co.kr/html/images/mail/img11m.jpg" alt="리워디 초대 안내" width="202" height="29" style="display: block;" />
+													<img src="http://demo.rewardy.co.kr/html/images/mail/img11m.jpg" alt="리워디 초대 안내" width="202" height="29" style="display: block;" />
 												</td>
 											</tr>
 											<tr>
@@ -83,7 +83,7 @@
 											</tr>
 											<tr>
 												<td align="left">
-													<img src="https://rewardy.co.kr/html/images/mail/img12m.jpg" alt="초대자 정보" width="80" height="17" style="display: block;" />
+													<img src="http://demo.rewardy.co.kr/html/images/mail/img12m.jpg" alt="초대자 정보" width="80" height="17" style="display: block;" />
 												</td>
 											</tr>
 											<tr>
@@ -120,7 +120,7 @@
 											</tr>
 											<tr>
 												<td align="left">
-													<img src="https://rewardy.co.kr/html/images/mail/img13m.jpg" alt="초대받은 회원 정보" width="128" height="17" style="display: block;" />
+													<img src="http://demo.rewardy.co.kr/html/images/mail/img13m.jpg" alt="초대받은 회원 정보" width="128" height="17" style="display: block;" />
 												</td>
 											</tr>
 											<tr>
@@ -183,7 +183,7 @@
 													&nbsp;
 												</td>
 												<td bgcolor="#38c9d2" width="234px" height="50px" align="center">
-													<a href="#" target="_blank" style="font-size:13px;color:#ffffff;text-align:center;line-height:50px;text-decoration:underline;display:block;padding:0;margin:0;"><img src="https://rewardy.co.kr/html/images/mail/img14m.jpg" alt="시작하기" width="234" height="50" style="display: block;" /></a>
+													<a href="#" target="_blank" style="font-size:13px;color:#ffffff;text-align:center;line-height:50px;text-decoration:underline;display:block;padding:0;margin:0;"><img src="http://demo.rewardy.co.kr/html/images/mail/img14m.jpg" alt="시작하기" width="234" height="50" style="display: block;" /></a>
 												</td>
 												<td width="253px" height="50px" style="font-size:0;line-height:0;">
 													&nbsp;

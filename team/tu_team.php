@@ -548,49 +548,49 @@
 														<div class="rew_main_list_area_in">
 															<ul>
 																<li class="new on">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>오늘업무</em>
 																		<span>3</span>
 																	</a>
 																</li>
 																<li style="pointer-events: none;">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>미완료</em>
 																		<span>0</span>
 																	</a>
 																</li>
 																<li style="pointer-events: none;">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>메모</em>
 																		<span>0</span>
 																	</a>
 																</li>
 																<li class="on">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>보고</em>
 																		<span>1</span>
 																	</a>
 																</li>
 																<li style="pointer-events: none;">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>요청</em>
 																		<span>0</span>
 																	</a>
 																</li>
 																<li class="on">
-																	<a href="https://rewardy.co.kr/todaywork/index.php">
+																	<a href="http://demo.rewardy.co.kr/todaywork/index.php">
 																		<em>공유</em>
 																		<span>1</span>
 																	</a>
 																</li>
 																<li class="on">
-																	<a href="https://rewardy.co.kr/party/index.php">
+																	<a href="http://demo.rewardy.co.kr/party/index.php">
 																		<em>파티</em>
 																		<span>1</span>
 																	</a>
 																</li>
 																<li class="on">
-																	<a href="https://rewardy.co.kr/challenge/index.php">
+																	<a href="http://demo.rewardy.co.kr/challenge/index.php">
 																		<em>챌린지</em>
 																		<span>2</span>
 																	</a>

@@ -27,7 +27,7 @@
 				if($auth_file_idx){
 
 
-					//https://rewardy.co.kr/data/challenges/multi_download/2023/02//rewardy_20230208164253.zip
+					//http://demo.rewardy.co.kr/data/challenges/multi_download/2023/02//rewardy_20230208164253.zip
 					//$file_save_dir_multidownload = "data/challenges/multi_download";
 					//업로드 디렉토리 - /data/고유번호/랜덤폴더/challenges/files/년/월/
 					$download_path = $dir_file_path."/".$file_save_dir_multidownload."/".$dir_year."/".$dir_month."/";

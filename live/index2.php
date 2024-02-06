@@ -114,7 +114,7 @@
 	
 		$profile_type = $member_one_info['profile_type'];
 		$profile_img_idx = $member_one_info['profile_img_idx'];
-		$profile_img =  'https://rewardy.co.kr'.$member_one_info['file_path'].$member_one_info['file_name'];
+		$profile_img =  'http://demo.rewardy.co.kr'.$member_one_info['file_path'].$member_one_info['file_name'];
 		$member_info_coin = number_format($member_info_coin);
 
 
@@ -502,7 +502,7 @@
 													$member_list_live_4 = $member_list_info_live['live_4'][$i];
 													$profile_type = $member_list_info_live['profile_type'][$i];
 													$profile_img_idx = $member_list_info_live['profile_img_idx'][$i];
-													$profile_img =  'https://rewardy.co.kr'.$member_list_info_live['file_path'][$i].$member_list_info_live['file_name'][$i];
+													$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info_live['file_path'][$i].$member_list_info_live['file_name'][$i];
 													//프로필 케릭터 사진
 													// $profile_img_src = profile_img_info($member_list_email);
 

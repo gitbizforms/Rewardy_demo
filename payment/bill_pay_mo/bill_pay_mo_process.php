@@ -72,6 +72,6 @@ $price = $people * $people_price; // 상품가격(특수기호 제외, 가맹점
         <input type="hidden" name="buyertel" value="01012345678">
         <input type="hidden" name="buyeremail" class= "buyeremail" value="<?php echo $userEmail?>">
         <input type="text" name="merchantreserved" value="<?php echo "1&".$people."&".$com_text."&".$price."&".$com_user."&".$userEmail."&".$companyNum."&".$dep_text?>">
-        <input type="hidden" name="returnurl" value="https://rewardy.co.kr/payment/bill_pay_mo/bill_pay_mo_pop_return.php">
+        <input type="hidden" name="returnurl" value="http://demo.rewardy.co.kr/payment/bill_pay_mo/bill_pay_mo_pop_return.php">
         <input type="text" name="carduse" value="">
     </form> 

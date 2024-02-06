@@ -2,7 +2,7 @@
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 
 
-	//윈도우서버용 php-mssql 사용, 도메인 : https://rewardy.co.kr
+	//윈도우서버용 php-mssql 사용, 도메인 : http://demo.rewardy.co.kr
 
 	//리눅스 환경 변수 : /inc_lude/conf_mysqli.php
 	//리눅스 환경 함수 : /inc_lude/func_mysqli.php
@@ -48,7 +48,7 @@
 	}else{
 		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
 		
-			header("Location:https://rewardy.co.kr/index.php");
+			header("Location:http://demo.rewardy.co.kr/index.php");
 			exit;
 		
 		}
@@ -92,10 +92,6 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css<?php echo VER;?>" />
 <!-- slick -> work_process -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css<?php echo VER;?>"/>
-<!-- pinterest-->
-<meta name="p:domain_verify" content="54d2848aa2b5955d8629befce8fcee60"/>
-<!-- naver -->
-<meta name="naver-site-verification" content="39c63061605a312dcfd16492c9e55affa7b628c2" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2JZRSPQSF"></script>
 <script>

@@ -164,7 +164,7 @@ $(document).on("click", ".ra_setting_list .btn_switch", function () {
 });
 
 $(document).on("click", ".ra_btn_link", function () {
-  location.href = "link:https://rewardy.co.kr/team/index.php";
+  location.href = "link:http://demo.rewardy.co.kr/team/index.php";
 });
 
 // 모바일 화면 하단부
@@ -210,17 +210,17 @@ $(document).on("click", ".ra_alert_box", function () {
     success: function (data) {
       console.log(data);
       if (service == "work") {
-        location.href = "https://rewardy.co.kr/todaywork/index.php";
+        location.href = "http://demo.rewardy.co.kr/todaywork/index.php";
       } // 코인 타임라인 링크 이동
       else if (service == "reward") {
-        location.href = "https://rewardy.co.kr/reward/index.php";
+        location.href = "http://demo.rewardy.co.kr/reward/index.php";
       } // 챌린지 타임라인 링크 이동
       else if (service == "challenge") {
-        location.href = "https://rewardy.co.kr/challenge/index.php";
+        location.href = "http://demo.rewardy.co.kr/challenge/index.php";
       } else if (service == "party") {
-        location.href = "https://rewardy.co.kr/party/index.php";
+        location.href = "http://demo.rewardy.co.kr/party/index.php";
       } else if (service == "live") {
-        location.href = "https://rewardy.co.kr/team/index.php";
+        location.href = "http://demo.rewardy.co.kr/team/index.php";
       }
     },
   });

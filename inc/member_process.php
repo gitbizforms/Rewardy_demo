@@ -1963,7 +1963,7 @@ if($mode == "member_email_send"){
 
 						$location_url = $home_url."/team/?".$encrypted;
 
-						//$contents = "안녕하세요.\n\n".$company."에서 발송되었습니다.\n\n아래 링크를 클릭하여 인증 바랍니다.\n\n<span style=\"color: red\"><a href='https://rewardy.co.kr/team/?".$encrypted."' target=\"_blank\">사용자 인증</a></span>";
+						//$contents = "안녕하세요.\n\n".$company."에서 발송되었습니다.\n\n아래 링크를 클릭하여 인증 바랍니다.\n\n<span style=\"color: red\"><a href='http://demo.rewardy.co.kr/team/?".$encrypted."' target=\"_blank\">사용자 인증</a></span>";
 
 						/*ob_start();
 						include str_replace( basename(__DIR__) , "", __DIR__ ) ."layer/mail_send_about.php";
@@ -1999,7 +1999,7 @@ if($mode == "member_email_send"){
 
 						$secret = "send_email=".$user_id."&to_email=".$input_email."&sendno=".$sendmail_info['idx'];
 						$encrypted = Encrypt($secret);
-						//$contents = "안녕하세요.\n\n".$company."에서 발송되었습니다.\n\n아래 링크를 클릭하여 인증 바랍니다.\n\n<span style=\"color: red\"><a href='https://rewardy.co.kr/team/?".$encrypted."' target=\"_blank\">사용자 인증</a></span>";
+						//$contents = "안녕하세요.\n\n".$company."에서 발송되었습니다.\n\n아래 링크를 클릭하여 인증 바랍니다.\n\n<span style=\"color: red\"><a href='http://demo.rewardy.co.kr/team/?".$encrypted."' target=\"_blank\">사용자 인증</a></span>";
 
 						$location_url = $home_url."/team/?".$encrypted;
 

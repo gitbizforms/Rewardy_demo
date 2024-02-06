@@ -2989,7 +2989,7 @@ $(document).on("click", ".coin_all_excel", function(){
             if(f_result == "complete"){
               // console.log(f_url);
               fdownload(f_name, f_url);
-              // var downloadUrl = "https://rewardy.co.kr/home/todaywork/rewardyNAS/user/data/3/qd7gXHgpTI1662536667/excel/excel_240202112232.xls";
+              // var downloadUrl = "http://demo.rewardy.co.kr/home/todaywork/rewardyNAS/user/data/3/qd7gXHgpTI1662536667/excel/excel_240202112232.xls";
               // Trigger download
               // window.location.href = downloadUrl;
              }

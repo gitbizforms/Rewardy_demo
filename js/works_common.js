@@ -166,7 +166,7 @@ $(function () {
     }
   });
   $(document).on("click", ".select_report", function () {
-    window.open("https://rewardy.co.kr/todaywork/team_index.php", "_blink");
+    window.open("http://demo.rewardy.co.kr/todaywork/team_index.php", "_blink");
   });
 
 

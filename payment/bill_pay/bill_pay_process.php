@@ -89,8 +89,8 @@ $sign2   = $SignatureUtil->makeSignature($params);
                 <input type="hidden" name="buyername" class= "buyername" value="<?php echo $userName?>">
                 <input type="hidden" name="buyertel" value="01012345678">
                 <input type="hidden" name="buyeremail" class= "buyeremail" value="<?php echo $userEmail?>">
-                <input type="hidden" name="returnUrl" value="https://rewardy.co.kr/payment/bill_pay/bill_pay_pop_return.php">
-                <input type="hidden" name="closeUrl" value="https://rewardy.co.kr/about/price.php">
+                <input type="hidden" name="returnUrl" value="http://demo.rewardy.co.kr/payment/bill_pay/bill_pay_pop_return.php">
+                <input type="hidden" name="closeUrl" value="http://demo.rewardy.co.kr/about/price.php">
                 <input type="hidden" name="acceptmethod" value="HPP(1):below1000:va_receipt:BILLAUTH(Card):centerCd(Y)">
                 <!-- 1: 결제 타입 , 2: 신청 숫자 3: 회사이름 4:사업자등록번호 -->
                 <input type="hidden" name="merchantData" value="<?php echo "1&".$people."&".$com_text."&".$companyNum."&".$dep_text?>">

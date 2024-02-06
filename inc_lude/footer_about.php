@@ -14,8 +14,8 @@
 								<p>Copyright (c) 2000-2022 by bizforms.co.kr All rights reserved.</p>
 							</div>
 							<div class="footer_list">
-								<a class ="service" href="https://rewardy.co.kr/about/service.php"><span>이용약관</span></a>
-								<a class ="p_guide" href="https://rewardy.co.kr/about/privacy_guide.php"><span>개인정보취급방침</span></a>
+								<a class ="service" href="http://demo.rewardy.co.kr/about/service.php"><span>이용약관</span></a>
+								<a class ="p_guide" href="http://demo.rewardy.co.kr/about/privacy_guide.php"><span>개인정보취급방침</span></a>
 							</div>
 						</div>
 					</div>

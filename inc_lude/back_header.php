@@ -2,7 +2,7 @@
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 
 
-	//윈도우서버용 php-mssql 사용, 도메인 : https://rewardy.co.kr
+	//윈도우서버용 php-mssql 사용, 도메인 : http://demo.rewardy.co.kr
 
 	//리눅스 환경 변수 : /inc_lude/conf_mysqli.php
 	//리눅스 환경 함수 : /inc_lude/func_mysqli.php
