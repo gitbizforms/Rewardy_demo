@@ -1,17 +1,23 @@
 ﻿<?
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
+	
 	include $home_dir . "/inc_lude/header.php";
+	// include $home_dir . "/challenge/challenges_header_main.php";
 
 	$tuto = tutorial_chk();
-	if($tuto['t_flag']>4){
-		alert('해당 단계는 이미 완료하셨습니다!');
-		echo "<script>history.back();</script>";
-	}else if($tuto['t_flag']<4){
+	// if($tuto['t_flag']>4){
+	// 	alert('해당 단계는 이미 완료하셨습니다!');
+	// 	echo "<script>history.back();</script>";
+	// }else
+	 if($tuto['t_flag']<4){
 		alert('이전 단계를 먼저 수행해주세요.');
 		echo "<script>history.back();</script>";
 	}
 ?>
+<head>
+	<script src="/js/tutorial_common.js<?php echo VER;?>"></script>
+</head>
 <script type="text/javascript">
 		$(document).ready(function(){
 			setTimeout(function(){
@@ -118,7 +124,7 @@
 	<div class="tuto_mark tuto_mark_01_01"><button><span></span></button></div>
 	<div class="tuto_pop tuto_pop_01_01">
 		<div class="tuto_in">
-			<div class="tuto_tit">챌린지에 대해 알아보기</div>
+			<div class="tuto_tit">챌린지</div>
 			<div class="tuto_pager">1/1</div>
 			<div class="tuto_desc">
 				<p>활성화되어 있는 챌린지에 도전할 수 있어요.</p>
@@ -134,7 +140,10 @@
 	<div class="rew_warp_in">
 		<div class="rew_box">
 			<div class="rew_box_in">
-				<!-- menu -->
+				<? include $home_dir . "/inc_lude/header_new.php";?>
+				<!-- //상단 -->
+				<? include $home_dir . "/inc_lude/menu.php";?>
+				<!-- //menu -->
 				<div class="rew_menu">
 					<div class="rew_menu_in">
 						<div class="rew_bar">
@@ -165,8 +174,7 @@
 									
 								</ul>
 								<div class="rew_bar_setting">
-
-																			<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
+									<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
 								</div>
 							</div>
 						</div>
@@ -349,9 +357,7 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="rew_conts_scroll_04">
-
 							<div class="rew_cha_list">
 								<div class="rew_cha_list_in">
 									<ul class="rew_cha_list_ul">
@@ -360,16 +366,16 @@
 												<div class="cha_box">
 													<div class="cha_box_m">
 														<div class="cha_info">
-															<span class="cha_cate">업무</span>
+															<span class="cha_cate">보안</span>
 														</div>
 														<span class="cha_coin"><strong>500</strong>코인</span>
 													</div>
 													<div class="cha_box_t">
-														<span class="cha_title on tuto tuto_01_01">윈도우 업데이트 점검한다면</span>
+														<span class="cha_title on tuto tuto_01_01">해킹 방지의 첫 걸음! 윈도우 업데이트인걸 아시나요?</span>
 													</div>
 													<div class="cha_box_b">
-														<span class="cha_member"><strong>12</strong>/20명 도전</span>
-														<span class="cha_dday">D - 20</span>
+														<span class="cha_member"><strong>93</strong>/120명 도전</span>
+														<span class="cha_dday">D - 3</span>
 													</div>
 												</div>
 											</a>
@@ -384,51 +390,54 @@
 														<span class="cha_coin"><strong>500</strong>코인</span>
 													</div>
 													<div class="cha_box_t">
-														<span class="cha_title">튜토리얼 점검한다면</span>
+														<span class="cha_title">튜토리얼 챌린지</span>
 													</div>
 													<div class="cha_box_b">
-														<span class="cha_member"><strong>1</strong>/2명 도전</span>
-														<span class="cha_dday">D - 20</span>
+														<span class="cha_member"><strong>74</strong>/120명 도전</span>
+														<span class="cha_dday">D - 31</span>
 													</div>
 												</div>
 											</a>
-										</li><li class="category_01">
+										</li>
+										<li class="category_01">
 											<a href="./0006.html">
 												<div class="cha_box">
 													<div class="cha_box_m">
 														<div class="cha_info">
-															<span class="cha_cate">리워디</span>
+															<span class="cha_cate">생활</span>
 														</div>
 														<span class="cha_coin"><strong>1,500</strong>코인</span>
 													</div>
 													<div class="cha_box_t">
-														<span class="cha_title">리워디 한다면</span>
+														<span class="cha_title">하루 10분! 이 자세면 생활이 바뀐다</span>
 													</div>
 													<div class="cha_box_b">
-														<span class="cha_member"><strong>100</strong>/120명 도전</span>
-														<span class="cha_dday">D - 120</span>
+														<span class="cha_member"><strong>85</strong>/120명 도전</span>
+														<span class="cha_dday">D - 7</span>
 													</div>
 												</div>
 											</a>
-										</li><li class="category_01">
+										</li>
+										<li class="category_01">
 											<a href="./0006.html">
 												<div class="cha_box">
 													<div class="cha_box_m">
 														<div class="cha_info">
-															<span class="cha_cate">놀기</span>
+															<span class="cha_cate">공유</span>
 														</div>
 														<span class="cha_coin"><strong>50</strong>코인</span>
 													</div>
 													<div class="cha_box_t">
-														<span class="cha_title">카페가기</span>
+														<span class="cha_title">맛잘알 여러분! 맛집 추천 해주세요</span>
 													</div>
 													<div class="cha_box_b">
-														<span class="cha_member"><strong>20</strong>/20명 도전</span>
+														<span class="cha_member"><strong>13</strong>/20명 도전</span>
 														<span class="cha_dday">D - 2</span>
 													</div>
 												</div>
 											</a>
-										</li><li class="category_01">
+										</li>
+										<li class="cha_dend category_01">
 											<a href="./0006.html">
 												<div class="cha_box">
 													<div class="cha_box_m">
@@ -438,11 +447,30 @@
 														<span class="cha_coin"><strong>10</strong>코인</span>
 													</div>
 													<div class="cha_box_t">
-														<span class="cha_title">반차를 쓴다면</span>
+														<span class="cha_title">연휴에 반차쓰기? 어렵지 않아요</span>
 													</div>
 													<div class="cha_box_b">
-														<span class="cha_member"><strong>30</strong>/30명 도전</span>
-														<span class="cha_dday">Day</span>
+														<span class="cha_member"><strong>40</strong>/40명 도전</span>
+														<span class="cha_dday">종료</span>
+													</div>
+												</div>
+											</a>
+										</li>
+										<li class="cha_dend category_01">
+											<a href="./0006.html">
+												<div class="cha_box">
+													<div class="cha_box_m">
+														<div class="cha_info">
+															<span class="cha_cate">업무</span>
+														</div>
+														<span class="cha_coin"><strong>10</strong>코인</span>
+													</div>
+													<div class="cha_box_t">
+														<span class="cha_title">[신입사원] 보고서에도 형식이 있다는 사실 알고 있나요?</span>
+													</div>
+													<div class="cha_box_b">
+														<span class="cha_member"><strong>10</strong>/10명 도전</span>
+														<span class="cha_dday">종료</span>
 													</div>
 												</div>
 											</a>

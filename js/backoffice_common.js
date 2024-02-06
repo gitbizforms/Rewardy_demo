@@ -16,8 +16,8 @@ $(function () {
     "backpenalty_list",
     "backcp_list",
   ];
-  info_arr = ["backuser_list", "backcomp_list"];
-  bro_arr = ["backnote_list","backfaq_list","backsample_list","backmanual_list"];
+  info_arr = ["backuser_list", "backcomp_list", "backtuto_list"];
+  bro_arr = ["backnote_list","backfaq_list","backsample_list","backmanual_list","backemail_list"];
 
   var side = $("#sidebarOpen").val();
   if (side == "open") {
@@ -47,7 +47,14 @@ $(function () {
     $(".rewardy_loading_01").css("display", "block");
   };
 
+  
+
   $(window).load(function () {
+    // 에디터 기본 길이 700px로 설정
+    editor = $("div[class*='cke_contents']");
+    if(editor){
+      editor.css("height","700px");    
+    }
     //페이지가 로드 되면 로딩 화면을 없애주는 것
     $(".rewardy_loading_01").css("display", "none");
   });
@@ -1771,6 +1778,16 @@ $(document).on("click", "button[id^=noteres_]", function () {
   }
 });
 
+//백오피스 - 브로슈어 업데이트 바로가기
+$(document).on("click", "button[id^=noteedit_]", function () {
+  var id_value = $(this).attr("id").replace("noteedit_", "");
+  var kind = $("#bro_view").val();
+
+  location.href = "/choco/bro_"+kind+"_write.php?idx="+id_value;
+  // alert(id_value+"|"+kind);
+  return false;
+});
+
 // 백오피스 공지사항 수정버튼
 $(document).on("click","#notice_edit",function(){
   type = $("#backwrite_type").val();
@@ -1863,3 +1880,12 @@ $(document).on("click","#btn_make_excel",function(){
   
   return false;
 });
+
+// 메일 문의사항 답변하기 
+$(document).on("click","tr[id^=email_]",function(){
+  idx = $(this).attr("id");
+  // alert(idx);
+  no = idx.replace("email_", "");
+  location.href = "bro_email_write.php?idx=" + no;
+});
+

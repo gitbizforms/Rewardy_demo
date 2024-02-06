@@ -10,8 +10,6 @@ $home_dir = rtrim($urlWithoutLastPath, $lastPath);
 
 include $home_dir . "/inc_lude/header_index_new.php";
 //예정업무날짜  -- 나중에 지워야 할 코드
-
-
 $wdate = $_POST['wdate'];
 $wdate = str_replace("-",".",$wdate);
 
@@ -712,7 +710,7 @@ $project_link_info = @array_combine($project_data_info['work_idx'], $project_dat
 																			//받은업무
 																			//보고, 공유
 																			if($work_flag=="1" && $work_idx || $share_flag=='2' && $work_idx){?>
-																				<button class="tdw_list_100c" title="100코인" id="tdw_list_100c" value="<?=$idx?>"><span>100</span></button>
+																				<button class="tdw_list_100c" title="코인보내기" id="tdw_list_100c" value="<?=$idx?>"><span>100</span></button>
 																			<?}?>
 																			
 
@@ -742,58 +740,59 @@ $project_link_info = @array_combine($project_data_info['work_idx'], $project_dat
 																			<?}?>
 																			<div class="tdw_list_drag" title="순서 변경" value="<?=$idx?>"><span>드래그 드랍 기능</span></div>
 																			<div class="tdw_list_more">
-																				<button class="tdw_list_o" title="메뉴열기" id=""><span>메뉴열기</span></button>
+																				<?if($work_flag != '4'){?>
+																					<button class="tdw_list_o" title="메뉴열기" id=""><span>메뉴열기</span></button>
+																				<?}?>
 																				<div class="tdw_list_1depth">
 																					<ul>
-																						<li>
-																							<?if(($notice_flag=='0' || $decide_flag=='0') && $share_flag!=='2' && $notice_flag!='1' && $work_flag!='4'){?>
+																						<?if(($notice_flag=='0' || $decide_flag=='0') && $share_flag!=='2' && $notice_flag!='1' && $work_flag!='4'){?>
+																							<li>
 																								<button class="tdw_list_p tdw_list_party_link <?=$project_link_info[$idx]?"on":""?>" id="tdw_list_party_link" value="<?=$idx?>" title="파티연결"><span>파티연결</span></button>
-																							<?}?>
-																						</li>
-																						<li>
+																							</li>
+																						<?}?>
 																						<?//공유하기?>
-																							<?//공유한 업무?>
-																							<?if($share_flag=='1' && $work_idx){?>
+																						<?//공유한 업무?>
+																						<?if($share_flag=='1' && $work_idx){?>
+																							<li>
 																								<button class="tdw_list_share_cancel tdw_list_s" id="tdw_list_share_cancel" value="<?=$idx?>" title="공유취소"><span>공유취소</span></button>
-																							<?}else{?>
-																								<?//나의업무작성, 공유업무작성?>
-																								<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null)){?>
-																									<button class="tdw_list_share tdw_list_s" id="tdw_list_share" value="<?=$idx?>" title="공유하기"><span>공유하기</span></button>
+																							</li>
+																						<?}else{?>
+																							<?//나의업무작성, 공유업무작성?>
+																							<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null)){?>
+																							<li>
+																								<button class="tdw_list_share tdw_list_s" id="tdw_list_share" value="<?=$idx?>" title="공유하기"><span>공유하기</span></button>
+																							</li>
 																								<?}?>
-																							<?}?>
-																						</li>
-																						<li>
-																							<?//파일첨부?>
-																							<?//파일첨부(나의업무, 공유업무작성, 보고업무작성, 요청업무작성)?>
-																							<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+																						<?}?>
+																						
+																						<?//파일첨부?>
+																						<?//파일첨부(나의업무, 공유업무작성, 보고업무작성, 요청업무작성)?>
+																						<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+																							<li>
 																								<button class="tdw_list_files tdw_list_f" id="tdw_file_add_<?=$idx?>" title="파일추가"><span>파일추가</span></button>
 																								<input type="file" id="files_add_<?=$idx?>" style="display:none;">
-																							<?}?>
-																						</li>
-																						<li>
-																							<?//사람선택?>
-																							<?//공유업무작성, 보고업무작성, 요청업무작성?>
-																							<?if(($share_flag=='1' && $work_idx) || ($work_flag=='1' &&  $work_idx==null)){?>
+																							</li>
+																						<?}?>
+																						
+																						<?//사람선택?>
+																						<?//공유업무작성, 보고업무작성, 요청업무작성?>
+																						<?if(($share_flag=='1' && $work_idx) || ($work_flag=='1' &&  $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+																							<li>
 																								<button class="tdw_list_user tdw_list_u" id="tdw_send_user_<?=$idx?>" value="<?=$idx?>" title="사람추가"><span>사람추가</span></button>
-																							<?}?>
-
-																							<?//사람선택?>
-																							<?//요청업무작성?>
-
-																							<?if($work_flag=='3' && $work_idx==null){?>
-																								<button class="tdw_list_user tdw_list_u" id="tdw_send_user_<?=$idx?>" value="<?=$idx?>" title="사람추가"><span>사람추가</span></button>
-																							<?}?>
-																						</li>
-																						<li>
+																							</li>
+																						<?}?>
 																							<?//메모작성?>
-																							<? if($notice_flag!='1' && $work_flag!='4'){?>
-																								<?php if($secret_flag == '1'){?>
+																						<? if($notice_flag!='1' && $work_flag!='4'){?>
+																							<?php if($secret_flag == '1'){?>
+																								<li>
 																									<button class="tdw_list_memo_secret tdw_list_m" id="tdw_list_memo" value="<?=$idx?>" title="메모하기"><span>메모하기</span></button>
-																								<?php }else{ ?>
+																								</li>
+																							<?php }else{ ?>
+																								<li>
 																									<button class="tdw_list_memo tdw_list_m" id="tdw_list_memo" value="<?=$idx?>" title="메모하기"><span>메모하기</span></button>
-																								<?php } ?>	
+																								</li>
+																							<?php } ?>	
 																							<?}?>
-																						</li>
 																						<?if(($work_flag=='2' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
 																							<? if(($repeat_flag && ($work_date < '2023-09-19')) || $repeat_work_idx != null){ ?>
 																								<li>
@@ -805,21 +804,23 @@ $project_link_info = @array_combine($project_data_info['work_idx'], $project_dat
 																								</li>
 																							<?php } ?>
 																						<?php } ?>
-																						<li>
+																						
 																						<?//일정변경?>
-																							<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
-																							<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+																						<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
+																						<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+																							<li>
 																								<div class ="tdw_list_c">
 																									<input class="tdw_list_date tdw_list_cc" type="text" id="listdate_<?=$idx?>" value="날짜변경" readonly>
 																								</div>
-																							<?}?>
-																						</li>
-																						<li>
+																							</li>
+																						<?}?>
 																						<?//일정변경?>
 																							<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
-																							<?if(($work_stime && $work_etime && $work_flag == '2' && $share_flag == '0' && $state == '0' && $decide_flag > '1')){?>
+																						<?if(($work_stime && $work_etime && $work_flag == '2' && $share_flag == '0' && $state == '0' && $decide_flag > '1')){?>
+																							<li>
 																								<button class="tdw_list_time tdw_list_t" id="tdw_list_time" value="<?=$idx?>" title="시간변경"><span>시간변경</span></button>
-																							<?}?>
+																							</li>
+																						<?}?>
 																						</li>
 																						<li>
 																							<?if($work_flag!='4'){

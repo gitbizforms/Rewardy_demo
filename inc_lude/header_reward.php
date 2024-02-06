@@ -48,7 +48,7 @@
 	}else{
 		if(!$user_id && $_SERVER['PHP_SELF']!='/index.php'){
 		
-			header("Location:http://demo.rewardy.co.kr/index.php");
+			header("Location:https://rewardy.co.kr/index.php");
 			exit;
 		
 		}
@@ -81,6 +81,7 @@
 <link rel="stylesheet" type="text/css" href="/html/css/coin.css<?php echo VER;?>"/> <!--임시 공통-->
 <link rel="stylesheet" type="text/css" href="/html/css/coin_pop_01.css<?php echo VER;?>"/> <!--임시 공통-->
 <link rel="stylesheet" type="text/css" href="/html/css/coin_pop_02.css<?php echo VER;?>"/> <!--임시 공통-->
+<link rel="stylesheet" type="text/css" href="/html/css/coin_out_pop.css<?php echo VER;?>"/> 
 <link rel="stylesheet" type="text/css" href="/html/css/rew_head.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/pro_pop.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/char_pop.css<?php echo VER;?>" />
@@ -91,6 +92,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css<?php echo VER;?>" />
 <!-- slick -> work_process -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css<?php echo VER;?>"/>
+<!-- pinterest-->
+<meta name="p:domain_verify" content="54d2848aa2b5955d8629befce8fcee60"/>
+<!-- naver -->
+<meta name="naver-site-verification" content="39c63061605a312dcfd16492c9e55affa7b628c2" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2JZRSPQSF"></script>
 <script>

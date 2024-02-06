@@ -179,7 +179,6 @@
 			}
 		}
 	}
-
 	if($mode == "login"){
 		$user_id = trim($_POST['id']);
 		$user_pw = trim($_POST['pwd']);
@@ -338,8 +337,8 @@
 						//회사폴더명
 						setcookie('comfolder', $comfolder , $cookie_limit_time , '/', C_DOMAIN);
 
-						//접속 url 체크
-						setcookie('url', C_DOMAIN , COOKIE_90DAYS , '/', C_DOMAIN);
+						//링크
+						setcookie('url', C_DOMAIN , $cookie_limit_time , '/', C_DOMAIN);
 					}
 
 					//회원등급(숫자일경우만)
@@ -416,7 +415,7 @@
 	if($mode == "login_mobile"){
 		$user_id = trim($_POST['id']);
 		$user_pw = trim($_POST['pwd']);
-		$chk_login = trim($_POST['chk_login']);
+		$chk_login = $_POST['chk_login'];
 		$device_uuid = trim($_POST['device_uuid']);
 		$push_register_id = trim($_POST['push_register_id']);
 		$device_platform = trim($_POST['device_platform']);
@@ -489,44 +488,45 @@
 					$partno = preg_replace("/[^0-9]/", "", $partno);
 					
 					$partname = $res["part"];
-					// //24시간 쿠키 설정
-					// $login_year = date("Y", TODAYTIME); 
-					// $login_month = date("m", TODAYTIME);
-					// $login_day = date("d", TODAYTIME);
-					// $login_h = date("H", TODAYTIME);
-					// $login_i = date("i", TODAYTIME);
-					// $login_s = date("s", TODAYTIME);
 
-					// //$login_tm = mktime($login_h, $login_i, $login_s, $login_month, $login_day, $login_year);	//현재시간
-					// $login_harutm = mktime(23,59,59, $login_month, $login_day, $login_year);					//제한시간
-					// //$limit_time = $login_harutm - $login_tm;													//남은시간(오늘시간 - 현재시간)
+					//24시간 쿠키 설정
+					$login_year = date("Y", TODAYTIME); 
+					$login_month = date("m", TODAYTIME);
+					$login_day = date("d", TODAYTIME);
+					$login_h = date("H", TODAYTIME);
+					$login_i = date("i", TODAYTIME);
+					$login_s = date("s", TODAYTIME);
 
-					// //쿠키 제한시간(23시 59분 59초)
-					// $limit_time = mktime(23,59,59, $login_month, $login_day, $login_year);						//제한시간
+					//$login_tm = mktime($login_h, $login_i, $login_s, $login_month, $login_day, $login_year);	//현재시간
+					$login_harutm = mktime(23,59,59, $login_month, $login_day, $login_year);					//제한시간
+					//$limit_time = $login_harutm - $login_tm;													//남은시간(오늘시간 - 현재시간)
 
-					// //$cookie_limit_time = TODAYTIME + $limit_time;
-					// $cookie_limit_time = $limit_time;
+					//쿠키 제한시간(23시 59분 59초)
+					$limit_time = mktime(23,59,59, $login_month, $login_day, $login_year);						//제한시간
 
-					//쿠키 24시간
-					//$cookie_limit_time = COOKIE_TIME;
+					if($chk_login == true ){
+						$cookie_hol_time = COOKIE_MAXTIME;
+					}else{
+						$cookie_hol_time = $limit_time;
+					}
 
 					//회원아이디
-					setcookie('user_id', $user_id, COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('user_id', $user_id, $cookie_hol_time , '/', C_DOMAIN);
 
 					//회원이름
-					setcookie('user_name', $user_name , COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('user_name', $user_name , $cookie_hol_time , '/', C_DOMAIN);
 
 					//부서코드
-					setcookie('user_part', $partno , COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('user_part', $partno , $cookie_hol_time , '/', C_DOMAIN);
 
 					//부서명
-					setcookie('part_name', $partname , COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('part_name', $partname , $cookie_hol_time , '/', C_DOMAIN);
 
 					//회사코드
-					setcookie('companyno', $companyno , COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('companyno', $companyno , $cookie_hol_time , '/', C_DOMAIN);
 
 					//회사폴더명
-					setcookie('comfolder', $comfolder , COOKIE_MAXTIME , '/', C_DOMAIN);
+					setcookie('comfolder', $comfolder , $cookie_hol_time , '/', C_DOMAIN);
 
 
 					//회원등급(숫자일경우만)
@@ -569,7 +569,7 @@
 								$update = updateQuery($sql);
 						}
 					}else{
-						$sql = "update push_device_info set push_register_id = '".$push_register_id."', mem_id = '".$user_id."' where device_uuid = '".$device_uuid."'";
+						$sql = "update push_device_info set push_register_id = '".$push_register_id."', mem_id = '".$user_id."', push_yn = 'Y' where device_uuid = '".$device_uuid."'";
 						$stmt2 = updateQuery($sql);
 					}
 
@@ -608,6 +608,31 @@
 				exit;
 			}
 		}
+	}
+
+	if($mode == "logout_app"){
+		$device_id = $_POST['device_id'];
+		// $sql = "select idx, device_uuid from push_device_info where device_uuid = '".$device_id."' ";
+		$sql = "update push_device_info set push_yn = 'N' where device_uuid = '".$device_id."' and mem_id = '".$user_id."' and idx > 0";
+		$update = updateQuery($sql);
+
+		if($update){
+			echo $sql;
+		}
+		// 쿠키 삭제 예외 배열값
+		$DelNotCookieArr = array("cid", "id_save");
+		if($_COOKIE){
+			foreach( $_COOKIE as $key => $value ){
+
+				//쿠키삭제예외
+				if(!in_array($key, $DelNotCookieArr)) {
+					setcookie( $key, $value, time()-3600 , '/', C_DOMAIN);
+					unset($_COOKIE[$key]);
+				}
+			}
+		}
+
+	exit;
 	}
 
 	//출근도장

@@ -1086,17 +1086,42 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 		return $decryptedValue;
 	}
 	/* 쿠키, 사용자 DB 점검*/
-	// $sql = "select companyno, email, highlevel, name from work_member where email = '".$user_id."'";
-	// $check_cookie = selectQuery($sql);
-	// if($check_cookie['companyno'] != $_COOKIE['companyno'] || $check_cookie['email'] != $_COOKIE['user_id'] || 
-	// $check_cookie['highlevel'] != $_COOKIE['user_level']){
-		
-	// 	alert("[ERROR] \\n잘못된 경로를 통해서 접근하셨거나, 오류가 발생하였습니다.\\n정상적인 사용자일 경우 웹브라우저를 종료하신 후 다시 접속하시기 바랍니다.");
-	// 	setcookie('companyno', $check_cookie['companyno'] , COOKIE_90DAYS , '/', C_DOMAIN);
-	// 	setcookie('user_id', $check_cookie['email'] , COOKIE_90DAYS , '/', C_DOMAIN);
-	// 	setcookie('user_level', $check_cookie['highlevel'] , COOKIE_90DAYS , '/', C_DOMAIN);
+	$sql = "select companyno, email, highlevel, name, part, partno, name from work_member where email = '".$_COOKIE['user_id']."' and name = '".$_COOKIE['user_name']."'
+	and highlevel = '".$_COOKIE['user_level']."' and part = '".$_COOKIE['part_name']."' and companyno = '".$_COOKIE['companyno']."' and partno = '".$_COOKIE['user_part']."'";
+	$check_cookie = selectQuery($sql);
+
+	if(!$check_cookie){
+		// 쿠키 삭제 예외 배열값
+		$DelNotCookieArr = array("cid", "id_save");
+		if($_COOKIE){
+			foreach( $_COOKIE as $key => $value ){
+
+				//쿠키삭제예외
+				if(!in_array($key, $DelNotCookieArr)) {
+					setcookie( $key, $value, time()-3600 , '/', C_DOMAIN);
+					unset($_COOKIE[$key]);
+				}
+			}
+		}
+	}
+	// if($check_cookie['companyno'] != $_COOKIE['companyno'] || $check_cookie['email'] != $_COOKIE['user_id'] || $check_cookie['name'] != $_COOKIE['user_name']){
+	// 	$login_year = date("Y", TODAYTIME); 
+	// 	$login_month = date("m", TODAYTIME);
+	// 	$login_day = date("d", TODAYTIME);
+	// 	$login_h = date("H", TODAYTIME);
+	// 	$login_i = date("i", TODAYTIME);
+	// 	$login_s = date("s", TODAYTIME);
+
+	// 	//쿠키 제한시간(23시 59분 59초)
+	// 	$limit_time = mktime(23,59,59, $login_month, $login_day, $login_year);						//제한시간
+
+	// 	//$cookie_limit_time = TODAYTIME + $limit_time;
+	// 	$cookie_limit_time = $limit_time;
+
+	// 	setcookie('companyno', $check_cookie['companyno'] , $cookie_limit_time , '/', C_DOMAIN);
+	// 	setcookie('user_id', $check_cookie['email'] , $cookie_limit_time , '/', C_DOMAIN);
+	// 	setcookie('user_name', $check_cookie['name'] , $cookie_limit_time , '/', C_DOMAIN);
 	// 	// $_COOKIE['companyno'] = $check_cookie['companyno'];
-	// 	echo "<script>location.reload();</script>";
 
 	// }
 	/* 쿠키, 사용자 DB 점검*/
@@ -1277,7 +1302,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 			//회원정보
 
 			$sql = "select a.idx, a.company, a.companyno, a.email, a.name, a.part, a.partno,";
-			$sql .= " a.highlevel, a.memo, a.coin, a.comcoin, a.profile_type,";
+			$sql .= " a.highlevel, a.memo, a.coin, a.comcoin, a.profile_type, a.t_flag,";
 			$sql .= " a.profile_img_idx, b.file_path, b.file_name, a.live_1, a.live_4, a.live_1_regdate, a.live_4_regdate,";
 			$sql .= " date_format(a.live_1_regdate, '%Y-%m-%d') as live_1_date,";
 			$sql .= " date_format(a.live_1_regdate, '%H:%i') as live_1_time, date_format(a.live_4_regdate, '%H:%i') as live_4_time";
@@ -1310,7 +1335,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 
 				$profile_type = $member_info['profile_type'];
 				$profile_img_idx = $member_info['profile_img_idx'];
-				$profile_img =  'http://demo.rewardy.co.kr'.$member_info['file_path'].$member_info['file_name'];
+				$profile_img =  'https://rewardy.co.kr'.$member_info['file_path'].$member_info['file_name'];
 				$profile_use =  $member_info['file_path'].$member_info['file_name'];
 
 				$member_info['profile_img_src'] = $profile_img;
@@ -2859,8 +2884,6 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 				$file_name = $character_img_info['file_name'][$i];
 				$profile_character_info[$character_img_info['idx'][$i]] = $file_path.$file_name;
 			}
-
-			
 		}
 
 		//프로필 사진
@@ -2871,7 +2894,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 				$file_path = $profile_img_list['file_path'][$i];
 				$file_name = $profile_img_list['file_name'][$i];
 
-				$profile_img_list_info[$profile_img_list['idx'][$i]] = "http://demo.rewardy.co.kr".$file_path.$file_name;
+				$profile_img_list_info[$profile_img_list['idx'][$i]] = "https://rewardy.co.kr".$file_path.$file_name;
 			}
 
 		}
@@ -4856,7 +4879,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 		}else{
 			$data_coin = '0';
 		}
-		$sql = "select idx, email, todaywork_alarm, challenges_alarm, party_alarm, reward_alarm, like_alarm, memo_alarm allselect_alarm from work_member_alarm where email = '".$tid."'";
+		$sql = "select idx, email, todaywork_alarm, challenges_alarm, party_alarm, reward_alarm, like_alarm, memo_alarm, allselect_alarm from work_member_alarm where email = '".$tid."'";
 		$check_alarm = selectQuery($sql);
 
 
@@ -4903,6 +4926,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 				}
 				$alarm_kind = "업무";
 			}elseif($data_code_sql['service'] == "penalty"){
+				$on_off = "Y";
 				$alarm_flag = "1";
 				$alarm_kind = "페널티";
 			}elseif($data_code_sql['service'] == "memo"){
@@ -4997,7 +5021,7 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 					'title' => $title,
 					'body'=> $message,
 					'sound' => 'default',
-					'url' => 'http://demo.rewardy.co.kr/alarm/alarm_list.php'
+					'url' => 'https://rewardy.co.kr/alarm/alarm_list.php'
 				]
 			]; // 해석여부
 		
@@ -7293,6 +7317,15 @@ function CutString($str, $len, $checkmb=false, $tail='...') {
 		}
 	}	
 
+	function limit_like_check($member_id){
+		global $companyno, $user_id;
+
+		$sql = "select count(1) as cnt from work_todaywork_like where email = '".$member_id."' and send_email = '".$user_id."' and companyno = '".$companyno."'";
+		$sql = $sql .= " and state = '0' and service != 'main' and workdate = '".TODATE."' ";
+		$limit_like = selectQuery($sql);
+
+		return $limit_like ;
+	}	
 	
 	function main_work_count(){
 		global $companyno, $user_id;

@@ -66,7 +66,7 @@ if($mode == "member_email_send"){
 			$input_email = $_POST['input_email'][$i];
 			$input_sw = $_POST['input_sw'][$i];
 
-			$sql = "select idx from work_team where state='0' and partname='".$input_team."'";
+			$sql = "select idx from work_team where state='0' and partname='".$input_team."' and companyno = '".$companyno."'";
 			$team_info = selectQuery($sql);
 			if(!$team_info['idx']){
 				$sql = "insert into work_team(companyno, partname, ip) values('".$companyno."', '".$input_team."', '".LIP."')";

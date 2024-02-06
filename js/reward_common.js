@@ -140,59 +140,36 @@ $(function () {
 
   //출금신청
   $("#rew_withdraw_btn").click(function () {
-    if ($(".layer_withdraw").is(":visible") == false) {
-      $(".layer_withdraw").show();
+    if ($("#layer_withdraw").is(":visible") == false) {
+      $("#layer_withdraw").show();
     }
   });
 
   //출근신청 레이어 닫기
   $("#btn_withdraw_off").click(function () {
-    if ($(".layer_withdraw").is(":visible") == true) {
+    if ($("#layer_withdraw").is(":visible") == true) {
       var obj = $("#withdraw_coin");
       if (obj.val()) {
         obj.val("");
       }
-      $(".layer_withdraw").hide();
+      $("#layer_withdraw").hide();
     }
   });
 
   //출금신청하기
   $("#btn_withdraw_on").click(function () {
-    var obj_coin = $("#withdraw_coin");
-    var obj_bank = $("#btn_bank_on");
-    var obj_num = $("#input_bank_num");
-    var obj_user = $("#input_bank_user");
+    var obj_coin = $("#withdraw_coin").val();
+    let coin = obj_coin.replace(/,/g, '');
 
-    if (!obj_coin.val()) {
+    if (!obj_coin) {
       alert("출금할 금액을 입력해 주세요.");
       obj_coin.focus();
       return false;
     }
-
-    if (!obj_bank.val()) {
-      alert("은행을 선택해 주세요.");
-      return false;
-    }
-
-    if (!obj_num.val()) {
-      alert("계좌번호를 입력해 주세요.");
-      obj_num.focus();
-      return false;
-    }
-
-    if (!obj_user.val()) {
-      alert("예금주를 입력해 주세요.");
-      obj_user.focus();
-      return false;
-    }
-
     if (confirm("입력한 내용으로 출금 신청하시겠습니까?")) {
       var fdata = new FormData();
       fdata.append("mode", "withdraw_add");
-      fdata.append("coin", obj_coin.val());
-      fdata.append("bank_name", obj_bank.val());
-      fdata.append("bank_num", obj_num.val());
-      fdata.append("bank_user", obj_user.val());
+      fdata.append("coin", coin);
 
       $.ajax({
         type: "post",
@@ -227,8 +204,6 @@ $(function () {
   //초기화버튼
   $("#btn_coin_reset").click(function (){
     $("#withdraw_coin").css("color", "#858585");
-    tax = "예상출금수수료 : 0원";
-    $(".withdraw_tax").find("span").text(tax);
     var obj = $("#withdraw_coin");
     if (obj.val()) {
       obj.val("");
@@ -264,24 +239,16 @@ $(function () {
     }
     if ($("#withdraw_coin").val()) {
       var with_coin = $("#withdraw_coin").val();
-      var account_coin = $("#layer_withdraw_coin strong").text();
+      var account_coin = $("#layer_withdraw_coin p").text();
       account_coin = unComma(account_coin);
 
       if (with_coin && account_coin) {
         coin_as_color(with_coin, account_coin);
       }
 
-      tax = with_coin / 20;
-      tax = "예상출금수수료 : " + addComma(tax) + "원";
-
-      if(with_coin < 10000){
-        tax = "예상출금수수료 : 0원";
-      }
-
     } else {
       coin_as_color(0, 0);
     }
-    $(".withdraw_tax").find("span").text(tax);
   });
 
   //입력폼 포커스 되었을때
@@ -297,15 +264,8 @@ $(function () {
     account_ceil_coin = account_ceil2 * 10000;
 
     $("#withdraw_coin").val(account_ceil_coin);
-    tax = account_ceil_coin / 20;
-    tax = "예상출금수수료 : " + addComma(tax) + "원";
-
-    if(account_ceil_coin == 0){
-      tax = "예상출금수수료 : 0원";
-    }
 
     blured(this.id);
-    $(".withdraw_tax").find("span").text(tax);
   });
 
   //출금신청 > 은행선택하기 클릭
@@ -318,7 +278,7 @@ $(function () {
     $("#layer_withdraw_bank").removeClass("on");
   });
 
-  //출금신청 >은 행선택 했을때
+  //출금신청 > 은행선택 했을때
   $("#layer_withdraw_bank ul li button").click(function () {
     var val = $(this).val();
     var name = $(this).text();
@@ -331,11 +291,11 @@ $(function () {
   });
 
   //금액선택
-  $("#layer_withdraw_btns ul li button").click(function () {
+  $("#layer_withdraw_btns button").click(function () {
     //chkobj = $("button[id=requsechk]");
     //var checkCount = chkobj.size();
     var val = $(this).val();
-    var account_coin = $("#layer_withdraw_coin strong").text();
+    var account_coin = $("#layer_withdraw_coin p").text();
     account_coin = unComma(account_coin);
     console.log(account_coin);
 
@@ -357,7 +317,6 @@ $(function () {
         $("#withdraw_coin").val(with_coin);
         blured("withdraw_coin");
       }
-      tax = with_coin/20;
     } else {
       // 버튼의 value가 없다면
       if (account_coin) {
@@ -373,14 +332,8 @@ $(function () {
         coin_as_color(0, 0);
         $("#withdraw_coin").val("");
       }
-      tax = account_ceil_coin/20;
     }
-    tax = "예상출금수수료 : " + addComma(tax) + "원"
-      $(".withdraw_tax").find("span").text(tax);
   });
-
-
-  
 
   //보상하기 - 레이어
   $("#btn_coin_reward").click(function () {

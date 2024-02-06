@@ -8,6 +8,10 @@
 	include FUNC_MYSQLI;
 
 	$type_flag = ($chkMobile)?1:0;	
+
+	$ser_uri = $_SERVER['REQUEST_URI'];
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,12 +42,20 @@
 <link href="/about/css/style_font_notosans.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/about/css/window-date-picker.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/about/css/common.css<?php echo VER;?>" />
-<link rel="stylesheet" type="text/css" href="/about/css/mainy.css<?php echo VER;?>" />
+<!-- <link rel="stylesheet" type="text/css" href="/about/css/mainy.css<?php echo VER;?>" /> -->
 <link rel="stylesheet" type="text/css" href="/about/css/all.min.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/about/css/about.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/about/css/slick.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/set_head.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/mainy.css<?php echo VER;?>" />
+<? if(strpos($ser_uri,"/customer/manual")){?>
+<link rel="stylesheet" type="text/css" href="/html/css/sub_03_01.css" />
+<?}?>
 <link rel="stylesheet" type="text/css" href="/about/css/jquery.fullPage.css" />
+<link rel="stylesheet" href="/editors/ckeditor/plugins/mong9-editor/source/css/mong9-base.css"> <!--뷰어에서도 필요-->
+<link rel="stylesheet" href="/editors/ckeditor/plugins/mong9-editor/source/css/mong9.css"> <!--뷰어에서도 필요-->
+<link rel="stylesheet" href="/editors/ckeditor/plugins/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
+<link rel="stylesheet" href="/editors/ckeditor/plugins/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
@@ -61,7 +73,7 @@
 <link rel="stylesheet" type="text/css" href="/about/css/jquery.fullPage.css" />
 <script type="text/javascript" src="/about/js/jquery.fullPage.js"></script>
 <script type="text/javascript" src="/about/js/scrolloverflow.min.js"></script>
-
+<script src="/js/about_common.js<?php echo VER;?>"></script>
 </head>
 <body>
 
@@ -71,10 +83,11 @@
 	//js파일과 php파일 이름 같아서 파일이름만 따오기
 	$file = basename($_SERVER['PHP_SELF']);
 	$file_nm = basename($file,strchr($file,'.'));
+
+	
 	?>
 
-<script type="text/javascript" src="/about/js/inc/<?echo $file_nm;?>.js"></script>
-<script src="/js/about_common.js<?php echo VER;?>"></script>
+
 <script>
 	$(document).ready(function(){
 		$(document).on('click', '.price_btn', function(){
@@ -95,7 +108,6 @@ if($type_flag == '0'){
 	// 결제 팝업(MO)
 	include $home_dir . "/payment/bill_pay_mo/bill_pay_mo_pop.php";
 }
-
 //상단 메뉴
 include $home_dir . "inc_lude/menu_about.php";
 ?>

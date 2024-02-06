@@ -1,11 +1,11 @@
 <?php
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
-	include $home_dir . "/inc_lude/header.php";
+	include $home_dir . "/inc_lude/header_index.php";
 	///home/todaywork/rewardyNAS/user/
 
 	if($user_level != '0'){
-		header("Location:http://demo.rewardy.co.kr/index.php");
+		header("Location:https://rewardy.co.kr/index.php");
 		exit;
 	}
 
@@ -68,9 +68,12 @@
 
 		$comcoin_mem_info = selectAllQuery($sql);
 
-	//회사 보유 코인 : header.php 선언 되어있음
-	//$company_comcoin
+	// 회사 보유 코인
+		$sql = "select idx, comcoin from work_company where idx = '".$companyno."'";
+		$com_all_coin = selectQuery($sql);
 ?>
+<link rel="stylesheet" type="text/css" href="/html/css/set_head.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/set_04.css<?php echo VER;?>" />
 <div class="rew_warp">
 	<div class="rew_warp_in">
 		<div class="rew_box">
@@ -88,7 +91,9 @@
 								<div class="rew_member_in" id="rew_member_in">
 									<div class="rew_member_banner">
 										<div class="rew_member_banner_in">
-											<p>우리 회사는<strong><?=number_format($company_comcoin)?></strong>이 충전되어 있습니다.</p>
+											<p>우리 회사 전체 공용코인 : <strong><?=number_format($com_all_coin['comcoin'])?></strong></p></br>
+											<p>구성원에게 분배한 공용코인 : <strong><?=number_format($company_comcoin)?></strong></p></br>
+											<p>사용가능한 공용코인 : <strong><?=number_format($com_all_coin['comcoin'] - $company_comcoin)?></strong></p>
 											<button><span>코인 충전하기</span></button>
 										</div>
 									</div>

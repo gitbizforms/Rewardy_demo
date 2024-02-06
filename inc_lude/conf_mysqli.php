@@ -306,6 +306,9 @@
 	//프로필 파일업로드 경로
 	$penalty_save_dir_img_ori = "data/penalty/img_ori";
 
+	//관리자 출금 엑셀 업로드 경로
+	$coin_save_dir_img = "data/excel/img";
+
 	//오늘업무 첨부파일 업로드 경로
 	$work_save_dir = "data/work/files";
 

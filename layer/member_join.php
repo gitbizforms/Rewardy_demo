@@ -2,7 +2,7 @@
 //가입 메일을 받았을때
 if($sendno){?>
 	<div class="t_layer rew_layer_setting<?=($sendmail_info['highlevel']=='0')?" rew_layer_setting_02":""?>" id="rew_layer_setting" style="display:none;">
-		<div class="tl_deam"></div>
+		<div class="ttl_deam"></div>
 		<div class="tl_in">
 			<div class="tl_close">
 				<button><span>닫기</span></button>
@@ -122,7 +122,7 @@ if($sendno){?>
 if($output){?>
 
 	<div class="t_layer rew_layer_setting<?=($sendmail_info['highlevel']=='0')?" rew_layer_setting_02":""?>" id="rew_layer_setting" style="display:none;">
-		<div class="tl_deam"></div>
+		<div class="ttl_deam"></div>
 		<div class="tl_in">
 			<div class="tl_close">
 				<button><span>닫기</span></button>
@@ -208,7 +208,7 @@ if($output){?>
 
 
 <div class="t_layer rew_layer_member_add" style="display:none;">
-	<div class="tl_deam"></div>
+	<div class="ttl_deam"></div>
 	<div class="tl_in">
 		<div class="tl_close">
 			<button><span>닫기</span></button>

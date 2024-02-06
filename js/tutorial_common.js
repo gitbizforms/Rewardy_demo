@@ -164,14 +164,14 @@ $(document).on("click",".tuto_pop_01_01 .tuto_next",function(){
     $(".tuto_pop_01_02").show();
 });
 
-$(document).on("click",".tuto_pop_01_02 .tuto_next",function()
-{   
+$(document).on("click",".tuto_pop_01_02 .tuto_next",function(){   
     $(".rew_box").removeClass("on");
     $(".rew_menu_onoff button").removeClass("on");
     $(".tuto_mark_01_02").hide();
     $(".tuto_pop_01_02").hide();
 
     setTimeout(function(){
+        $("#tdw_list_1depth").css("display","block");
         tuto_position();
         $(".tuto_mark_01_03").show();
         $(".tuto_pop_01_03").show();
@@ -183,8 +183,8 @@ $(document).on("click",".tuto_pop_01_03 .tuto_next",function(){
     $(".tuto_pop_01_03").hide();
 
     $(".tuto_mark_01_04").show();
-    $(".tuto_pop_01_04").show();
-});
+    $(".tuto_pop_01_04").show();  
+    });
 });
 
 
@@ -193,6 +193,11 @@ $(document).on("click",".tuto_pop_01_04 .tuto_next",function(){
     fdata.append("mode","update");
     fdata.append("level","work");
 
+    tuto_flag = $("#tutorial_flag").val();
+    if(tuto_flag > 0){
+        fdata.append("not_reward","1");
+    }
+
     $.ajax({
         type: "POST",
         data: fdata,
@@ -200,10 +205,16 @@ $(document).on("click",".tuto_pop_01_04 .tuto_next",function(){
         processData: false,
         url: "/inc/tu_process.php",
         success: function (data) {
-                console.log(data);
-                $(".tuto_mark_01_04").hide();
-                $(".tuto_pop_01_04").hide();
-                $(".tuto_phase").show();
+            console.log(data);
+            $(".tuto_mark_01_04").hide();
+            $(".tuto_pop_01_04").hide();
+            if(tuto_flag==0){
+                $(".phase_02").addClass("tuto_on");
+            }
+            $(".phase_01").removeClass("tuto_on");
+            $(".phase_02 button").attr("onclick","location.href='/todaywork/tu_works_like.php'");
+            $(".phase_01").addClass("tuto_clear")
+            $(".tuto_phase").show();
         },
       });
     });
@@ -221,6 +232,7 @@ $(document).on("click",".tuto_pop_01_03 .tuto_prev",function(){
     $(".rew_menu_onoff button").addClass("on");
 
     setTimeout(function(){
+        $("#tdw_list_1depth").css("display","none");
         tuto_position();
         $(".tuto_mark_01_02").show();
         $(".tuto_pop_01_02").show();
@@ -236,8 +248,75 @@ $(document).on("click",".tuto_pop_01_04 .tuto_prev",function(){
 
     $(".tuto_mark_01_03").show();
     $(".tuto_pop_01_03").show();
+    
 });
 // 좋아요 튜토리얼
 
 // 코인 튜토리얼
 
+link_href = window.location.href;
+//다음에 이어하기
+if(link_href.includes("tu_")){
+    $(document).on("click",".tuto_phase_pause button", function(){
+        location.href = '/team/index.php';
+        return false;
+    }); 
+}
+
+$(document).on("click",".phase_01",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 0){
+        location.href = '/todaywork/tu_works.php';
+    }else{
+        alert('이전 단계를 먼저 진행해주세요.');
+    }
+    return false;
+});
+
+$(document).on("click",".phase_02",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 0){
+        location.href = '/todaywork/tu_works_like.php';
+    }
+    return false;
+});
+
+$(document).on("click",".phase_03",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 1){
+        location.href = '/todaywork/tu_works_coin.php';
+    }else{
+        alert('이전 단계를 먼저 진행해주세요.');
+    }
+    return false;
+});
+
+$(document).on("click",".phase_04",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 2){
+        location.href = '/party/tu_project.php';
+    }else{
+        alert('이전 단계를 먼저 진행해주세요.');
+    }
+    return false;
+});
+
+$(document).on("click",".phase_05",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 3){
+        location.href = '/challenge/tu_chall.php';
+    }else{
+        alert('이전 단계를 먼저 진행해주세요.');
+    }
+    return false;
+});
+
+$(document).on("click",".phase_06",function(){
+    t_flag = $("#tutorial_flag").val();
+    if(t_flag >= 4){
+        location.href = '/team/tu_team.php';
+    }else{
+        alert('이전 단계를 먼저 진행해주세요.');
+    }
+    return false;
+});

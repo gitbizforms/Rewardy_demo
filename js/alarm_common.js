@@ -19,6 +19,10 @@ function responseGetFcmInfo(token, id, kind) {
     fdata.append("push_register_id", token);
     fdata.append("device_platform", kind);
 
+    if ($("input[id='chk_login']").is(":checked") == true) {
+      fdata.append("chk_login", true);
+    }
+
     $.ajax({
       type: "POST",
       data: fdata,
@@ -28,14 +32,12 @@ function responseGetFcmInfo(token, id, kind) {
       success: function (data) {
         console.log(data);
         if (data == "use_ok") {
-          alert("adf");
           if (window.location.pathname == "/alarm/login.php") {
             location.replace("/alarm/alarm_list.php");
           } else {
             location.reload();
           }
         } else if (data == "ad_ok") {
-          alert("adf");
           if (window.location.pathname == "/alarm/login.php") {
             location.replace("/alarm/alarm_list.php");
           } else {
@@ -65,6 +67,27 @@ function responseGetFcmInfo(token, id, kind) {
         }
       },
     });
+  });
+
+  $(document).on("click",".ra_footer_btn .ra_footer_logout,.ra_intro_btns #ra_btn_logout", function () {
+    var fdata = new FormData();
+    fdata.append("mode","logout_app");
+    fdata.append("device_id",id);
+
+    // alert(id);
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      contentType: false,
+      processData: false,
+      url: "/inc/login_ok.php",
+      success: function (data) {
+        // alert(data);
+        location.href = "/alarm/index.php";
+        return false;
+      },
+    });
+    
   });
 }
 
@@ -141,7 +164,7 @@ $(document).on("click", ".ra_setting_list .btn_switch", function () {
 });
 
 $(document).on("click", ".ra_btn_link", function () {
-  location.href = "link:http://demo.rewardy.co.kr/team/index.php";
+  location.href = "link:https://rewardy.co.kr/team/index.php";
 });
 
 // 모바일 화면 하단부
@@ -165,14 +188,7 @@ $(document).on("click", ".ra_footer_btn .ra_footer_admin", function () {
   return false;
 });
 
-$(document).on(
-  "click",
-  ".ra_footer_btn .ra_footer_logout,.ra_intro_btns #ra_btn_logout",
-  function () {
-    location.href = "/alarm/logout.php";
-    return false;
-  }
-);
+
 
 // 알림 읽기 처리하기
 $(document).on("click", ".ra_alert_box", function () {
@@ -194,17 +210,17 @@ $(document).on("click", ".ra_alert_box", function () {
     success: function (data) {
       console.log(data);
       if (service == "work") {
-        location.href = "http://demo.rewardy.co.kr/todaywork/index.php";
+        location.href = "https://rewardy.co.kr/todaywork/index.php";
       } // 코인 타임라인 링크 이동
       else if (service == "reward") {
-        location.href = "http://demo.rewardy.co.kr/reward/index.php";
+        location.href = "https://rewardy.co.kr/reward/index.php";
       } // 챌린지 타임라인 링크 이동
       else if (service == "challenge") {
-        location.href = "http://demo.rewardy.co.kr/challenge/index.php";
+        location.href = "https://rewardy.co.kr/challenge/index.php";
       } else if (service == "party") {
-        location.href = "http://demo.rewardy.co.kr/party/index.php";
+        location.href = "https://rewardy.co.kr/party/index.php";
       } else if (service == "live") {
-        location.href = "http://demo.rewardy.co.kr/team/index.php";
+        location.href = "https://rewardy.co.kr/team/index.php";
       }
     },
   });
@@ -234,4 +250,10 @@ $(document).on("click", "#alarm_del", function () {
       $("#alarm_list_"+delNo).remove();
     },
   });
+});
+
+//로그인 페이지 이동
+$(document).on("click", ".ra_footer_login", function(){
+  location.href = "login.php";
+  return false;
 });

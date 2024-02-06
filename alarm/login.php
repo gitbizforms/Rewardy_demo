@@ -2,6 +2,14 @@
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 	include $home_dir . "/inc_lude/header_mobile.php";
+
+	if($user_id){
+        $log_class = "ra_footer_logout";
+        $log_state = "로그아웃";
+    }else{
+        $log_class = "ra_footer_login";
+        $log_state = "로그인";
+    }
 ?>
 
 <style type="text/css">
@@ -57,12 +65,12 @@
 									</li>
 								</ul>
 							</div>
-							<!-- <div class="ra_login_chk">
+							<div class="ra_login_chk">
 								<div class="ra_login_chk_in">
 									<input type="checkbox" name="chk_login" id="chk_login" />
 									<label for="chk_login">로그인 상태유지</label>
 								</div>
-							</div> -->
+							</div>
 							<div class="ra_login_btn">
 								<button id="ra_btn_login_mo" class="ra_btn_login"><span>로그인</span></button>
 							</div>
@@ -77,7 +85,7 @@
 					<button class="ra_footer_link"><span>접속하기</span></button>
 					<button class="ra_footer_list"><span>알림리스트</span></button>
 					<button class="ra_footer_setting"><span>알림설정</span></button>
-					<button class="ra_footer_logout"><span>로그아웃</span></button>
+					<button class="<?=$log_class?>"><span><?=$log_state?></span></button>
 				</div>
 			</div>
 		</div>

@@ -11,6 +11,14 @@
     $sql_alarm = $sql_alarm .= " and a.alarm_flag = '1' and a.state = '0' and b.state = '0' and a.companyno = '".$companyno."' and a.workdate = '".TODATE."' and a.email = '".$user_id."' and a.idx = '".$timeline_info['idx'][$i]."' ";
 
     $timeline_info = selectAllQuery($sql);
+    
+    if($user_id){
+        $log_class = "ra_footer_logout";
+        $log_state = "로그아웃";
+    }else{
+        $log_class = "ra_footer_login";
+        $log_state = "로그인";
+    }
 ?>
 <html>
     <body>
@@ -157,8 +165,23 @@
                                             <button class="ra_alert_close" id="alarm_del"><span>닫기</span></button>
                                         </li>
                                     <? }
-                                    }
-                                        if(!$timeline_info['idx']){?>
+                                    }   
+                                    if(!$user_id){?>
+                                        <li class="ra_alert_box">
+                                            <a class="ra_box_area">
+                                                <div class="ra_alert_box_tit">
+                                                    <span><?=$memo?></span>
+                                                </div>
+                                                <div class="ra_alert_box_desc">
+                                                    <span>로그인 후 이용해 주십시오.</span>
+                                                </div>
+                                                <div class="ra_alert_box_info">
+                                                    <strong><?=$alarm_info['service_name']?></strong>
+                                                    <span><?=$info_ampm?> <?=$info_hm?> </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <?}else if($user_id && !$timeline_info['idx']){?>
                                             <li class="ra_alert_box">
                                                 <a class="ra_box_area">
                                                     <div class="ra_alert_box_tit">
@@ -186,7 +209,7 @@
                                 <button class="ra_footer_link"><span>처음으로</span></button>
                                 <button class="ra_footer_list"><span>알림리스트</span></button>
                                 <button class="ra_footer_setting"><span>알림설정</span></button>
-                                <button class="ra_footer_logout"><span>로그아웃</span></button>
+                                <button class="<?=$log_class?>"><span><?=$log_state?></span></button>
                             </div>
                         </div>
                     </div>

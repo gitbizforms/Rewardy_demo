@@ -3,16 +3,22 @@
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 	include $home_dir . "/inc_lude/header.php";
 
+	$member_info = member_row_info($user_id);
+	$tuto_flag = $member_info['t_flag'];	
+
 	$tuto = tutorial_chk();
-	if($tuto['t_flag']>3){
-		alert('해당 단계는 이미 완료하셨습니다!');
-		echo "<script>history.back();</script>";
-	}else if($tuto['t_flag']<3){
+	// if($tuto['t_flag']>3){
+	// 	alert('해당 단계는 이미 완료하셨습니다!');
+	// 	echo "<script>history.back();</script>";
+	// }else
+	if($tuto['t_flag']<3){
 		alert('이전 단계를 먼저 수행해주세요.');
 		echo "<script>history.back();</script>";
 	}
 ?>
-
+	<head>
+		<script src="/js/tutorial_common.js<?php echo VER;?>"></script>
+	</head>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			setTimeout(function(){
@@ -169,7 +175,6 @@
 			var fdata = new FormData();
 			var mode = "update";
 			var url = '/inc/tu_process.php';
-			var coin = 100;
 
 			if(che_le == 'p_end'){
 				var level = "party";
@@ -177,12 +182,16 @@
 				var level = "challenge";
 			}else if(che_le == 'm_end'){
 				var level = "main";
-				coin = 500;
 			}
 
 			fdata.append("mode", mode);
 			fdata.append("level", level);
-			fdata.append("coin", coin);
+
+			tuto_flag = $("#tutorial_flag").val();
+			if(tuto_flag > 3){
+				fdata.append("not_reward","1");
+			}
+
 			
 			$.ajax({
 				type: "POST",
@@ -194,6 +203,14 @@
 
 					console.log(data);
 					if(data == "complete"){
+						$(".phase_04").removeClass("tuto_on");
+						$(".phase_04").addClass("tuto_clear");
+						if(tuto_flag==3){
+							$(".phase_05").addClass("tuto_on");
+						}
+						$(".phase_05 button").attr("onclick","location.href='/challenge/tu_chall.php'");
+						$(".tuto_pop_01_03").hide();
+						$(".tuto_mark_01_03").hide();
 						$(".tuto_phase").css("display","block");
 					}
 				}
@@ -222,123 +239,6 @@
 			location.href = "/team/index.php";
 		}
 	</script>
-
-<div class="tuto_phase" style="display:none;">
-		<div class="tuto_phase_deam"></div>
-		<div class="tuto_phase_in">
-			<div class="tuto_phase_tit">
-				<strong>튜토리얼로 보상받기</strong>
-				<span>단계별 튜토리얼을 진행하고 코인으로 보상 받아가세요!</span>
-			</div>
-			<div class="tuto_phase_list">
-				<div class="tuto_phase_box phase_01 tuto_clear">
-					<p>1</p>
-					<button>
-						<dl>
-							<dt>오늘업무</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_02 tuto_clear">
-					<p>2</p>
-					<button>
-						<dl>
-							<dt>좋아요</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_03 tuto_clear">
-					<p>3</p>
-					<button>
-						<dl>
-							<dt>코인 보상</dt>
-							<dd>
-								<span>좋아요</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_06">
-					<p>6</p>
-					<button>
-						<dl>
-							<dt>메인</dt>
-							<dd>
-								<span>좋아요</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_05 tuto_on">
-					<p>5</p>
-					<button onclick="page_loc('party_end');">
-						<dl>
-							<dt>챌린지 도전</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_04 tuto_clear">
-					<p>4</p>
-					<button>
-						<dl>
-							<dt>파티 체험</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-			</div>
-			<div class="tuto_phase_pause">
-				<button onclick="save_end();">다음에 이어하기</button>
-			</div>
-		</div>
-	</div>
 <div class="rew_tutorial_deam"></div>
 	<div class="tuto_mark tuto_mark_01_01"><button><span></span></button></div>
 	<div class="tuto_mark tuto_mark_01_02" style="display:none;"><button><span></span></button></div>
@@ -346,12 +246,13 @@
 	<div class="tuto_mark tuto_mark_01_04" style="display:none;"><button><span></span></button></div>
 	<div class="tuto_pop tuto_pop_01_01">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티에 코인 보내기</div>
 			<div class="tuto_pager">1/3</div>
 			<div class="tuto_desc">
-				<p>해당 파티에 코인을 보상할 수 있어요.</p>
-				<p>누적된 코인은 파티 종료 시, 파티 구성원에게 똑같이 배분돼요.</p>
-				<p>공용코인이 있는 누구나 코인을 보낼 수 있어요.</p>
+				<p>후원하고 싶은 파티에 코인을 보상할 수 있어요.</p>
+				<p>공용코인이 있는 누구나 코인을 보낼 수 있고 누적된 코인은 파티 종료 시, 해당 파티 구성원들에게 동일하게 배분 됩니다!</p>
+				<!-- <p>누적된 코인은 파티 종료 시, 파티 구성원에게 똑같이 배분돼요.</p>
+				<p>공용코인이 있는 누구나 코인을 보낼 수 있어요.</p> -->
 			</div>
 			<div class="tuto_btns">
 				<button class="tuto_prev" onclick="page_loc('party_pre');"><span>이전</span></button>
@@ -361,11 +262,11 @@
 	</div>
 	<div class="tuto_pop tuto_pop_01_02" style="display:none;">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티 구성원</div>
 			<div class="tuto_pager">2/3</div>
 			<div class="tuto_desc">
-				<p>파티에 참여한 구성원을 모두 볼 수 있는 영역이에요.</p>
-				<p>파티 구성원 개개인에게 보상하거나 좋아요를 보낼 수 있어요.</p>
+				<p>해당 파티에 연결된 구성원들을 나타내요</p>
+				<p>오늘업무와 마찬가지로 파티 구성원에게 <span>좋아요</span>나 <span>코인</span>을 보낼 수 있어요!</p>
 			</div>
 			<div class="tuto_btns">
 				<button class="tuto_prev" onclick="cli_prev(2);"><span>이전</span></button>
@@ -375,11 +276,11 @@
 	</div>
 	<div class="tuto_pop tuto_pop_01_03" style="display:none;">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티 연결</div>
 			<div class="tuto_pager">3/3</div>
 			<div class="tuto_desc">
 				<p>파티에 연결된 업무를 한 눈에 볼 수 있어요.</p>
-				<p>오늘업무에 업무를 작성하고 '파티연결' 을 통해 파티에 연결해 보세요.</p>
+				<p>오늘업무에서 업무를 작성하고 '파티연결' 을 통해 파티에 연결해 보세요.</p>
 			</div>
 			<div class="tuto_btns">
 				<button class="tuto_prev" onclick="cli_prev(3,'part_v');"><span>이전</span></button>
@@ -391,6 +292,10 @@
 	<div class="rew_warp_in">
 		<div class="rew_box">
 			<div class="rew_box_in">
+				<input type="hidden" value="<?=$tuto_flag?>" id="tutorial_flag">
+				<?include $home_dir . "/inc_lude/header_new.php";?>
+					<!-- menu -->
+				<? include $home_dir . "/inc_lude/menu_party_view_index.php";?>
 				<!-- menu -->
 				<div class="rew_menu">
 					<div class="rew_menu_in">
@@ -423,9 +328,9 @@
 								</ul>
 								<div class="rew_bar_setting">
 
-																			<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
-									
-																			<a href="/member/member_list.php" class="rew_bar_setting_02" id="member_add_in" title=""><strong>관리자</strong></a>
+									<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
+
+									<a href="/member/member_list.php" class="rew_bar_setting_02" id="member_add_in" title=""><strong>관리자</strong></a>
 									
 								</div>
 							</div>
@@ -609,10 +514,11 @@
 					</div>
 				</div>
 				<!-- //menu -->
-
+				
 				<!-- 콘텐츠 -->
 				<div class="rew_conts">
 					<div class="rew_conts_in">
+						<!-- //menu -->
 						<!-- <div class="rew_header">
 							<div class="rew_header_in">
 								<div class="rew_header_notice">
@@ -635,37 +541,17 @@
 									</div> -->
 									<div class="rew_member_sub_func_tab">
 										<div class="rew_member_sub_func_tab_in">
-											<div class="rew_member_sub_func_sort" id="rew_member_sub_func_sort">
-												<div class="rew_member_sub_func_sort_in">
-													<button class="btn_sort_on" id="btn_sort_on"><span>전체보기</span></button>
-													<ul>
-														<li><button value="all"><span>전체보기</span></button></li>
-														<li><button value="todaywork"><span>오늘업무</span></button></li>
-														<li><button value="report"><span>보고</span></button></li>
-														<li><button value="share"><span>공유</span></button></li>
-													</ul>
-												</div>
+											<div class="rew_cha_count">
+												<span>전체</span>
+												<strong>6</strong>
 											</div>
-											<div class="rew_member_sub_func_calendar">
-												<div class="rew_member_sub_func_btns">
-													<button class="on"><span>1주일</span></button>
-													<button><span>1개월</span></button>
-													<button><span>3개월</span></button>
+											<div class="rew_member_sub_func_period">
+												<div class="rew_cha_search_box">
+													<input type="text" class="input_search" id="party_input_search" placeholder="키워드">
+													<button id="btn_input_search"><span>검색</span></button>
 												</div>
-												<div class="rew_member_sub_func_period">
-													<div class="rew_member_sub_func_period_box">
-														<button class="btn_calendar_l" id="btn_calendar_l">달력</button>
-														<input type="text" class="input_date_l" value="<?=$week7?>" id="project_sdate">
-														<span>~</span>
-														<input type="text" class="input_date_r" value="<?=TODATE?>" id="project_edate">
-													</div>
-													<div class="rew_cha_search_box">
-														<input type="text" class="input_search" id="party_input_search" placeholder="키워드">
-														<button id="btn_input_search"><span>검색</span></button>
-													</div>
-													<button class="btn_inquiry" id="btn_party_search"><span>조회</span></button>
-													<input type="hidden" id="party_idx" value="<?=$party_idx?>">
-												</div>
+												<button class="btn_inquiry" id="btn_party_search" style ="display:none;"><span>조회</span></button>
+												<input type="hidden" id="party_idx" value="<?=$party_idx?>">
 											</div>
 										</div>
 									</div>
@@ -816,7 +702,14 @@
 	</div>
 </div>
 <!-- footer start-->
-<? include $home_dir . "/inc_lude/footer.php";?>
+<? 
+	//튜토리얼 시작 레이어
+	include $home_dir . "/layer/tutorial_main_level.php";
+
+	include $home_dir . "/inc_lude/footer.php";
+
+?>
+
 <!-- footer end-->
 
 </body>

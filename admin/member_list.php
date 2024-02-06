@@ -4,7 +4,7 @@
 	include $home_dir . "/inc_lude/header.php";
 
 	if($user_level != '0'){
-		header("Location:http://demo.rewardy.co.kr/index.php");
+		header("Location:https://rewardy.co.kr/index.php");
 		exit;
 	}
 
@@ -50,6 +50,8 @@
 
 
 ?>
+<link rel="stylesheet" type="text/css" href="/html/css/set_head.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/set_03_03.css<?php echo VER;?>" />
 <script>
 var team_info_arr = new Array();
 <?

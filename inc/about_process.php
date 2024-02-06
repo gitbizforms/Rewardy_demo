@@ -260,4 +260,45 @@ if($mode == "sample_list"){
         exit;
     }
 
+    if($mode == "manual_view"){
+        $idx = $_POST['idx'];
+        $service = $_POST['service'];
+
+        $sql = "select idx, state, service, contents, editdate, title from bro_manual where idx = '".$idx."' and state = '1' and service = '".$service."'";
+        $page = selectQuery($sql);
+
+        if($page['idx']){
+            $ch_contents =  $page['contents'];
+        }
+        
+        $service_arr = ["start"=>"처음", "team"=>"메인화면", "todaywork"=>"오늘업무", "live"=>"라이브", "reward"=>"보상/코인", "challenge"=>"챌린지", "party"=>"파티", "insight"=>"인사이트", "item"=>"아이템샵", "admin"=>"관리자"];
+        
+        ?>
+        <div class="cont_title">
+            <div class="cont_main_tit">
+                <span><?=$service_arr[$page['service']]." > ".$page['title']?></span>
+                <h2><?=$page['title']?></h2>
+            </div>
+            <button><span>공유하기</span></button>
+        </div>
+        <div class="cont_main">
+            <?=$ch_contents?>
+        </div>
+    <?
+        exit;
+    }
+    
+    if($mode == "email_inquiry"){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $contents = $_POST['contents'];
+
+        $sql = "insert into bro_customer (state, kind, name, email, contents, security_code, regdate) values('0', 'question', '".$name."', '".$email."', '".$contents."', '1', ".DBDATE.")";
+        $insert = insertIdxQuery($sql);
+        
+        if($insert){
+            echo "complete";
+        }
+        exit;
+    }
 ?>

@@ -580,6 +580,9 @@ $(document).on("click", ".mix_jjim", function(){
         if(penalty == "penalty"){
           alert("해당 유저에게 패널티가 적용되어 좋아요를 보낼 수 없습니다.");
           return false;
+        }else if(penalty == "limit_like"){
+          alert("보내려는 유저에게 일일 좋아요 횟수 제한을 초과했습니다.");
+                return false;
         }else{
           if(result == "success"){
             alert("좋아요를 보냈습니다.");

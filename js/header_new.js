@@ -5,11 +5,38 @@ $(document).on("click", ".btn_my_alert", function () {
   $(".layer_my_info").hide();
   $(".layer_my_alert").toggle();
   $(".layer_my_mess").hide();
-  $(".layer_my_info").hide();
 });
+
 $(document).on("mouseleave", ".layer_my_alert", function () {
 $(".btn_my_alert").removeClass("on");
 $(".layer_my_alert").hide();
+});
+
+$(document).on("click", ".btn_my_mess", function(event){
+  $(".layer_my_mess").toggle();
+  $(".layer_my_info").hide();
+  $(".layer_my_alert").hide();
+});
+
+$(document).on("mouseleave", ".rew_head_my_mess", function () {
+  $(".layer_my_mess").hide();
+  });
+
+$(document).on("click", ".re_message", function(){
+  $(this).addClass("on");
+  $(".se_message").removeClass("on");
+
+  $(".send").hide();
+  $(".receive").show();
+ 
+});
+
+$(document).on("click", ".se_message", function(){
+  $(this).addClass("on");
+  $(".re_message").removeClass("on");
+
+  $(".receive").hide();
+  $(".send").show();
 });
 
 $(document).on("click", ".btn_my_info", function () {
@@ -219,33 +246,6 @@ $(document).on("click", "#my_alert_close", function() {
      }
   });
 
-  $(document).on("click", ".rew_head_my_mess", function(){
-    $(".layer_my_mess").show();
-    $(".layer_my_info").hide();
-    $(".layer_my_alert").hide();
-    
-  });
-  
-  $(document).on("mouseleave", ".rew_head_my_mess", function () {
-    $(".layer_my_mess").hide();
-    });
-
-  $(document).on("click", ".re_message", function(){
-    $(this).addClass("on");
-    $(".se_message").removeClass("on");
-
-    $(".send").hide();
-    $(".receive").show();
-   
-  });
-
-  $(document).on("click", ".se_message", function(){
-    $(this).addClass("on");
-    $(".re_message").removeClass("on");
-
-    $(".receive").hide();
-    $(".send").show();
-  });
 
   $(document).on("click", ".data_user", function(){
 

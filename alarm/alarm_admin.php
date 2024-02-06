@@ -6,6 +6,14 @@
     function base64($data){
         return rtrim(strstr(base64_encode(json_encdoe($data)), '+/', '-_'),'=');
     }
+
+	if($user_id){
+        $log_class = "ra_footer_logout";
+        $log_state = "로그아웃";
+    }else{
+        $log_class = "ra_footer_login";
+        $log_state = "로그인";
+    }
 ?>
 
 <style type="text/css">
@@ -81,7 +89,7 @@
 					<button class="ra_footer_link"><span>접속하기</span></button>
 					<button class="ra_footer_list"><span>알림리스트</span></button>
 					<button class="ra_footer_setting"><span>알림설정</span></button>
-					<button class="ra_footer_logout"><span>로그아웃</span></button>
+					<button class="<?=$log_class?>"><span><?=$log_state?></span></button>
 				</div>
 			</div>
 		</div>

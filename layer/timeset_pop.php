@@ -24,7 +24,7 @@
               <button class="btn_sort_on first_set"><span>09</span></button>
                 <ul>
                   <?for($i=1; $i < 25; $i++){?>
-                    <li><button class = "startTimeHour" value = "<?=$i?>"><span><?=$i?></span></button></li>
+                    <li><button class = "startTimeHour" value = "<?=str_pad($i, 2, '0', STR_PAD_LEFT)?>"><span><?=str_pad($i, 2, '0', STR_PAD_LEFT)?></span></button></li>
                   <?}?>
                 </ul>
             </div>
@@ -34,7 +34,7 @@
               <button class="btn_sort_on second_set"><span>00</span></button>
                 <ul>
                   <?for($i = 0; $i <= 50; $i += 10){?>
-                    <li><button class = "startTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=$i?></span></button></li>
+                    <li><button class = "startTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=($i === 0) ? '00' : $i?></span></button></li>
                   <?}?>
                 </ul>
             </div>
@@ -47,7 +47,7 @@
               <button class="btn_sort_on first_set"><span>09</span></button>
                 <ul>
                   <?for($i=1; $i < 25; $i++){?>
-                    <li><button class = "endTimeHour" value = "<?=$i?>"><span><?=$i?></span></button></li>
+                    <li><button class = "endTimeHour" value = "<?=str_pad($i, 2, '0', STR_PAD_LEFT)?>"><span><?=str_pad($i, 2, '0', STR_PAD_LEFT)?></span></button></li>
                   <?}?>
                 </ul>
             </div>
@@ -57,7 +57,7 @@
               <button class="btn_sort_on second_set"><span>00</span></button>
                 <ul>
                   <?for($i = 0; $i <= 50; $i += 10){?>
-                    <li><button class = "endTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=$i?></span></button></li>
+                    <li><button class = "endTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=($i === 0) ? '00' : $i?></span></button></li>
                   <?}?>
                 </ul>
             </div>

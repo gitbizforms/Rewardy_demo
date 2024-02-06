@@ -3,860 +3,29 @@
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 	//define('DB_CHARSET', 'utf8mb4');
 	include $home_dir . "/inc_lude/header.php";
+	// include $home_dir . "/inc_lude/header_index.php";
+	// include $home_dir . "/challenge/challenges_header.php";
+	$member_info = member_row_info($user_id);
+	$tuto_flag = $member_info['t_flag'];	
 
 	$tuto = tutorial_chk();
-	if($tuto['t_flag']>4){
-		alert('해당 단계는 이미 완료하셨습니다!');
-		echo "<script>history.back();</script>";
-	}else if($tuto['t_flag']<4){
+	// if($tuto['t_flag']>4){
+	// 	alert('해당 단계는 이미 완료하셨습니다!');
+	// 	echo "<script>history.back();</script>";
+	// }else 
+	if($tuto['t_flag']<4){
 		alert('이전 단계를 먼저 수행해주세요.');
 		echo "<script>history.back();</script>";
 	}
 
-	$edit_btn = false;
-	if(@in_array($user_id , $edit_user_arr)){
-		$edit_btn = true;
-	}
 
-	if($user_id=='sadary0@nate.com'){
-		//$user_id = "eyson@bizforms.co.kr";
-	}
-
-	//챌린지 번호
-	$idx = $_GET['idx'];
-	$idx = preg_replace("/[^0-9]/", "", $idx);
-	if($idx){
-
-		//챌린지카테고리
-		$sql = "select idx, name from work_category where state='0' order by rank asc";
-		$cate_info = selectAllQuery($sql);
-
-		for($i=0; $i<count($cate_info['idx']); $i++){
-			$category[$cate_info['idx'][$i]] = $cate_info['name'][$i];
-		}
-
-		//샘플페이지 경우
-		$sample_btn = false;
-		/*if ($_SERVER['HTTP_REFERER']){
-			if (strstr($_SERVER['HTTP_REFERER'] , "sample")){
-				$sample_btn = true;
-			}
-		}*/
-
-		//챌린지 정보
-		$sql = "select idx, email, attend_type, cate, template, name, day_type, attend, view_flag,  coin, (CASE WHEN day_type='1' THEN (coin * attend) WHEN day_type='0' THEN coin END ) as maxcoin,";
-		$sql = $sql .= " title, holiday_chk, attend_chk, sdate, edate, temp_flag from work_challenges where idx='".$idx."'";
-		$ch_info = selectQuery($sql);
-		if($ch_info['idx']){
-
-			$idx = $ch_info['idx'];
-			$attend_type = $ch_info['attend_type'];
-			$ch_cate = $ch_info['cate'];
-			$template = $ch_info['template'];
-			$title = $ch_info['title'];
-			$attend = $ch_info['attend'];
-			$day_type = $ch_info['day_type'];
-			$maxcoin = $ch_info['maxcoin'];
-			$coin = $ch_info['coin'];
-			$view_flag = $ch_info['view_flag'];
-			$ch_title = urldecode($title);
-
-			//br이 포함되어 있는경우, 제목이 35자 이하 일때 태그제거함
-			//	echo mb_strpos($ch_title , "br");
-
-			if(strpos($ch_title, "br") !== false){
-				if(mb_strpos($ch_title , "br") < 35){
-					//$ch_title = str_replace("<br>", "", $ch_title);
-					//$ch_title = preg_replace('/r|n/', '', $ch_title);
-					//$ch_title = preg_replace('/\r\n|\r|\n/','',$ch_title);
-					$ch_title = strip_tags($ch_title);
-				}
-			}
-
-			//매일참여가능한 챌린지
-			if($day_type=='1'){
-				$ch_coin = "최대 ". number_format($ch_info['maxcoin']);
-			}else if($day_type=='0'){
-				$ch_coin = number_format($ch_info['coin']);
-			}
-
-			$holiday_chk = $ch_info['holiday_chk'];
-			if($holiday_chk){
-				$holiday_chk_text = "";
-			}
-
-			$sdate = $ch_info['sdate'];
-			$edate = $ch_info['edate'];
-			
-
-			$sdate_re = str_replace("-", ".",$sdate);
-			$edate_re = str_replace("-", ".",$edate);
-			$name = $ch_info['name'];
-
-			if($template == "1"){
-				$template_btn = true;
-			}
-
-
-			//챌린지작성자 부서명
-			$chall_editor = $member_list_all['partname'][$ch_info['email']];
-
-			//조회수 업데이트
-			$sql = "update work_challenges set pageview = CASE WHEN pageview >=0 THEN pageview + 1 ELSE 0 END where idx='".$ch_info['idx']."'";
-			updateQuery($sql);
-
-			//챌린지내용
-			$sql = "select idx, contents from work_contents where state='0' and work_idx='".$ch_info['idx']."'";
-			$contents_info = selectQuery($sql);
-			if($contents_info['idx']){
-				//$ch_contents =  urldecode($contents_info['contents']);
-				$ch_contents =  $contents_info['contents'];
-				//$ch_contents =  rawurldecode($contents_info['contents']);
-				$ch_contents = preg_replace('/\r\n|\r|\n/','',$ch_contents);
-			//	$ch_contents = addslashes($ch_contents);
-
-			}
-
-			//참여자정보
-			//$sql = "select idx, email, name, from work_challenges_user where challenges_idx='".$idx."'";
-			$sql = "select a.idx, a.email, a.name, b.part, b.partno from work_challenges_user as a left join work_member as b on(a.email=b.email)";
-			$sql = $sql .=" where b.state='0' and a.challenges_idx='".$idx."' order by";
-			$sql = $sql .= " CASE WHEN a.email = '".$user_id."' THEN a.email END DESC, CASE WHEN a.email <> '".$user_id."' THEN a.name end asc";
-			$user_info = selectAllQuery($sql);
-			if($user_info['idx']){
-				$total_cnt = count($user_info['idx']);
-
-				if( $total_cnt >= 3){
-					$user_total_cnt = $total_cnt - 3;
-				}
-
-			}
-
-
-			//첨부파일정보
-			$sql = "select idx, file_path, file_name, file_real_name from work_filesinfo_file where state='0' and work_idx='".$idx."'";
-			$file_info = selectAllQuery($sql);
-
-			//첨부이미지정보
-			$sql = "select idx, resize, file_path, file_name,file_ori_path, file_ori_name, file_real_name from work_filesinfo_img where state='0' and work_idx='".$idx."'";
-			$img_info = selectAllQuery($sql);
-
-
-			//챌린지 참여형태, 1:메시지형, 2:파일첨부, 3:혼합형
-			//도전여부 체크
-			$chamyeo_chk = false;
-			if($attend_type == "1"){
-
-				//챌린지 참여 완료 체크
-				$chamyeo_btn = false;
-				/*$chamyeo_chall_btn = false;
-				$sql = "select top 1 idx, state from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and email='".$user_id."' and convert(varchar(10), comment_regdate, 23)='".TODATE."' order by idx desc";
-				$challenges_info_com = selectQuery($sql);
-				if($challenges_info_com['idx']){
-					$chamyeo_btn = true;
-				}
-				*/
-
-				//도전중인 챌린지 체크
-				$sql = "select idx, state from work_challenges_result where state='0' and challenges_idx='".$idx."' and comment is null and email='".$user_id."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')='".TODATE."' order by idx desc limit 1";
-				$challenges_info_dom = selectQuery($sql);
-				if($challenges_info_dom['idx']){
-					$chamyeo_chall_btn =  true;
-					$chall_list_comment_idx = $challenges_info_dom['idx'];
-				}
-
-				//챌린지 참여 기간 조건
-				$where = " and DATE_FORMAT(comment_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')<='".$edate."'";
-
-				//챌린지 참여 횟수가 한번만 참여
-				if ($day_type == "0"){
-					$sql = "select count(idx) as cnt from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and email='".$user_id."'".$where."";
-					$chall_comment_info = selectQuery($sql);
-					if($chall_comment_info['cnt'] >= 1){
-						$chamyeo_btn = true;
-					}
-
-				//챌린지 참여 횟수 매일참여
-				}else if ($day_type == "1"){
-					$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and email='".$user_id."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')='".TODATE."'";
-					$chall_comment_info = selectQuery($sql);
-					if($chall_comment_info['idx']){
-						$chamyeo_btn = true;
-					}
-
-					//챌린지 참여 회수 체크
-					$sql = "select count(idx) as cnt from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and email='".$user_id."'".$where."";
-					$chall_comment_info = selectQuery($sql);
-
-					//챌린지 참여 최대 횟수 제한
-					if ($chall_comment_info['cnt'] >= $ch_info['attend']){
-						$chamyeo_btn = true;
-					}
-				}
-
-				$sql = "select count(1) as cnt from work_challenges_result where state in('1','2') and comment!='' and challenges_idx='".$idx."'";
-				$user_tlist_info = selectQuery($sql);
-				if($user_tlist_info['cnt']){
-					$user_masage_cnt = number_format($user_tlist_info['cnt']);
-				}else{
-					$user_masage_cnt = 0;
-				}
-
-				//챌린지 참여 메시지형
-				$sql ="select email, count(idx) as cnt from work_challenges_result where state in('1','2') and comment!='' and challenges_idx='".$idx."' group by email";
-				$user_list_info = selectAllQuery($sql);
-				if($user_list_info['email']){
-					$user_list_count = @array_combine($user_list_info['email'], $user_list_info['cnt']);
-				}
-
-				$sql ="select idx, state, email, name, part, comment, DATE_FORMAT(comment_regdate, '%Y-%m-%d %H:%i:%s') as reg, DATE_FORMAT(comment_regdate, '%Y-%m-%d') as ymd, DATE_FORMAT(comment_regdate, '%Y-%m-%d %H:%i:%s') as ddd from work_challenges_result where state in ('1','2') and comment!='' and challenges_idx='".$idx."' order by reg desc";
-				$list_info = selectAllQuery($sql);
-				if($list_info['idx']){
-					$list_cnt = number_format(count($list_info['idx']));
-				}
-
-				for($i=0; $i<count($list_info['idx']); $i++){
-					
-					$cidx = $list_info['idx'][$i];
-					$cemail = $list_info['email'][$i];
-					$cname = $list_info['name'][$i];
-					$cpart = $list_info['part'][$i];
-					$creg = $list_info['reg'][$i];
-					$cymd = $list_info['ymd'][$i];
-					$chis = $list_info['ddd'][$i];
-					$state = $list_info['state'][$i];
-					$comment = urldecode($list_info['comment'][$i]);
-					//$contents = strip_tags($contents);
-
-
-					//요일구함
-					$reg_date = @explode("-", $cymd);
-					$int_reg = date("w", strtotime($creg));
-					$date_yoil =  $weeks[$int_reg];
-
-					if($reg_date){
-						$reg_date_m = (int)$reg_date[1];
-						$reg_date_d = preg_replace('/(0)(\d)/','$2', $reg_date[2]);
-						$date_md = $reg_date_m."월 ". $reg_date_d."일 ";
-					}
-
-					//시간 오전,오후
-					if($chis){
-						$chis = str_replace("  "," ",$chis);
-						$chis_tmp = @explode(" ", $chis);
-						if ($chis_tmp['2'] == "PM"){
-							$after = "오후 ";
-						}else{
-							$after = "오전 ";
-						}
-						$ctime = @explode(":", $chis_tmp['1']);
-						$chiss = $after . $ctime['0'] .":". $ctime['1'];
-					}
-
-					//최근 3건의 내역
-					if($i < 3){
-
-						//완료된건만 표기
-						if($state == 1){
-							$masage_list_top3[$cymd][$i]['date'] = $cymd;
-							$masage_list_top3[$cymd][$i]['idx'] = $cidx;
-							$masage_list_top3[$cymd][$i]['email'] = $cemail;
-							$masage_list_top3[$cymd][$i]['name'] = $cname;
-							$masage_list_top3[$cymd][$i]['part'] = $cpart;
-							$masage_list_top3[$cymd][$i]['comment'] = $comment;
-							$masage_list_top3[$cymd][$i]['yoil'] = $date_yoil;
-							$masage_list_top3[$cymd][$i]['md'] = $date_md;
-							$masage_list_top3[$cymd][$i]['hi'] = $chiss;
-							$masage_list_top3[$cymd][$i]['state'] = $state;
-							$masage_list_ymd_top3[]= $cymd;
-						}
-					}
-
-
-					//전체내역
-					$masage_list[$cymd][$i]['date'] = $cymd;
-					$masage_list[$cymd][$i]['idx'] = $cidx;
-					$masage_list[$cymd][$i]['email'] = $cemail;
-					$masage_list[$cymd][$i]['name'] = $cname;
-					$masage_list[$cymd][$i]['part'] = $cpart;
-					$masage_list[$cymd][$i]['comment'] = $comment;
-					$masage_list[$cymd][$i]['yoil'] = $date_yoil;
-					$masage_list[$cymd][$i]['md'] = $date_md;
-					$masage_list[$cymd][$i]['hi'] = $chiss;
-					$masage_list[$cymd][$i]['state'] = $state;
-					$masage_list_ymd[]= $cymd;
-				}
-
-				//배열키값 중복제거
-				$masage_list_ymd_top3 = array_unique($masage_list_ymd_top3);
-
-				//배열키값 리셋
-				$masage_list_ymd_top3 = array_key_reset($masage_list_ymd_top3);
-
-				//배열키값 중복제거
-				$masage_list_ymd = array_unique($masage_list_ymd);
-
-				//배열키값 리셋
-				$masage_list_ymd = array_key_reset($masage_list_ymd);
-
-
-				//오늘 참여한 내역 체크
-				$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and email='".$user_id."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')='".TODATE."'";
-				$ch_masage_info = selectQuery($sql);
-
-				//참여횟수체크
-				$sql = "select count(idx) as cnt from work_challenges_result where state in('1') and challenges_idx='".$idx."' and comment!='' and email='".$user_id."'";
-				$sql = $sql .=" and DATE_FORMAT(comment_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')<='".$edate."'";
-				$masage_list_info = selectQuery($sql);
-				if($masage_list_info['idx']){
-					$chamyeo_cnt = count($masage_list_info['idx']);
-				}else{
-					$chamyeo_cnt = 0;
-				}
-
-				//참여횟수체크
-				if($chamyeo_cnt >= $attend || !$ch_masage_info['idx']){
-					$chamyeo_chk = false;
-				}else{
-					$chamyeo_chk = true;
-				}
-
-				//챌린지 인증메시지, 날짜별
-				$sql ="select DATE_FORMAT(comment_regdate, '%Y-%m-%d') as ymd from work_challenges_result where state in('1','2') and comment!='' and challenges_idx='".$idx."'";
-				$sql = $sql .=" group by DATE_FORMAT(comment_regdate, '%Y-%m-%d') order by DATE_FORMAT(comment_regdate, '%Y-%m-%d') desc";
-				$date_masage_info = selectAllQuery($sql);
-
-				$auth_edit = false;
-				if ($user_masage_cnt=='0'){
-					$auth_edit = true;
-				}
-	
-			//인증파일형
-			}else if($attend_type == "2"){
-
-				//챌린지 참여 완료 체크
-				$chamyeo_btn = false;
-				$chamyeo_chall_btn = false;
-				$sql = "select idx, state from work_challenges_result where state='1' and file_path!='' and file_name!='' and challenges_idx='".$idx."' and email='".$user_id."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."' order by idx desc limit 1";
-				$challenges_info_com = selectQuery($sql);
-				if($challenges_info_com['idx']){
-					$chamyeo_btn = true;
-				}
-
-
-				//도전중인 챌린지 체크
-				$sql = "select idx, state from work_challenges_result where state='0' and file_path is null and file_name is null and challenges_idx='".$idx."' and email='".$user_id."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."' order by idx desc limit 1";
-				$challenges_info_dom = selectQuery($sql);
-				if($challenges_info_dom['idx']){
-					$chamyeo_chall_btn =  true;
-					$chall_list_file_idx = $challenges_info_dom['idx'];
-				}
-
-				//참여가능기간
-				$where = " and DATE_FORMAT(file_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')<='".$edate."'";
-				//챌린지 참여 횟수가 한번만 참여
-				if ($day_type == "0"){
-
-					$sql = "select count(idx) as cnt from work_challenges_result where state='1' and challenges_idx='".$idx."' and file_path!='' and file_name!='' and email='".$user_id."'".$where."";
-					$chall_file_info = selectQuery($sql);
-					if($chall_file_info['cnt'] >= 1){
-						$chamyeo_btn = true;
-					}
-
-				}else if ($day_type == "1"){
-
-					//하루 한번 참여가능
-					$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and email='".$user_id."' and file_path!='' and file_name!='' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."'";
-					$chall_file_info = selectQuery($sql);
-					if($chall_file_info['idx']){
-						//참여완료
-						$chamyeo_btn = true;
-					}
-
-					//챌린지 참여회수 체크
-					$sql = "select count(idx) as cnt from work_challenges_result where state='1' and challenges_idx='".$idx."' and file_path!='' and file_name!='' and email='".$user_id."'".$where."";
-					$chall_file_info = selectQuery($sql);
-					if ($chall_file_info['cnt'] >= $ch_info['attend']){
-						$chamyeo_btn = true;
-					}
-				}
-
-
-				$sql = "select count(1) as cnt from work_challenges_result where state in('1','2') and file_path!='' and file_name!='' and challenges_idx='".$idx."'";
-				$user_tlist_info = selectQuery($sql);
-				if($user_tlist_info['cnt']){
-					$user_file_cnt = number_format($user_tlist_info['cnt']);
-				}else{
-					$user_file_cnt = 0;
-				}
-
-				//챌린지 참여 파일첨부형
-				$sql ="select email, count(idx) as cnt from work_challenges_result where state in('1','2') and file_path!='' and file_name!='' and challenges_idx='".$idx."' group by email";
-				$user_list_file = selectAllQuery($sql);
-				if($user_list_file['email']){
-					$user_file_count = @array_combine($user_list_file['email'], $user_list_file['cnt']);
-				}
-
-
-				//챌린지참여 전체 인증파일 참여횟수
-				$sql = "select idx, state, email, name, part, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as reg, DATE_FORMAT(file_regdate, '%Y-%m-%d') as ymd, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as ddd";
-				$sql = $sql .=", resize, file_path, file_name, file_real_name, file_ori_path, file_ori_name, file_real_img_name, file_type from work_challenges_result where state in('1','2') and file_path!='' and file_name!='' and challenges_idx='".$idx."' order by reg desc";
-				$chall_file_info = selectAllQuery($sql);
-				if($chall_file_info['idx']){
-					$chamyeo_file_cnt = number_format(count($chall_file_info['idx']));
-				}else{
-					$chamyeo_file_cnt = "";
-				}
-
-				//오늘 참여한 내역 체크
-				$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and file_path!='' and file_name!='' and email='".$user_id."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."'";
-				$ch_file_info = selectQuery($sql);
-
-				//참여횟수체크
-
-				if($user_file_count[$user_id] >= $attend || !$ch_file_info['idx']){
-					$chamyeo_chk = false;
-				}else{
-					$chamyeo_chk = true;
-				}
-
-
-				for($i=0; $i<count($chall_file_info['idx']); $i++){
-
-					$cidx = $chall_file_info['idx'][$i];
-					$cemail = $chall_file_info['email'][$i];
-					$cname = $chall_file_info['name'][$i];
-					$cpart = $chall_file_info['part'][$i];
-					$creg = $chall_file_info['reg'][$i];
-					$cymd = $chall_file_info['ymd'][$i];
-					$chis = $chall_file_info['ddd'][$i];
-					$resize = $chall_file_info['resize'][$i];
-				
-					$state = $chall_file_info['state'][$i];
-					
-					if($resize == '0'){
-						$file_path = $chall_file_info['file_ori_path'][$i];
-						$file_name = $chall_file_info['file_ori_name'][$i];
-					}else{
-						$file_path = $chall_file_info['file_ori_path'][$i];
-						//$file_path = $chall_file_info['file_path'][$i];
-						$file_name = $chall_file_info['file_name'][$i];
-					}
-					
-					$file_type = $chall_file_info['file_type'][$i];
-					$file_real_name = $chall_file_info['file_real_name'][$i];
-					$file_real_img_name = $chall_file_info['file_real_img_name'][$i];
-
-					$cfiles = $file_path.$file_name;
-
-					//오리지널 이미지URL
-					$ori_img_src = $chall_file_info['file_ori_path'][$i].$chall_file_info['file_ori_name'][$i];
-
-					//요일구함
-					$reg_date = @explode("-", $cymd);
-					$int_reg = date("w", strtotime($creg));
-					$date_yoil =  $weeks[$int_reg];
-
-					$chall_reg = $reg_date[0]."년 ".$reg_date[1]."월 ".$reg_date[2];
-					
-					//시간 오전,오후
-					if($chis){
-						$chis = str_replace("  "," ",$chis);
-						$chis_tmp = @explode(" ", $chis);
-						if ($chis_tmp['2'] == "PM"){
-							$after = "오후 ";
-						}else{
-							$after = "오전 ";
-						}
-						$ctime = @explode(":", $chis_tmp['1']);
-						$chiss = $after . $ctime['0'] .":". $ctime['1'];
-					}
-
-
-					//전체내역
-					$chall_file_list[$cymd][$i]['date'] = $cymd;
-					$chall_file_list[$cymd][$i]['idx'] = $cidx;
-					$chall_file_list[$cymd][$i]['eamil'] = $cemail;
-					$chall_file_list[$cymd][$i]['name'] = $cname;
-					$chall_file_list[$cymd][$i]['part'] = $cpart;
-					$chall_file_list[$cymd][$i]['files'] = $cfiles;
-					$chall_file_list[$cymd][$i]['hi'] = $chiss;
-
-					//이미지형, 파일형
-					if(@in_array($file_type , $image_type_array)){
-						$chall_file_list[$cymd][$i]['file_real_name'] = $file_real_img_name;
-						$chall_file_img[$cidx] = $ori_img_src;
-					}else{
-						$chall_file_list[$cymd][$i]['file_real_name'] = $file_real_name;
-						$chall_file_img[$cidx] = $ori_img_src;
-					}
-					
-
-					
-
-
-					$chall_file_list[$cymd][$i]['file_type'] = $file_type;
-					$chall_file_list[$cymd][$i]['yoil'] = $date_yoil;
-					$chall_file_list[$cymd][$i]['reg'] = $chall_reg;
-					$chall_file_list[$cymd][$i]['state'] = $state;
-					$chall_file_list_ymd[]= $cymd;
-				}
-
-				//배열키값 중복제거
-				$chall_file_list_ymd = array_unique($chall_file_list_ymd);
-
-				//배열키값 리셋
-				$chall_file_list_ymd = array_key_reset($chall_file_list_ymd);
-
-				//챌린지 인증메시지, 날짜별
-				$sql ="select DATE_FORMAT(file_regdate, '%Y-%m-%d') as ymd from work_challenges_result where state='1' and file_path!='' and file_name!='' and challenges_idx='".$idx."'";
-				$sql = $sql .=" group by DATE_FORMAT(file_regdate, '%Y-%m-%d') order by DATE_FORMAT(file_regdate, '%Y-%m-%d') desc";
-				$date_file_info = selectAllQuery($sql);
-
-				$auth_edit = false;
-				if ($user_file_cnt=='0'){
-					$auth_edit = true;
-				}
-	
-			//혼합형
-			}else if($attend_type == "3"){
-
-				//도전여부 체크
-				$chamyeo_btn = false;
-
-				//등록된 인증파일, 메시지
-				$chamyeo_chall_btn = false;
-
-				//참여가능기간
-				//$where = " and convert(char(10), file_regdate, 120)>='".$sdate."' and convert(char(10), file_regdate, 120)<='".$edate."'";
-				$where = " and (DATE_FORMAT(comment_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')<='".$edate."' or DATE_FORMAT(file_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')<='".$edate."')";
-				//챌린지 참여 횟수가 한번만 참여
-				if ($day_type == "0"){
-
-					//완료한 인증메시지 + 인증파일 체크
-					$sql = "select idx, comment from work_challenges_result where state='1' and comment!='' and file_path!='' and file_name!='' and challenges_idx='".$idx."' and email='".$user_id."'".$where." order by idx desc limit 1";
-					$chall_mix_info = selectQuery($sql);
-					if($chall_mix_info['idx']){
-						$chamyeo_btn = true;
-						$chall_mix_idx = $chall_mix_info['idx'];
-						$chall_comment_contents = urldecode($chall_mix_info['comment']);
-					}else{
-
-						//도전중인 인증메시지 체크
-						$sql = "select idx from work_challenges_result where state='0' and challenges_idx='".$idx."' and comment is null and file_path is null and file_name is null and email='".$user_id."'".$where." order by idx desc limit 1";
-						$chall_mix_info = selectQuery($sql);
-						if($chall_mix_info['idx']){
-							$chall_mix_idx = $chall_mix_info['idx'];
-						}
-					}
-
-					$chall_list_mix_idx = $chall_mix_idx;
-
-				}else if ($day_type == "1"){
-
-					//하루 한번 참여가능
-					$where = " and (DATE_FORMAT(comment_regdate, '%Y-%m-%d')='".TODATE."' or DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."')";
-					$sql = "select idx, comment from work_challenges_result where state='1' and challenges_idx='".$idx."' and comment!='' and file_path!='' and file_name!='' and email='".$user_id."'".$where." order by idx desc limit 1";
-					$chall_mix_info = selectQuery($sql);
-					if($chall_mix_info['idx']){
-						$chamyeo_btn = true;
-						$chall_mix_idx = $chall_mix_info['idx'];
-						$chall_comment_contents = urldecode($chall_mix_info['comment']);
-					}else{
-						//도전중인 혼합형 체크
-						$sql = "select idx from work_challenges_result where state='0' and challenges_idx='".$idx."' and comment!='' and file_path!='' and file_name!='' and email='".$user_id."'".$where." order by idx desc limit 1";
-						$chall_mix_info = selectQuery($sql);
-						if($chall_mix_info['idx']){
-							$chall_mix_idx = $chall_mix_info['idx'];
-						}
-					}
-
-					$chall_list_mix_idx = $chall_mix_idx;
-
-
-					//챌린지 참여회수 체크
-					$sql = "select count(idx) as cnt from work_challenges_result";
-					$sql = $sql .= " where state='1' and challenges_idx='".$idx."' and comment!='' and file_path!='' and file_name!='' and email='".$user_id."'".$where."";
-					$chall_files_info = selectQuery($sql);
-					if ($chall_files_info['cnt'] >= $ch_info['attend']){
-						$chamyeo_btn = true;
-					}
-				}
-
-
-				$sql = "select count(1) as cnt from work_challenges_result where state in('1','2') and challenges_idx='".$idx."'";
-				$user_tlist_info = selectQuery($sql);
-				if($user_tlist_info['cnt']){
-					$user_masage_cnt = number_format($user_tlist_info['cnt']);
-				}else{
-					$user_masage_cnt = 0;
-				}
-
-				//챌린지 참여 메시지형
-				$sql ="select email, count(idx) as cnt from work_challenges_result where state in('1','2') and comment!='' and challenges_idx='".$idx."' group by email";
-				$user_list_info = selectAllQuery($sql);
-				if($user_list_info['email']){
-					$user_list_count = @array_combine($user_list_info['email'], $user_list_info['cnt']);
-				}
-
-
-				//혼합형
-				$sql ="select idx, state, email, name, part, comment, DATE_FORMAT(comment_regdate, '%Y-%m-%d %H:%i:%s') as com_reg, DATE_FORMAT(comment_regdate, '%Y-%m-%d') as com_ymd, DATE_FORMAT(comment_regdate, '%Y-%m-%d %H:%i:%s') as com_ddd, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as file_reg, DATE_FORMAT(file_regdate, '%Y-%m-%d') as file_ymd, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as file_ddd";
-				$sql = $sql .=", resize, file_path, file_name, file_real_name, file_ori_path, file_ori_name, file_real_img_name, file_type from work_challenges_result where state in ('1','2') and comment!='' and file_path!='' and file_name!='' and challenges_idx='".$idx."' order by com_reg desc";
-				$list_info = selectAllQuery($sql);
-				if($list_info['idx']){
-					$list_cnt = number_format(count($list_info['idx']));
-				}
-
-				//$sql = "select idx, state, email, name, part, convert(varchar(20), file_regdate, 120) as reg, convert(varchar(10), file_regdate, 23) as ymd, CONVERT(varchar(20), file_regdate, 22) as ddd";
-				//$sql = $sql .=", resize, file_path, file_name, file_real_name, file_ori_path, file_ori_name, file_real_img_name, file_type from work_challenges_result where state in('1','2') and challenges_idx='".$idx."' order by reg desc";
-
-				for($i=0; $i<count($list_info['idx']); $i++){
-					
-					$cidx = $list_info['idx'][$i];
-					$cemail = $list_info['email'][$i];
-					$cname = $list_info['name'][$i];
-					$cpart = $list_info['part'][$i];
-					$state = $list_info['state'][$i];
-
-					//인증메시지
-					$com_reg = $list_info['com_reg'][$i];
-					$com_ymd = $list_info['com_ymd'][$i];
-					$com_his = $list_info['com_ddd'][$i];
-
-					//인증파일
-					$file_reg = $list_info['file_reg'][$i];
-					$file_ymd = $list_info['file_ymd'][$i];
-					$file_his = $list_info['file_ddd'][$i];
-
-					$comment = urldecode($list_info['comment'][$i]);
-					$resize = $list_info['resize'][$i];
-					if($resize == '0'){
-						$file_path = $list_info['file_ori_path'][$i];
-						$file_name = $list_info['file_ori_name'][$i];
-					}else{
-						$file_path = $list_info['file_path'][$i];
-						$file_name = $list_info['file_name'][$i];
-					}
-					
-					$file_type = $list_info['file_type'][$i];
-					$file_real_name = $list_info['file_real_name'][$i];
-					$file_real_img_name = $list_info['file_real_img_name'][$i];
-					$cfiles = $file_path.$file_name;
-
-					$ori_img_src = $list_info['file_ori_path'][$i].$list_info['file_ori_name'][$i];
-
-					//인증메시지 요일구함
-					$com_reg_date = explode("-", $com_ymd);
-					$int_reg = date("w", strtotime($com_reg));
-					$com_date_yoil =  $weeks[$int_reg];
-					if($com_reg_date){
-						$com_reg_date_m = (int)$com_reg_date[1];
-						$com_reg_date_d = preg_replace('/(0)(\d)/','$2', $com_reg_date[2]);
-						$com_date_md = $com_reg_date_m."월 ". $com_reg_date_d."일 ";
-					}
-					//시간 오전,오후
-					if($com_his){
-						$com_his = str_replace("  "," ",$com_his);
-						$com_his_tmp = @explode(" ", $com_his);
-
-						if ($com_his_tmp['2'] == "PM"){
-							$after = "오후 ";
-						}else{
-							$after = "오전 ";
-						}
-						$com_ctime = @explode(":", $com_his_tmp['1']);
-						$com_chiss = $after . $com_ctime['0'] .":". $com_ctime['1'];
-					}
-
-
-					//인증파일 요일구함
-					$file_reg_date = explode("-", $file_ymd);
-					$int_reg = date("w", strtotime($file_reg));
-					$file_date_yoil =  $weeks[$int_reg];
-
-					if($file_reg_date){
-						$file_reg_date_m = $file_reg_date[1];
-						$file_reg_date_d = preg_replace('/(0)(\d)/','$2', $file_reg_date[2]);
-						$file_date_md = $file_reg_date_m."월 ". $file_reg_date_d."일 ";
-					}
-
-					//시간 오전,오후
-					if($file_his){
-						$file_his = str_replace("  "," ",$file_his);
-						$file_chis_tmp = @explode(" ", $file_his);
-
-						if ($file_chis_tmp['2'] == "PM"){
-							$after = "오후 ";
-						}else{
-							$after = "오전 ";
-						}
-						$file_ctime = @explode(":", $file_chis_tmp['1']);
-						$file_chiss = $after . $file_ctime['0'] .":". $file_ctime['1'];
-					}
-
-
-					//최근 3건의 내역
-					if($i < 3){
-
-						//완료된건만 표기
-						if($state == 1){
-							$view_list_top3[$com_ymd][$i]['date'] = $com_ymd;
-							$view_list_top3[$com_ymd][$i]['idx'] = $cidx;
-							$view_list_top3[$com_ymd][$i]['email'] = $cemail;
-							$view_list_top3[$com_ymd][$i]['name'] = $cname;
-							$view_list_top3[$com_ymd][$i]['part'] = $cpart;
-
-							$view_list_top3[$com_ymd][$i]['comment'] = $comment;
-							$view_list_top3[$file_ymd][$i]['files'] = $cfiles;
-
-
-							$view_list_top3[$com_ymd][$i]['com_yoil'] = $com_date_yoil;
-							$view_list_top3[$com_ymd][$i]['com_md'] = $com_date_md;
-							$view_list_top3[$com_ymd][$i]['com_hi'] = $com_chiss;
-
-							$view_list_top3[$file_ymd][$i]['file_yoil'] = $file_date_yoil;
-							$view_list_top3[$file_ymd][$i]['file_md'] = $file_date_md;
-							$view_list_top3[$file_ymd][$i]['file_hi'] = $file_chiss;
-
-							$view_list_top3[$com_ymd][$i]['state'] = $state;
-							$view_list_ymd_top3[]= $com_ymd;
-						}
-					}
-
-
-					//전체내역
-					$chall_mix_list[$com_ymd][$i]['date'] = $com_ymd;
-					$chall_mix_list[$com_ymd][$i]['idx'] = $cidx;
-					$chall_mix_list[$com_ymd][$i]['email'] = $cemail;
-					$chall_mix_list[$com_ymd][$i]['name'] = $cname;
-					$chall_mix_list[$com_ymd][$i]['part'] = $cpart;
-					$chall_mix_list[$com_ymd][$i]['comment'] = $comment;
-					$chall_mix_list[$file_ymd][$i]['files'] = $cfiles;
-
-					$chall_mix_list[$com_ymd][$i]['com_yoil'] = $com_date_yoil;
-					$chall_mix_list[$com_ymd][$i]['com_md'] = $com_date_md;
-					$chall_mix_list[$com_ymd][$i]['com_hi'] = $com_chiss;
-
-					$chall_mix_list[$file_ymd][$i]['file_yoil'] = $file_date_yoil;
-					$chall_mix_list[$file_ymd][$i]['file_md'] = $file_date_md;
-					$chall_mix_list[$file_ymd][$i]['file_hi'] = $file_chiss;
-
-					$chall_mix_list[$com_ymd][$i]['state'] = $state;
-					$chall_mix_list_ymd[]= $com_ymd;
-
-					$chall_mix_img[$cidx] = $ori_img_src;
-				}
-
-				//배열키값 중복제거
-				$view_list_ymd_top3 = array_unique($view_list_ymd_top3);
-
-				//배열키값 리셋
-				$view_list_ymd_top3 = array_key_reset($view_list_ymd_top3);
-
-				//배열키값 중복제거
-				$chall_mix_list_ymd = array_unique($chall_mix_list_ymd);
-
-				//배열키값 리셋
-				$chall_mix_list_ymd = array_key_reset($chall_mix_list_ymd);
-
-
-				//오늘 참여한 내역 체크
-				$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and email='".$user_id."' and comment!='' and file_path!='' and file_name!='' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')='".TODATE."'";
-				$ch_masage_info = selectQuery($sql);
-
-				//참여횟수체크
-				$sql = "select count(idx) as cnt from work_challenges_result where state='1' and challenges_idx='".$idx."' and email='".$user_id."'";
-				$sql = $sql .=" and comment!='' and file_path!='' and file_name!='' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(comment_regdate, '%Y-%m-%d')<='".$edate."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')>='".$sdate."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')<='".$edate."'";
-				$masage_list_info = selectQuery($sql);
-				if($masage_list_info['idx']){
-					$chamyeo_cnt = count($masage_list_info['idx']);
-				}else{
-					$chamyeo_cnt = 0;
-				}
-
-				if($chamyeo_cnt >= $attend || !$ch_masage_info['idx']){
-					$chamyeo_chk = false;
-				}else{
-					$chamyeo_chk = true;
-				}
-
-				//챌린지 인증메시지, 날짜별
-				$sql ="select DATE_FORMAT(comment_regdate, '%Y-%m-%d') as ymd from work_challenges_result where state in('1','2') and challenges_idx='".$idx."' and comment!='' and file_path!='' and file_name!=''";
-				$sql = $sql .=" group by DATE_FORMAT(comment_regdate, '%Y-%m-%d') order by DATE_FORMAT(comment_regdate, '%Y-%m-%d') desc";
-				$date_masage_info = selectAllQuery($sql);
-
-
-				$sql = "select count(1) as cnt from work_challenges_result where state in('1','2') and challenges_idx='".$idx."' and file_path!='' and file_name!=''";
-				$user_tlist_info = selectQuery($sql);
-				if($user_tlist_info['cnt']){
-					$user_file_cnt = number_format($user_tlist_info['cnt']);
-				}else{
-					$user_file_cnt = 0;
-				}
-
-				//챌린지 참여 파일첨부형
-				$sql ="select email, count(idx) as cnt from work_challenges_result where state in('1','2') and challenges_idx='".$idx."' and file_path!='' and file_name!='' group by email";
-				$user_list_file = selectAllQuery($sql);
-				if($user_list_file['email']){
-					$user_file_count = @array_combine($user_list_file['email'], $user_list_file['cnt']);
-				}
-
-				//챌린지참여 전체 인증파일 참여횟수
-				$sql = "select idx, state, email, name, part, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as reg, DATE_FORMAT(file_regdate, '%Y-%m-%d') as ymd, DATE_FORMAT(file_regdate, '%Y-%m-%d %H:%i:%s') as ddd";
-				$sql = $sql .=", resize, file_path, file_name, file_real_name, file_ori_path, file_ori_name, file_real_img_name, file_type from work_challenges_result where state in('1','2') and challenges_idx='".$idx."' order by reg desc";
-
-				$chall_file_info = selectAllQuery($sql);
-				if($chall_file_info['idx']){
-					$chamyeo_file_cnt = number_format(count($chall_file_info['idx']));
-				}else{
-					$chamyeo_file_cnt = "";
-				}
-
-				//오늘 참여한 내역 체크
-				$sql = "select idx from work_challenges_result where state='1' and challenges_idx='".$idx."' and email='".$user_id."' and DATE_FORMAT(file_regdate, '%Y-%m-%d')='".TODATE."'";
-				$ch_file_info = selectQuery($sql);
-
-				//참여횟수체크
-				if($user_file_count[$user_id] >= $attend || !$ch_file_info['idx']){
-					$chamyeo_chk = false;
-				}else{
-					$chamyeo_chk = true;
-				}
-
-				//챌린지 인증메시지, 날짜별
-				$sql ="select DATE_FORMAT(file_regdate, '%Y-%m-%d') as ymd from work_challenges_result where state='1' and file_path!='' and file_name!='' and challenges_idx='".$idx."'";
-				$sql = $sql .=" group by DATE_FORMAT(file_regdate, '%Y-%m-%d') order by DATE_FORMAT(file_regdate, '%Y-%m-%d') desc";
-				$date_mix_info = selectAllQuery($sql);
-
-				$auth_edit = false;
-				if ($user_file_cnt=='0' && $user_masage_cnt=='0'){
-					$auth_edit = true;
-				}
-
-			}
-		}
-
-		//좋아요 리스트
-		$like_flag_list = array();
-		$sql = "select idx, email,service, work_idx, send_email, like_flag from work_todaywork_like where state='0' and send_email='".$user_id."' and workdate='".TODATE."'";
-		$like_info = selectAllQuery($sql);
-		for($i=0; $i<count($like_info['idx']); $i++){
-			$like_info_idx = $like_info['idx'][$i];
-			$like_info_email = $like_info['email'][$i];
-			$like_info_work_idx = $like_info['work_idx'][$i];
-			$like_info_like_flag = $like_info['like_flag'][$i];
-			$like_info_send_email = $like_info['send_email'][$i];
-			
-			$work_like_list[$like_info_work_idx] = $like_info_idx;
-		}
-
-	}
 	//로그인아이디
 	//echo $user_id;
 
 	$today_d = date("Y.m.d");
 	$today_m = date("Y.m.d",strtotime("+1 months"));
+
+	$template = '0';
 
 ?>
 
@@ -864,6 +33,7 @@
 <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="/editor/summernote/summernote-lite.css<?php echo VER;?>" rel="stylesheet">
+<script src="/js/tutorial_common.js<?php echo VER;?>"></script>
 <script src="/editor/summernote/summernote-lite.js<?php echo VER;?>"></script>
 <script src="/editor/summernote/lang/summernote-ko-KR.min.js<?php echo VER;?>"></script>
 <script>
@@ -960,7 +130,6 @@
 			var fdata = new FormData();
 			var mode = "update";
 			var url = '/inc/tu_process.php';
-			var coin = 100;
 
 			if(che_le == 'p_end'){
 				var level = "party";
@@ -968,12 +137,16 @@
 				var level = "challenge";
 			}else if(che_le == 'm_end'){
 				var level = "main";
-				coin = 500;
 			}
 
 			fdata.append("mode", mode);
 			fdata.append("level", level);
-			fdata.append("coin", coin);
+
+			
+			tuto_flag = $("#tutorial_flag").val();
+			if(tuto_flag > 4){
+				fdata.append("not_reward","1");
+			}
 			
 			$.ajax({
 				type: "POST",
@@ -982,9 +155,16 @@
 				processData: false,
 				url: url,
 				success: function(data){
-
 					console.log(data);
 					if(data == "complete"){
+						$(".tuto_mark_01_01").hide();
+						$(".tuto_pop_01_01").hide();
+						$(".phase_05").removeClass("tuto_on");
+						$(".phase_05").addClass("tuto_clear");
+						if(tuto_flag==4){
+							$(".phase_06").addClass("tuto_on");
+						}
+						$(".phase_06 button").attr("onclick","location.href='/team/tu_team.php'");
 						$(".tuto_phase").css("display","block");
 					}
 				}
@@ -1055,131 +235,15 @@
 	}
 	
 </style>
-<div class="tuto_phase" style="display:none;">
-		<div class="tuto_phase_deam"></div>
-		<div class="tuto_phase_in">
-			<div class="tuto_phase_tit">
-				<strong>튜토리얼로 보상받기</strong>
-				<span>단계별 튜토리얼을 진행하고 코인으로 보상 받아가세요!</span>
-			</div>
-			<div class="tuto_phase_list">
-				<div class="tuto_phase_box phase_01 tuto_clear">
-					<p>1</p>
-					<button>
-						<dl>
-							<dt>오늘업무</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_02 tuto_clear">
-					<p>2</p>
-					<button>
-						<dl>
-							<dt>좋아요</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_03 tuto_clear">
-					<p>3</p>
-					<button>
-						<dl>
-							<dt>코인 보상</dt>
-							<dd>
-								<span>좋아요</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_06 tuto_on">
-					<p>6</p>
-					<button onclick="page_loc('chal_end');">
-						<dl>
-							<dt>메인</dt>
-							<dd>
-								<span>좋아요</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_05 tuto_clear">
-					<p>5</p>
-					<button>
-						<dl>
-							<dt>챌린지 도전</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-				<div class="tuto_phase_box phase_04 tuto_clear">
-					<p>4</p>
-					<button>
-						<dl>
-							<dt>파티 체험</dt>
-							<dd>
-								<span>역량</span>
-								<strong>1</strong>
-							</dd>
-							<dd>
-								<span>코인</span>
-								<strong>100</strong>
-							</dd>
-						</dl>
-						<em>도전하기</em>
-					</button>
-				</div>
-			</div>
-			<div class="tuto_phase_pause">
-				<button onclick="save_end();">다음에 이어하기</button>
-			</div>
-		</div>
-	</div>
 
 <div class="rew_tutorial_deam"></div>
 <div class="tuto_mark tuto_mark_01_01"><button><span></span></button></div>
 <div class="tuto_pop tuto_pop_01_01">
 	<div class="tuto_in">
-		<div class="tuto_tit">챌린지에 대해 알아보기</div>
+		<div class="tuto_tit">챌린지 도전</div>
 		<div class="tuto_pager">1/1</div>
 		<div class="tuto_desc">
-			<p>참여가가능한 챌린지는 도전하기 버튼이 있어요.</p>
+			<p>도전하기를 클릭해서 챌린지에 도전할 수 있어요</p>
 			<p>인증파일을 등록하거나, 메시지를 남기면 챌린지 도전이 완료돼요.</p>
 			<p>도전 완료 즉시 코인이 지급돼요.</p>
 		</div>
@@ -1193,75 +257,32 @@
 	<div class="rew_warp_in">
 		<div class="rew_box">
 			<div class="rew_box_in">
+				<input type="hidden" value="<?=$tuto_flag?>" id="tutorial_flag">
+				<?include $home_dir . "/inc_lude/header_new.php";?>
 				<!-- menu -->
-				<? include $home_dir . "/inc_lude/tu_menu.php";?>
-				<!-- //menu -->
-
-				<!-- 콘텐츠 -->
+				<? include $home_dir . "/inc_lude/menu_party_view_index.php";?>
 				<div class="rew_conts">
 					<div class="rew_conts_in" id="rew_conts_in">
-						<!-- <div class="rew_header">
-							<div class="rew_header_in">
-								<div class="rew_header_notice">
-									<span></span>
-								</div>
-							</div>
-						</div> -->
-
-
-						<?/* 상단 카테고리, 제목 주석처리
-						<div class="rew_cha_view_top">
-							<div class="rew_cha_view_top_in">
-								<div class="view_top_title">
-									<div class="view_top_title_in">
-										<button class="btn_back_list"><span>목록으로</span></button>
-										<strong>[<?=$chall_category[$ch_cate]?>] <?=$ch_title?></strong>
-
-										<?if ($chamyeo_chk){?>
-											
-										<?}else{?>
-											<?if($sample_btn){?>
-												<button class="btn_join_ok" id="sample_btn"><span>사용하기</span></button>
-											<?}else{?>
-												
-											<?}?>
-										<?}?>
-									</div>
-								</div>
-								<div class="view_top_nav">
-									<div class="view_top_nav_in">
-										<ul>
-											<li><button class="on" id="go_view_01"><span>챌린지 보기</span></button></li>
-											<li><button id="go_view_02"><span>인증 파일</span></button></li>
-											<li><button id="go_view_03"><span>인증 메시지</span></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						*/?>
-
 						<div class="rew_conts_scroll_06">
-
 							<div class="rew_cha_view">
 								<div class="rew_cha_view_in">
 									<div class="rew_cha_view_box">
 										<div class="rew_cha_view_header">
 											<div class="rew_cha_view_header_in">
 												<div class="view_left">
-													<div class="view_title">[<?=$chall_category[$ch_cate]?>] <?=$ch_title?></div>
+													<div class="view_title">[보안] 해킹 방지의 첫 걸음! 윈도우 업데이트인걸 아시나요?</div>
 													<div class="view_coin">
-														<strong><?=$ch_coin?></strong>
+														<strong>500</strong>
 														<span>코인</span>
 													</div>
 													<div class="view_info">
 														<ul>
 															<li><span>하루 1회</span></li>
 															<li><span>최대 1회</span></li>
-
 															<?if($holiday_chk){?>
 															<li><span>공휴일제외</span></li>
 															<?}?>
+															<li><span>역량 UP</span></li>
 															<li><span class="view_date"><?=$today_d?> ~ <?=$today_m?></span></li>
 														</ul>
 													</div>
@@ -1269,20 +290,10 @@
 												<div class="view_right">
 													<div class="view_user">
 														<ul>
-															<?if($total_cnt > 0){?>
-																<?if($total_cnt == 1){ ?>
-																	<li><button><img src="/html/images/pre/ico_user_001.png" alt="" /></button></li>
-																<?}else if($total_cnt == 2){?>
-																	<li><button><img src="/html/images/pre/ico_user_001.png" alt="" /></button></li>
-																	<li><button><img src="/html/images/pre/ico_user_002.png" alt="" /></button></li>
-																<?}else{?>
-																	<li><button><img src="/html/images/pre/ico_user_001.png" alt="" /></button></li>
-																	<li><button><img src="/html/images/pre/ico_user_002.png" alt="" /></button></li>
-																	<li><button><img src="/html/images/pre/ico_user_003.png" alt="" /></button></li>
-																	<li><button><span>+ <?=$user_total_cnt?></span></button></li>
-																<?}?>
-															<?}?>
-															
+															<li><button><img src="/html/images/pre/ico_user_001.png" alt="" /></button></li>
+															<li><button><img src="/html/images/pre/ico_user_002.png" alt="" /></button></li>
+															<li><button><img src="/html/images/pre/ico_user_003.png" alt="" /></button></li>
+															<li><button><span>+ 117</span></button></li>
 														</ul>
 													</div>
 													<div class="view_writer">
@@ -1295,7 +306,10 @@
 
 										<div class="rew_cha_view_editor">
 											<div class="rew_cha_view_editor_in">
-												<?=$ch_contents?>
+											✏️챌린지 참여방법<br>
+												1. Windows 업데이트를 검색하고 업데이트 확인합니다.<br>
+												▶ 설정 > Windows 업데이트 설정 > 업데이트 확인<br>
+												2. 오늘까지 정상적인 업데이트를 진행한 후 최신 상태임을 캡처하고 업로드해 주세요
 											</div>
 										</div>
 
@@ -1343,9 +357,8 @@
 													</div>
 													<ul>
 													<?for($i=0; $i<count($img_info['idx']); $i++){
-														
+												
 														$resize = $img_info['resize'][$i];
-
 														if($resize == '0'){
 															$file_path = $img_info['file_ori_path'][$i];
 															$file_name = $img_info['file_ori_name'][$i];
@@ -1354,8 +367,6 @@
 															//$file_path = $img_info['file_path'][$i];
 															$file_name = $img_info['file_name'][$i];
 														}
-
-
 														$file_real_name = $file_path.$file_name;
 													?>
 														<li>
@@ -1371,16 +382,11 @@
 											</div>
 										<?}?>
 									</div>
-
-
-
 									<?
 									//챌린지 샘플인경우
 									if($template =='1'){?>
-
 										<div class="cha_view_btn">
 											<button class="btn_white" id="btn_back_list">이전</button>
-
 											<!-- <button class="btn_gray" id="">숨기기 OFF</button> -->
 											<?if($template_auth || $ch_info['email'] == $user_id){?>
 
@@ -1400,7 +406,6 @@
 
 									<?}else if($template == "0"){
 									//챌린지 샘플이 아닌경우
-
 										//인증메시지형
 										if(in_array($ch_info['attend_type'], array(1))){?>
 											<div class="rew_cha_view_masage">
@@ -1417,11 +422,9 @@
 															for($i=0; $i<count($masage_list_ymd_top3); $i++){
 																$date_ymd = trim($masage_list_ymd_top3[$i]);
 															?>
-
 																<div class="masage_date">
 																	<span><?=$masage_list_top3[$date_ymd][$k]['md']?> <?=$masage_list_top3[$date_ymd][$k]['yoil']?></span>
 																</div>
-
 																<?for($j=0; $j<count($masage_list_top3[$date_ymd]); $j++){
 
 																	$chall_masage_email = $masage_list_top3[$date_ymd][$k]['email'];
@@ -2380,14 +1383,15 @@
 	<?php
 		//좋아요 레이어
 		include $home_dir . "/layer/member_jjim.php";
+
+		//튜토리얼 시작 레이어
+		include $home_dir . "/layer/tutorial_main_level.php";
 	?>
 
 
 </div>
-	<!-- footer start-->
 	<?php
 		include $home_dir . "/inc_lude/footer.php";
 	?>
-	<!-- footer end-->
 </body>
 </html>

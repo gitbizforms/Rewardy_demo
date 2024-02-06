@@ -90,6 +90,10 @@ if($mode == "party_coin_reward"){
 					$sql = "update work_member set comcoin = comcoin - '".$coin."' where state='0' and companyno='".$companyno."' and email='".$user_id."'";
 					$cha_coin = updateQuery($sql);
 
+					// 회사 공용코인 차감
+					$sql = "update work_company set comcoin = comcoin - '".$coin."' where idx = '".$companyno."' and state = '0'";
+					$coin_company = updateQuery($sql);
+
 				}
 
 				//코인 적립 내역
@@ -188,6 +192,11 @@ if($mode == "member_coin_reward"){
 						//코인차감
 						$sql = "update work_member set comcoin = comcoin - '".$coin."' where state='0' and companyno='".$companyno."' and email='".$user_id."'";
 						$res_comcoin = updateQuery($sql);
+
+						// 회사 공용코인 차감
+						$sql = "update work_company set comcoin = comcoin - '".$coin."' where idx = '".$companyno."' and state = '0'";
+						$coin_company = updateQuery($sql);
+
 
 						//타임라인(코인 보상함)
 						work_data_log('0','20', $coininfo_chagam, $user_id, $user_name, $send_info['email'], $send_info['name']);
@@ -302,7 +311,8 @@ if($mode == "member_coin_reward"){
 		$sql = "update work_todaywork_project set com_coin_pro = 0, enddate = '".$p_edate."', state = 1 where state = 0 and companyno='".$companyno."' and idx = '".$p_idx."'";
 		$reset_par_co = updateQuery($sql);
 
-		
+		$sql = "update work_todaywork set state = '9' where work_idx = '".$p_idx."' and companyno = '".$companyno."' ";
+		$up = updateQuery($sql);
 		
 		if($reset_par_co){
 

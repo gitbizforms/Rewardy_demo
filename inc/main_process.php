@@ -1346,7 +1346,7 @@ if($mode == "item_img_buy"){
 
 	date_default_timezone_set('Asia/Seoul');
 	$this_time = date("Y-m-d H:i:s", time());
-	$img_idx = $_POST['img_idx'];
+	$img_idx = $_POST['img_idx']; //이미지 번호
 	$item_code = '1200';
 	$item_type = 'item';
 	$reward_user = 'rewardy';
@@ -1376,13 +1376,13 @@ if($mode == "item_img_buy"){
 		}
 	}
 
-	$sql = "select idx, item_price, item_date, item_effect, kind_flag from work_member_character_img where idx = '".$img_idx."'";
+	$sql = "select idx, item_price, item_date, item_effect, kind_flag, file_path, file_name from work_member_character_img where idx = '".$img_idx."'";
 	$img_idx_rs = selectQuery($sql);
 
 	if($img_idx_rs['idx']){
-		$img_price = $img_idx_rs['item_price'];
-		$item_kind = $img_idx_rs['item_effect'];
-		$item_date = $img_idx_rs['item_date'];
+		$img_price = $img_idx_rs['item_price']; //가격
+		$item_kind = $img_idx_rs['item_effect']; // 효과
+		$item_date = $img_idx_rs['item_date']; // 유지기간
 		$item_kind_flag = $img_idx_rs['kind_flag'];
 		$time = date("Y-m-d H:i:s",time());;
 
@@ -1400,6 +1400,17 @@ if($mode == "item_img_buy"){
 		}else{
 			$sql = "update work_member set profile_type = 0, profile_img_idx = '".$img_idx."', coin = coin - '".$img_price."' where idx = '".$mem_coin['idx']."'";
 			$buy_item_sql = updateQuery($sql);
+
+			// 프로필 이미지 변경
+			$sql = "select idx from work_member_profile_img where email = '".$user_id."' and state = '0'";
+			$profile = selectQuery($sql);
+			if($profile['idx']){
+				$sql = "update work_member_profile_img set file_path = '".$img_idx_rs['file_path']."', file_name = '".$img_idx_rs['file_name']."', file_size = 0 , file_ori_path = '', file_ori_name = '', file_ori_size = 0, file_real_name = '', editdate = ".DBDATE." where email = '".$user_id."' and companyno = '".$companyno."'";
+				$up = updateQuery($sql);
+			}else{
+				$sql = "insert into work_member_profile_img (state, companyno, file_path, file_name, ip, regdate) values('0', '".$companyno."', '".$img_idx_rs['file_path']."', '".$img_idx_rs['file_name']."', '".LIP."', '".$time."')";
+				$in = insertIdxQuery($sql);
+			}
 
 			$sql = "insert into work_item_info (member_email, item_idx, item_kind, end_date, item_kind_flag) values ('".$user_id."', '".$img_idx_rs['idx']."', '".$item_kind."','".$time."','".$item_kind_flag."')";
 			$buy_item_info = insertQuery($sql);

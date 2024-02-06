@@ -536,6 +536,6 @@
 			  $('.rewardy_loading_01').css('display', 'none');
 		}
 	}
-</script>
+	</script>
 </body>
 </html>

@@ -6077,6 +6077,14 @@ if($mode == "lives_like"){
 	$send_userid = $_POST['send_userid'];
 	$send_info = member_row_info($send_userid);
 
+	//일일 최다 좋아요 횟수 체크
+	$limit_like = limit_like_check($send_info['email']);
+	if($limit_like['cnt'] > 5){
+		echo "limit_like";
+		exit;
+	}
+
+
 	if($jf_idx){
 
 		//자동 ai 댓글 조회, ai댓글인경우 work_idx=업무idx번호로 교체
@@ -6109,12 +6117,12 @@ if($mode == "lives_like"){
 		if($data_check==false){
 
 
-			//2023-11-17 수정
-			$penalty = member_penalty($send_info['email']);
-			if($penalty['penalty_state']>0){
-				echo "penalty";
-				exit;
-			}
+			// //2023-11-17 수정
+			// $penalty = member_penalty($send_info['email']);
+			// if($penalty['penalty_state']>0){
+			// 	echo "penalty";
+			// 	exit;
+			// }
 
 			$sql = "insert into work_todaywork_like(companyno,kind_flag, service, work_idx, like_flag, email, name, send_email, send_name, comment, type_flag, ip, workdate) values(";
 			$sql = $sql .= "'".$companyno."','".$jf_idx."', '".$service."', '".$work_idx."', '".$like_flag."', '".$send_info['email']."', '".$send_info['name']."', '".$user_id."', '".$user_name."', '".$jl_comment."', '".$type_flag."', '".LIP."', '".TODATE."')";
@@ -6200,7 +6208,7 @@ if($mode == "lives_like"){
 				//좋아요 누르면 자신의 협업점수 +1점
 				work_cp_reward("like","0007", $user_id, $insert_idx);
 
-				echo "complete|".$insert_idx;
+				echo "|complete|".$insert_idx;
 				exit;
 			}
 		}
@@ -6208,8 +6216,7 @@ if($mode == "lives_like"){
 }
 
 if($mode == "tuto_close"){
-
-	setcookie('tuto_close', 1, time() + 86400 * 3 , '/', C_DOMAIN);
+		setcookie('tuto_close', 1, time() + 86400 * 1 , '/', C_DOMAIN);
 	echo "complete";
 }
 

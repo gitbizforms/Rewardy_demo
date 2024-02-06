@@ -1,10 +1,10 @@
 <?php
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
-	include $home_dir . "/inc_lude/header.php";
+	include $home_dir . "/inc_lude/header_index.php";
 
 	if($user_level != '0'){
-		header("Location:http://demo.rewardy.co.kr/index.php");
+		header("Location:https://rewardy.co.kr/index.php");
 		exit;
 	}
 
@@ -73,7 +73,8 @@
 	$comcoin_info = selectAllQuery($sql);
 
 ?>
-
+<link rel="stylesheet" type="text/css" href="/html/css/set_head.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/set_03_03.css<?php echo VER;?>" />
 
 <div class="rew_warp">
 	<div class="rew_warp_in">
@@ -103,6 +104,9 @@
 									</div>
 
 									<div class="rew_member_sub_func_tab" >
+										<div class="rew_member_sub_count">
+											<span>입출금 내역</span>
+										</div>
 										<div class="rew_member_sub_func_tab_in">
 											<div class="rew_member_sub_func_sort" id="rew_member_sub_func_sort">
 												<div class="rew_member_sub_func_sort_in">

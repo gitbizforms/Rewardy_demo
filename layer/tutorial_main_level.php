@@ -1,12 +1,17 @@
+<?
+	$member_info = member_row_info($user_id);
+	$tuto_flag = $member_info['t_flag'];	
+?>
+
 <div class="tuto_phase" style="display:none;">
 	<div class="tuto_phase_deam"></div>
 	<div class="tuto_phase_in">
 		<div class="tuto_phase_tit">
-			<strong>튜토리얼로 보상받기</strong>
-			<span>단계별 튜토리얼을 진행하고 코인으로 보상 받아가세요!</span>
+			<strong>튜토리얼로 레벨업!</strong>
+			<span>단계별로 튜토리얼을 통해서 역량점수와 좋아요를 받으세요~</span>
 		</div>
 		<div class="tuto_phase_list">
-			<div class="tuto_phase_box phase_01">
+			<div class="tuto_phase_box phase_01 <?=$tuto_flag>=1?'tuto_clear':''?> <?=$tuto_flag==0?'tuto_on':''?>">
 				<p>1</p>
 				<button>
 					<dl>
@@ -23,7 +28,7 @@
 					<em>도전하기</em>
 				</button>
 			</div>
-			<div class="tuto_phase_box phase_02">
+			<div class="tuto_phase_box phase_02 <?=$tuto_flag>=2?'tuto_clear':''?> <?=$tuto_flag==1?'tuto_on':''?>">
 				<p>2</p>
 				<button>
 					<dl>
@@ -40,7 +45,7 @@
 					<em>도전하기</em>
 				</button>
 			</div>
-			<div class="tuto_phase_box phase_03">
+			<div class="tuto_phase_box phase_03 <?=$tuto_flag>=3?'tuto_clear':''?> <?=$tuto_flag==2?'tuto_on':''?>">
 				<p>3</p>
 				<button>
 					<dl>
@@ -57,7 +62,7 @@
 					<em>도전하기</em>
 				</button>
 			</div>
-			<div class="tuto_phase_box phase_06">
+			<div class="tuto_phase_box phase_06 <?=$tuto_flag>=6?'tuto_clear':''?> <?=$tuto_flag==5?'tuto_on':''?>">
 				<p>6</p>
 				<button>
 					<dl>
@@ -74,7 +79,7 @@
 					<em>도전하기</em>
 				</button>
 			</div>
-			<div class="tuto_phase_box phase_05">
+			<div class="tuto_phase_box phase_05 <?=$tuto_flag>=5?'tuto_clear':''?> <?=$tuto_flag==4?'tuto_on':''?>">
 				<p>5</p>
 				<button>
 					<dl>
@@ -91,7 +96,7 @@
 					<em>도전하기</em>
 				</button>
 			</div>
-			<div class="tuto_phase_box phase_04">
+			<div class="tuto_phase_box phase_04 <?=$tuto_flag>=4?'tuto_clear':''?> <?=$tuto_flag==3?'tuto_on':''?>">
 				<p>4</p>
 				<button>
 					<dl>

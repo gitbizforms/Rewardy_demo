@@ -148,7 +148,7 @@ if($mode == "main_live_list"){
 			$profile_type = $member_list_info['profile_type'][$i];
 			$profile_img_idx = $member_list_info['profile_img_idx'][$i];
 			$profile_file = $member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
-			$profile_img =  'http://demo.rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
+			$profile_img =  'https://rewardy.co.kr'.$member_list_info['file_path'][$i].$member_list_info['file_name'][$i];
 
 
 			//퇴근
@@ -1149,11 +1149,9 @@ if($mode == "main_like_send"){
 	$idx = preg_replace("/[^0-9]/", "", $idx);
 
 	if($idx){
-
 		$sql = "select idx, type, email, name, memo, kind from work_main_like where state='0' and companyno='".$companyno."' and idx='".$idx."'";
 		$main_info = selectQuery($sql);
 		if($main_info['idx']){
-
 			$main_info_idx = $main_info['idx'];
 			$main_info_type = $main_info['type'];
 			$main_info_email = $main_info['email'];
@@ -1168,10 +1166,11 @@ if($mode == "main_like_send"){
 				exit;
 			}
 
-			$sql = "select idx from work_todaywork_main_like where state='1' and companyno='".$companyno."' and like_kind = '".$main_info_kind."' and email='".$user_id."' and workdate = '".$TODATE."'";
+			$sql = "select idx from work_todaywork_main_like where state='1' and companyno='".$companyno."' and like_kind = '".$main_info_kind."' and email='".$user_id."' and workdate = '".TODATE."' and work_idx = '".$main_info_idx."'";
 			$main_like_today = selectQuery($sql);
-
+				
 			if(!$main_like_today['idx']){
+				
 				$sql = "select idx from work_todaywork_main_like where state='0' and companyno='".$companyno."' and work_idx='".$main_info['idx']."' and email='".$user_id."'";
 				$main_like_info = selectQuery($sql);
 				if($main_like_info['idx']){
@@ -1222,18 +1221,18 @@ if($mode == "main_like_send"){
 
 							$count_like = selectQuery($sql);
 
-							if($count_like['cnt'] == 0){
-								
-								echo $count_like['cnt']."|"?>
+						if($count_like['cnt'] == 0){
 							
-								<div class="list_none">
-									<div class="none_q">
-										<span>곧 이 자리에 새로운 추천 동료들이 나타날 거예요! <br>
-											제가 빠르게 찾아드릴게요!</span>
-									</div>
-									<img src="/html/images/pre/rew_cha_02.png" alt="알 캐릭터">
+							echo $count_like['cnt']."|"?>
+						
+							<div class="list_none">
+								<div class="none_q">
+									<span>곧 이 자리에 새로운 추천 동료들이 나타날 거예요! <br>
+										제가 빠르게 찾아드릴게요!</span>
 								</div>
-							<?}
+								<img src="/html/images/pre/rew_cha_02.png" alt="알 캐릭터">
+							</div>
+						<?}
 
 					}
 				}

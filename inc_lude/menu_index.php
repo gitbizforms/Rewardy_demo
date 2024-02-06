@@ -9,8 +9,8 @@ $member_list_info = member_main_team_list();
 	list($c_stime_f, $c_etime_f) =  explode(":",$time_company['stime']);
 	list($c_stime_e, $c_etime_e) = explode(":",$time_company['etime']);
 
+	
 ?>				
-				
 				<div class="rew_menu">
 					<div class="rew_menu_in">
 						<div class="rew_bar">
@@ -77,7 +77,7 @@ $member_list_info = member_main_team_list();
 														<input type="hidden" id="be_party_idx">
 														<ul>
 															<li>
-																<button class="on" id="write_tab_01"><span>나의 업무</span></button>
+																<button class="on <?=$tuto_start==true?' tuto tuto_01_01':''?>" id="write_tab_01"><span>나의 업무</span></button>
 															</li>
 															<li>
 																<button id="write_tab_03"><span>보고</span></button>
@@ -124,7 +124,7 @@ $member_list_info = member_main_team_list();
 																<?
 																if($decide_info['idx']){
 																	for($i=0; $i<count($decide_info['idx']); $i++){?>
-																		<li><button value="<?=$decide_info['idx'][$i]?>" id="tdw_write_decide"><span><?=$decide_info['title'][$i]?></span></button></li>
+																		<li><button value="<?=$decide_info['idx'][$i]?>" class="<?=$tuto_start==true&&$decide_info['idx'][$i]=='3'?' tuto tuto_01_02':''?>"id="tdw_write_decide"><span><?=$decide_info['title'][$i]?></span></button></li>
 																	<?}?>
 																<?}else{?>
 																	<li><button style="opacity:0;"></button></li>
@@ -139,7 +139,7 @@ $member_list_info = member_main_team_list();
 																			<button class="btn_sort_on first_set" value="<?=$c_stime_f?>"><span><?=$c_stime_f?></span></button>
 																			<ul>
 																				<?for($i=1; $i < 25; $i++){?>
-																					<li><button class = "startTimeHour" value = "<?=$i?>"><span><?=$i?></span></button></li>
+																					<li><button class = "startTimeHour" value = "<?=str_pad($i, 2, '0', STR_PAD_LEFT)?>"><span><?=str_pad($i, 2, '0', STR_PAD_LEFT)?></span></button></li>
 																				<?}?>
 																			</ul>
 																		</div>
@@ -149,7 +149,7 @@ $member_list_info = member_main_team_list();
 																			<button class="btn_sort_on second_set" value="<?=$c_etime_f?>"><span><?=$c_etime_f?></span></button>
 																			<ul>
 																				<?for($i = 0; $i <= 50; $i += 10){?>
-																					<li><button class = "startTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=$i?></span></button></li>
+																					<li><button class = "startTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=($i === 0) ? '00' : $i?></span></button></li>
 																				<?}?>
 																			</ul>
 																		</div>
@@ -162,7 +162,7 @@ $member_list_info = member_main_team_list();
 																			<button class="btn_sort_on first_set" value="<?=$c_stime_e?>"><span><?=$c_stime_e?></span></button>
 																			<ul>
 																				<?for($i=1; $i < 25; $i++){?>
-																					<li><button class = "endTimeHour" value = "<?=$i?>"><span><?=$i?></span></button></li>
+																					<li><button class = "endTimeHour" value = "<?=str_pad($i, 2, '0', STR_PAD_LEFT)?>"><span><?=str_pad($i, 2, '0', STR_PAD_LEFT)?></span></button></li>
 																				<?}?>
 																			</ul>
 																		</div>
@@ -172,7 +172,7 @@ $member_list_info = member_main_team_list();
 																			<button class="btn_sort_on second_set" value="<?=$c_etime_e?>"><span><?=$c_etime_e?></span></button>
 																			<ul>
 																				<?for($i = 0; $i <= 50; $i += 10){?>
-																					<li><button class = "endTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=$i?></span></button></li>
+																					<li><button class = "endTimeMin" value = "<?=($i === 0) ? '00' : $i?>"><span><?=($i === 0) ? '00' : $i?></span></button></li>
 																				<?}?>
 																			</ul>
 																		</div>
@@ -198,7 +198,7 @@ $member_list_info = member_main_team_list();
 												</div>
 												
 												<div class="tdw_write_btn" id="tdw_write_btn">
-													<button class ="tdw_lock" id = "tdw_lock"><span>비밀글</span></button>
+													<button class ="tdw_lock" title="비밀글" id = "tdw_lock"><span>비밀글</span></button>
 													<button class ="tdw_write" id = "tdw_write"><span>등록하기</span></button>
 												</div>
 											</div>

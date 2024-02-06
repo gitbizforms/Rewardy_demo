@@ -6,7 +6,7 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 
 ?>
 
-	<div class="t_layer rew_layer_ask" style="display:none;">
+	<!-- <div class="t_layer rew_layer_ask" style="display:none;">
 		<div class="tl_deam"></div>
 		<div class="tl_in">
 			<div class="tl_close">
@@ -72,8 +72,97 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 					개인정보처리방침 내용입니다. 개인정보처리방침 내용입니다. 개인정보처리방침 내용입니다.</p>
 				</div>
 			</div>
-			<div class="tl_btn">
+			<div class="tl_btn" id="email_inquiry">
 				<button id=""><span>문의하기</span></button>
+			</div>
+		</div>
+	</div> -->
+
+	<div class="t_layer rew_layer_ask" style="display:none;">
+		<div class="tl_deam"></div>
+		<div class="tl_in">
+			<div class="tl_close">
+				<button><span>닫기</span></button>
+			</div>
+			<div class="tl_login_logo">
+				<span>리워디</span>
+			</div>
+			<div class="tl_tit">
+				<strong>온라인 문의하기</strong>
+				<span>고객센터 운영 시간 <br>평일 09:30-17:30 (점심 12:30-13:30) </span>
+			</div>
+			<div class="tl_list">
+				<ul>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="k1" class="input_001" placeholder="이름" />
+							<label for="k1" class="label_001">
+								<strong class="label_tit">이름</strong>
+							</label>
+						</div>
+					</li>
+					<!-- <li class="col_50">
+						<div class="tc_input">
+							<input type="text" id="k2" class="input_001" placeholder="연락처" />
+							<label for="k2" class="label_001">
+								<strong class="label_tit">연락처</strong>
+							</label>
+						</div> -->
+					</li>
+					<li>
+						<div class="tc_input">
+							<input type="text" id="k3" class="input_001" placeholder="이메일" />
+							<label for="k3" class="label_001">
+								<strong class="label_tit">이메일</strong>
+							</label>
+						</div>
+					</li>
+					<!-- <li>
+						<div class="tc_input">
+							<input type="text" id="k4" class="input_001" placeholder="제목" />
+							<label for="k4" class="label_001">
+								<strong class="label_tit">제목</strong>
+							</label>
+						</div>
+					</li> -->
+					<li>
+						<div class="tc_input">
+							<textarea id="k5" class="input_001" placeholder="문의사항"></textarea>
+							<label for="k5" class="label_001">
+								<strong class="label_tit">문의사항</strong>
+							</label>
+						</div>
+					</li>
+					<li class="col_50">
+						<div class="img_box tc_input"><img src="../html/images/pre/img_check.png" alt="인증 이미지"></div>
+						<div class="img_check">
+							<button><span>이미지 교체</span></button>
+							<button><span>이미지 읽기</span></button>
+						</div>
+					</li>
+					<li class="col_50">
+						<div class="tc_input">
+							<input type="text" id="k6" class="input_001" placeholder="보안문자 입력" />
+							<label for="k6" class="label_001">
+								<strong class="label_tit">보안문자 입력</strong>
+							</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="tl_chk_wrap">
+				<!-- <div class="tl_chk">
+					<input type="checkbox" name="chk_agree" id="chk_agree" />
+					<label for="chk_agree"><span>개인정보처리방침</span>에 동의합니다.</label>
+				</div> -->
+				<div class="tl_descript tl_agree_box">
+					<p>· 상담시간 외 토, 일, 공휴일에 예약하시는 경우 상담시간에 복귀 후 안내 드립니다. <br>
+						· 오전 10~11시, 오후 2~4시에는 전화상담이 많아 연결이 원활하지 못하니, 예약을 남겨주시면 신속히 확인 후 연락드리겠습니다.</p>
+				</div>
+			</div>
+			<div class="tl_btn">
+				<button id="inquiry_cancel"><span>취소</span></button>
+				<button id="email_inquiry"><span>문의하기</span></button>
 			</div>
 		</div>
 	</div>
@@ -145,13 +234,15 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 					</li>
 				</ul>
 			</div>
-			<div class="tl_btn">
-				<button><span>예약하기</span></button>
-			</div>
-			<div class="tl_descript">
+						<div class="tl_descript">
 				<p>※ 오전 10~11시, 오후 2~4시에는 전화상담이 많아 연결이 원활하지 못하니 성함과 연락처를 남겨 주시면 빠른 시간 안에 연락드리겠습니다.<br />
 				<br />※ 평일 오후 6시 이후, 토/일/공휴일에 전화상담을 예약하시면 업무 복귀 후 바로 연락드리게 됩니다. 양해 바랍니다.</p>
 			</div>
+			<div class="tl_btn">
+				<button class = "close_pop"><span>취소</span></button>
+				<button><span>예약하기</span></button>
+			</div>
+
 		</div>
 	</div>
 <? } ?>
@@ -252,7 +343,7 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 				<ul>
 					<li>
 						<div class="tc_input">
-							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" />
+							<input type="text" id="z1" name="user_id" class="input_001" placeholder="이메일" <?=$_COOKIE['id_save']?" value=".$_COOKIE['cid']."":""?> />
 							<label for="z1" class="label_001">
 								<strong class="label_tit">이메일을 입력하세요</strong>
 							</label>
@@ -270,8 +361,10 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 			</div>
 			<div class="tl_chk_wrap">
 				<div class="tl_chk">
-					<input type="checkbox" name="chk_login" id="chk_login" />
-					<label for="chk_login">로그인 상태 유지</label>
+					<input type="checkbox" name="chk_login" id="chk_login" style="<?=$chkMobile=='1'?'':'display:none'?>" />
+					<label for="chk_login" style="<?=$chkMobile=='1'?'':'display:none'?>">로그인 상태 유지</label>
+					<input type="checkbox" name="id_save" id="id_save" <?=$_COOKIE['id_save']?"checked":""?>/>
+					<label for="id_save" id="id_save_label" >아이디 저장</label>
 				</div>
 				<ul>
 					<li>
@@ -468,5 +561,9 @@ if (basename($_SERVER['PHP_SELF']) == $join || basename($_SERVER['PHP_SELF']) ==
 		$(".tl_prof_slc").mouseleave(function(){
 			$(".tl_prof_slc ul").hide();
 		});
+
+		$('.close_pop').click(function(){
+			$('.rew_layer_reserv').css({"display": "none"})
+		})
 	});
 </script>

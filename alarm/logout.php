@@ -13,19 +13,5 @@
 	setcookie('user_level', '', time()-3600, '/', C_DOMAIN);
 */
 
-	// 쿠키 삭제 예외 배열값
-	$DelNotCookieArr = array("cid", "id_save");
-	if($_COOKIE){
-		foreach( $_COOKIE as $key => $value ){
-
-			//쿠키삭제예외
-			if(!in_array($key, $DelNotCookieArr)) {
-				setcookie( $key, $value, time()-3600 , '/', C_DOMAIN);
-				unset($_COOKIE[$key]);
-			}
-		}
-	}
-
-	echo "<script>location.href='/alarm/index.php';</script>";
-	exit;
+	
 ?>

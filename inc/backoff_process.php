@@ -421,6 +421,101 @@ if($mode == "backuser_list"){
 	<? echo "|".$tclass."|backuser|";
 }
 
+//백오피스 유저 리스트
+if($mode == "backtuto_list"){
+
+	$where = "";
+
+	$search = $_POST['search'];
+	if($search){
+		$where = $where .= " and (name like '%".$search."%' or company like '%".$search."%' or email like '%".$search."%' or part like '%".$search."%')";
+	}
+
+	$code = $_POST['code'];
+	if($code=='0'){
+		$where = $where .= " and state = '0'";
+	}else if($code == '1'){
+		$where = $where .= " and state = '1'";
+	}
+
+	$kind = $_POST['kind'];
+	$tclass = $_POST['tclass'];
+
+	if($kind){
+		$sort = $kind;
+	}else{
+		$sort = " idx";
+	}
+
+	if($tclass=="btn_sort_up"){
+		$updown = " asc";
+	}else{
+		$updown = " desc";
+	}
+
+	$url = "backtuto_list";
+	$string = "&page=".$url;
+
+	$p = $_POST['p']?$_POST['p']:$_GET['p'];
+	if (!$p){
+		$p = 1;
+	}
+
+	$list = $_POST['list'];
+	$pagingsize = 5;					//페이징 사이즈
+	if($list){
+		$pagesize = $list;	
+	}else{
+		$pagesize = 15;
+	}						//페이지 출력갯수
+	$startnum = 0;						//페이지 시작번호
+	$endnum = $p * $pagesize;			//페이지 끝번호
+
+	//시작번호
+	if ($p == 1){
+		$startnum = 0;
+	}else{
+		$startnum = ($p - 1) * $pagesize;
+	}
+
+	$sql = "select idx, name, email, company, part, t_flag, t_time from work_member where idx > 0 ".$where ; 
+	$sql = $sql .= " order by ".$sort.$updown." limit ". $startnum.",".$pagesize;
+	$query = selectAllQuery($sql);
+
+	$sql = "select count(idx) as cnt from work_member where idx > 0 ".$where ;
+	$history_info_cnt = selectQuery($sql);
+	if($history_info_cnt['cnt']){ 
+		$total_count = $history_info_cnt['cnt'];
+	}
+
+	for($i=0; $i<count($query['idx']); $i++){
+		$mem_idx = $query['idx'][$i]; ?>
+		<tr>
+			<td><?=$mem_idx?></td>
+			<td><?=$query['name'][$i]?></td>
+			<td class="user_td_email"><?=$query['email'][$i]?></td>
+			<td><?=$query['company'][$i]?></td>
+			<td><?=$query['part'][$i]?></td>
+			<td><?=$query['t_flag'][$i]?></td>
+			<td><?=$query['t_time'][$i]?></td>
+			<td><button type="button" class="btn btn-outline-dark btn-sm" id="reset_<?=$mem_idx?>" value="<?=$mem_idx?>"><i class="fa-solid fa-rotate-right"></i></button></td>	
+		</tr>
+	<?}
+		if(count($query['idx'])==0){?>
+			<tr><td colspan="6">조회된 목록이 없습니다.</td></tr>
+		<?}
+	?>
+	<input type="hidden" id="page_num" value="<?=$p?>">
+	<input type="hidden" value="<?=$pagesize?>" id="list_cnt" >
+	<input type="hidden" value="<?=$search?>" id="backoff_search">
+	<input type="hidden" value="backtuto_list" id="backoffice_type">
+	<input type="hidden" value="<?=$tclass?>" id="tclass">
+	<input type="hidden" value="<?=$kind?>" id="kind">
+	<input type="hidden" value="<?=$code?>" id="code">|
+		<?php echo back_pageing($pagingsize, $total_count, $pagesize, $string)?>
+	<? echo "|".$tclass."|backtuto|";
+}
+
 //백오피스 챌린지 리스트
 if($mode == "backchall_list"){
 
@@ -2244,6 +2339,7 @@ if($mode == "backnote_list"){
 						<button type="button" class="btn btn-outline-dark btn-sm" id="noteres_<?=$idx?>"><i class="fa-solid fa-rotate-right"></i></button>
 					<?}else{?>
 						<button type="button" class="btn btn-outline-dark btn-sm" id="notedel_<?=$idx?>"><i class="fa-solid fa-trash-can"></i></button>
+						<button type="button" class="btn btn-outline-dark btn-sm" id="noteedit_<?=$idx?>"><i class="fa-solid fa-pen-to-square"></i></button>
 					<?}?>					
 				</td>
 			</tr>
@@ -2353,6 +2449,7 @@ if($mode == "backfaq_list"){
 						<button type="button" class="btn btn-outline-dark btn-sm" id="noteres_<?=$idx?>"><i class="fa-solid fa-rotate-right"></i></button>
 					<?}else{?>
 						<button type="button" class="btn btn-outline-dark btn-sm" id="notedel_<?=$idx?>"><i class="fa-solid fa-trash-can"></i></button>
+						<button type="button" class="btn btn-outline-dark btn-sm" id="noteedit_<?=$idx?>"><i class="fa-solid fa-pen-to-square"></i></button>
 					<?}?>					
 				</td>
 			</tr>
@@ -2462,6 +2559,7 @@ if($mode == "backfaq_list"){
 							<button type="button" class="btn btn-outline-dark btn-sm" id="noteres_<?=$idx?>"><i class="fa-solid fa-rotate-right"></i></button>
 						<?}else{?>
 							<button type="button" class="btn btn-outline-dark btn-sm" id="notedel_<?=$idx?>"><i class="fa-solid fa-trash-can"></i></button>
+							<button type="button" class="btn btn-outline-dark btn-sm" id="noteedit_<?=$idx?>"><i class="fa-solid fa-pen-to-square"></i></button>
 						<?}?>					
 					</td>
 				</tr>
@@ -2482,6 +2580,105 @@ if($mode == "backfaq_list"){
 			<?echo "|".$tclass."|backsample_list|";
 		}
 
+		// 브로슈어 이메일문의 리스트
+	if($mode == "backemail_list"){ 
+
+		$where = "";
+	
+		$search = $_POST['search'];
+		if($search){
+			$where = $where .= " and (name like '%".$search."%' or contents like '%".$search."%' or email like '%".$search."%')";
+		}
+	
+		$code = $_POST['code'];
+		if($code=="all"){
+			$where = $where .= " and state in (0,1) ";
+		}else{
+			$where = $where .= " and state = '".$code."'";
+		}
+	
+		$kind = $_POST['kind'];
+		$tclass = $_POST['tclass'];
+	
+		if($kind){
+			$sort = " ".$kind;
+		}else{
+			$sort = " idx";
+		}
+	
+		if($tclass=="btn_sort_up"){
+			$updown = " asc";
+		}else{
+			$updown = " desc";
+		}
+	
+		$url = "backemail_list";
+		$string = "&page=".$url;
+	
+		$p = $_POST['p']?$_POST['p']:$_GET['p'];
+		if (!$p){
+			$p = 1;
+		}
+	
+		$list = $_POST['list'];
+		$pagingsize = 5;					//페이징 사이즈
+		if($list){
+			$pagesize = $list;	
+		}else{
+			$pagesize = 15;
+		}
+		//페이지 출력갯수
+		$startnum = 0;						//페이지 시작번호
+		$endnum = $p * $pagesize;			//페이지 끝번호
+	
+		//시작번호
+		if ($p == 1){
+			$startnum = 0;
+		}else{
+			$startnum = ($p - 1) * $pagesize;
+		}
+	
+	
+		$sql = "select idx, email, name, regdate, state, contents, answer_state from bro_customer";
+		$sql = $sql .= " where idx > 0 ".$where;
+		$sql = $sql .= " order by ".$sort.$updown." limit ".$startnum.",".$pagesize;
+		$query = selectAllQuery($sql);
+		
+		$sql = "select count(1) as cnt from bro_customer where idx > 0 ".$where ;
+		$history_info_cnt = selectQuery($sql);
+		if($history_info_cnt['cnt']){ 
+			$total_count = $history_info_cnt['cnt'];
+		}
+			
+			for($i=0; $i<count($query['idx']); $i++){
+				$idx = $query['idx'][$i];
+				?>
+				<tr class="email_<?=$idx?>">
+					<td><?=$i+1?></td>
+					<td><?=$query['name'][$i]?></td>
+					<td><?=$query['email'][$i]?></td>
+					<td><?=$query['contents'][$i]?></td>
+					<td><?=$query['regdate'][$i]?></td>
+					<td><?=$query['state'][$i]=='0'?'답변대기':'답변완료'?></td>
+					<td><?=$query['answer_state'][$i]=='0'?'메일 전송':'재전송'?></td>
+				</tr>
+			<?}
+				if(count($query['idx'])==0){?>
+					<tr><td colspan="6">조회된 목록이 없습니다.</td></tr>
+				<?}
+			?>
+			<input type="hidden" value="<?=$p?>" id="page_num">
+			<input type="hidden" value="<?=$pagesize?>" id="list_cnt">
+			<input type="hidden" value="<?=$search?>" id="backoff_search">
+			<input type="hidden" value="backemail_list" id="backoffice_type">
+			<input type="hidden" id="bro_view" value="email">
+			<input type="hidden" value="<?=$tclass?>" id="tclass">
+			<input type="hidden" value="<?=$kind?>" id="kind">
+			<input type="hidden" value="<?=$code?>" id="code">|
+			<?php echo back_pageing($pagingsize, $total_count, $pagesize, $string)?>
+			<?echo "|".$tclass."|backemail_list|";
+		}
+		
 	// 브로슈어 사용자매뉴얼 리스트
 if($mode == "backmanual_list"){ 
 
@@ -2571,6 +2768,7 @@ if($mode == "backmanual_list"){
 						<button type="button" class="btn btn-outline-dark btn-sm" id="noteres_<?=$idx?>"><i class="fa-solid fa-rotate-right"></i></button>
 					<?}else{?>
 						<button type="button" class="btn btn-outline-dark btn-sm" id="notedel_<?=$idx?>"><i class="fa-solid fa-trash-can"></i></button>
+						<button type="button" class="btn btn-outline-dark btn-sm" id="noteedit_<?=$idx?>"><i class="fa-solid fa-pen-to-square"></i></button>
 					<?}?>					
 				</td>
 			</tr>

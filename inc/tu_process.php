@@ -126,8 +126,6 @@ if($mode == "insert"){
 				$sql = "insert into work_todaywork(state, companyno, email, name, highlevel, type_flag, work_flag, share_flag, part_flag, part, work_idx, title, contents, workdate, ip)";
 				$sql = $sql .=" values('".$state."', '".$companyno."','".$work_mem_email."','".$work_mem_name."','".$mem_highlevel."','".$type_flag."','".$work_flag."','".$share_send_flag."','".$mem_partno."','".$mem_part."', '".$res_idx."','".$work_title."', N'".$contents."','".$workdate."','".LIP."')";
 				$insert_idx = insertIdxQuery($sql);
-
-
 			}
 		}
 		echo "complete";
@@ -145,9 +143,14 @@ if($mode == "update"){
 
 	//튜토리얼 레벨
 	$level = $_POST['level'];
-
-	//코인금액
-	$coin = 100;
+	
+	//보상여부
+	if($_POST['not_reward']){
+		$reward = $_POST['not_reward'];
+	}else{
+		$reward = '0';
+	}
+	
 
 	//레벨값 배열선언
 	//오늘업무=1, 좋아요=2, 코인=3, 파티=4, 챌린지=5, 메인=6
@@ -184,8 +187,14 @@ if($mode == "update"){
 
 		$reward_type = 'tutorial';
 		if($member_info['idx']){
-			$sql = "update work_member set t_flag='".$t_flag."', t_time = '".$time_stamp."' where idx='".$member_info['idx']."'";
-			$res = updateQuery($sql);
+			if($reward=='0'){
+				$sql = "update work_member set t_flag='".$t_flag."', t_time = '".$time_stamp."' where idx='".$member_info['idx']."'";
+				$res = updateQuery($sql);
+			}else{
+				$sql = "update work_member set t_time = '".$time_stamp."' where idx = '".$member_info['idx']."'";
+				$res = updateQuery($sql);
+			}
+			
 			if($res){
 
 				//오늘업무 완료
@@ -193,7 +202,10 @@ if($mode == "update"){
 
 					$coin_info = '튜토리얼 오늘업무 완료';
 					//역량평가지표(실행)
-					work_cp_reward("tutorial","0001", $user_id , $member_info['idx']);
+					if($reward=='0'){
+						work_cp_reward("tutorial","0001", $user_id , $member_info['idx']);
+					}
+					
 
 				//좋아요 완료
 				}else if($t_flag == 2){
@@ -201,37 +213,41 @@ if($mode == "update"){
 					$coin_info = '튜토리얼 좋아요 완료';
 					//역량평가지표(실행)
 					// work_cp_reward("tutorial","0002", $user_id , $member_info['idx']);
+					if($reward=='0'){
+						//타임라인(좋아요)
+						work_data_log('0','8', $member_info['idx'], $user_reward_id, $user_reward_name, $user_id, $user_name);
 
-					//타임라인(좋아요)
-					work_data_log('0','8', $member_info['idx'], $user_reward_id, $user_reward_name, $user_id, $user_name);
+						//타임라인(좋아요 받음)
+						work_data_log('0','10', $member_info['idx'], $user_id, $user_name, $user_reward_id, $user_reward_name);
 
-					//타임라인(좋아요 받음)
-					work_data_log('0','10', $member_info['idx'], $user_id, $user_name, $user_reward_id, $user_reward_name);
-
-					$sql = "insert into work_todaywork_like (state, companyno, kind_flag, service, work_idx, like_flag, email, name, send_email, send_name, comment, type_flag, ip, workdate, regdate)"; 
-					$sql = $sql .= " values('0', '".$companyno."', '2', 'tutorial', '0', '0', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."', '튜토리얼을 응원합니다!', '0', '".LIP."', '".TODATE."', ".DBDATE.")";
-					$insert_like = insertIdxQuery($sql);
+						$sql = "insert into work_todaywork_like (state, companyno, kind_flag, service, work_idx, like_flag, email, name, send_email, send_name, comment, type_flag, ip, workdate, regdate)"; 
+						$sql = $sql .= " values('0', '".$companyno."', '2', 'tutorial', '0', '0', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."', '튜토리얼을 응원합니다!', '0', '".LIP."', '".TODATE."', ".DBDATE.")";
+						$insert_like = insertIdxQuery($sql);
+					}
 					
 				//코인보상 완료
 				}else if($t_flag == 3){
-
-					$coin_info = '튜토리얼 코인보상 완료';
-					//역량평가지표(실행)
-					work_cp_reward("tutorial","0003", $user_id , $member_info['idx']);
-
+					if($reward=='0'){
+						$coin_info = '튜토리얼 코인보상 완료';
+						//역량평가지표(실행)
+						work_cp_reward("tutorial","0003", $user_id , $member_info['idx']);
+					}
+					
 				//파티체험 완료
 				}else if($t_flag == 4){
-
-					$coin_info = '튜토리얼 파티체험 완료';
-					//역량평가지표(실행)
-					work_cp_reward("tutorial","0004", $user_id , $member_info['idx']);
-
+					if($reward=='0'){
+						$coin_info = '튜토리얼 파티체험 완료';
+						//역량평가지표(실행)
+						work_cp_reward("tutorial","0004", $user_id , $member_info['idx']);
+					}
+					
 				//챌린지 도전 완료
 				}else if($t_flag == 5){
-
-					$coin_info = '튜토리얼 챌린지도전 완료';
-					//역량평가지표(실행)
-					work_cp_reward("tutorial","0005", $user_id , $member_info['idx']);
+					if($reward=='0'){
+						$coin_info = '튜토리얼 챌린지도전 완료';
+						//역량평가지표(실행)
+						work_cp_reward("tutorial","0005", $user_id , $member_info['idx']);
+					}
 					
 				//메인 완료
 				}else if($t_flag == 6){
@@ -239,25 +255,26 @@ if($mode == "update"){
 					$coin_info = '튜토리얼 메인 완료';
 					//역량평가지표(실행)
 					// work_cp_reward("tutorial","0006", $user_id , $member_info['idx']);
+					if($reward=='0'){
+						//타임라인(좋아요)
+						work_data_log('0','8', $member_info['idx'], $user_reward_id, $user_reward_name, $user_id, $user_name);
 
-					//타임라인(좋아요)
-					work_data_log('0','8', $member_info['idx'], $user_reward_id, $user_reward_name, $user_id, $user_name);
+						//타임라인(좋아요 받음)
+						work_data_log('0','10', $member_info['idx'], $user_id, $user_name, $user_reward_id, $user_reward_name);
 
-					//타임라인(좋아요 받음)
-					work_data_log('0','10', $member_info['idx'], $user_id, $user_name, $user_reward_id, $user_reward_name);
-
-					$sql = "insert into work_todaywork_like (state, companyno, kind_flag, service, work_idx, like_flag, email, name, send_email, send_name, comment, type_flag, ip, workdate, regdate)"; 
-					$sql = $sql .= " values('0', '".$companyno."', '2', 'tutorial', '0', '0', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."', '잘 하셨습니다! 이제 본격적으로 리워디를 이용해보세요', '0', '".LIP."', '".TODATE."', ".DBDATE.")";
-					$insert_like = insertIdxQuery($sql);
+						$sql = "insert into work_todaywork_like (state, companyno, kind_flag, service, work_idx, like_flag, email, name, send_email, send_name, comment, type_flag, ip, workdate, regdate)"; 
+						$sql = $sql .= " values('0', '".$companyno."', '2', 'tutorial', '0', '0', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."', '잘 하셨습니다! 이제 본격적으로 리워디를 이용해보세요', '0', '".LIP."', '".TODATE."', ".DBDATE.")";
+						$insert_like = insertIdxQuery($sql);
+					}
 				}
 
 				//코인내역저장 + 회원 코인 지급
-				$sql = "insert into work_coininfo(state, companyno, code, reward_type, email, name, reward_user, reward_name, coin, memo, workdate, ip) values('0', '".$companyno."', '".$code."', '".$reward_type."', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."','".$coin."','".$coin_info."','".TODATE."','".LIP."')";
-				$coininfo = insertQuery($sql);
-				if($coininfo){
-					$sql = "update work_member set coin = coin + ".$coin." where idx = '".$member_info['idx']."'";
-					$res = updateQuery($sql);
-				}
+				// $sql = "insert into work_coininfo(state, companyno, code, reward_type, email, name, reward_user, reward_name, coin, memo, workdate, ip) values('0', '".$companyno."', '".$code."', '".$reward_type."', '".$user_id."', '".$user_name."', '".$user_reward_id."', '".$user_reward_name."','".$coin."','".$coin_info."','".TODATE."','".LIP."')";
+				// $coininfo = insertQuery($sql);
+				// if($coininfo){
+				// 	$sql = "update work_member set coin = coin + ".$coin." where idx = '".$member_info['idx']."'";
+				// 	$res = updateQuery($sql);
+				// }
 			}
 
 			echo "complete";

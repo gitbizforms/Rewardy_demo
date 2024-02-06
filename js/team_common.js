@@ -1558,38 +1558,38 @@ $(document).on("click", ".is_layer_btn_off", function(){
     $(".item_prof").show();
 });
 
-$(document).on("click", "#item_img_buy", function(){
+// $(document).on("click", "#item_img_buy", function(){
 
-    if(confirm("아이템을 구매 하시겠습니까?") == false){
-        return false;
-    }
+//     // if(confirm("아이템을 구매 하시겠습니까?") == false){
+//     //     return false;
+//     // }
 
-    var val = $("#img_idx").val();
-    var fdata = new FormData();
+//     // var val = $("#img_idx").val();
+//     // var fdata = new FormData();
 
-    fdata.append("mode","item_img_buy");
-    fdata.append("img_idx",val);
+//     // fdata.append("mode","item_img_buy");
+//     // fdata.append("img_idx",val);
 
-    $.ajax({
-        type: "post",
-        async: false,
-        data: fdata,
-        contentType: false,
-        processData: false,
-        url: '/inc/main_process.php',
-        success: function(data){
-            console.log(data);
-            if(data == "exp"){
-                alert("코인이 부족합니다.");
-                return false;
-            }else if(data == "complete"){
-                alert("구매가 완료되었습니다.");
-                location.reload();
-                return false;
-            }
-        }
-    });
-});
+//     // $.ajax({
+//     //     type: "post",
+//     //     async: false,
+//     //     data: fdata,
+//     //     contentType: false,
+//     //     processData: false,
+//     //     url: '/inc/main_process.php',
+//     //     success: function(data){
+//     //         console.log(data);
+//     //         if(data == "exp"){
+//     //             alert("코인이 부족합니다.");
+//     //             return false;
+//     //         }else if(data == "complete"){
+//     //             alert("구매가 완료되었습니다.");
+//     //             location.reload();
+//     //             return false;
+//     //         }
+//     //     }
+//     // });
+// });
 
 
 let isPuase = false;

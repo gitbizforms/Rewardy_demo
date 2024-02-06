@@ -9,7 +9,7 @@ $type_flag = ($chkMobile)?1:0;
 		<div class="rb_nav" id="menu">
 			<div class="rb_nav_in">
 				<div class="rb_nav_logo">
-					<a href="/about/index.php"><img src="/about/images/pre/img_nav_logo.png" alt="" /></a>
+					<a href="/index.php"><img src="/about/images/pre/img_nav_logo.png" alt="" /></a>
 				</div>
 				<div class="rb_nav_mb_btn">
 					<button>메뉴</button>
@@ -38,10 +38,10 @@ $type_flag = ($chkMobile)?1:0;
 									<a href="/about/function/challenge.php" class="depth_02_link"><span>챌린지</span></a>
 								</li>
 								<li class="depth_02">
-									<a href="/about/function/compensation.php" class="depth_02_link"><span>파티</span></a>
+									<a href="/about/function/party.php" class="depth_02_link"><span>파티</span></a>
 								</li>
 								<li class="depth_02">
-									<a href="/about/function/challenge.php" class="depth_02_link"><span>인사이트</span></a>
+									<a href="/about/function/insight.php" class="depth_02_link"><span>인사이트</span></a>
 								</li>
 							</ul>
 						</li>
@@ -54,16 +54,16 @@ $type_flag = ($chkMobile)?1:0;
 							<strong class="depth_01_link"><span>고객지원</span></strong>
 							<ul class="depth_02_area">
 								<li class="depth_02">
-									<a href="/about/customer/center.php" class="depth_02_link"><span>고객센터</span></a>
+									<a href="/about/customer/question.php" class="depth_02_link lts_0"><span>자주묻는질문</span></a>
 								</li>
 								<li class="depth_02">
-									<a href="/about/customer/question.php" class="depth_02_link lts_0"><span>자주묻는질문</span></a>
+									<a href="/about/customer/manual/todaywork.php" class="depth_02_link"><span>사용자 매뉴얼</span></a>
 								</li>
 								<li class="depth_02">
 									<a href="/about/customer/notice.php" class="depth_02_link"><span>공지사항</span></a>
 								</li>
 								<li class="depth_02">
-									<a href="/about/customer/manual.php" class="depth_02_link"><span>사용자 매뉴얼</span></a>
+									<a href="/about/customer/center.php" class="depth_02_link"><span>고객센터</span></a>
 								</li>
 							</ul>
 						</li>
@@ -98,7 +98,7 @@ $type_flag = ($chkMobile)?1:0;
 						</li> -->
 
 						<li class="depth_01">
-							<a href="/about/join.php" target="_blank" class="depth_01_link"><span>무료체험</span></a>
+							<a href="http://demo.rewardy.co.kr/" target="_blank" class="depth_01_link"><span>무료체험</span></a>
 						</li>
 					</ul>
 				</div>

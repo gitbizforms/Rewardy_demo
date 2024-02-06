@@ -2,6 +2,18 @@
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
 	include $home_dir . "/inc_lude/header_mobile.php";
+
+    $sql = "select device_uuid, push_register_id from push_device_info where mem_id = '".$user_id."' ";
+    $device = selectQuery($sql);
+
+    if($user_id){
+        $log_class = "ra_footer_logout";
+        $log_state = "로그아웃";
+    }else{
+        $log_class = "ra_footer_login";
+        $log_state = "로그인";
+    }
+    
 ?>
 <html>
     <body>
@@ -27,6 +39,9 @@
                                 <button class="ra_btn_login" onclick="location.href='login.php'"><span>로그인</span></button>
                                 <?}?>
                             <button class="ra_btn_link"><span>둘러보기</span></button>
+                            <? if($device['device_uuid']){?>
+                                <input type="hidden" value="<?=$device['device_uuid']?>" id="push_device_id">
+                            <?}?>
                         </div>
                     </div>
                 </div>
@@ -37,7 +52,7 @@
                             <button class="ra_footer_link"><span>처음으로</span></button>
                             <button class="ra_footer_list"><span>알림리스트</span></button>
                             <button class="ra_footer_setting"><span>알림설정</span></button>
-                            <button class="ra_footer_logout"><span>로그아웃</span></button>
+                            <button class="<?=$log_class?>"><span><?=$log_state?></span></button>
                         </div>
                     </div>
                 </div>

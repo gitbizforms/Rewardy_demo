@@ -3220,7 +3220,7 @@ if($mode == "challenges_mix"){
 
 									$tokenTitle = "챌린지 참여 보상";
 									$tokenComment = "[".$message."] 참여로 ".$coin."코인을 보상 받았습니다.";
-									pushToken($tokenTitle,$tokenComment,$user_id,'reward','21','none','none',$chll_idx,null,'challenge');
+									pushToken($tokenTitle,$tokenComment,$user_id,'reward','21','none','none',$chamyeo_idx,null,'challenge');
 
 									//작성한자의 코인이 지급할 코인보다 클경우만
 									
@@ -3341,6 +3341,13 @@ if($mode == "challenges_like"){
 	$penalty = member_penalty($query['email']);
 	if($penalty['penalty_state']>0){
 		echo "penalty";
+		exit;
+	}
+
+	//일일 최다 좋아요 횟수 체크
+	$limit_like = limit_like_check($send_info['email']);
+	if($limit_like['cnt'] > 5){
+		echo "limit_like";
 		exit;
 	}
 

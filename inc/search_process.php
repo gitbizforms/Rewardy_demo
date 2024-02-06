@@ -283,8 +283,7 @@ if($mode =="works_list_search"){
 				WHERE a.companyno = '".$companyno."' 
 					AND (match(b.comment) AGAINST('".$search."' IN BOOLEAN MODE) OR match(a.contents) AGAINST('".$search."' IN BOOLEAN MODE))
 				GROUP BY a.idx
-				order by a.workdate desc;
-";
+				order by a.workdate desc";
 			}else{
 
 				//업무검색
@@ -753,7 +752,7 @@ if($mode =="works_list_search"){
 											<?}else{?>
 												<p <?=$edit_id?>>
 											<?}?>
-												<?=$work_title?"<span>".$work_title."</span>":""?><?=textarea_replace($work_contents)?><?=$read_text?>
+												<?=$work_title?"<span>".$work_title."</span>":""?><?=$work_contents?><?=$read_text?>
 											</p>
 
 										<?}else{?>
@@ -761,18 +760,18 @@ if($mode =="works_list_search"){
 											<?//보고업무
 											if($work_flag == "1"){?>
 												<p id="tdw_wlist_edit_<?=$idx?>">
-												<?if($work_title){?><span><?=$work_title?></span><?}?><?=textarea_replace($work_contents)?><?=$read_text?></p>
+												<?if($work_title){?><span><?=$work_title?></span><?}?><?=$work_contents?><?=$read_text?></p>
 											<?}else if($decide_flag > '1' && $work_stime != null && $work_etime != null){?>
 												<p id="tdw_wlist_edit_<?=$idx?>">
 													<?if($decide_flag == 1){?>
-														<span> <?= "[ ".$decide_name." ]" ?></span><?=textarea_replace($contents)?>
+														<span> <?= "[ ".$decide_name." ]" ?></span><?=$contents?>
 													<?}else if($decide_flag > 1){?>
-														<span> <?= "[ ".$decide_name."   ".$work_stime."~".$work_etime." ]" ?></span><?=textarea_replace($contents)?>
+														<span> <?= "[ ".$decide_name."   ".$work_stime."~".$work_etime." ]" ?></span><?=$contents?>
 													<?}?>
 												</p>
 											<?}else{?>
 												<p id="tdw_wlist_edit_<?=$idx?>">
-												<?if($work_title){?><span><?=$work_title?></span><?}?><?=textarea_replace($work_contents)?><?=$read_text?></p>
+												<?if($work_title){?><span><?=$work_title?></span><?}?><?=$work_contents?><?=$read_text?></p>
 											<?}?>
 										<?}?>
 
@@ -813,100 +812,113 @@ if($mode =="works_list_search"){
 												<?}?>
 											<?}?>
 											<div class="tdw_list_more">
-												<button class="tdw_list_o" title="메뉴열기" id=""><span>메뉴열기</span></button>
+												<?if($work_flag != '4'){?>
+													<button class="tdw_list_o" title="메뉴열기" id=""><span>메뉴열기</span></button>
+												<?}?>
 												<div class="tdw_list_1depth">
 													<ul>
+													<?if(($notice_flag=='0' || $decide_flag=='0') && $share_flag!=='2' && $notice_flag!='1' && $work_flag!='4'){?>
 														<li>
-															<?if(($notice_flag=='0' || $decide_flag=='0') && $share_flag!=='2' && $notice_flag!='1' && $work_flag!='4'){?>
-																<button class="tdw_list_p tdw_list_party_link<?=$project_link_info[$idx]?" on":""?>" id="tdw_list_party_link" value="<?=$idx?>" title="파티연결"><span>파티연결</span></button>
-															<?}?>
+															<button class="tdw_list_p tdw_list_party_link <?=$project_link_info[$idx]?"on":""?>" id="tdw_list_party_link" value="<?=$idx?>" title="파티연결"><span>파티연결</span></button>
 														</li>
+													<?}?>
+													<?//공유하기?>
+													<?//공유한 업무?>
+													<?if($share_flag=='1' && $work_idx){?>
 														<li>
-														<?//공유하기?>
-															<?//공유한 업무?>
-															<?if($share_flag=='1' && $work_idx){?>
-																<button class="tdw_list_share_cancel tdw_list_s on" id="tdw_list_share_cancel" value="<?=$idx?>" title="공유취소"><span>공유취소</span></button>
-															<?}else{?>
-																<?//나의업무작성, 공유업무작성?>
-																<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null)){?>
-																	<button class="tdw_list_share tdw_list_s" id="tdw_list_share" value="<?=$idx?>" title="공유하기"><span>공유하기</span></button>
-																<?}?>
-															<?}?>
+															<button class="tdw_list_share_cancel tdw_list_s" id="tdw_list_share_cancel" value="<?=$idx?>" title="공유취소"><span>공유취소</span></button>
 														</li>
+													<?}else{?>
+														<?//나의업무작성, 공유업무작성?>
+														<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null)){?>
 														<li>
-															<?//파일첨부?>
-															<?//파일첨부(나의업무, 공유업무작성, 보고업무작성, 요청업무작성)?>
-															<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
-																<button class="tdw_list_files tdw_list_f" id="tdw_file_add_<?=$idx?>" title="파일추가"><span>파일추가</span></button>
-																<input type="file" id="files_add_<?=$idx?>" style="display:none;">
-															<?}?>
+															<button class="tdw_list_share tdw_list_s" id="tdw_list_share" value="<?=$idx?>" title="공유하기"><span>공유하기</span></button>
 														</li>
-														<li>
-															<?//사람선택?>
-															<?//공유업무작성, 보고업무작성, 요청업무작성?>
-															<?if(($share_flag=='1' && $work_idx) || ($work_flag=='1' &&  $work_idx==null)){?>
-																<button class="tdw_list_user tdw_list_u" id="tdw_send_user_<?=$idx?>" value="<?=$idx?>" title="사람추가"><span>사람추가</span></button>
 															<?}?>
-
-															<?//사람선택?>
-															<?//요청업무작성?>
-
-															<?if($work_flag=='3' && $work_idx==null){?>
-																<button class="tdw_list_user tdw_list_u" id="tdw_send_user_<?=$idx?>" value="<?=$idx?>" title="사람추가"><span>사람추가</span></button>
-															<?}?>
-														</li>
+													<?}?>
+													
+													<?//파일첨부?>
+													<?//파일첨부(나의업무, 공유업무작성, 보고업무작성, 요청업무작성)?>
+													<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
 														<li>
-															<?//메모작성?>
-															<? if($notice_flag!='1' && $work_flag!='4'){?>
-															<button class="tdw_list_memo tdw_list_m" id="tdw_list_memo" value="<?=$idx?>" title="메모하기"><span>메모하기</span></button>
-															<?}?>
+															<button class="tdw_list_files tdw_list_f" id="tdw_file_add_<?=$idx?>" title="파일추가"><span>파일추가</span></button>
+															<input type="file" id="files_add_<?=$idx?>" style="display:none;">
 														</li>
+													<?}?>
+													
+													<?//사람선택?>
+													<?//공유업무작성, 보고업무작성, 요청업무작성?>
+													<?if(($share_flag=='1' && $work_idx) || ($work_flag=='1' &&  $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
 														<li>
-															<button class="tdw_list_r <?=$repeat_flag?"on":""?>" id="tdw_list_repeat_new" value="<?php echo $idx?>"><span>반복설정</span></button>
+															<button class="tdw_list_user tdw_list_u" id="tdw_send_user_<?=$idx?>" value="<?=$idx?>" title="사람추가"><span>사람추가</span></button>
 														</li>
+													<?}?>
+														<?//메모작성?>
+													<? if($notice_flag!='1' && $work_flag!='4'){?>
+														<?php if($secret_flag == '1'){?>
+															<li>
+																<button class="tdw_list_memo_secret tdw_list_m" id="tdw_list_memo" value="<?=$idx?>" title="메모하기"><span>메모하기</span></button>
+															</li>
+														<?php }else{ ?>
+															<li>
+																<button class="tdw_list_memo tdw_list_m" id="tdw_list_memo" value="<?=$idx?>" title="메모하기"><span>메모하기</span></button>
+															</li>
+														<?php } ?>	
+														<?}?>
+													<?if(($work_flag=='2' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
+														<? if(($repeat_flag && ($work_date < '2023-09-19')) || $repeat_work_idx != null){ ?>
+															<li>
+																<button class="tdw_list_r <?=$repeat_flag?" on":""?>" id="tdw_list_repeat_info_new" value="<?php echo $idx?>"><span>반복설정</span></button>
+															</li>
+														<?php }else{?>
+															<li>
+																<button class="tdw_list_r <?=$repeat_flag?" on":""?>" id="tdw_list_repeat_new" value="<?php echo $idx?>"><span>반복설정</span></button>
+															</li>
+														<?php } ?>
+													<?php } ?>
+													
+													<?//일정변경?>
+													<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
+													<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
 														<li>
-														<?//일정변경?>
-															<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
-															<?if(($work_flag=='2' && $work_idx==null) || ($share_flag=='1' && $work_idx==null) || ($work_flag=='1' && $work_idx==null) || ($work_flag=='3' && $work_idx==null)){?>
-																<div class ="tdw_list_c">
-																	<input class="tdw_list_date tdw_list_cc" type="text" id="listdate_141034" value="날짜변경" readonly>
-																</div>
-															<?}?>
-
+															<div class ="tdw_list_c">
+																<input class="tdw_list_date tdw_list_cc" type="text" id="listdate_<?=$idx?>" value="날짜변경" readonly>
+															</div>
 														</li>
+													<?}?>
+													<?//일정변경?>
+													<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
+													<?if(($work_stime && $work_etime && $work_flag == '2' && $share_flag == '0' && $state == '0' && $decide_flag > '1')){?>
 														<li>
-															<?//일정변경?>
-																<?//나의업무, 공유업무작성, 보고업무작성, 요청업무작성?>
-																<?if(($work_stime && $work_etime && $work_flag == '2' && $share_flag == '0' && $state == '0' && $decide_flag > '1')){?>
-																	<button class="tdw_list_time tdw_list_t" id="tdw_list_time" value="<?=$idx?>" title="시간변경"><span>시간변경</span></button>
-															<?}?>
+															<button class="tdw_list_time tdw_list_t" id="tdw_list_time" value="<?=$idx?>" title="시간변경"><span>시간변경</span></button>
 														</li>
-														<li>
-															<?if($work_flag!='4'){
-																if($notice_flag){?>
-																	<?if($user_id == $work_email){?>
-																		<button class="tdw_list_del tdw_list_d" title="삭제" id="notice_list_del" value="<?=$idx?>"><span>삭제</span></button>
-																	<?}else{?>
-																		<button class="tdw_list_del tdw_list_d" title="삭제" value="<?=$idx?>"><span>삭제</span></button>
-																	<?}?>
+													<?}?>
+													<li>
+														<?if($work_flag!='4'){
+															if($notice_flag){?>
+																<?if($user_id == $work_email){?>
+																	<button class="tdw_list_del tdw_list_d" title="삭제" id="notice_list_del" value="<?=$idx?>"><span>삭제</span></button>
 																<?}else{?>
-																<?//업무글삭제?>
-																	<?if($user_id == $work_email && $share_flag == 0 && $work_flag == 2){?>
-																		<button class="tdw_list_del tdw_list_d" title="삭제" id="tdw_list_per_del" value="<?=$idx?>"><span>삭제</span></button>
-																	<?}else if($user_id == $work_email){?>
-																		<button class="tdw_list_del tdw_list_d" title="삭제" id="tdw_list_del" value="<?=$idx?>"><span>삭제</span></button>
-																	<?}else{?>
-																		<button class="tdw_list_del tdw_list_d" title="삭제" value="<?=$idx?>"><span>삭제</span></button>
-																	<?}?>
-																<?}
-																}
-															?>
-														</li>
-														<?php if($chkMobile == '1'){?>
-														<li>
-															<button class="tdw_list_cancel" id="tdw_list_cancel" title="닫기"><span>닫기</span></button>
-														</li>
-														<?php }?>
+																	<button class="tdw_list_del tdw_list_d" title="삭제" value="<?=$idx?>"><span>삭제</span></button>
+																<?}?>
+															<?}else{?>
+															<?//업무글삭제?>
+																<?if($user_id == $work_email && $share_flag == 0 && $work_flag == 2){?>
+																	<button class="tdw_list_del tdw_list_d" title="삭제" id="tdw_list_per_del" value="<?=$idx?>"><span>삭제</span></button>
+																<?}else if($user_id == $work_email){?>
+																	<button class="tdw_list_del tdw_list_d" title="삭제" id="tdw_list_del" value="<?=$idx?>"><span>삭제</span></button>
+																<?}else{?>
+																	<button class="tdw_list_del tdw_list_d" title="삭제" value="<?=$idx?>"><span>삭제</span></button>
+																<?}?>
+															<?}
+															}
+														?>
+													</li>
+													<?php if($chkMobile == '1'){?>
+													<li>
+														<button class="tdw_list_cancel" id="tdw_list_cancel" title="닫기"><span>닫기</span></button>
+													</li>
+													<?php }?>
 													</ul>
 												</div>
 											</div>
@@ -946,9 +958,9 @@ if($mode =="works_list_search"){
 											<div class="tdw_list_report_desc">
 												<div class="tdw_list_report_conts">
 													<?if($user_id==$report_email){?>
-														<span class="tdw_list_report_conts_txt" id="tdw_list_report_conts_txt_<?=$idx?>"><?=textarea_replace($week_works[$workdate][contents][$j])?></span>
+														<span class="tdw_list_report_conts_txt" id="tdw_list_report_conts_txt_<?=$idx?>"><?=$week_works[$workdate][contents][$j]?></span>
 													<?}else{?>
-														<span class="tdw_list_report_conts_txt"><?=textarea_replace($week_works[$workdate][contents][$j])?></span>
+														<span class="tdw_list_report_conts_txt"><?=$week_works[$workdate][contents][$j]?></span>
 													<?}?>
 													<em class="tdw_list_report_conts_date"><?=$work_his?></em>
 													<div class="tdw_list_report_regi" id="tdw_list_report_regi_<?=$idx?>">
@@ -1060,11 +1072,11 @@ if($mode =="works_list_search"){
 
 														<div class="tdw_list_memo_conts">
 															<?if(!$cmt_flag && $user_id==$comment_list[$work_com_idx][email][$k]){?>
-																<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=textarea_replace($comment_list[$work_com_idx][comment][$k])?></span>
+																<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=$comment_list[$work_com_idx][comment][$k]?></span>
 															<?}else if($cmt_flag && $work_send_like_name[$comment_idx][send]){?>
-																<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$work_com_idx][comment][$k])?></span>
+																<span class="tdw_list_memo_conts_txt"><?=$comment_list[$work_com_idx][comment][$k]?></span>
 															<?}else{?>
-																<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$work_com_idx][comment][$k])?></span>
+																<span class="tdw_list_memo_conts_txt"><?=$comment_list[$work_com_idx][comment][$k]?></span>
 															<?}?>
 
 															<em class="tdw_list_memo_conts_date"><?=$chiss?>
@@ -1163,13 +1175,13 @@ if($mode =="works_list_search"){
 																<div class="tdw_list_memo_conts">
 																	<?if(!$cmt_flag && $user_id==$comment_list[$work_idx][email][$k]){?>
 																		<!-- 일반 메모 -->
-																		<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=textarea_replace($comment_list[$work_idx][comment][$k])?></span>
+																		<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=$comment_list[$work_idx][comment][$k]?></span>
 																	<?}else if($cmt_flag && $work_send_like_name[$comment_idx][send]){?>
 																		<!-- 좋아요 받았을 때 문장 -->
-																		<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$work_idx][comment][$k])?></span>
+																		<span class="tdw_list_memo_conts_txt"><?=$comment_list[$work_idx][comment][$k]?></span>
 																	<?}else{?>
 																		<!-- AI 문장 -->
-																		<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$work_idx][comment][$k])?></span>
+																		<span class="tdw_list_memo_conts_txt"><?=$comment_list[$work_idx][comment][$k]?></span>
 																	<?}?>
 
 																	<em class="tdw_list_memo_conts_date"><?=$chiss?>
@@ -1254,13 +1266,13 @@ if($mode =="works_list_search"){
 															<div class="tdw_list_memo_conts">
 																<?if(!$cmt_flag && $user_id==$comment_list[$idx][email][$k]){?>
 																	<!-- 일반 메모 -->
-																	<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=textarea_replace($comment_list[$idx][comment][$k])?></span>
+																	<span class="tdw_list_memo_conts_txt" id="tdw_list_memo_conts_txt_<?=$comment_idx?>"><?=$comment_list[$idx][comment][$k]?></span>
 																<?}else if($cmt_flag && $work_send_like_name[$comment_idx][send]){?>
 																	<!-- 좋아요 받았을 때 문장 -->
-																	<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$idx][comment][$k])?></span>
+																	<span class="tdw_list_memo_conts_txt"><?=$comment_list[$idx][comment][$k]?></span>
 																<?}else{?>
 																	<!-- AI 문장 -->
-																	<span class="tdw_list_memo_conts_txt"><?=textarea_replace($comment_list[$idx][comment][$k])?></span>
+																	<span class="tdw_list_memo_conts_txt"><?=$comment_list[$idx][comment][$k]?></span>
 																<?}?>
 
 																<em class="tdw_list_memo_conts_date"><?=$chiss?>

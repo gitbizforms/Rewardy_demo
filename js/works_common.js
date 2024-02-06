@@ -166,7 +166,7 @@ $(function () {
     }
   });
   $(document).on("click", ".select_report", function () {
-    window.open("http://demo.rewardy.co.kr/todaywork/team_index.php", "_blink");
+    window.open("https://rewardy.co.kr/todaywork/team_index.php", "_blink");
   });
 
 
@@ -3337,9 +3337,8 @@ $(document).on("click", "#item_img_buy", function(){
       success: function (data) {
         console.log(data);
         if (data == "complete") {
-          $("#tdw_comment_edit_" + val).val("");
-          feeling_banner_reload($("#work_wdate").val());
-
+          // $("#tdw_comment_edit_" + val).val("");
+          // feeling_banner_reload($("#work_wdate").val());
           works_list();
           return false;
         }
@@ -3375,8 +3374,8 @@ $(document).on("click", "#item_img_buy", function(){
 
         console.log(data);
         if (result == "complete") {
-          $("#tdw_comment_edit_" + val).val("");
-          feeling_banner_reload($("#work_wdate").val());
+          // $("#tdw_comment_edit_" + val).val("");
+          // feeling_banner_reload($("#work_wdate").val());
 
           works_list();
           return false;
@@ -5036,40 +5035,43 @@ $(document).on("click", "#item_img_buy", function(){
   });
 
   //오늘업무 코인지급하기
-  $(document).on("click", "#btn_req_100c", function () {
-    var val = $(this).val();
-    var fdata = new FormData();
+  if(home_title == "todaywork"){
+    $(document).on("click", "#btn_req_100c", function () {
+      var val = $(this).val();
+      var fdata = new FormData();
 
-    $("#lr_work_idx").val(val);
+      $("#lr_work_idx").val(val);
 
-    fdata.append("mode", "coin_req_100c");
-    fdata.append("val", val);
+      $(".lr_btn").addClass("work");
+      
+      fdata.append("mode", "coin_req_100c");
+      fdata.append("val", val);
 
-    $.ajax({
-      type: "post",
-      async: false,
-      data: fdata,
-      contentType: false,
-      processData: false,
-      url: "/inc/works_process.php",
-      success: function (data) {
-        console.log(data);
-        if (data) {
-          var tdata = data.split("|");
-          if (tdata) {
-            var result = tdata[0];
-            var uid = tdata[1];
-            if (result == "complete") {
-              $("#lr_uid").val(uid);
-              $("#layer_reward").show();
-              $(".btn_lr_01").trigger("click");
+      $.ajax({
+        type: "post",
+        async: false,
+        data: fdata,
+        contentType: false,
+        processData: false,
+        url: "/inc/works_process.php",
+        success: function (data) {
+          console.log(data);
+          if (data) {
+            var tdata = data.split("|");
+            if (tdata) {
+              var result = tdata[0];
+              var uid = tdata[1];
+              if (result == "complete") {
+                $("#lr_uid").val(uid);
+                $("#layer_reward").show();
+                $(".btn_lr_01").trigger("click");
+              }
             }
           }
-        }
-      },
+        },
+      });
     });
-  });
-
+  }
   //보상하기 닫기
   $("#lr_close").click(function () {
     $(".lr_area li button").removeClass("on");
@@ -5097,6 +5099,11 @@ $(document).on("click", "#item_img_buy", function(){
     $("#lr_input_text").val(lr_input_text);
   });
 
+
+  function number_format(num){
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    }
+
   //보상하기 버튼
   $(document).on("click", ".lr_btn", function () {
 
@@ -5108,23 +5115,24 @@ $(document).on("click", "#item_img_buy", function(){
     var lr_work_idx = $("#lr_work_idx").val();
 
     //console.log("lr_work_idx::"+lr_work_idx);
-
+    var thisCoin = $(this);
     var coin = $("#lr_input").val();
     var lr_uid = $("#lr_uid").val();
     var lr_val = $("#lr_val").val();
     var lr_input_text = $("#lr_input_text").val();
+    // var comcoin_ori = $(this).parent().find("p strong").text();
+    // var realComcoin = parseInt(chPriceValue.replace(/,/g, ''), 10);
     if (!coin) {
       alert("지급할 코인을 선택 또는 입력해 주세요.");
       $("#lr_input").focus();
       return false;
     }
-
+    console.log("::::::::::::"+$(this).parent().find("p strong").text());
     if (!lr_input_text) {
       alert("메세지를 입력하세요.");
       $("#lr_input_text").focus();
       return false;
     }
-
     if($('.lr_btn').hasClass("work") == true){
       if (confirm(coin + "코인을 지급 하시겠습니까?")) {
         var fdata = new FormData();
@@ -5137,7 +5145,7 @@ $(document).on("click", "#item_img_buy", function(){
         fdata.append("lr_work_idx", lr_work_idx);
         fdata.append("path",pathDi);
 
-        //console.log("lr_input_text::"+lr_input_text);
+        console.log("lr_input_text::"+lr_input_text);
         $.ajax({
           type: "post",
           async: false,
@@ -5147,6 +5155,7 @@ $(document).on("click", "#item_img_buy", function(){
           url: "/inc/lives_process.php",
           success: function (data) {
             console.log(data);
+            var tdata = data.split("|");
             if (data) {
               if(data == "penalty"){
                 alert("코인을 지급할 유저에게 패널티가 적용되어 보낼 수 없습니다.");
@@ -5160,19 +5169,21 @@ $(document).on("click", "#item_img_buy", function(){
                 );
                 $("#lr_input").focus();
                 return false;[]
-              } else if (data == "complete") {
+              } else if (tdata[0] == "complete") {
                 alert(lr_input_text + " " + coin + "코인이 보상 되었습니다.");
                 $("#lr_input").val("");
-                $("#layer_reward").hide();
+                thisCoin.parent().find("p strong").text(number_format(tdata[1]));
+                $(".layer_reward").hide();
+               
               }
-              var tdata = data.split("|");
-              if (tdata) {
+              
+              // if (tdata) {
                 //var result = tdata[0];
                 //var result_cnt = tdata[1];
                 //$("#ldl_in_my").html(result);
                 //$(".ldl_box").trigger("click");
                 //$(".rew_mypage_section em:eq(1)").text(result_cnt);
-              }
+              // }
               works_list();
             }
           },
@@ -5797,12 +5808,12 @@ $(document).on("click", "button[id=tdw_list_repeat_info_new]", function () {
   //파티 연결 버튼
   $(document).on("click", "#ppl_com_btn", function () {
     var be_arr = new Array();
-
+    
     //var len = $(".ldl_box").length;
     var fdata = new FormData();
     var work_date = $("input[id=work_date]").val();
     var work_idx = $("#pll_box_party_link").attr("value");
-  
+    var defalut_cnt = $(".party_arr").length;
     var len = $("#party_link_layer").find(".ldl_box").length;
     var party_check = 0;
     for (var i = 0; i < len; i++) {
@@ -5820,7 +5831,6 @@ $(document).on("click", "button[id=tdw_list_repeat_info_new]", function () {
         be_arr.push(val);
       }
     }
-
     var len2 = $("#party_link_layer").find(".ldl_box.on").length;
     var party_arr = [];
     if(len2>1){
@@ -5833,14 +5843,13 @@ $(document).on("click", "button[id=tdw_list_repeat_info_new]", function () {
       var partyname = $(".on .ldl_box_tit").find('p').eq(0).text();
       party_arr.push(partyname);
     }
-   
 
     fdata.append("mode", "party_add");
     fdata.append("work_idx", work_idx);
     fdata.append("work_date", work_date);
-    
+    fdata.append("defalut_cnt", defalut_cnt);
     name_chk = $(".tdw_write_file_desc").eq(i).find('span').text();
-
+    console.log(defalut_cnt);
     $.ajax({
       type: "post",
       async: false,
@@ -5878,10 +5887,19 @@ $(document).on("click", "button[id=tdw_list_repeat_info_new]", function () {
           for(var i=0; i<len2; i++){
             // name_chk = $("#tdw_write_file_desc_"+i).find('span').text();
               $(".tdw_write_function").after(
-                '<div class="tdw_write_file_desc" id="tdw_write_file_desc_'+i+'"><span>' +
+                '<div class="tdw_write_file_desc party_arr" id="tdw_write_file_desc_'+i+'"><span>' +
                   party_arr[i] +
                   '</span></div>'
               );
+          }
+        }else if(result = "party_zero"){
+          alert("파티 연결이 해제되었습니다.");
+          $("#be_party_idx").val(be_arr);
+          $("#party_link_layer").hide();
+          $(".tdw_write_par").removeClass("on");
+          name_chk = $(".tdw_write_file_desc").length;
+          if(name_chk>0){
+            $(".tdw_write_function").nextAll(".tdw_write_file_desc").remove();
           }
         }
       },

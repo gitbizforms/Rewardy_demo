@@ -27,6 +27,7 @@ if($mode == "project_list"){
 	$page_delay = $_POST['page_delay'];
 	$page_sort = $_POST['page_sort'];
 	$user_my = $_POST['user_my'];
+	$my_check = $_POST['my_check'];
 	$search = $_POST['search'];
 	$gp = $_POST['gp'];
 
@@ -105,7 +106,7 @@ if($mode == "project_list"){
 	//$party_delay값은 /inc_lude/conf_mysqli.php 설정되었음
 	//파티 좌측 메뉴 내파티 클릭시 조회
 	// alert($chk_tab2);
-	if($chk_tab2 == '2' || $user_my){
+	if($chk_tab2 == '2' && $user_my == '1' && $my_check == '1'){
 		$sql = "select count(1) as cnt from work_todaywork_project as a left join work_todaywork_project_user AS b ON (a.idx = b.project_idx)";
 		$sql .= "where a.state!='9' and b.state = '0' and a.companyno='".$companyno."' and b.email = '".$user_id."'";
 		$sql .= $where.$where_search;
@@ -131,19 +132,19 @@ if($mode == "project_list"){
 
 		$sql = "select a.idx, a.state, a.title, a.email, a.com_coin_pro, date_format(a.regdate, '%Y-%m-%d %H:%i') as sdate, date_format(a.editdate, '%Y-%m-%d %H:%i') as udate,";
 		$sql .= " date_format(a.enddate, '%Y-%m-%d %H:%i') as edate, case when a.editdate is null then datediff(now(), a.regdate) when a.editdate is not null then datediff(a.editdate, a.regdate) end as reg,";
-		$sql .= " (select count(p.idx) from work_todaywork_project_info as p, work_todaywork as t where p.work_idx = t.idx and p.party_idx=a.idx and p.state='0' and t.state != '9') as work from work_todaywork_project as a left join work_todaywork_project_user as b on(a.idx=project_idx)";
+		$sql .= " (select count(p.idx) from work_todaywork_project_info as p, work_todaywork as t where p.work_idx = t.idx and p.party_idx=a.idx and p.state='0' and t.state != '9') as work , c.state as bstate from work_todaywork_project as a left join work_todaywork_project_user as b on(a.idx=project_idx)";
+		$sql .= " left join (select state, project_idx from work_project_like where state = 1 and email = '".$user_id."' and companyno='".$companyno."') as c on (a.idx = c.project_idx)";
 		$sql .= " where a.state in ('0','1') and a.companyno='".$companyno."' and b.state = '0' and b.email='".$user_id."'";
 		$sql .= $where.$where_search;
 		if($sort){
 		$sql .= $sort;
 		}else{
-		$sql .= " order by";
+		$sql .= " order by c.state desc,";
 		$sql .= " CASE WHEN a.state='0' THEN a.idx END desc,";
 		$sql .= " CASE WHEN a.state='1' THEN a.idx END ASC";
 		}
 		$sql .= " limit ".$startnum.", ".$pagesize;
 		$project_info = selectAllQuery($sql);
-
 	}else if($page_sort == '1' || $page_sort == '2' || $page_sort == '3' || $page_sort == '4'){
 		$sql = "select a.idx, a.state, a.title, a.email, com_coin_pro, date_format(a.regdate, '%Y-%m-%d %H:%i') as sdate, date_format(a.editdate, '%Y-%m-%d %H:%i') as udate, ";
 		$sql = $sql .= "date_format(a.enddate, '%Y-%m-%d %H:%i') as edate, case when a.editdate is null then datediff(now(), a.regdate) when a.editdate is not null then datediff(a.editdate , a.regdate) end as reg, ";
@@ -154,9 +155,7 @@ if($mode == "project_list"){
 		$sql = $sql .= $where.$where_search;
 		$sql = $sql .= $sort;
 		$sql .= " limit ".$startnum.", ".$pagesize;
-
 			$project_info = selectAllQuery($sql);
-		
 	}else{
 
 		if($chk_tab0 || $chk_tab1 || $chk_tab2){
@@ -174,7 +173,6 @@ if($mode == "project_list"){
 				$sql .= " limit ".$startnum.", ".$pagesize;
 			}
 			$project_info = selectAllQuery($sql);
-
 		}
 	}
 	
@@ -213,7 +211,7 @@ if($mode == "project_list"){
 		$project_user_list[$project_user_idx]['file_path'][] = $project_user_file_path;
 		$project_user_list[$project_user_idx]['file_name'][] = $project_user_file_name;
 
-		$profile_img =  'http://demo.rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
+		$profile_img =  'https://rewardy.co.kr'.$project_user_file_path.$project_user_file_name;
 		$project_use[$project_user_idx][] = $project_user_email;
 	}
 
@@ -338,7 +336,7 @@ if($mode == "project_list"){
 							$project_user_list_file_path = $project_user_list[$project_idx]['file_path'][$j];
 							$project_user_list_file_name = $project_user_list[$project_idx]['file_name'][$j];
 
-							$profile_img =  'http://demo.rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
+							$profile_img =  'https://rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
 
 							if($project_state==0 && $user_id==$project_user_list_email){
 								$li_class = ' cha_user_me';
@@ -370,7 +368,7 @@ if($mode == "project_list"){
 							$project_user_list_file_path = $project_user_list[$project_idx]['file_path'][$j];
 							$project_user_list_file_name = $project_user_list[$project_idx]['file_name'][$j];
 
-							$profile_img =  'http://demo.rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
+							$profile_img =  'https://rewardy.co.kr'.$project_user_list_file_path.$project_user_list_file_name;
 
 							if($project_state==0 && $user_id==$project_user_list_email){
 								$li_class = ' cha_user_me';
@@ -1037,7 +1035,7 @@ if($mode == "party_view"){
 												<?php }else{ ?>
 													<button class="tdw_list_party_memo" id="tdw_list_party_memo" value="<?=$week_works_idx?>"><span>메모</span></button>
 												<?php } ?>
-												<button class="tdw_list_100c" title="100코인" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
+												<button class="tdw_list_100c" title="코인 보내기" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
 												<button class="tdw_list_party_heart<?=$like_coma>0?" on":""?>" id="tdw_list_party_heart_<?=$week_works_idx?>" value="<?=$week_works_idx?>"><span>좋아요</span></button>
 											</div>
 											<?}else{?>
@@ -1524,7 +1522,7 @@ if($mode == "party_view"){
 												<?php }else{ ?>
 													<button class="tdw_list_party_memo" id="tdw_list_party_memo" value="<?=$week_works_idx?>"><span>메모</span></button>
 												<?php } ?>
-												<button class="tdw_list_100c" title="100코인" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
+												<button class="tdw_list_100c" title="코인 보내기" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
 												<button class="tdw_list_party_heart<?=$like_coma>0?" on":""?>" id="tdw_list_party_heart_<?=$week_works_idx?>" value="<?=$week_works_idx?>"><span>좋아요</span></button>
 											</div>
 											<?}else{?>
@@ -2267,6 +2265,15 @@ if($mode == "project_title_update"){
 	$pro_idx = $_POST['project_idx'];
 	$title = addslashes($_POST['title']);
 
+	$sql = "select email, idx from work_todaywork_project where idx = '".$pro_idx."' and companyno = '".$companyno."'";
+	$check = selectQuery($sql);
+
+	// 제목 변경 권한 확인
+	if($check['email'] != $user_id){
+		echo "not_auth|";
+		exit;
+	}
+
 	$sql = "update work_todaywork_project set title = '".$title."' where idx = '".$pro_idx."' and companyno = '".$companyno."' and state !=9 ";
 	$res = updateQuery($sql);
 
@@ -2275,15 +2282,14 @@ if($mode == "project_title_update"){
 
 	echo "update|".$title."|"
 	?>
-		<p id="party_title_edit" class="party_title_edit"><span>✏️</span><strong class="party_title_text"><?=textarea_replace(stripslashes($title))?></strong></p>
-		<input type="hidden" value="<?=$user_id?>">
-		<input type="hidden" value="<?=$party_idx?>">
-		<div class="tdw_list_regi" id="tdw_list_regi_edit_<?=$idx?>" >
+		<div id="party_title_edit" class="party_title_edit"><span>✏️</span><strong class="party_title_text"><?=textarea_replace(stripslashes($title))?></strong></div>
+		<input type="hidden" id="edit_id" value="<?=$user_id?>">
+		<div class="tdw_list_regi" id="tdw_list_regi_edit_<?=$idx?>" style="display:none">
 			<!-- <strong>수정중</strong> -->
 			<textarea class="textarea_regi" id="textarea_regi_<?=$idx?>"><?=strip_tags($title)?></textarea>
 			<div class="btn_regi_box">
-				<button class="btn_regi_submit" id="btn_regi_submit" value="<?=$party_idx?>"><span>확인</span></button>
-				<button class="btn_regi_cancel"><span>취소</span></button>
+				<button class="btn_regi_submit" id="party_title_enter" value="<?=$party_idx?>"><span>확인</span></button>
+				<button class="btn_regi_cancel" id="party_title_cancel"><span>취소</span></button>
 			</div>
 		</div>
 	<?exit;

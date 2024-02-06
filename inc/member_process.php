@@ -2,7 +2,8 @@
 
 $home_dir = str_replace( basename(__DIR__) , "", __DIR__ );
 // if($_SERVER['HTTP_HOST'] == "officeworker.co.kr"){
-
+date_default_timezone_set('Asia/Seoul');
+$home_url = "https://".$_SERVER['HTTP_HOST'];
 include $home_dir . "inc_lude/conf_mysqli.php";
 include $home_dir . "inc/SHA256/KISA_SHA256.php";
 include DBCON_MYSQLI;
@@ -17,6 +18,8 @@ include FUNC_MYSQLI;
 //실서버
 //include_once(__DIR__."\\PHPMailer\\PHPMailerAutoload.php");
 include_once($home_dir."PHPMailer/libphp-phpmailer/PHPMailerAutoload.php");
+
+include $home_dir."/inc/PHPExcel-1.8/Classes/PHPExcel.php";
 
 /*
 print "<pre>";
@@ -215,6 +218,18 @@ if($mode == "member_comcoin_list"){
 	// 	$sql = $sql .= " order by ".$qry. $order;
 	// }
 	$comcoin_mem_info = selectAllQuery($sql);
+
+	
+	$sql = "select idx, comcoin from work_company where idx = '".$companyno."' and state = '0'";
+	$com_sel = selectQuery($sql);
+
+	$sql = "select sum(comcoin) as sum from work_member where company = '".$companyno."' and state = '0'";
+	$mem_sel = selectQuery($sql);
+
+	//현재 회사 코인
+	$com_coin = $com_sel['comcoin'];
+	$mem_coin = $mem_sel['sum'];
+	$left_coin = $com_sel['comcoin'] - $mem_sel['sum'];
 	?>
 	
 	<div class="rew_member_list_in">
@@ -321,7 +336,7 @@ if($mode == "member_comcoin_list"){
 				echo pageing($pagingsize, $total_count, $pagesize, $string);
 			?>
 		</div>
-	<?}?>|<?=$total_count?>
+	<?}?>|<?=$total_count."|".$com_coin."|".$mem_coin."|".$left_coin?>
 <?php
 	exit;
 }
@@ -736,7 +751,7 @@ if($mode == "comcoin_list"){
 		$order = " desc ";
 	}
 	
-	$sql = "select idx, state, bank_name, bank_num, workdate, code, email, name, reward_user, reward_name, coin, coin_out, coin_type, memo, DATE_FORMAT(regdate, '%Y.%m.%d') AS ymd, DATE_FORMAT(regdate, '%h:%i:%s') AS his, regdate, commission, amount";
+	$sql = "select idx, state, bank_name, bank_num, workdate, code, email, name, part, reward_user, reward_name, coin, coin_out, coin_type, memo, DATE_FORMAT(regdate, '%Y.%m.%d') AS ymd, DATE_FORMAT(regdate, '%h:%i:%s') AS his, regdate, commission, amount";
 	$sql = $sql .= " from work_account_info";
 	$sql = $sql .= " ".$where."";
 	$sql = $sql .= " order by ". $qry." ".$order;
@@ -837,6 +852,7 @@ if($mode == "comcoin_list_nocal"){
 	$kind = $_POST['kind'];
 	$string = $_POST['string'];
 	$tclass = $_POST['this_class'];
+	$wdate = $_POST['wdate'];
 
 	$p = $_POST['p']?$_POST['p']:$_GET['p'];
 	if (!$p){
@@ -844,7 +860,7 @@ if($mode == "comcoin_list_nocal"){
 	}
 
 	$pagingsize = 5;					//페이징 사이즈
-	$pagesize = 20;						//페이지 출력갯수
+	$pagesize = 30;						//페이지 출력갯수
 	$startnum = 0;						//페이지 시작번호
 	$endnum = $p * $pagesize;			//페이지 끝번호
 
@@ -858,13 +874,19 @@ if($mode == "comcoin_list_nocal"){
 	$string = "&page=".$pageurl."&type=".$type;
 
 	//공용코인
-	$where = " where state = '0' and companyno='".$companyno."' ";
+	$where = " where companyno='".$companyno."' and DATE_FORMAT(regdate, '%Y.%m') = '".$wdate."' ";
 				
 	if($kind){
 		if($kind == 'workdate'){
 			$qry = " workdate ";
 		}elseif($kind == 'sortname'){
 			$qry = " name ";
+		}elseif($kind == 'part'){
+			$qry = " part ";
+		}elseif($kind == 'sub_coin'){
+			$qry = " coin ";
+		}elseif($kind == 'sub_state'){
+			$qry = " state ";
 		}
 	}else{
 		$qry = " idx ";
@@ -880,7 +902,7 @@ if($mode == "comcoin_list_nocal"){
 		$order = " desc ";
 	}
 	
-	$sql = "select idx, state, bank_name, bank_num, workdate, code, email, name, reward_user, reward_name, coin, coin_out, coin_type, memo, DATE_FORMAT(regdate, '%Y.%m.%d') AS ymd, DATE_FORMAT(regdate, '%h:%i:%s') AS his, regdate, commission, amount";
+	$sql = "select idx, state, bank_name, bank_num, workdate, code, email, name, part, reward_user, reward_name, coin, coin_out, coin_type, memo, DATE_FORMAT(regdate, '%Y.%m.%d') AS ymd, DATE_FORMAT(regdate, '%h:%i:%s') AS his, regdate, commission, amount";
 	$sql = $sql .= " from work_account_info";
 	$sql = $sql .= " ".$where."";
 	$sql = $sql .= " order by ". $qry." ".$order;
@@ -888,7 +910,6 @@ if($mode == "comcoin_list_nocal"){
 	$comcoin_info = selectAllQuery($sql);
 
 	?>
-	<div class="list_paging" id="list_paging">
 		<div class="member_list_conts">
 			<div class="member_list_conts_in">
 				<ul class="member_list_conts_ul">
@@ -905,9 +926,7 @@ if($mode == "comcoin_list_nocal"){
 					for($i=0; $i<count($comcoin_info['idx']); $i++){
 							$name = $comcoin_info['name'][$i];
 							$work_date = $comcoin_info['workdate'][$i];
-							$bank_name = $comcoin_info['bank_name'][$i];
-							$bank_num = $comcoin_info['bank_num'][$i];
-							$amount = $comcoin_info['amount'][$i];
+							$part = $comcoin_info['part'][$i];
 							if($comcoin_info['state'][$i]==0){
 								$state = '확인중';
 							}elseif($comcoin_info['state'][$i]==1){
@@ -918,31 +937,30 @@ if($mode == "comcoin_list_nocal"){
 								$state = '출금 반려';
 							}
 						?>
-							<input type="hidden" value="<?=$sql?>"> 
 							<li>
+								<div class="member_list_conts_choice">
+									<input type="hidden" class= "mem_idx" value="<?=$comcoin_info['idx'][$i]?>">
+									<input type="checkbox" name="selected_comcoin[]" id="selected_comcoin<?=$i?>" value="<?=$comcoin_info['email'][$i]?>">
+									<label for="selected_comcoin<?=$i?>" ></label>
+								</div>
 								<div class="member_list_conts_date">
 									<strong><?=$work_date?></strong>
 								</div>
-								<div class="member_list_conts_deposit">
+								<div class="member_list_conts_deposit color_n">
 									<strong><?=$name?></strong>
 								</div>
-								<div class="member_list_conts_deposit">
-									<strong><?=$bank_name?></strong>
-								</div>
-								<div class="member_list_conts_coin">
-									<strong><?=$bank_num?></strong>
+								<div class="member_list_conts_part">
+									<strong><?=$part?></strong>
 								</div>
 								<div class="member_list_conts_coin">
 									<strong><?=number_format($comcoin_info['coin'][$i])?></strong>
 								</div>
-								<div class="member_list_conts_coin">
-									<strong><?=number_format($comcoin_info['commission'][$i])?></strong>
+								<div class="member_list_conts_state">
+									<strong style="<?= ($comcoin_info['state'][$i]==0?"color:#f10006":"color:grey")?>"><?=$state?></strong>
 								</div>
-								<div class="member_list_conts_coin">
-									<strong><?=number_format($amount)?></strong>
-								</div>
-								<div class="member_list_conts_deposit">
-									<strong style="color:grey"><?=$state?></strong>
+
+								<div class="member_list_conts_manager">
+									<strong><button class = "coin_mem_pay <?= $comcoin_info['state'][$i]==0?"on":""?>" value = "<?= $comcoin_info['email'][$i]?>"><?= $comcoin_info['state'][$i]==0?"입금확인":"입금완료"?></button></strong>
 								</div>
 							</li>
 						<?php
@@ -968,7 +986,12 @@ if($mode == "comcoin_list_nocal"){
 				</div>
 			</div>
 		<?}?>
-	</div>
+		<div class="rew_member_sub_text">
+			<button><span>❗ 출금 코인의 세금 처리 방법?</span></button>
+		</div>
+			<input type="hidden" value="workdate" id="kind">
+			<input type="hidden" value="btn_sort_down" id="tclass">
+		</div>
 	</div>
 	<?exit;
 }
@@ -1348,6 +1371,8 @@ if($mode == "give"){
 		$sql = "select idx, part, name, email, comcoin from work_member where state='0' and companyno='".$companyno."' and email='".$give_email."'";
 		$info = selectQuery($sql);
 
+
+
 		if($info['idx']){
 			$idx = $info['idx'];
 			$comcoin = $info['comcoin'];
@@ -1386,8 +1411,8 @@ if($mode == "give"){
 									<div class="cg_box_calc">
 										<ul>
 											<li>
-												<span class="cg_box_tit">보유한 공용코인</span>
-												<strong class="cg_box_coin" id="cg_box_coin_<?=$idx?>"><?=number_format($comcoin)?></strong>
+												<span class="cg_box_tit">지급 가능한 공용코인</span>
+												<strong class="cg_box_coin"><?=number_format($company_info['comcoin'])?></strong>
 												<span class="cg_box_txt">코인</span>
 											</li>
 											<li>
@@ -1395,7 +1420,7 @@ if($mode == "give"){
 												<input type="text" class="cg_box_input" id="cg_box_input_<?=$idx?>"/>
 												<span class="cg_box_txt">코인</span>
 											</li>
-											<li>
+											<li style = "display:none;">
 												<span class="cg_box_tit">합계</span>
 												<strong class="cg_box_coin" id="give_tot_coin_<?=$idx?>"><?=number_format($comcoin)?></strong>
 												<span class="cg_box_txt">코인</span>
@@ -1405,7 +1430,7 @@ if($mode == "give"){
 									<div class="cg_box_final">
 										<dl>
 											<dt>보유한 공용코인</dt>
-											<dd><?=number_format($comcoin)?></dd>
+											<dd id="cg_box_coin_<?=$idx?>"><?=number_format($comcoin)?></dd>
 										</dl>
 										<dl>
 											<dt>지급 후 공용코인</dt>
@@ -1547,9 +1572,10 @@ if($mode == "comcoin_add"){
 	$sql = "select idx,email,name,comcoin from work_member where state='0' and companyno='".$companyno."' and email='".$user_id."'";
 	$mem_info = selectQuery($sql);
 	if($mem_info['idx']){
-
+		$sql = "select idx, comcoin from work_company where state = '0' and idx = '".$companyno."'";
+		$check_com = selectQuery($sql);
 		//보유한 공용코인이 지급할 공용코인 보다 같거나 많을경우에만 지급!!
-		if($mem_info['comcoin'] >= $comcoin){
+		if($check_com['comcoin'] >= $comcoin){
 
 			//지급받는 사람
 			$sql = "select idx,email,name from work_member where state='0' and companyno='".$companyno."' and email='".$cg_name_email."'";
@@ -1569,14 +1595,6 @@ if($mode == "comcoin_add"){
 					$insert_idx = insertIdxQuery($sql);
 					//echo $sql;
 					//echo "\n\n";
-				}
-
-				//공용코인 차감
-				$sql = "update work_member set comcoin=CASE WHEN comcoin > 0 THEN comcoin-'".$comcoin."' ELSE 0 END where state='0' and companyno='".$companyno."' and email='".$user_id."'";
-				$up_remove = updateQuery($sql);
-				//echo $sql;
-				//echo "\n\n";
-				if($up_remove){
 
 					//공용코인 차감내역
 					$code=620;
@@ -1584,12 +1602,24 @@ if($mode == "comcoin_add"){
 					$sql = "insert into work_coininfo(code,email,name,reward_user,reward_name,companyno,coin,coin_type,memo,ip,workdate) values(";
 					$sql = $sql .= "'".$code."','".$user_id."','".$user_name."','".$mem_add_info['email']."','".$mem_add_info['name']."','".$companyno."','".$comcoin."','1','".$memo."','".LIP."','".TODATE."')";
 					$insert_idx = insertIdxQuery($sql);
-					//echo $sql;
-					//echo "\n\n";
 				}
 
+				//공용코인 차감
+				// $sql = "update work_member set comcoin=CASE WHEN comcoin > 0 THEN comcoin-'".$comcoin."' ELSE 0 END where state='0' and companyno='".$companyno."' and email='".$user_id."'";
+				// $up_remove = updateQuery($sql);
+				// $sql = "update work_company set comcoin=CASE WHEN comcoin > 0 THEN comcoin-'".$comcoin."' ELSE 0 END where state='0' and idx='".$companyno."'";
+				// $up_remove = updateQuery($sql);
+				//echo $sql;
+				//echo "\n\n";
+				// if($up_remove){
+
+					
+					//echo $sql;
+					//echo "\n\n";
+				// }
+
 				//지급 + 차감
-				if($up_add && $up_remove){
+				if($up_add){
 
 					echo "complete";
 					exit;
@@ -2054,8 +2084,8 @@ if($mode == "withdraw_add"){
 		$sql = "select idx from work_account_info where state='0' and companyno='".$companyno."' and email='".$user_id."' and workdate='".TODATE."'";
 		$account_info = selectQuery($sql);
 
-		$sql = "insert into work_account_info(companyno, email, name, bank_name, bank_num, coin, ip, memo, workdate) values(";
-		$sql = $sql .= "'".$companyno."', '".$user_id."', '".$user_name."', '".$account_name."', '".$bank_num."', '".$coin."', '".LIP."', '".$memo."', '".TODATE."')";
+		$sql = "insert into work_account_info(companyno, email, name, part, bank_name, bank_num, coin, ip, memo, workdate) values(";
+		$sql = $sql .= "'".$companyno."', '".$user_id."', '".$user_name."', '".$part_name."', '".$account_name."', '".$bank_num."', '".$coin."', '".LIP."', '".$memo."', '".TODATE."')";
 		$insert_idx = insertIdxQuery($sql);
 		if($insert_idx){
 
@@ -2151,7 +2181,7 @@ if($mode == 'logo_upload'){
 			$resize_val = "0";
 
 
-			$sql = "select idx from work_company where state='0' and company='".$companyno."'";
+			$sql = "select idx from work_company where state='0' and idx='".$companyno."'";
 			$com_info = selectQuery($sql);
 			if($com_info['idx']){
 				$com_info_idx = $com_info['idx'];
@@ -2306,7 +2336,7 @@ if($mode == 'logo_upload'){
 	}
 }
 
-//출금신청하기
+//페널티 설정
 if($mode == "admin_penalty"){
 
 	$comp_no = $_POST['companyno'];
@@ -2314,6 +2344,8 @@ if($mode == "admin_penalty"){
 	$onoff = $_POST['onoff'];
 
 	$setkind = $_POST['setkind'];
+	
+	$data_code = ['penalty_1'=>40, 'penalty_0'=>41, 'penalty_in_1'=>42, 'penalty_in_0'=>43, 'penalty_work_1'=>44, 'penalty_work_0'=>45, 'penalty_out_1'=>46, 'penalty_out_0'=>47];
 
 	// 관리자 권한 확인
 	$sql = "select idx, email from work_member where email = '".$user_id."' and highlevel = '0' and state = '0' and companyno = '".$comp_no."' ";
@@ -2323,13 +2355,18 @@ if($mode == "admin_penalty"){
 		echo "You're not admin.";
 		exit;
 	}else{
-		if($setkind == 'penalty' && $onoff == '0'){
-			$sql = "update work_company set penalty = '".$onoff."', penalty_in = '".$onoff."', penalty_work = '".$onoff."', penalty_out = '".$onoff."', penalty_challenge = '".$onoff."' where idx = '".$comp_no."' and state = '0'";
+		if($setkind == 'penalty'){
+			$sql = "update work_company set penalty = '".$onoff."', penalty_in = '".$onoff."', penalty_work = '".$onoff."', penalty_out = '".$onoff."' where idx = '".$comp_no."' and state = '0'";
 		}else{
 			$sql = "update work_company set ".$setkind." = '".$onoff."' where idx = '".$comp_no."' and state = '0' ";
 		}
 		$query = updateQuery($sql);
-
+		//상태값, 코드, 연결키값, 아이디, 이름, 받는사람아이디, 받는사람이름, 오늘업무 idx키값
+		foreach($data_code as $key => $value ){
+			if($setkind."_".$onoff == $key){
+				work_data_log('0', $value, $comp_no, $user_id, $user_name);
+			}
+		}		
 		echo "complete";
 	}
 	exit;
@@ -2473,5 +2510,462 @@ if($mode == "like_charge"){
 			}
 		}
 	}
+}
+
+
+if($mode == "company_ip_plus"){
+	$ip = $_POST['ip'];
+
+	$sql = "select count(1) as cnt from work_company_ip where companyno = '".$companyno."' and state = '0'";
+	$count_ip = selectQuery($sql);
+	
+	if($count_ip['cnt'] >= 5){
+		echo "limit_ip|";
+		exit;
+	}
+
+	$sql = "select idx, state, ip from work_company_ip where ip = '".$ip."' and companyno = '".$companyno."' ";
+	$plus_ip = selectQuery($sql);
+
+	if($plus_ip['state']=='0'){
+		echo "ip_use|";
+		exit;
+	}else{
+		if($plus_ip){
+			$sql = "update work_company_ip set state = '0' where ip = '".$ip."' and companyno = '".$companyno."' ";
+			$up = updateQuery($sql);
+		}else{
+			$sql = "insert into work_company_ip (state, email, companyno, ip, regdate) values('0', '".$user_id."', '".$companyno."', '".$ip."', ".DBDATE.")";
+			$up = insertIdxQuery($sql);
+		}
+	
+		if($up){
+			echo "complete|";?>
+			<span id="ip_idx" value="<?=$plus_ip['idx']?$plus_ip['idx']:$up?>"><?=$ip?><button><span>닫기</span></button></span>
+		<?	
+		}
+	}
+
+	
+	exit;
+}
+
+if($mode == "ip_delete"){
+	$idx = $_POST['idx'];
+
+	$sql = "update work_company_ip set state = '9' where idx = '".$idx."'";
+	$up = updateQuery($sql);
+
+	echo $idx."|complete";
+}
+
+if($mode == "coin_mem_out"){
+
+	$email = $_POST["mem_email"];
+	$idx = $_POST["mem_idx"];
+
+
+	// 이메일 체크
+	$sql = "select idx, email, name, state from work_member where email = '".$email."' and companyno = '".$companyno."'";
+	$mem_check = selectQuery($sql);
+
+	if($mem_check){
+		// 출력 테이블 체크 변경
+		$sql = "select idx, email, name, state from work_account_info where email = '".$mem_check['email']."' and state = '0' and idx = '".$idx."'";
+		$mem_coin_check = selectQuery($sql);
+
+		if($mem_coin_check){
+			$sql = "update work_account_info set state = '9' where idx = '".$mem_coin_check['idx']."' and state = '0' and email = '".$mem_coin_check['email']."'";
+			$up_pay = updateQuery($sql);
+
+			if($up_pay){
+				echo "complete";
+			}
+		}
+	}
+}
+
+// 출금 일괄 완료
+if($mode == "coin_mem_all_out"){
+
+	$email_all = $_POST["mem_email"];
+	$idx_all = $_POST["mem_idx"];
+	
+	// 일괄 이메일 개별 처리
+	$emailArray = explode(',', $email_all);
+	$idxArry = explode(',', $idx_all);
+
+	// 이메일 체크
+	$mem_list = '';
+	foreach ($emailArray as $email) {
+		$mem_list .= "'" . $email . "',";
+	}
+
+	$mem_list = rtrim($mem_list, ',');
+
+	// idx체크
+	$idx_list = '';
+	foreach ($idxArry as $idx) {
+		$idx_list .= "'" . $idx . "',";
+	}
+
+	$idx_list = rtrim($idx_list, ',');
+
+	// 이메일 체크
+	$sql = "select idx, email, name, state from work_member where email in ($mem_list) and companyno = '".$companyno."'";
+	$mem_check = selectAllQuery($sql);
+	if($mem_check){
+	$sql = "select idx, email, name, state from work_account_info where email in ($mem_list) and state = '0' and idx in ($idx_list)";
+		$mem_coin_check = selectAllQuery($sql);
+		if($mem_coin_check){
+			$sql = "update work_account_info set state = '9' where idx in ($idx_list) and state = '0' and email in ($mem_list)";
+			$up_pay = updateQuery($sql);
+
+			if($up_pay){
+				echo "complete";
+			}
+		}
+	}
+}
+// 일괄 엑셀 다운로드
+if($mode == "coin_excel_out"){
+
+	$email_all = $_POST["mem_email"];
+	$idx_all = $_POST["mem_idx"];
+	
+	// 일괄 이메일 개별 처리
+	$emailArray = explode(',', $email_all);
+	$idxArry = explode(',', $idx_all);
+
+	// 이메일 체크
+	$mem_list = '';
+	foreach ($emailArray as $email) {
+		$mem_list .= "'" . $email . "',";
+	}
+
+	$mem_list = rtrim($mem_list, ',');
+
+	// idx체크
+	$idx_list = '';
+	foreach ($idxArry as $idx) {
+		$idx_list .= "'" . $idx . "',";
+	}
+
+	$idx_list = rtrim($idx_list, ',');
+
+	// 이메일 체크
+	$sql = "select idx, email, name, state from work_member where email in ($mem_list) and companyno = '".$companyno."'";
+	$mem_check = selectAllQuery($sql);
+	if($mem_check){
+	$sql = "select idx, email, name, state, workdate, part, coin from work_account_info where email in ($mem_list) and state = '0' and idx in ($idx_list) and companyno = '".$companyno."'";
+		$mem_coin_check = selectAllQuery($sql);
+		if($mem_coin_check){
+			
+			$sql = "select count(idx) as cnt from work_account_info where email in ($mem_list) and idx in ($idx_list)";
+			$count_mem = selectquery($sql);
+			if(! function_exists('column_char')) {
+				function column_char($i) {
+					return chr( 65 + $i );
+				}
+			}
+
+			$headers = array('신청 날짜', '이름', '부서', '신청금액','상태');
+			$widths  = array(30, 15, 15, 15, 15);
+			$header_bgcolor = 'd2d2d2';
+			$last_char = column_char(count($headers) - 1);
+			
+			for($k =0; $k < $count_mem['cnt']; $k++){
+				$coin_day = $mem_coin_check['workdate'][$k];
+				$coin_name = $mem_coin_check['name'][$k];
+				$coin_state = $mem_coin_check['state'][$k];
+				$coin_part = $mem_coin_check['part'][$k];
+				$coin = $mem_coin_check['coin'][$k];
+				
+				if($coin == '0'){
+					$coin_text = "입금 확인 중";
+				}else if($coin == '9'){
+					$coin_text = "입금 완료";
+				}
+
+				
+				$rows[] = array($coin_day, $coin_name, $coin_part, $coin, $coin_text);
+				$data = array_merge(array($headers), $rows);
+			}
+			$excel = new PHPExcel();
+			$excel->setActiveSheetIndex(0)->getStyle( "A1:${last_char}1" )->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setARGB($header_bgcolor);
+			$excel->setActiveSheetIndex(0)->getStyle( "A:$last_char" )->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER)->setWrapText(true);
+			foreach($widths as $i => $w) $excel->setActiveSheetIndex(0)->getColumnDimension( column_char($i) )->setWidth($w);
+			$excel->getActiveSheet()->fromArray($data,NULL,'A1');
+
+
+			$upload_path = $dir_file_profile_path."/".$coin_save_dir_img."/";
+			$upload_path = str_replace($coin_save_dir_img , "data/".$companyno."/".$comfolder."/"."excel" , $upload_path);
+			
+			$download_path = "/data/".$companyno."/".$comfolder."/"."excel/";
+			// 디렉토리 없는 경우 권한 부여 및 생성
+			if ( !is_dir ( $upload_path ) ){
+				mkdir( $upload_path , 0777, true);
+			}
+			// Generate a unique filename
+			$filename = "excel_" . date("ymdhis", time()) . ".xls";
+			$filepath = $upload_path.$filename;
+			$down_flie_path = $download_path.$filename;
+			// header("Content-Type: application/octet-stream");
+			// header("Content-Disposition: attachment; filename=\"excel_".date("ymd", time()).".xls\"");
+			// header("Cache-Control: max-age=0");
+			$writer = PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+			
+			// // // $writer->save('php://output');
+			$writer->save($filepath);
+
+			echo "complete|".$filename."|".$down_flie_path;
+		}
+	}
+}
+
+if($mode == "coin_date_change"){
+  	$day_type = $_POST['day_type'];
+
+	if($day_type == "month"){
+		echo date("Y.m", time());
+	}
+}
+if($mode == "pay_date_change"){
+	$day_type = $_POST['day_type'];
+
+  if($day_type == "month"){
+	  echo date("Y.m", time());
+  }
+}
+if($mode == "coin_list"){
+	$rank_type = $_POST['rank_type'];
+	$wdate = $_POST['wdate'];
+	$change_sort = $_POST['size'];
+	
+	//페이지
+	$p = $_POST['p']?$_POST['p']:$_GET['p'];
+	if (!$p){
+		$p = 1;
+	}
+
+	if($change_sort){
+		$pagesize = $change_sort;
+	}else{
+		$pagesize = 30;
+	}
+	$pagingsize = 5;					//페이징 사이즈
+	$startnum = 0;						//페이지 시작번호
+	$endnum = $p * $pagesize;			//페이지 끝번호
+
+	//시작번호
+	if ($p == 1){
+		$startnum = 0;
+	}else{
+		$startnum = ($p - 1) * $pagesize;
+	}
+
+	// $pageurl = $_SERVER['PHP_SELF'];
+	$pageurl = "member_nocal";
+	$string = "&page=".$pageurl."&sdate=".$sdate."&edate=".$edate."&nday=".$nday."&type=".$type;
+
+	//공용코인
+	$where = " where companyno='".$companyno."' and DATE_FORMAT(regdate, '%Y.%m') = '".$wdate."' ";
+	//$where = $where .= " and code in('800','900')";
+
+	//전체 카운터수
+	$sql = "select count(idx) as cnt from work_account_info ".$where."";
+	$comcoin_cnt_info = selectQuery($sql);
+	if($comcoin_cnt_info['cnt']){
+		$total_count = $comcoin_cnt_info['cnt'];
+	}
+		$sql = "select idx, state, bank_name, bank_num, workdate, code, email, name, part, reward_user, reward_name, coin, coin_out, coin_type, memo, DATE_FORMAT(regdate, '%Y.%m.%d') AS ymd, DATE_FORMAT(regdate, '%h:%i:%s') AS his, regdate, commission, amount";
+		$sql = $sql .= " from work_account_info";
+		$sql = $sql .= " ".$where."";
+		$sql = $sql .= " order by idx desc";
+		$sql = $sql .= " limit ". $startnum.", ".$pagesize;
+		$comcoin_info = selectAllQuery($sql);
+
+?>
+	<div class="member_list_conts">
+		<div class="member_list_conts_in">
+			<ul class="member_list_conts_ul">
+				<? 
+				if(count($comcoin_info['idx'])>0){
+					for($i=0; $i<count($comcoin_info['idx']); $i++){
+					$name = $comcoin_info['name'][$i];
+					$work_date = $comcoin_info['workdate'][$i];
+					$email = $comcoin_info['email'][$i];
+					// $bank_name = $comcoin_info['bank_name'][$i];
+					// $bank_num = $comcoin_info['bank_num'][$i];
+					$amount = $comcoin_info['amount'][$i];
+					$part = $comcoin_info['part'][$i];
+
+					if($comcoin_info['state'][$i]==0){
+						$state = '입금 확인중';
+					}elseif($comcoin_info['state'][$i]==1){
+						$state = '출금 대기';
+					}elseif($comcoin_info['state'][$i]==9){
+						$state = '입금 완료';
+					}elseif($comcoin_info['state'][$i]==3){
+						$state = '출금 반려';
+					}
+
+				?>
+					<li>
+						<div class="member_list_conts_choice">
+							<input type="hidden" class= "mem_idx" value="<?=$comcoin_info['idx'][$i]?>">
+							<input type="checkbox" name="selected_comcoin[]" id="selected_comcoin<?=$i?>" value="<?=$comcoin_info['email'][$i]?>">
+							<label for="selected_comcoin<?=$i?>"></label>
+						</div>
+						<div class="member_list_conts_date">
+							<strong><?=$work_date?></strong>
+						</div>
+						<div class="member_list_conts_deposit color_n">
+							<strong><?=$name?></strong>
+						</div>
+						<div class="member_list_conts_part">
+							<strong><?=$part?></strong>
+						</div>
+						<div class="member_list_conts_coin">
+							<strong><?=number_format($comcoin_info['coin'][$i])?></strong>
+						</div>
+						
+						<div class="member_list_conts_state">
+							<strong style="<?= ($comcoin_info['state'][$i]==0?"color:#f10006":"color:grey")?>"><?=$state?></strong>
+						</div>
+
+						<div class="member_list_conts_manager">
+							<strong><button class = "coin_mem_pay <?= $comcoin_info['state'][$i]==0?"on":""?>" value = "<?= $comcoin_info['email'][$i]?>"><?= $comcoin_info['state'][$i]==0?"입금확인":"입금완료"?></button></strong>
+						</div>
+						
+					</li>
+				<?}
+				}else{?>
+					<li class="search_list_none"><span>코인출금 신청내역이 없습니다.</span></li>
+				<?}?>
+			</ul>
+		</div>
+	</div>
+	<?if($comcoin_info['idx']){?>
+		<div class="rew_ard_paging">
+			<div class="rew_ard_paging_in">
+				<?
+					//페이징사이즈, 전체카운터, 페이지출력갯수
+					echo pageing($pagingsize, $total_count, $pagesize, $string);
+				?>
+			</div>
+		</div>
+	<?}?>
+	<div class="rew_member_sub_text">
+		<button><span>❗ 출금 코인의 세금 처리 방법?</span></button>
+	</div>
+		<input type="hidden" value="workdate" id="kind">
+		<input type="hidden" value="btn_sort_down" id="tclass">
+	</div>
+<?
+}
+
+// 결제내역
+if($mode == "pay_list"){
+	$rank_type = $_POST['rank_type'];
+	$wdate = $_POST['wdate'];
+	$change_sort = $_POST['size'];
+	
+	//페이지
+	$p = $_POST['p']?$_POST['p']:$_GET['p'];
+	if (!$p){
+		$p = 1;
+	}
+
+	if($change_sort){
+		$pagesize = $change_sort;
+	}else{
+		$pagesize = 30;
+	}
+	$pagingsize = 5;					//페이징 사이즈
+	$startnum = 0;						//페이지 시작번호
+	$endnum = $p * $pagesize;			//페이지 끝번호
+
+	//시작번호
+	if ($p == 1){
+		$startnum = 0;
+	}else{
+		$startnum = ($p - 1) * $pagesize;
+	}
+
+	// $pageurl = $_SERVER['PHP_SELF'];
+	$pageurl = "member_nocal";
+	$string = "&page=".$pageurl."&sdate=".$sdate."&edate=".$edate."&nday=".$nday."&type=".$type;
+
+	//공용코인
+	$where = " where companyno='".$companyno."' and DATE_FORMAT(regdate, '%Y.%m') = '".$wdate."' ";
+	//$where = $where .= " and code in('800','900')";
+
+	//전체 카운터수
+	$sql = "select count(idx) as cnt from payment_log ".$where."";
+	$pay_cnt_info = selectQuery($sql);
+	if($pay_cnt_info['cnt']){
+		$total_count = $pay_cnt_info['cnt'];
+	}
+		$sql = "select idx, goodName, TotPrice, payMethod, regdate";
+		$sql = $sql .= " from payment_log";
+		$sql = $sql .= " ".$where."";
+		$sql = $sql .= " order by idx desc";
+		$sql = $sql .= " limit ". $startnum.", ".$pagesize;
+		$pay_info = selectAllQuery($sql);
+?>
+	<div class="member_list_conts">
+		<div class="member_list_conts_in">
+			<ul class="member_list_conts_ul">
+				<? 
+				if(count($pay_info['idx'])>0){
+					for($i=0; $i<count($pay_info['idx']); $i++){
+					$method = $pay_info['payMethod'][$i];
+					$content = $pay_info['goodName'][$i];
+					$price = $pay_info['TotPrice'][$i];
+					$regDate = $pay_info['regdate'][$i];
+
+				?>
+					<li>
+						<div class="member_list_conts_datetime">
+							<strong><?=$regDate?></strong>
+						</div>
+						<div class="member_list_conts_detail">
+							<strong><?=$content?></strong>
+						</div>
+						<div class="member_list_conts_payment">
+							<strong><?=number_format($price)?></strong>
+						</div>
+						<div class="member_list_conts_payment_plan">
+							<strong><?=$method?></strong>
+						</div>
+						
+						<div class="member_list_conts_tax">
+							<strong><button class = "tax">세금계산서 발행</button></strong>
+						</div>
+						
+					</li>
+				<?}
+				}else{?>
+					<li class="search_list_none"><span>결제내역이 없습니다.</span></li>
+				<?}?>
+			</ul>
+		</div>
+	</div>
+	<?if($pay_info['idx']){?>
+		<div class="rew_ard_paging">
+			<div class="rew_ard_paging_in">
+				<?
+					//페이징사이즈, 전체카운터, 페이지출력갯수
+					echo pageing($pagingsize, $total_count, $pagesize, $string);
+				?>
+			</div>
+		</div>
+	<?}?>
+	<div class="rew_member_sub_text">
+		<span>* 카카오페이/네이버페이는 각 업체에서 현금영수증을 받으실 수 있습니다.</span>
+	</div>
+<?
+
 }
 ?>

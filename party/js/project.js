@@ -83,16 +83,16 @@ $(function () {
 				$(this).closest(".t_layer").hide();
 			});
 
-			$(".rew_type_slc .btn_type_box").click(function(){	
+			$(document).on("click", ".rew_type_slc .btn_type_box", function(){
 			// 파티 리스트 변경 작업 20230511	
-			$(".rew_type_slc .btn_type_list").removeClass("on");	
+			$(".rew_type_slc .party_btn_type_list").removeClass("on");	
 			$(this).addClass("on");	
 			$(".cha_user_list").hide();
 			$(".cha_user_box").show();	
 			$(".rew_party_wrap.rew_cha_list .rew_cha_list_ul").removeClass("party_type_list");	
 			});	
 
-			$(".rew_type_slc .btn_type_list").click(function(){	
+			$(document).on("click", ".rew_type_slc .party_btn_type_list", function(){
 				$(".rew_type_slc .btn_type_box").removeClass("on");	
 				$(this).addClass("on");
 				$(".cha_user_box").hide();

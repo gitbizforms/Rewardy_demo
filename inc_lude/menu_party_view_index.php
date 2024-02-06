@@ -59,14 +59,28 @@ $member_list_info = member_main_team_list();
 									<div class="rew_mypage_08_in">
 									<div class="rew_mypage_close"><button><img src="/html/images/pre_m/rew_mypage_close.png"></button></div>
 										<div class="rew_mypage_title" id="rew_part_title" value="<?=$idx?>">
-											<a href="#null" onclick="javascript:void(0);"><strong><?=$project_title?></strong></a>
+											<? 
+											if($user_id == $project_info['email']){ ?>
+												<div id="party_title_edit" class="party_title_edit"><span>✏️</span><strong class="party_title_text"><?=textarea_replace($project_title)?></strong></div>
+												<input type="hidden" id="edit_id" value="<?=$user_id?>">
+												<div class="tdw_list_regi" id="tdw_list_regi_edit_<?=$idx?>" style="display:none">
+													<!-- <strong>수정중</strong> -->
+													<textarea class="textarea_regi" id="textarea_regi_<?=$idx?>"><?=strip_tags($project_title)?></textarea>
+													<div class="btn_regi_box">
+														<button class="btn_regi_submit" id="party_title_enter" value="<?=$party_idx?>"><span>확인</span></button>
+														<button class="btn_regi_cancel" id="party_title_cancel"><span>취소</span></button>
+													</div>
+												</div>
+												<? }else{ ?>
+												<a href="#null" onclick="javascript:void(0);"><strong><?=$project_title?></strong></a>
+											<?}?>
 										</div>
 										<div class="rew_mypage_party">
 											<div class="party_accrue_coin">
 												<span>파티 누적 코인</span>
 												<strong><?=number_format($project_coin)?></strong>
 												<?//파티종료된 경우
-																			if($project_state=='1'){?>
+												if($project_state=='1'){?>
 												<button class="btn_admin_coin_pop end" id="party_coin_expire" value="<?=$idx?>">코인 보내기</button>
 												<?}else{?>
 												<button class="btn_admin_coin_pop" id="party_coin" value="<?=$idx?>">코인 보내기</button>
@@ -138,30 +152,30 @@ $member_list_info = member_main_team_list();
 														<div class="pu_list_conts_in" id="pu_list_conts_in">
 															<ul>
 																<?
-																							for($j=0; $j<count($project_user_info['idx']); $j++){
-																								$project_user_idx = $project_user_info['idx'][$j];
-																								$project_user_bidx = $project_user_info['bidx'][$j];
-																								$project_user_email = $project_user_info['email'][$j];
-																								$project_user_pma = $project_user_info['pma'][$j];
-																								$project_user_complete = $project_user_info['complete'][$j];
-																								$project_user_work = $project_user_info['work'][$j];
-																								$profile_type = $project_user_info['profile_type'][$j];
-																								$project_profile_img_idx = $project_user_info['profile_img_idx'][$j];
-																								$project_file_path = $project_user_info['file_path'][$j];
-																								$project_file_name = $project_user_info['file_name'][$j];
-																								// $project_user_img = profile_img_info($project_user_email);
-																								$project_pu_heart = $work_like_list[$project_user_idx][$project_user_email];
-																								$profile_file =  $project_file_path.$project_file_name;
-																								$profile_img =  'http://demo.rewardy.co.kr'.$project_file_path.$project_file_name;
-																								//파티장일때 class설정
-																								if($project_user_pma=="1"){
-																									$part_leader = " party_leader ";
-																								}else{
-																									$part_leader = " ";
-																								}
+																	for($j=0; $j<count($project_user_info['idx']); $j++){
+																		$project_user_idx = $project_user_info['idx'][$j];
+																		$project_user_bidx = $project_user_info['bidx'][$j];
+																		$project_user_email = $project_user_info['email'][$j];
+																		$project_user_pma = $project_user_info['pma'][$j];
+																		$project_user_complete = $project_user_info['complete'][$j];
+																		$project_user_work = $project_user_info['work'][$j];
+																		$profile_type = $project_user_info['profile_type'][$j];
+																		$project_profile_img_idx = $project_user_info['profile_img_idx'][$j];
+																		$project_file_path = $project_user_info['file_path'][$j];
+																		$project_file_name = $project_user_info['file_name'][$j];
+																		// $project_user_img = profile_img_info($project_user_email);
+																		$project_pu_heart = $work_like_list[$project_user_idx][$project_user_email];
+																		$profile_file =  $project_file_path.$project_file_name;
+																		$profile_img =  'https://rewardy.co.kr'.$project_file_path.$project_file_name;
+																		//파티장일때 class설정
+																		if($project_user_pma=="1"){
+																			$part_leader = " party_leader ";
+																		}else{
+																			$part_leader = " ";
+																		}
 
-																								$member_row_info = member_row_info($project_user_email);
-																							?>
+																		$member_row_info = member_row_info($project_user_email);
+																	?>
 																<li>
 																	<div class="pu_list_conts_name<?=$part_leader?>party_new">
 																		<div class="pu_list_conts_name_in">
@@ -182,7 +196,7 @@ $member_list_info = member_main_team_list();
 
 
 																		<?//파티종료
-																										if($project_state=='1'){?>
+																		if($project_state=='1'){?>
 																		<button class="btn_pu_coin" id="btn_pu_coin_expire"
 																			value="<?=$project_user_bidx?>"><span>코인</span></button>
 																		<button class="btn_pu_heart" id="btn_pu_heart_expire"
@@ -221,21 +235,21 @@ $member_list_info = member_main_team_list();
 									<button class="btn_mypage_party_admin end" id="btn_mypage_party_admin_expire"><span>파티원 관리</span></button>
 
 									<?//업무가 없을경우 삭제 가능
-																		if(!$work_all_cnt){?>
-									<button class="btn_mypage_party_end end" id="btn_mypage_party_del_expire"><span>파티삭제</span></button>
+									if(!$work_all_cnt){?>
+										<button class="btn_mypage_party_end end" id="btn_mypage_party_del_expire"><span>파티삭제</span></button>
 									<?}else{?>
-									<button class="btn_mypage_party_end end" id="btn_mypage_party_end_expire"><span>파티종료</span></button>
-									<input type="hidden" id="party_close_flag" value="0">
+										<button class="btn_mypage_party_end end" id="btn_mypage_party_end_expire"><span>파티종료</span></button>
+										<input type="hidden" id="party_close_flag" value="0">
 									<?}?>
 
 									<?}else{?>
 									<?
 																		//파티에 본인이 포함된 경우일때
-																		if(@in_array($user_id, $project_user_info['email'])){?>
-									<button class="btn_mypage_party_out end" id="btn_mypage_party_out_expire"><span>파티에서 나가기</span></button>
-									<?}else{?>
-									<button class="btn_mypage_party_in end" id="btn_mypage_party_in_expire"><span>파티 참여하기</span></button>
-									<?}?>
+									if(@in_array($user_id, $project_user_info['email'])){?>
+											<button class="btn_mypage_party_out end" id="btn_mypage_party_out_expire"><span>파티에서 나가기</span></button>
+										<?}else{?>
+											<button class="btn_mypage_party_in end" id="btn_mypage_party_in_expire"><span>파티 참여하기</span></button>
+										<?}?>
 									<?}?>
 
 									<?}else{?>

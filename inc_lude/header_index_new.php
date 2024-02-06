@@ -9,6 +9,7 @@
 	include $home_dir . "inc_lude/conf_mysqli.php";
 	include DBCON_MYSQLI;
 	include FUNC_MYSQLI;
+
 	//디렉토리 추출
 	$get_dirname = str_replace(NAS_HOME_DIR,"", get_dirname());
 

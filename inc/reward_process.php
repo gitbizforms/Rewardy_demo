@@ -430,18 +430,21 @@ if($mode == "withdraw_add"){
 	//신청금액의 5%는 회사 수익으로 처리
 	//출금신청코인
 	$coin = $_POST['coin'];
-	$bank_name = $_POST['bank_name'];
-	$bank_num = $_POST['bank_num'];
-	$bank_user = $_POST['bank_user'];
+	// $bank_name = $_POST['bank_name'];
+	// $bank_num = $_POST['bank_num'];
+	// $bank_user = $_POST['bank_user'];
 	
-	$coin = preg_replace("/[^0-9]/", "", $coin);
-	$bank = preg_replace("/[^0-9]/", "", $bank);
-	$bank_num = preg_replace("/[^0-9]/", "", $bank_num);
+	// $coin = preg_replace("/[^0-9]/", "", $coin);
+	// $bank = preg_replace("/[^0-9]/", "", $bank);
+	// $bank_num = preg_replace("/[^0-9]/", "", $bank_num);
 
 	$log_folder = "reward";
 
 	//회원정보 체크
 	$mebmer_info = member_row_info($user_id);
+
+	// $sql = "select idx, email, coin, comcoin from work_member where email = '".$user_id."' and state ='0' and companyno = '".$companyno."' ";
+	// $member_info = selectQuery($sql);
 	if($mebmer_info['idx']){
 
 		//보유 코인
@@ -464,12 +467,12 @@ if($mode == "withdraw_add"){
 		write_log_dir($log, $log_folder);
 
 		//은행명
-		$account_name = "";
-		$sql = "select idx, name from work_bank where state='0' and idx='".$bank_name."'";
-		$bank_info = selectQuery($sql);
-		if($bank_info['idx']){
-			$account_name = $bank_info['name'];
-		}
+		// $account_name = "";
+		// $sql = "select idx, name from work_bank where state='0' and idx='".$bank_name."'";
+		// $bank_info = selectQuery($sql);
+		// if($bank_info['idx']){
+		// 	$account_name = $bank_info['name'];
+		// }
 
 		$memo = "출금신청";
 
@@ -496,8 +499,11 @@ if($mode == "withdraw_add"){
 
 		$amount = $acc_coin;
 
-		$sql = "insert into work_account_info(companyno, email, name, bank_name, bank_num, coin, commission, amount, mem_coin, ip, memo, workdate) values(";
-		$sql = $sql .= "'".$companyno."', '".$user_id."', '".$user_name."', '".$account_name."', '".$bank_num."', '".$coin."', '".$commission."', '".$amount."', '".$member_row_info['coin']."', '".LIP."', '".$memo."', '".TODATE."')";
+		// $sql = "insert into work_account_info(companyno, email, name, part, bank_name, bank_num, coin, commission, amount, mem_coin, ip, memo, workdate) values(";
+		// $sql = $sql .= "'".$companyno."', '".$user_id."', '".$user_name."', '".$part_name."', '".$account_name."', '".$bank_num."', '".$coin."', '".$commission."', '".$amount."', '".$member_row_info['coin']."', '".LIP."', '".$memo."', '".TODATE."')";
+
+		$sql = "insert into work_account_info(companyno, email, name, part, coin, commission, amount, mem_coin, ip, memo, workdate) values(";
+		$sql = $sql .= "'".$companyno."', '".$user_id."', '".$user_name."', '".$part_name."', '".$coin."', '".$commission."', '".$amount."', '".$member_row_info['coin']."', '".LIP."', '".$memo."', '".TODATE."')";
 		$insert_idx = insertIdxQuery($sql);
 		if($insert_idx){
 			//------------출금신청 수수료 차감 (비활성화)--------------//

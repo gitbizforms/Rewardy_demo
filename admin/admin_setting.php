@@ -6,10 +6,11 @@
   $type_flag = ($chkMobile)?1:0;
 ?>
 <link rel="stylesheet" type="text/css" href="/html/css/set_01.css<?php echo VER;?>" />
+<link rel="stylesheet" type="text/css" href="/html/css/set_head.css<?php echo VER;?>" />
 <link rel="stylesheet" type="text/css" href="/html/css/all.min.css" />
 <?
 	if($user_level != '0'){
-		header("Location:http://demo.rewardy.co.kr/index.php");
+		header("Location:https://rewardy.co.kr/index.php");
 		exit;
 	}
 
@@ -32,6 +33,12 @@
   $logo = selectQuery($sql);
   
   $logo_dir = $logo['file_path'].$logo['file_name'];
+
+  //출근 제한 ip 유무 여부
+  $sql = "select idx, ip from work_company_ip where state = '0' and companyno = '".$companyno."' ";
+  $company_ip = selectAllQuery($sql);
+
+  $ip_length = count($company_ip['idx']);
 ?>
 <script>
 var team_info_arr = new Array();
@@ -58,7 +65,7 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                   <div class="rew_member_func">
                     <div class="rew_member_func_in">
                       <div class="rew_member_count">
-                        <span>초기설정</span>
+                        <span>환경설정</span>
                       </div>
                     </div>
                   </div>
@@ -66,21 +73,6 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                     <div class="rew_member_list_in">
                       <div class="member_list_conts">
                         <div class="member_list_conts_in">
-                          <!-- <div class="list_conts_top">
-                            <div class="set_list_title">
-                              <strong>회사 로고 이미지 설정</strong>
-                              <span>세로 34px 이상의 배경이 투명한 이미지</span>
-                            </div>
-                            <div class="set_logo_file">
-                              <div class="logo_file on">
-                                <span class="file_name">logo_file.png</span>
-                                <img id="previewImage" src="" alt="img" style="display:none";>
-                                <input type="file" id="rew_logo"/>
-                                <button class="file_down on"><span>저장</span></button>
-                                <button class="file_down" style="display: none;"><span>삭제</span></button>
-                              </div>
-                            </div>
-                          </div> -->
                           <div class="list_conts_top">
                             <div class="set_list_title">
                               <strong>1. 회사 로고 이미지 설정</strong>
@@ -152,6 +144,15 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                                 </div>
                               </div>
                               <button class="file_down on"><span>저장</span></button>
+                              <div class="set_time_check">
+                                <div class="time_check">
+                                  <div class="time_check_box">
+                                    <input type="checkbox" name="ip_check" id="chul_ip" <?=$ip_length>0?'checked':''?>>
+                                    <label for="chul_ip">출근아이피 제한 기능 사용</label>
+                                  </div>
+                                  <p>특정 장소에서만 출근도장을 찍어야 할 때 사용할 수 있습니다. (최대 5개)</p>
+                                </div>
+                              </div>
                             </div>
 
                             <div class="set_list set_list_coin">
@@ -168,7 +169,8 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                                 <button><span>충전하기</span></button>
                               </div>
                             </div>
-                            <div class="set_list set_list_share">
+
+                            <!-- <div class="set_list set_list_share">
                               <div class="set_list_title">
                                 <strong>4. 자동 코인분배 설정</strong>
                               </div>
@@ -207,11 +209,11 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
                             <div class="set_list set_list_pena">
                               <div class="set_list_title">
-                                <strong>5. 패널티 설정</strong>
+                                <strong>4. 패널티 설정</strong>
                                 <span>페널티를 받을 경우 좋아요와 코인을 24시간(00시~24시)동안 받지 못합니다.</span>
                               </div>
                               <div class="member_list_conts_setting all pena_btn_head">
@@ -261,7 +263,7 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                                     </div>
                                   </div>
                                 </li>
-                                <li>
+                                <!-- <li>
                                   <div class="set_list_title">
                                     <strong>챌린지</strong>
                                     <span>챌린지 대상자이면서 2회이상 불참 느낌표알림, 3회이상 페널티 카드 발동</span>
@@ -273,7 +275,7 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
                                       <strong class="btn_switch_off"></strong>
                                     </div>
                                   </div>
-                                  </li>
+                                  </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -309,6 +311,9 @@ for($i=0; $i<count($team_info['partno']); $i++){?>
 	<?php
 		//로딩 페이지
 		include $home_dir . "loading.php";
+
+    //ip 셋
+    include $home_dir . "/layer/admin_ip_set.php";
 	?>	
 <script>
 // function formatAmount(input) {

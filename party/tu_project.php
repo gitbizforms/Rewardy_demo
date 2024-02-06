@@ -1,13 +1,14 @@
 <?
 	//header페이지
 	$home_dir = str_replace( basename(__DIR__) , "" , __DIR__ );
-	include $home_dir . "/inc_lude/header.php";
+	include $home_dir . "/inc_lude/header_party.php";
 
 	$tuto = tutorial_chk();
-	if($tuto['t_flag']>3){
-		alert('해당 단계는 이미 완료하셨습니다!');
-		echo "<script>history.back();</script>";
-	}else if($tuto['t_flag']<3){
+	// if($tuto['t_flag']>3){
+	// 	alert('해당 단계는 이미 완료하셨습니다!');
+	// 	echo "<script>history.back();</script>";
+	// }else 
+	if($tuto['t_flag']<3){
 		alert('이전 단계를 먼저 수행해주세요.');
 		echo "<script>history.back();</script>";
 	}
@@ -31,6 +32,7 @@
 	$today_r_dd = date("Y-m-d", strtotime("-".$rnd_d." days"));
 	$today_m = date("Y-m-d",strtotime("+1 months"));
 ?>
+<script src="/js/tutorial_common.js<?php echo VER;?>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 
@@ -282,11 +284,11 @@
 	<div class="tuto_mark tuto_mark_01_04" style="display:none;"><button><span></span></button></div>
 	<div class="tuto_pop tuto_pop_01_01">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티생성</div>
 			<div class="tuto_pager">1/3</div>
 			<div class="tuto_desc">
-				<p>함께 프로젝트를 하는 구성원과 파티를 만들수 있어요.</p>
-				<p>파티 만들기를 통해 구성원과 업무를 모아 볼 수 있어요.</p>
+				<p>프로젝트를 진행하거나 협업이 필요할 때 파티를 이용할 수 있어요.</p>
+				<p>파티에 연결된 구성원과 업무를 모아 볼 수 있어 편리하게 관리 할 수 있습니다!</p>
 			</div>
 			<div class="tuto_btns">
 				<!-- <button class="tuto_prev"><span>이전</span></button> -->
@@ -296,11 +298,12 @@
 	</div>
 	<div class="tuto_pop tuto_pop_01_02" style="display:none;">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티 상태</div>
 			<div class="tuto_pager">2/3</div>
 			<div class="tuto_desc">
-				<p>파티의 진행 상황을 한눈에 볼 수 있어요.</p>
-				<p>7일 이상 파티에 연결되는 업무가 없을 때 지연으로 표시돼요.</p>
+				<p>파티의 진행 상황을 확인 할 수 있어요.</p>
+				<!-- <p>7일 이상 파티에 연결되는 업무가 없을 때 지연으로 표시돼요.</p> -->
+				<p>파티 생성 후 마지막 업무 연결 이후 지난 시간에 따라 파티 상태가 <span>원할</span>, <span>보통</span>, <span>지연</span>으로 변경돼요</p>
 			</div>
 			<div class="tuto_btns">
 				<button class="tuto_prev" onclick="cli_prev(2,'party');"><span>이전</span></button>
@@ -310,11 +313,11 @@
 	</div>
 	<div class="tuto_pop tuto_pop_01_03" style="display:none;">
 		<div class="tuto_in">
-			<div class="tuto_tit">파티에 대해 알아보기</div>
+			<div class="tuto_tit">파티</div>
 			<div class="tuto_pager">3/3</div>
 			<div class="tuto_desc">
-				<p>등록된 파티를 클릭하면 상세보기 페이지로 이동해요.</p>
-				<p>내가 참여한 파티는 즐겨찾기를 통해 위로 올릴 수 있어요.</p>
+				<p>등록된 파티를 클릭하면 해당 파티 페이지로 이동해요.</p>
+				<p>내가 참여 했거나 관심있는 파티는 즐겨찾기로 가장 상단에 노출 시킬 수 있습니다.</p>
 			</div>
 			<div class="tuto_btns">
 				<button class="tuto_prev" onclick="cli_prev(3);"><span>이전</span></button>
@@ -326,7 +329,12 @@
 	<div class="rew_warp_in">
 		<div class="rew_box">
 			<div class="rew_box_in">
+			<?include $home_dir . "/inc_lude/header_new.php";?>
+				<!-- //상단 -->
 				<!-- menu -->
+				<? include $home_dir . "/inc_lude/menu_party.php";?>
+				<!-- //menu -->
+
 				<div class="rew_menu">
 					<div class="rew_menu_in">
 						<div class="rew_bar">
@@ -357,11 +365,8 @@
 									
 								</ul>
 								<div class="rew_bar_setting">
-
-																			<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
-									
-																			<a href="/member/member_list.php" class="rew_bar_setting_02" id="member_add_in" title=""><strong>관리자</strong></a>
-									
+									<a href="/todaywork/tu_works.php" class="rew_bar_setting_03" title="" id="tutorial"><strong>튜토리얼</strong></a>
+									<a href="/member/member_list.php" class="rew_bar_setting_02" id="member_add_in" title=""><strong>관리자</strong></a>
 								</div>
 							</div>
 						</div>
@@ -403,7 +408,7 @@
 												<div class="rpu_box delay_1">
 													<div class="rpu_box_in">
 														<div class="rpu_box_tit">
-															<span>(제휴)싸인오케이</span>
+															<span>테슬라모터스</span>
 														</div>
 														<div class="rpu_box_date">
 															<span>마지막 업데이트 : <?=$today_i?></span>
@@ -535,45 +540,57 @@
 				<div class="rew_conts">
 					<div class="rew_conts_in">
 
-						<div class="rew_cha_list_func rew_party_wrap">
+					<div class="rew_cha_list_func rew_party_wrap">
 							<div class="rew_cha_list_func_in">
 								<div class="rew_cha_count">
 									<span>전체</span>
-									<strong>9</strong>
+									<strong><?=number_format($total_count);?></strong>
+									<input type="hidden" id="pageno" value="<?=$gp?>">
+									<input type="button" id="page_count" value="<?=$page_count?>">
+									<input type="hidden" id="page_delay">
+									<input type="hidden" id="page_sort">
+									<input type="hidden" id="chall_user_chk">
+									<input type="hidden" id="chall_user_cnt" value="<?=$member_total_cnt?>">
+									<input type="hidden" id="user_my">
 								</div>
-								<div class="rew_btn_delay">
-									<button class="btn_delay_0 on tuto tuto_01_02"><span>전체</span></button>
-									<button class="btn_delay_1"><span>원활</span></button>
-									<button class="btn_delay_3"><span>보통</span></button>
-									<button class="btn_delay_7"><span>지연</span></button>
+								<div class="rew_party_sort" id = "rew_party_sort" >
+									<div class="rew_party_sort_in">
+										<button class="btn_sort_on" id="btn_on"><span>파티 생성일 순</span></button>
+										<ul>
+											<li><button class="btn_sort_0" id="btn_sort_0" value="created"><span>파티 생성일 순</span></button></li>
+											<li><button class="btn_sort_1" id="btn_sort_1" value="updated"><span>업데이트 순</span></button></li>
+											<li><button class="btn_sort_2" id="btn_sort_2" value="p_desc"><span>업무 많은 순</span></button></li>
+											<li><button class="btn_sort_3" id="btn_sort_3" value="p_asc"><span>업무 적은 순</span></button></li>
+											<li><button class="btn_sort_4" id="btn_sort_4" value="c_desc"><span>코인 많은 순</span></button></li>
+										</ul>
+									</div>
 								</div>
 								<div class="rew_cha_search" style="right:10px">
 									<div class="rew_cha_search_box">
-										<input type="text" class="input_search" placeholder="파티명 검색" />
-										<button><span>검색</span></button>
+										<input type="text" class="input_search" placeholder="파티명 검색" id="input_part_search" />
+										<button id="input_search_btn"><span>검색</span></button>
 									</div>
 								</div>
 								<div class="rew_cha_chk_tab">
 									<ul>
 										<li>
 											<div class="chk_tab">
-												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_all" checked />
-												<label for="cha_chk_tab_all">전체</label>
-											</div>
-										</li>
-										<li>
-											<div class="chk_tab">
-												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_close">
-												<label for="cha_chk_tab_close">종료된 파티(2)</label>
-											</div>
-										</li>
-										<li>
-											<div class="chk_tab">
-												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_my">
-												<label for="cha_chk_tab_my">내 파티(4)</label>
+												<input type="checkbox" name="cha_chk_tab" id="cha_chk_tab_my" class = "cha_chk_tab_my">
+												<label for="cha_chk_tab_my">내 파티(<?=count($project_myinfo['idx'])?>)</label>
 											</div>
 										</li>
 									</ul>
+								</div>
+								<div class="rew_btn_delay">
+									<button class="btn_delay_0 on tuto tuto_01_02" id="btn_delay_0"><span>전체</span></button>
+									<button class="btn_delay_1" id="btn_delay_1"><span>원활</span></button>
+									<button class="btn_delay_3" id="btn_delay_3"><span>보통</span></button>
+									<button class="btn_delay_7" id="btn_delay_7"><span>지연</span></button>
+									<button class="btn_delay_end" id="btn_delay_end"><span>종료</span></button>
+								</div>
+								<div class="rew_type_slc">
+									<button class="btn_type_box on"><span>박스형</span></button>
+									<button class="party_btn_type_list"><span>리스트형</span></button>
 								</div>
 							</div>
 						</div>

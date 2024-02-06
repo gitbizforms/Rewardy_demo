@@ -6549,7 +6549,7 @@ $(function () {
     var id = $(this).attr("id");
     var input_val = $(this).val();
     if (input_val) {
-      if (e.keyCode == 13) {
+      if (e.keyCode == 13 || (e.keyCode < 91 && e.keyCode >64)) {
         //$(".layer_user_search_box button").trigger("click");
         $("#input_todaywork_search_btn").trigger("click");
         return false;
@@ -8521,9 +8521,7 @@ $(function () {
   });
 
   //마음을 전하세요. 보내기 버튼
-  $("#jl_bottom")
-    .off("click")
-    .on("click", function () {
+  $("#jl_bottom").off("click").on("click", function () {
       if (!$("#jl_comment").val()) {
         alert("마음을 전할 내용을 입력하세요.");
         $("#jl_comment").focus();
@@ -8590,8 +8588,13 @@ $(function () {
             if (data) {
               tdata = data.split("|");
               // penalty = tdata[0];
-              result = tdata[0];
-              insertidx = tdata[1];
+              limit = tdata[0];
+              if(limit == "limit_like"){
+                alert("보내려는 유저에게 일일 좋아요 횟수 제한을 초과했습니다.");
+                return false;
+              }
+              result = tdata[1];
+              insertidx = tdata[2];
               // if(penalty == "penalty"){
               //   alert('패널티로 인하여 해당 유저에게 좋아요를 보낼 수 없습니다!');
               //   return false;
@@ -11683,22 +11686,24 @@ $(function () {
   }
 
   $(document).on("click", ".btn_tuto_link_close", function () {
-    var fdata = new FormData();
-    var mode = "tuto_close";
-
-    fdata.append("mode", mode);
-    $.ajax({
-      type: "post",
-      data: fdata,
-      contentType: false,
-      processData: false,
-      url: "/inc/process.php",
-      success: function (data) {
-        console.log(data);
-        $(".tuto_link").css("display", "none");
-      },
-    });
+    $(".tuto_link").css("display", "none");
+    if($("#close_che").is(":checked")){
+      var fdata = new FormData();
+      var mode = "tuto_close";
+      fdata.append("mode", mode);
+      $.ajax({
+        type: "post",
+        data: fdata,
+        contentType: false,
+        processData: false,
+        url: "/inc/process.php",
+        success: function (data) {
+          console.log(data);
+        },
+      });
+    }
   });
+
 });
 
 //배열 중복정리하여 해당 갯수 리턴

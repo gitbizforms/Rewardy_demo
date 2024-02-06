@@ -22,7 +22,7 @@
 		}
 
 
-		$sql = "select idx, state, title, date_format(regdate, '%Y-%m-%d') as sdate, com_coin_pro from work_todaywork_project where companyno='".$companyno."' and idx='".$party_idx."'";
+		$sql = "select idx, state, title, email, date_format(regdate, '%Y-%m-%d') as sdate, com_coin_pro from work_todaywork_project where companyno='".$companyno."' and idx='".$party_idx."'";
 		$project_info = selectQuery($sql);
 		if($project_info['idx']){
 			$project_title = $project_info['title'];
@@ -454,6 +454,13 @@
 																		$work_com_idx = $week_works_idx;
 																	}
 																	
+																	if($share_flag == '1'){
+																		$li_class = " share";
+																	}else if($work_flag == '3'){
+																		$li_class = " req";
+																	}else if($work_flag == '1'){
+																		$li_class = " report";
+																	}
 																?>
 																	<? if(($secret_flag == '1' && $week_works_email == $user_id)){?>
 																		<li class="tdw_list_li<?=$li_class?>" id="workslist_<?=$week_works_idx?>" value="<?=($j+1)?>">
@@ -467,7 +474,7 @@
 																				$user_char = selectQuery($sql);
 																				$profile_type = $user_char['profile_type'];
 																				$profile_img_idx = $user_char['profile_img_idx'];
-																				$profile_img =  'http://demo.rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
+																				$profile_img =  'https://rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
 																				?>
 																				<div class="tdw_list_chk">
 																					<?if($week_works_email != $user_id){?>
@@ -529,10 +536,10 @@
 																						<?php }else if($user_id != 'sun@bizforms.co.kr' || $user_id != 'yoonjh8932@naver.com' || $user_id != 'ansrkdtks2@naver.com' || $user_id != 'bapzelo1020@gmail.com' || $user_id != 'earkite.n@gmail.com'){ ?>
 																							<button class="tdw_list_party_memo_secret" id="tdw_list_party_memo" value="<?=$week_works_idx?>"><span>메모</span></button>
 																						<?php }else{ ?>
-																							<button class="tdw_list_party_memo" id="tdw_list_party_memo" value="<?=$week_works_idx?>"><span>메모</span></button>
+																							<button class="tdw_list_party_memo" title="메모 하기" id="tdw_list_party_memo" value="<?=$week_works_idx?>"><span>메모</span></button>
 																						<?php } ?>
-																						<button class="tdw_list_100c" title="100코인" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
-																						<button class="tdw_list_party_heart<?=$like_coma>0?" on":""?>" id="tdw_list_party_heart_<?=$week_works_idx?>" value="<?=$week_works_idx?>"><span>좋아요</span></button>
+																						<button class="tdw_list_100c" title="코인 보내기" id="coin_reward" value="<?=$week_works_idx?>"><span>100</span></button>
+																						<button class="tdw_list_party_heart<?=$like_coma>0?" on":""?>" title="하트 보내기" id="tdw_list_party_heart_<?=$week_works_idx?>" value="<?=$week_works_idx?>"><span>좋아요</span></button>
 																					</div>
 																					
 																				<?}?>
@@ -927,7 +934,7 @@
 																				$user_char = selectQuery($sql);
 																				$profile_type = $user_char['profile_type'];
 																				$profile_img_idx = $user_char['profile_img_idx'];
-																				$profile_img =  'http://demo.rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
+																				$profile_img =  'https://rewardy.co.kr'.$user_char['file_path'].$user_char['file_name'];
 																				?>
 																					<?if($week_works_email != $user_id){?>
 																							<button class="btn_tdw_list_chk_user" value="<?=$week_works_idx?>" <?=$tdw_list?" id='tdw_dlist_chk'":""?> style="background-image:url('<?=$week_works_email != $user_id ?$profile_img:""?>'); cursor:unset;"><span>완료체크</span></button>

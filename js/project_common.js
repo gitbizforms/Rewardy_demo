@@ -1,10 +1,10 @@
 $(function () {
   //내 파티
   $("#party_tab_my").click(function () {
-    console.log("내파티");
+    $(this).addClass("on");
     $("#page_delay").val("");
     $("#user_my").val("1");
-
+    $(".cha_chk_tab_my").addClass("on");
     //전체
     if ($(".rew_cha_chk_tab .chk_tab input:eq(0)").is(":checked") == true) {
       $(".rew_cha_chk_tab .chk_tab input:eq(0)").prop("checked", false);
@@ -54,6 +54,7 @@ $(function () {
 
   //체크박스 선택 > 체크박스 선택 유뮤
   $(document).on("click", "input[name=cha_chk_tab]", function () {
+    $(this).addClass("on");
     var chk_cnt = $(".rew_cha_chk_tab .chk_tab input").length;
     for (var i = 0; i < chk_cnt; i++) {
       if (
@@ -85,7 +86,6 @@ $(function () {
         $(".rew_cha_chk_tab .chk_tab input:eq(0)").prop("checked", true);
       }
     }
-
     project_ajax_list();
   });
 
@@ -195,6 +195,53 @@ $(function () {
     location.href = "/party/index.php";
   });
 
+  //파티명 변경
+  $(document).on("click", "#party_title_edit", function (event) {
+    $(".tdw_list_regi").show();
+    $("#party_title_edit").css("display","none");
+  });
+
+    //파티명 변경
+    $(document).on("click", "#party_title_enter", function (event) {
+      title = $(".textarea_regi").val();
+      project_idx = $(this).val();
+
+      var fdata = new FormData();
+      fdata.append("mode","project_title_update");
+      fdata.append("project_idx",project_idx);
+      fdata.append("title",title);
+
+      $.ajax({
+        type: "post",
+        async: false,
+        data: fdata,
+        contentType: false,
+        processData: false,
+        url: "/inc/project_process.php",
+        success: function (data) {
+          console.log(data);
+          if (data) {
+            var tdata = data.split("|");
+            if (tdata) {
+              if(tdata[0]=="not_auth"){
+                alert("파티 제목 변경 권한이 없습니다.");
+                return false;
+              }else if(tdata[0]=="update"){
+                $("#rew_part_title").html(tdata[2]);
+                console.log(tdata[1]);
+              }
+            }
+          }
+        },
+      });
+    });
+
+    //파티명 변경
+    $(document).on("click", "#party_title_cancel", function (event) {
+      $(".tdw_list_regi").css("display","none");
+      $("#party_title_edit").show();
+    });
+
   var selectedSortValue = ""; // 선택된 deleay 버튼의 값 저장 변수
   var selectedDelayValue = ""; // 선택된 sort 버튼의 값 저장 변수
   var selectedUserVlaue = ""; // 선택된 user 버튼의 값 저장 변수
@@ -204,7 +251,6 @@ $(function () {
     if (btn_id) {
       var selectedDelayValue = btn_id.replace("btn_delay_", "");
       $("#page_delay").val(selectedDelayValue);
-
       // 사용할 때 selectedSortValue 변수 사용
       if (selectedSortValue) {
         $("#page_sort").val(selectedSortValue);
@@ -235,6 +281,7 @@ $(function () {
 
   //내파티 원할
   $("#party_tab_1").click(function () {
+    $(this).addClass("on");
     //전체
     if ($(".rew_cha_chk_tab .chk_tab input:eq(0)").is(":checked") == true) {
       $(".rew_cha_chk_tab .chk_tab input:eq(0)").prop("checked", false);
@@ -247,11 +294,13 @@ $(function () {
     console.log("원할");
     $("#page_delay").val("1");
     $("#user_my").val("1");
+    $(".cha_chk_tab_my").addClass("on");
     project_ajax_list();
   });
 
   //내파티 보통
   $("#party_tab_3").click(function () {
+    $(this).addClass("on");
     //전체
     if ($(".rew_cha_chk_tab .chk_tab input:eq(0)").is(":checked") == true) {
       $(".rew_cha_chk_tab .chk_tab input:eq(0)").prop("checked", false);
@@ -264,11 +313,13 @@ $(function () {
     console.log("보통");
     $("#page_delay").val("3");
     $("#user_my").val("1");
+    $(".cha_chk_tab_my").addClass("on");
     project_ajax_list();
   });
 
   //내파티 지연
   $("#party_tab_7").click(function () {
+    $(this).addClass("on");
     //전체
     if ($(".rew_cha_chk_tab .chk_tab input:eq(0)").is(":checked") == true) {
       $(".rew_cha_chk_tab .chk_tab input:eq(0)").prop("checked", false);
@@ -281,6 +332,7 @@ $(function () {
     console.log("지연");
     $("#page_delay").val("7");
     $("#user_my").val("1");
+    $(".cha_chk_tab_my").addClass("on");
     project_ajax_list();
   });
 
@@ -2072,16 +2124,26 @@ function project_ajax_list() {
   var page = 1;
   //내파티
   // 전체 파티 및 종료된 파티 없앰 2023.05.11
+
+  if($(".cha_chk_tab_my").hasClass("on") == true){
+    fdata.append("my_check", "1");
+  }else{
+    fdata.append("my_check", "0");
+  }
+  
   if ($(".rew_cha_chk_tab .chk_tab input:eq(0)").is(":checked") == true) {
     chk_tab = "2";
-
     if (chk_tab == "1") {
       $("#user_my").val("");
     } else {
       $("#user_my").val(1);
     }
     fdata.append("chk_tab2", chk_tab);
-  } else {
+  } else if($("#party_tab_my").hasClass("on") || $("#party_tab_1").hasClass("on") || $("#party_tab_3").hasClass("on") || $("#party_tab_7").hasClass("on")){
+    $("#user_my").val(1);
+    chk_tab = "2";
+    fdata.append("chk_tab2", chk_tab);
+  }else {
     chk_tab = "all";
     $("#user_my").val(1);
     fdata.append("chk_tab0", chk_tab);
@@ -2115,7 +2177,7 @@ function project_ajax_list() {
           var html = tdata[0];
           var totcnt = tdata[1];
           var listcnt = tdata[2];
-          
+          console.log(tdata);
           //페이지수
           $("#pageno").val(page);
           $("#page_count").val(parseInt(listcnt));
@@ -2133,9 +2195,10 @@ function project_ajax_list() {
               tis.addClass("sli");
             }, 100 + tindex * 200);
           });
+       
           //더보기 버튼
           setTimeout(function () {
-            if (page >= $("#page_count").val()) {
+            if (page >= $("#page_count").val() || !totcnt || !listcnt){
               $(".project_more").hide();
             } else {
               $(".project_more").show();

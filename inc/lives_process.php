@@ -3642,7 +3642,11 @@ if($mode == "project_del"){
 					$sql = "update work_todaywork_project_user set state='9', editdate=".DBDATE." where project_idx='".$project_info['idx']."' and companyno='".$companyno."'";
 					$up3 = updateQuery($sql);
 
-					if($up && $up2 && $up3){
+					//오늘업무 쪽 알림삭제
+					$sql = "update work_todaywork set state = '9', editdate=".DBDATE." where work_idx = '".$project_info['idx']."' and companyno = '".$companyno."' ";
+					$up4  = updateQuery($sql);
+
+					if($up && $up2 && $up3 && $up4){
 						echo "complete";
 						exit;
 					}
@@ -4355,6 +4359,11 @@ if($mode == "coin_reward"){
 						$sql = "update work_member set comcoin = comcoin - '".$coin."' where state='0' and companyno='".$companyno."' and email='".$user_id."'";
 						$res_comcoin = updateQuery($sql);
 
+						// 회사 공용코인 차감
+						$sql = "update work_company set comcoin = comcoin - '".$coin."' where idx = '".$companyno."' and state = '0'";
+						$coin_company = updateQuery($sql);
+
+						
 						//타임라인(코인 보상함)
 						work_data_log('0','20', $coininfo_chagam, $user_id, $user_name, $send_info['email'], $send_info['name'],'0', $coin);
 						
@@ -4392,7 +4401,10 @@ if($mode == "coin_reward"){
 
 						//코인보상으로 가산점
 						work_cp_reward_plus("cp", "0007", $coininfo_idx, $send_info['email'], "reward");
-						echo "complete";
+						// 차감된 지급 멤버 코인 체크
+						$sql = "select idx, comcoin from work_member where state ='0' and companyno = '".$companyno."' and email = '".$user_id."'";
+						$check_mem = selectQuery($sql);
+						echo "complete|".$check_mem['comcoin'];
 						exit;
 					}
 				}

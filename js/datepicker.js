@@ -3,7 +3,7 @@
     (function() {
         var VERSION = '2.2.3',
             pluginName = 'datepicker',
-            autoInitSelector = '#date1,#date2,#date_02,#date_03,#date_04,#works_today,#datelist,#workdate,#sdate,#edate,#work_date,#work_month,input[id^=listdate],#lives_date,#reward_sdate,#reward_edate,#comcoin_sdate,#comcoin_edate,#history_sdate,#history_edate,#input_cha_date_l,#input_cha_date_r,#project_sdate,#project_edate,#r_work_date,#r_work_month',
+            autoInitSelector = '#date1,#date2,#date_02,#date_03,#date_04,#works_today,#datelist,#workdate,#sdate,#edate,#work_date,#work_month,input[id^=listdate],#lives_date,#reward_sdate,#reward_edate,#comcoin_sdate,#comcoin_edate,#history_sdate,#history_edate,#input_cha_date_l,#input_cha_date_r,#project_sdate,#project_edate,#r_work_date,#r_work_month,#coin_work_month,#pay_work_month',
             $body, $datepickersContainer,
             containerBuilt = false,
             baseTemplate = '' +
@@ -784,6 +784,28 @@
                     $("#r_work_month").val(value);
                     r_date_change();
                     rank_list();
+
+
+                } else if (this.$el.attr("id") == "coin_work_month") {
+
+                    var value_old = value;
+                    value = value.replace(/-/g, '.');
+                    this.$el.val(value);
+
+                    $("#coin_work_month").val(value);
+                    coin_date_change();
+                    coin_list();
+
+
+                }else if (this.$el.attr("id") == "pay_work_month") {
+
+                    var value_old = value;
+                    value = value.replace(/-/g, '.');
+                    this.$el.val(value);
+
+                    $("#pay_work_month").val(value);
+                    pay_date_change();
+                    pay_list();
 
 
                 } else if (this.$el.attr("id") == "works_today") {

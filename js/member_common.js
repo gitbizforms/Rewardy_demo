@@ -39,7 +39,6 @@ $(function () {
     var id = $(this).attr("id");
     var no = id.replace("cg_box_input_", "");
     mem_comcoin = $("#cg_box_coin_" + no).text();
-
     if (inputVal) {
       $("#cg_bottom button").addClass("on");
 
@@ -151,6 +150,7 @@ $(function () {
         success: function (data) {
           console.log(data);
           if (data == "complete") {
+            alert("공용 코인 지급이 완료되었습니다");
             $("#coin_give").hide();
             comcoin_member_ajax_list();
           } else if (data == "small") {
@@ -488,7 +488,7 @@ $(function () {
         $("#rew_member_sub_func_sort").removeClass("on");
         $("#btn_sort_on").text(comcoin_sort[val]);
 
-        if ($("#comcoin_inquiry").val()) {
+        if ($("#comcoin_inquiry").val()) { 
           var comcoin_sdate = $("#comcoin_sdate").val();
           var comcoin_edate = $("#comcoin_edate").val();
           if ($(".rew_member_sub_func_btns button").eq(0).hasClass("on")) {
@@ -1332,7 +1332,6 @@ $(function () {
     $(this).addClass("on");
     var comcoin_sdate = $("#comcoin_sdate").val();
     var comcoin_edate = $("#comcoin_edate").val();
-
     var fdata = new FormData();
     var val = $(this).parent().parent().find("strong").attr("value");
     var tclass = $(this).attr("class").replace(" on", "");
@@ -1351,6 +1350,7 @@ $(function () {
     fdata.append("kind", val);
     fdata.append("this_class", tclass);
     fdata.append("sdate", comcoin_sdate);
+    // fdata.append("wdate", wdate);
     fdata.append("edate", comcoin_edate);
     fdata.append("string", string);
 
@@ -1377,14 +1377,14 @@ $(function () {
       var fdata = new FormData();
       var val = $(this).parent().parent().find("strong").attr("value");
       var tclass = $(this).attr("class").replace(" on", "");
-
+      var wdate = $("#coin_work_month").val();
       var string = "&page=member" + "&kind=" + val + "&tclass=" + tclass;
 
       fdata.append("mode", "comcoin_list_nocal");
       fdata.append("kind", val);
       fdata.append("this_class", tclass);
+      fdata.append("wdate", wdate);
       fdata.append("string", string);
-
       // alert(val);
       // alert(tclass);
       // alert(comcoin_sdate);
@@ -1551,14 +1551,14 @@ $(function () {
 
   //시작일
   $(document).on("click", "#btn_calendar_l", function () {
-    $(".btn_calendar_l").focus();
-    $(".btn_calendar_l").datepicker({ dateFormat: "yyyy-mm-dd" });
+    $("#comcoin_sdate").focus();
+    $("#comcoin_sdate").datepicker({ dateFormat: "yyyy-mm-dd" });
   });
 
   //종료일
   $(document).on("click", "#btn_calendar_r", function () {
-    $(".btn_calendar_r").focus();
-    $(".btn_calendar_r").datepicker({ dateFormat: "yyyy-mm-dd" });
+    $("#comcoin_edate").focus();
+    $("#comcoin_edate").datepicker({ dateFormat: "yyyy-mm-dd" });
   });
 
   //멤버별 공용코인 내역에서 캘린더 사용시
@@ -1633,10 +1633,10 @@ $(function () {
     var give_email = $(this).parent().parent().find(".member_list_conts_email strong").text();
     var no = $(this).val();
 
-    if(login_idx == no){
-      alert('본인에게 공용코인을 지급할 수 없습니다!');
-      return false;
-    }
+    // if(login_idx == no){
+    //   alert('본인에게 공용코인을 지급할 수 없습니다!');
+    //   return false;
+    // }
 
     if (no) {
       var fdata = new FormData();
@@ -2440,6 +2440,8 @@ function coin_give_input(give_coin, comcoin, no) {
     //tot_cg_comcoin = cg_company_comcoin;
     tot_cg_comcoin = comcoin;
 
+
+
     //지급할 공용코인
     $("#give_tot_coin_" + no).text(addComma(tot_comcoin));
 
@@ -2529,6 +2531,11 @@ $(document).on("click", ".rew_member_tab_in .comcoin_out_page", function () {
   return false;
 });
 
+$(document).on("click", ".rew_member_tab_in .comcoin_pay_page", function () {
+  location.href = "/admin/comcoin_pay.php";
+  return false;
+});
+
 $(document).on("click", ".rew_member_tab_in .comlogo", function () {
   location.href = "/admin/admin_setting.php";
   return false;
@@ -2605,6 +2612,7 @@ $(document).on("click",".member_list_conts_setting.all .btn_switch", function(){
   if($(this).hasClass("on")==true){
       fdata.append("onoff","1");
       $(".set_list_pena ul").show();
+      $(".member_list_conts_setting.list .btn_switch").addClass("on");
   }else{
       fdata.append("onoff","0");
       $(".set_list_pena ul").hide();
@@ -2755,3 +2763,404 @@ $(document).on("click", ".time_work .rew_member_sort_in ul li, .time_end .rew_me
   sert = set.find(".btn_sort_on span");
   sert.text(time);
 });
+
+
+//출근도장 ip 추가 
+// $(document).on("click","#chul_ip",function(){
+//   // $(this).toggleClass("on");
+//   var fdata = new FormData();
+//   fdata.append("mode","company_ip");
+//   if ($("input[name='ip_check']").is(":checked") == true) {
+//     $("#chul_ip_address").show();
+//     $("#chul_ip_list").show();
+//     fdata.append("state","0");
+//   }else if($("input[name='ip_check']").is(":checked") == false){
+//     $("#chul_ip_address").hide();
+//     $("#chul_ip_list").hide();
+//     fdata.append("state","9");
+//   }
+ 
+//   $.ajax({
+//     type: "POST",
+//     data: fdata,
+//     contentType: false,
+//     processData: false,  
+//     url: "/inc/member_process.php",
+//     success: function (data) {
+//       console.log(data);
+//       var tdata = data.split("|");
+//       $("#chul_ip_address").html(tdata[0]);
+//     },
+//   });
+// });
+
+// ip 제한기능 입력 레이어
+$(document).on("click","#chul_ip",function(){
+  $(".admin_ip_set").css("display","block");
+  ip_count = $(".time_ip_list .ip_idx").length;
+  if(ip_count != 0){
+    $("#chul_ip").prop("checked", true);
+  }
+}); 
+
+// 취소 혹은 deam 영역 클릭시
+$(document).on("click",".admin_ip_set .tl_deam, #ip_cancel",function(){
+  $(".admin_ip_set").css("display","none");
+  ip_count = $(".time_ip_list .ip_idx").length;
+  if(ip_count == 0){
+    $("#chul_ip").prop("checked", false);
+  }
+});
+
+// ip입력 한칸당 최대 3글자
+$(document).on("input",".ip_plus .coin_total",function(){
+  numLength = $(this).val();
+  if(numLength>3){
+    $(this).val(numLength.slice(0, 3));
+    return false;
+  }
+});
+
+$(document).on("click","#chul_ip_submit",function(){
+  var fdata = new FormData();
+  i1 = $("#ip1").val();
+  i2 = $("#ip2").val();
+  i3 = $("#ip3").val();
+  i4 = $("#ip4").val();
+  ip_address = i1+"."+i2+"."+i3+"."+i4;
+  // return false;
+  fdata.append("mode","company_ip_plus");
+  fdata.append("ip",ip_address);
+
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    contentType: false,
+    processData: false,  
+    url: "/inc/member_process.php",
+    success: function (data) {
+      console.log(data);
+      var tdata = data.split("|");
+      if(tdata[0] == "limit_ip"){
+        alert("등록가능한 ip는 최대 5개 입니다.");
+        return false;
+      }
+
+      if(tdata[0] == "ip_use"){
+        alert('이미 존재하는 ip 입니다.');
+        return false;
+      }
+
+      if(tdata[0] == "complete"){
+        alert("추가 됐습니다.");
+        $(".time_ip_list").append(tdata[1]);
+        $("#chul_ip").prop("checked", true);
+      }
+    },
+  });
+});
+
+$(document).on("click",".time_ip_list .ip_delete", function(){
+  idx = $(this).val();
+  var fdata = new FormData();
+  fdata.append("mode","ip_delete");
+  fdata.append("idx",idx);
+  if(confirm('해당 ip 주소를 삭제하십니까?')==true){
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      contentType: false,
+      processData: false,  
+      url: "/inc/member_process.php",
+      success: function (data) {
+        console.log(data);
+        var tdata = data.split("|");
+        if(tdata[1] == "complete"){
+          alert("삭제 됐습니다.");
+          $("#ip_idx_"+tdata[0]).remove();
+        }
+      },
+    });
+  }
+}); 
+
+$(document).on("click","#ip_submit",function(){
+
+});
+
+// 출금 신청 작업
+$(document).on("click", ".coin_mem_pay", function(){
+  
+  var check_this = $(this);
+  var mem_email = $(this).val();
+  var mem_idx = $(this).parent().parent().parent().find(".mem_idx").val();
+  if (confirm("구성원에게 보상이 지급되었나요? \n입금완료로 변경 하시겠습니까?")) {
+
+    var fdata = new FormData();
+
+    fdata.append("mode", "coin_mem_out");
+    fdata.append("mem_email", mem_email);
+    fdata.append("mem_idx", mem_idx);
+
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      contentType: false,
+      processData: false,  
+      url: "/inc/member_process.php",
+      success: function (data) {
+        if (data == "complete") {
+          alert("변경되었습니다.");
+          check_this.parent().parent().parent().find(".member_list_conts_state strong").text("입금 완료");
+        }
+      },
+    });
+  }
+});
+
+// 일괄 입금 완료
+$(document).on("click", ".coin_all_pay", function(){
+
+  var selectedItems = [];
+  var coinIdx = [];
+  var checkboxes = document.querySelectorAll('input[name="selected_comcoin[]"]:checked');
+    checkboxes.forEach(function(checkbox) {
+      var memIdxValue = checkbox.parentElement.querySelector('.mem_idx').value;
+        selectedItems.push(checkbox.value);
+        coinIdx.push(memIdxValue);
+    });
+    
+    console.log(coinIdx);
+  if (confirm("구성원에게 보상이 지급되었나요? \n입금완료로 변경 하시겠습니까?")) {
+
+    var fdata = new FormData();
+
+    fdata.append("mode", "coin_mem_all_out");
+    fdata.append("mem_email", selectedItems);
+    fdata.append("mem_idx", coinIdx);
+
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      contentType: false,
+      processData: false,  
+      url: "/inc/member_process.php",
+      success: function (data) {
+        if (data == "complete") {
+          alert("변경되었습니다.");
+        }
+      },
+    });
+  }
+});
+
+// 엑셀 다운로드
+$(document).on("click", ".coin_all_excel", function(){
+
+  var selectedItems = [];
+  var coinIdx = [];
+  var checkboxes = document.querySelectorAll('input[name="selected_comcoin[]"]:checked');
+    checkboxes.forEach(function(checkbox) {
+      var memIdxValue = checkbox.parentElement.querySelector('.mem_idx').value;
+        selectedItems.push(checkbox.value);
+        coinIdx.push(memIdxValue);
+    });
+    
+
+    var fdata = new FormData();
+
+    fdata.append("mode", "coin_excel_out");
+    fdata.append("mem_email", selectedItems);
+    fdata.append("mem_idx", coinIdx);
+
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      contentType: false,
+      processData: false,  
+      url: "/inc/member_process.php",
+      success: function (data) {
+        if (data) {
+          var tdata = data.split("|");
+          if (tdata) {
+            var f_result = tdata[0];
+            var f_name = tdata[1];
+            var f_url = tdata[2];
+            if(f_result == "complete"){
+              // console.log(f_url);
+              fdownload(f_name, f_url);
+              // var downloadUrl = "https://rewardy.co.kr/home/todaywork/rewardyNAS/user/data/3/qd7gXHgpTI1662536667/excel/excel_240202112232.xls";
+              // Trigger download
+              // window.location.href = downloadUrl;
+             }
+          }
+        }
+      },
+    });
+});
+
+
+//출력개수 박스 선택시 (코인 출금리스트)
+$(document).on("click", "#rew_member_sub_func_list ul li", function () {
+    
+    var sort_num = $(this).val();
+    var wdate = $("#coin_work_month").val();
+    var fdata = new FormData();
+
+    fdata.append("mode", "coin_list");
+    fdata.append("size", sort_num);
+    fdata.append("wdate", wdate);
+    $.ajax({
+      type: "POST",
+      data: fdata,
+      async: false,
+      contentType: false,
+      processData: false,
+      url: '/inc/member_process.php',
+      success: function(data){
+        if(data) {
+          console.log(data);
+          $(".list_paging").html(data);
+          $(".btn_sort_on").text(sort_num+"개 보기");
+        }
+      }
+    });
+});
+
+//출력개수 박스 선택시 (결제내역)
+$(document).on("click", ".sort_pay ul li", function () {
+    
+  var sort_num = $(this).val();
+  var wdate = $("#pay_work_month").val();
+  var fdata = new FormData();
+
+  fdata.append("mode", "pay_list");
+  fdata.append("size", sort_num);
+  fdata.append("wdate", wdate);
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    async: false,
+    contentType: false,
+    processData: false,
+    url: '/inc/member_process.php',
+    success: function(data){
+      if(data) {
+        console.log(data);
+        $(".list_paging").html(data);
+        $(".btn_sort_on").text(sort_num);
+      }
+    }
+  });
+});
+
+function coin_date_change() {
+  var fdata = new FormData();
+
+    var day_type = "month";
+
+  fdata.append("mode", "coin_date_change");
+  fdata.append("day_type", day_type);
+
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    async: false,
+    contentType: false,
+    processData: false,
+    url: '/inc/member_process.php',
+    success: function(data) {
+      if(data){
+        $("#coin_work_date").val(data);
+
+        return false;
+      }
+    }
+  });
+}
+
+function coin_list(){
+
+  var mode = "coin_list";
+
+  var fdata = new FormData();
+  var rank_type = "month";
+  var wdate = $("#coin_work_month").val();
+   
+
+
+  fdata.append("wdate", wdate);
+  fdata.append("mode",mode);
+  fdata.append("rank_type", rank_type);
+  // console.log(wdate);
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    async: false,
+    contentType: false,
+    processData: false,
+    url: '/inc/member_process.php',
+    success: function(data){
+      if(data) {
+        console.log(data);
+        $(".list_paging").html(data);
+      }
+    }
+  });
+}
+
+function pay_date_change() {
+  var fdata = new FormData();
+
+    var day_type = "month";
+
+  fdata.append("mode", "pay_date_change");
+  fdata.append("day_type", day_type);
+
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    async: false,
+    contentType: false,
+    processData: false,
+    url: '/inc/member_process.php',
+    success: function(data) {
+      if(data){
+        $("#coin_work_date").val(data);
+
+        return false;
+      }
+    }
+  });
+}
+
+function pay_list(){
+
+  var mode = "pay_list";
+
+  var fdata = new FormData();
+  var rank_type = "month";
+  var wdate = $("#pay_work_month").val();
+   
+
+
+  fdata.append("wdate", wdate);
+  fdata.append("mode",mode);
+  fdata.append("rank_type", rank_type);
+  // console.log(wdate);
+  $.ajax({
+    type: "POST",
+    data: fdata,
+    async: false,
+    contentType: false,
+    processData: false,
+    url: '/inc/member_process.php',
+    success: function(data){
+      if(data) {
+        console.log(data);
+        $(".list_paging").html(data);
+      }
+    }
+  });
+}
+

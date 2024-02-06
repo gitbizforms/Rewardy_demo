@@ -441,71 +441,78 @@ $(document).on('click', '.option_count', function() {
         }
     });
 
+    
+    link_href = window.location.href;
+    var link_arr = link_href.split("/");
+    home_title = link_arr[3];
     //한줄 소감 등록하기
-    $("#fl_bottom").click(function() {
+    if(home_title == "live"){
+        $("#fl_bottom").click(function() {
 
-        //var val = $(".fl_area .fl_desc").attr("class");
-        var val = $("#icon_idx").val();
-        if (val) {
-            //var icon_val = val.substr(-1);
-            //var ff_class = "btn_ff_0" + val;
-
-            var fdata = new FormData();
-            var input_val = $("#input_fl").val();
-
-            if (!input_val) {
-                alert("한줄소감을 남겨주세요.");
-                $("#input_fl").focus();
-                return false;
-            }
-
-            $(".feeling_layer").hide();
-            $(".onoff_01 .btn_switch").removeClass("on");
-            $(".onoff_01 .btn_switch").prev("em").removeClass("on");
-            $(".onoff_02 .btn_switch").removeClass("on");
-            $(".onoff_02 .btn_switch").prev("em").removeClass("on");
-            $(".onoff_03 .btn_switch").removeClass("on");
-            $(".onoff_03 .btn_switch").prev("em").removeClass("on");
-            $(".onoff_04 .btn_switch").addClass("on");
-            $(".onoff_04 .btn_switch").prev("em").addClass("on");
-
-            fdata.append("mode", "todaywork_review_write");
-
-
-            fdata.append("input_val", input_val);
-            fdata.append("workdate", $("#review_idx").val());
-            fdata.append("icon_idx", $("#icon_idx").val());
-
-
-
-            $.ajax({
-                type: "post",
-                data: fdata,
-                contentType: false,
-                processData: false,
-                url: '/inc/works_process.php',
-                success: function(data) {
-                    //console.log("dddd :: " + data);
-                    if (data) {
-                        tdata = data.split("|");
-                        if (tdata) {
-                            var result = tdata[0];
-                            var review_idx = tdata[1];
-                            var icon_idx = tdata[2];
-                            var comment = tdata[3];
-                            if (result == "complete") {
-                                //if (GetCookie("user_id") == 'sadary0@nate.com') {
-                                //    console.log("NN");
-                                //} else {
-                                live_4_bt_func();
-                                //}
+            //var val = $(".fl_area .fl_desc").attr("class");
+            var val = $("#icon_idx").val();
+            if (val) {
+                //var icon_val = val.substr(-1);
+                //var ff_class = "btn_ff_0" + val;
+    
+                var fdata = new FormData();
+                var input_val = $("#input_fl").val();
+    
+                if (!input_val) {
+                    alert("한줄소감을 남겨주세요.");
+                    $("#input_fl").focus();
+                    return false;
+                }
+    
+                $(".feeling_layer").hide();
+                $(".onoff_01 .btn_switch").removeClass("on");
+                $(".onoff_01 .btn_switch").prev("em").removeClass("on");
+                $(".onoff_02 .btn_switch").removeClass("on");
+                $(".onoff_02 .btn_switch").prev("em").removeClass("on");
+                $(".onoff_03 .btn_switch").removeClass("on");
+                $(".onoff_03 .btn_switch").prev("em").removeClass("on");
+                $(".onoff_04 .btn_switch").addClass("on");
+                $(".onoff_04 .btn_switch").prev("em").addClass("on");
+    
+                fdata.append("mode", "todaywork_review_write");
+    
+    
+                fdata.append("input_val", input_val);
+                fdata.append("workdate", $("#review_idx").val());
+                fdata.append("icon_idx", $("#icon_idx").val());
+    
+    
+    
+                $.ajax({
+                    type: "post",
+                    data: fdata,
+                    contentType: false,
+                    processData: false,
+                    url: '/inc/works_process.php',
+                    success: function(data) {
+                        //console.log("dddd :: " + data);
+                        if (data) {
+                            tdata = data.split("|");
+                            if (tdata) {
+                                var result = tdata[0];
+                                var review_idx = tdata[1];
+                                var icon_idx = tdata[2];
+                                var comment = tdata[3];
+                                if (result == "complete") {
+                                    //if (GetCookie("user_id") == 'sadary0@nate.com') {
+                                    //    console.log("NN");
+                                    //} else {
+                                    live_4_bt_func();
+                                    //}
+                                }
                             }
                         }
                     }
-                }
-            });
-        }
-    });
+                });
+            }
+        });
+    }
+    
 
     //한줄소감 닫기
     $(".fl_close button").click(function() {
@@ -1121,6 +1128,9 @@ $(document).on('click', '.option_count', function() {
 //             $(this).addClass("on");
 //         }
 //     });
+
+
+    if(home_title == "live"){
         $(document).on("click", "#live_3_bt", function(){
             var off_state = $(this);
             if($(this).hasClass("on")){
@@ -1290,6 +1300,7 @@ $(document).on('click', '.option_count', function() {
                 });
         }
     });
+}
 
     // $("#live_3_bt").click(function() {
     //     if ($(".rew_grid_onoff .rew_grid_onoff_in .onoff_03 em").hasClass("on") == true) {
@@ -1402,6 +1413,7 @@ function live_4_bt_func() {
 
 
     //메모삭제
+    if(home_title == "live"){
     $(document).on("click", ".tdw_list .btn_memo_del", function() {
 
         if (confirm('작성한 업무 메모를 삭제하시겠습니까?')) {
@@ -1430,7 +1442,7 @@ function live_4_bt_func() {
             });
         }
     });
-
+    }
 
     //일일업무 댓글 수정하기, 확인버튼
     $(document).on("click", "#btn_comment_submit", function() {
@@ -1803,6 +1815,11 @@ function live_4_bt_func() {
 // 찜하기 (좋아요 레이어 - 일반)
 $(document).on("click", ".jjim_only", function() {  
     // var val = $(this).attr("value");
+    if($(this).hasClass("on")){
+        console.log("not_heart");
+        return false;
+    }
+    var user_idx = $(".user_value").val();
     var val = $('.user_id').val();
     var send_user = $(".jg_name_user").text();
     var send_userid = $(".user_id").val();
@@ -1822,7 +1839,7 @@ $(document).on("click", ".jjim_only", function() {
     }
 
     fdata.append("mode", "lives_like");
-    fdata.append("mem_idx", val);
+    fdata.append("mem_idx", user_idx);
 
     console.log("val == " + val);
     $.ajax({
@@ -1909,6 +1926,7 @@ $(document).on("click", ".jt_jjim_only", function() {
     $(document).on("click", "button[id^=jjim_only]", function() {
 
         var val = $(this).attr("value");
+
         var send_user = $(".ldr_user").find("#ldr_user_name_" + val).text();
         var send_userid = $(".ldr_user").find("#ldr_user_id_" + val).val();
         $(".jf_box_in .jf_top strong span").text(send_user);
@@ -1952,6 +1970,11 @@ $(document).on("click", ".jt_jjim_only", function() {
     $(document).on("click", "#ldr_popup button", function() {
         var val = $(this).attr("value");
 
+        var jjim_only = $(this).parent().find(".jjim_only");
+        if(jjim_only.hasClass("on")==true){
+            console.log("not_heart");
+            return false;
+        }
         if ($(this).find("span").text() == '출근 제일 빨리 함') {
             $("#like_flag").val(1);
         } else if ($(this).find("span").text() == '오늘업무 제일 많이 씀') {
@@ -2005,7 +2028,7 @@ $(document).on("click", ".jt_jjim_only", function() {
         var send_user = $(".jg_name_user").text();
         var send_user_team = $(".jg_name_team").text();
         var send_user_imgs = $("#jg_user_img").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
-        var send_userid = $(".user_value").val();
+        var send_userid = $(".user_id").val();
 
         var penalty_idx = $("#user_penalty_like").val();
         if(penalty_idx == "1"){
@@ -2136,7 +2159,7 @@ $(document).on("click", ".jt_jjim_only", function() {
                             $(this).find("strong").css({ "height": jg_height });
                         });
                         $(".user_id").val(send_userid);
-                        $(".user_value").val(send_userid);
+                        $(".user_value").val(val);
                         console.log(send_userid);
                         $("#jjim_graph").show();
                     }
@@ -2147,70 +2170,66 @@ $(document).on("click", ".jt_jjim_only", function() {
 
 
 // 좋아요 상세보기 리스트 (리스트형)
-link_href = window.location.href;
-    var link_arr = link_href.split("/");
-    home_title = link_arr[3];
+
+    $(document).on("click", ".btn_type_list", function(){
+
+        if($(".user_value").val()){
+            var send_userid = $(".user_id").val();
+        }else if ($("#lr_uid").val()) {
+            var send_userid = $("#lr_uid").val();
+        } else if ($("#send_userid").val()) {
+            var send_userid = $("#send_userid").val();
+        }  
     
-    if(home_title == "live" || home_title == "todaywork"){
-        $(document).on("click", ".btn_type_list", function(){
+        var send_user = $(".jg_name_user").text();
+        var send_user_team = $(".jg_name_team").text();
+        var send_user_imgs = $("#jg_user_img").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
 
-            if($(".user_value").val){
-                var send_userid = $(".user_value").val();
-            }else if ($("#lr_uid").val()) {
-                var send_userid = $("#lr_uid").val();
-            } else if ($("#send_userid").val()) {
-                var send_userid = $("#send_userid").val();
-            }  
-        
-            var send_user = $(".jg_name_user").text();
-            var send_user_team = $(".jg_name_team").text();
-            var send_user_imgs = $("#jg_user_img").css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+        // console.log(send_user);
+        // console.log(send_user_team);
+        // console.log(send_user_imgs);
+        // console.log(send_userid);
+        var penalty_idx = $("#user_penalty_like").val();
+        if(penalty_idx == "1"){
+            $("#user_penalty_like").val(penalty_idx);
+        }
+        mem_idx = $(".user_value").val();
+        var fdata = new FormData();
+        fdata.append("mode", "jt_table_list");
+        fdata.append("send_userid", send_userid);
+        $.ajax({
+            type: "post",
+            async: false,
+            data: fdata,
+            contentType: false,
+            processData: false,
+            url: '/inc/lives_process.php',
+            success: function(data) {
+                // console.log(data);
+                if (data) {
+                    var tdata = data.split("|");
+                    if (tdata) {
+                        var result = tdata[0];
+                        var cnt = tdata[1];
 
-            // console.log(send_user);
-            // console.log(send_user_team);
-            // console.log(send_user_imgs);
-            // console.log(send_userid);
-            var penalty_idx = $("#user_penalty_like").val();
-            if(penalty_idx == "1"){
-                $("#user_penalty_like").val(penalty_idx);
-            }
-            
-            var fdata = new FormData();
-            fdata.append("mode", "jt_table_list");
-            fdata.append("send_userid", send_userid);
-            $.ajax({
-                type: "post",
-                async: false,
-                data: fdata,
-                contentType: false,
-                processData: false,
-                url: '/inc/lives_process.php',
-                success: function(data) {
-                    // console.log(data);
-                    if (data) {
-                        var tdata = data.split("|");
-                        if (tdata) {
-                            var result = tdata[0];
-                            var cnt = tdata[1];
-
-                            $("#jt_table_area").html(result);
-                            $("#jt_user_heart_all span").text(cnt);
-                            $(".jt_name_user").text(send_user);
-                            $(".jt_name_team").text(send_user_team);
-                            $("#jt_user_img").css("background-image", 'url("' + send_user_imgs + '")');
-                            $(".user_value").val(send_userid);
-                            $("#jjim_graph").hide();
-                            $("#jjim_table").show();
-                        }
+                        $("#jt_table_area").html(result);
+                        $("#jt_user_heart_all span").text(cnt);
+                        $(".jt_name_user").text(send_user);
+                        $(".jt_name_team").text(send_user_team);
+                        $("#jt_user_img").css("background-image", 'url("' + send_user_imgs + '")');
+                        $(".user_value").val(mem_idx);
+                        $("#jjim_graph").hide();
+                        $("#jjim_table").show();
                     }
                 }
-            });
-            $("#jjim_graph").hide();
-            $("#jjim_table").show();
-            $(".btn_type_list").addClass("on");
-            $(".btn_type_graph").removeClass("on");
+            }
         });
-    }
+        $("#jjim_graph").hide();
+        $("#jjim_table").show();
+        $(".btn_type_list").addClass("on");
+        $(".btn_type_graph").removeClass("on");
+    });
+
     //좋아요 상세보기 클릭
     $("#jg_bottom").click(function() {
 
@@ -2770,6 +2789,9 @@ link_href = window.location.href;
     // -----------------------
     //마우스 오버 - 그냥 마음전하기
     $(document).on('mouseenter', '.ldr_menu', function(e) {
+        if($(this).hasClass("on")==true){
+            return false;
+        }
         $(this).closest(".ldr_li").find(".ldr_popup").show();
     });
 
@@ -3001,6 +3023,8 @@ link_href = window.location.href;
 
         $("#jjim_graph").hide();
         $("#layer_reward").show();
+        $(".btn_lr_01").trigger("click");
+
     });
 
 
@@ -3017,6 +3041,7 @@ link_href = window.location.href;
         $(".lr_close").addClass("like");
         $("#jjim_table").hide();
         $("#layer_reward").show();
+        $(".btn_lr_01").trigger("click");
     });
 
 
@@ -3088,9 +3113,16 @@ link_href = window.location.href;
     });
 
 
-    
+    function number_format(num){
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    }
+
+
+    link_href = window.location.href;
+    var link_arr = link_href.split("/");
+    home_title = link_arr[3];
     //보상하기 버튼은 live 페이지에서만 작동하도록 수정
-    if(home_title=='live'){
+    if(home_title == "live"){
         $(document).on("click", ".lr_btn", function() {
             var path = $(location).attr('pathname');
             var path_arr = path.split("/");
@@ -3098,7 +3130,7 @@ link_href = window.location.href;
             pathDi = path_arr[1];
 
             var lr_work_idx = $("#lr_work_idx").val();
-
+            var thisCoin = $(this);
             var coin = $("#lr_input").val();
             var lr_uid = $("#lr_uid").val();
             var lr_val = $("#lr_val").val();
@@ -3137,6 +3169,7 @@ link_href = window.location.href;
                         url: '/inc/lives_process.php',
                         success: function(data) {
                             console.log(data);
+                            var tdata = data.split("|");
                             if (data) {
                                 if(data == "penalty"){
                                     alert("코인을 지급할 유저에게 패널티가 적용되어 보낼 수 없습니다.");
@@ -3148,21 +3181,22 @@ link_href = window.location.href;
                                     alert("보유한 공용코인이 지급할 코인보다 작습니다.\n보상할 코인을 확인해 주세요.");
                                     $("#lr_input").focus();
                                     return false;
-                                } else if (data == "complete") {
+                                } else if (tdata[0] == "complete") {
                                     alert($(".btn_lr_01 .lr_txt strong").text() + " " + coin + "코인이 보상 되었습니다.");
                                     $("#lr_input").val("");
                                     $("#layer_reward").hide();
+                                    thisCoin.parent().find("p strong").text(number_format(tdata[1]));
                                     todaywork_list_live();
                                     $("#lr_work_idx").val("");
                                 }
-                                var tdata = data.split("|");
-                                if (tdata) {
+                                
+                                // if (tdata) {
                                     //var result = tdata[0];
                                     //var result_cnt = tdata[1];
                                     //$("#ldl_in_my").html(result);
                                     //$(".ldl_box").trigger("click");
                                     //$(".rew_mypage_section em:eq(1)").text(result_cnt);
-                                }
+                                // }
                             }
                         }
                     });
@@ -3402,6 +3436,7 @@ link_href = window.location.href;
         if ($("#radar_layer").is(":visible") == true) {
             $("#radar_layer").hide();
             $("#layer_reward").show();
+            $(".btn_lr_01").trigger("click");
         }
 
     });
@@ -3418,42 +3453,43 @@ link_href = window.location.href;
     $(".ldl_box_in").trigger("click");
 
     //라이브업무 코인지급하기
-    $(document).on("click", "#btn_req_100c", function() {
+    if(home_title == "live"){
+        $(document).on("click", "#btn_req_100c", function() {
 
-        var val = $(this).val();
-        var fdata = new FormData();
+            var val = $(this).val();
+            var fdata = new FormData();
 
-        $("#lr_work_idx").val(val);
+            $("#lr_work_idx").val(val);
 
-        fdata.append("mode", "coin_req_100c");
-        fdata.append("val", val);
+            fdata.append("mode", "coin_req_100c");
+            fdata.append("val", val);
 
-        $.ajax({
-            type: "post",
-            async: false,
-            data: fdata,
-            contentType: false,
-            processData: false,
-            url: '/inc/lives_process.php',
-            success: function(data) {
-                console.log(data);
-                if (data) {
-                    var tdata = data.split("|");
-                    if (tdata) {
-                        var result = tdata[0];
-                        var uid = tdata[1];
+            $.ajax({
+                type: "post",
+                async: false,
+                data: fdata,
+                contentType: false,
+                processData: false,
+                url: '/inc/lives_process.php',
+                success: function(data) {
+                    console.log(data);
+                    if (data) {
+                        var tdata = data.split("|");
+                        if (tdata) {
+                            var result = tdata[0];
+                            var uid = tdata[1];
 
-                        if (result == "complete") {
-                            $("#lr_uid").val(uid);
-                            $("#layer_reward").show();
-                            $(".btn_lr_01").trigger("click");
+                            if (result == "complete") {
+                                $("#lr_uid").val(uid);
+                                $("#layer_reward").show();
+                                $(".btn_lr_01").trigger("click");
+                            }
                         }
                     }
                 }
-            }
+            });
         });
-    });
-
+    }
 
 	//좌측 완료한업무 클릭시 해당 유저의 레이어창 띄움
 	$(document).on("click", "li[id^=rnc_list]", function() {
@@ -3657,39 +3693,45 @@ link_href = window.location.href;
         $("#check_profile").val(val);
     });
 
-    //프로필 케릭터 선택
-    $("#tl_profile_bt").click(function() {
+    link_href = window.location.href;
+    var link_arr = link_href.split("/");
+    home_title = link_arr[3];
+    if(home_title == "live"){
+        //프로필 케릭터 선택
+         $("#tl_profile_bt").click(function() {
 
-    var val;
-
-    val = $("#check_profile").val();
-    var fdata = new FormData();
-    fdata.append("mode", "profile_character");
-    fdata.append("profile_no", val);
-
-    $.ajax({
-        type: "POST",
-        data: fdata,
-        contentType: false,
-        processData: false,
-        url: '/inc/main_process.php',
-        success: function(data) {
-            console.log(data);
-            if (data) {
-                tdata = data.split("|");
-                if (tdata) {
-                    var result = tdata[0];
-                    var result2 = tdata[1];
-                    if (result == "complete") {
-                        // $("#profile_character_img").css("background-image", "url(" + result2 + ")");
-                        $("#profile_character_img1").css("background-image", "url(" + result2 + ")");
-                        // main_live_list();
+        var val;
+    
+        val = $("#check_profile").val();
+        var fdata = new FormData();
+        fdata.append("mode", "profile_character");
+        fdata.append("profile_no", val);
+    
+        $.ajax({
+            type: "POST",
+            data: fdata,
+            contentType: false,
+            processData: false,
+            url: '/inc/main_process.php',
+            success: function(data) {
+                console.log(data);
+                    if (data) {
+                        tdata = data.split("|");
+                        if (tdata) {
+                            var result = tdata[0];
+                            var result2 = tdata[1];
+                            if (result == "complete") {
+                                // $("#profile_character_img").css("background-image", "url(" + result2 + ")");
+                                $("#profile_character_img1").css("background-image", "url(" + result2 + ")");
+                                // main_live_list();
+                            }
+                        }
                     }
                 }
-            }
-        }
-    });
-  });
+            });
+        });
+    }
+    
 
  //프로필사진변경
  $("input[id='prof']").change(profile_img_preview);
@@ -4902,6 +4944,7 @@ home_title = link_arr[3];
     }
   });
 }
+if(home_title == "live"){
   $(document).on("click", "button[id=btn_list_fdel]", function () {
     var val = $(this).val();
     if (val) {
@@ -4949,8 +4992,7 @@ home_title = link_arr[3];
       }
     }
   });
-
-
+}
 
 
   if(home_title == "live"){

@@ -24,15 +24,22 @@ $parts = explode('/', trim($requestUri, '/'));
 $sql = "select idx, t_flag from work_member where state = '0' and companyno='".$companyno."' and email = '".$user_id."'";
 $t_flag_info = selectQuery($sql);
 
-if(!$tuto_start){?>
-	<?if($t_flag_info['t_flag'] != 6){?>
-		<div class="tuto_link">
-			<div class="tuto_link_in">
-				<button class="btn_tuto_link_close">닫기</button>
-				<a href="#" class="tuto_link_area"  onclick="tutorial_insert();">
-					<p>튜토리얼을 시작하고, <br />코인으로 보상도 받아 가세요!</p>
-				</a>
+$tuto_close = $_COOKIE['tuto_close'];
+if(!$tuto_close){
+	if(!$tuto_start){?>
+		<?if($t_flag_info['t_flag'] != 6){?>
+			<div class="tuto_link">
+				<div class="tuto_link_in">
+					<button class="btn_tuto_link_close">닫기</button>
+					<a href="#" class="tuto_link_area"  onclick="tutorial_insert();">
+						<p>튜토리얼을 시작하고, <br />코인으로 보상도 받아 가세요!</p>
+					</a>
+					<div class="close_check">
+						<input type="checkbox" id="close_che">
+						<label for="close_che">오늘 하루 안보기</label>
+					</div>
+				</div>
 			</div>
-		</div>
-	<?}?>
-<?}?>
+		<?}?>
+	<?}
+}?>
