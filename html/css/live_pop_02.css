@@ -230,7 +230,8 @@ img { max-width:100%; }
 
 /* media */
 @media screen and (max-width: 960px){
- .rl_in { margin-left: 0; width: 90vw; margin-top: 0; min-height: 508px; transform: translate(-50%, -50%); } 
+ .rl_in { margin-left: 0; width: 90vw; margin-top: 0; min-height: 508px; transform: translate(-50%, -50%); overflow-y: scroll;} 
+ .rl_in::-webkit-scrollbar { display: none;}
  .rl_area { padding:15px 20px 0 20px; margin-bottom:15px; } 
  .rl_left { width:300px; } 
  .rl_tab { border-radius: 5px; } 

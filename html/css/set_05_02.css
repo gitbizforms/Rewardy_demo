@@ -1,5 +1,4 @@
-@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
-.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+@charset "utf-8"; .tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
 .rew_warp button { cursor:pointer; } 
 
 button { cursor:pointer; outline:none; border:none; background:none; } 
@@ -34,12 +33,25 @@ img { max-width:100%; }
 
 .rew_conts { background: #ececec; height: 100%; padding-left: 70px; transition: all 0.6s 0.4s; } 
 /* ------------------------------------------------------------------ */
+.btn_sort_on { width: 96px; height: 55px; position: absolute; top: 0; right: 0; padding-left: 10px; border: 1px solid #e5e5e5 !important; border-radius: 5px; background: #fff url(../images/replay_popup/arrow_down.png) no-repeat 100% 50%; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+
+.rew_member_sub_func_sort ul { width: 96px; display: none; position: absolute; top: 0; right: 0; font-size: 15px; line-height: 46px; border: 1px solid #555; border-radius: 5px; background: #fff; text-align: left; z-index:9999; } 
+
+.rew_member_sub_func_sort ul li { height: 46px; padding-left: 10px; } 
+
+.rew_member_sub_func_sort ul li:last-child { border-bottom: none; } 
+
+.rew_member_sub_func_sort:hover ul { display: block; } 
+
+.rew_member_sub_func_sort ul li:hover { background: #454545; } 
+
+.rew_member_sub_func_sort ul li:hover button span { color: #fff; } 
 /* cont */
 .rew_member_in { padding:50px 40px 90px 40px; width:1100px; margin:0 auto; } 
 
 .rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
 .rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
-.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+.tyle_coin .rew_member_sub_func_tab_in { position: relative; } 
 
 .rew_member_sub_count { } 
 .rew_member_sub_count span { font-size:20px; font-weight:500; color:#252525; letter-spacing:-0.05em; line-height:46px; margin-right:8px; height:46px; display:inline-block; vertical-align:top; } 
@@ -48,23 +60,24 @@ img { max-width:100%; }
 
 .rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
 .rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
-.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+.tyle_coin .rew_member_sub_func_tab_in { position: relative; } 
 .rew_member_sub_func_qna { text-align: left; position: absolute; bottom:0; left:0; } 
 .rew_member_sub_func_qna button { font-size:16px; font-weight:400; letter-spacing:-0.05em; line-height:45px; } 
 
 .rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
-.tyle_money .rew_member_sub_func_tab_in { position: relative; } 
+.tyle_coin .rew_member_sub_func_tab_in { position: relative; } 
 
-.rew_member_sub_func_calendar { display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_calendar { display:inline-block; vertical-align:top; margin-right:110px; } 
 .rew_member_sub_func_btns { font-size:0; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_btns button { text-align:center; border:1px solid #e1e1e1; background:#fff; height:46px; line-height:44px; font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:5px; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_btns button.on { background:#38c9d2; color:#fff; } 
 .rew_member_sub_func_btns button span { padding:0 15px; } 
 
 .rew_member_sub_func_period { margin-left:10px; display:inline-block; vertical-align:top; } 
-.tyle_money .rew_member_sub_func_period { margin-left:0; } 
+.tyle_coin .rew_member_sub_func_period { margin-left:0; } 
 .rew_member_sub_func_period_box { padding:0 5px; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_period_box.cal_month { padding:0 20px; } 
+.rew_member_sub_func_period_box .input_date { background:none; border:none; height:53px; line-height:53px; font-size:15px; color:#555; letter-spacing:0; font-weight:300; text-align:center; padding-left:45px; background:url(../images/pre/ico_calendar.png) 20px 13px no-repeat; border:none; width:90px; text-align:center; display:inline-block; vertical-align:top; cursor:pointer; } 
 .rew_member_sub_func_period .input_date_l { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_period .cal_month .input_date_l { width:76px; } 
 .rew_member_sub_func_period .btn_calendar_l { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
@@ -110,20 +123,20 @@ img { max-width:100%; }
 .member_list_conts .member_list_conts_payment_plan { width:155px; } 
 .member_list_conts .member_list_conts_tax { width:150px; } 
 .member_list_conts .member_list_conts_detail_view { width:150px; } 
-.member_list_conts .member_list_conts_detail { width:270px; text-align:left; } 
+.member_list_conts .member_list_conts_detail { width:270px; } 
 
 .member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding-top:17px; padding-bottom:17px; } 
 .member_list_conts_in > ul > li > div > strong { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; max-width:calc(100% - 2px); display:inline-block; vertical-align:top; } 
 .member_list_conts_in > ul > li > div button { display:inline-block; vertical-align:top; } 
-
+.member_list_conts_in > ul > li.search_list_none { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; display:block; text-align:center; padding:20px 0; } 
 .member_list_conts .member_list_conts_datetime strong { color: #252525; letter-spacing: 0.01em; } 
-.member_list_conts .member_list_conts_detail strong { text-align: left; padding-left: 35px; padding-right: 15px; } 
+.member_list_conts .member_list_conts_detail strong { padding-left: 35px; padding-right: 15px; } 
 .member_list_conts .member_list_conts_payment strong { letter-spacing: 0; text-align: right; } 
 
-.member_list_conts .member_list_conts_tax button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:77px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; } 
+.member_list_conts .member_list_conts_tax button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:99px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; padding: 0px 7px; box-sizing: content-box; } 
 .member_list_conts .member_list_conts_tax button.btn_list_history { } 
 .member_list_conts .member_list_conts_tax button.zero { background:#cbcbcb; border:1px solid #cbcbcb; color:#fff; } 
-.member_list_conts .member_list_conts_detail_view button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:77px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; } 
+.member_list_conts .member_list_conts_detail_view button { font-size:13px; font-weight:500; color:#43454c; letter-spacing:-0.025em; line-height:30px; width:77px; height:32px; text-align:center; margin:0 3px; display:inline-block; vertical-align:middle; border-radius:16px; background:#fff; border:1px solid #43454c; padding: 0px 7px; box-sizing: content-box; } 
 .member_list_conts .member_list_conts_detail_view button.btn_list_history { } 
 .member_list_conts .member_list_conts_detail_view button.zero { background:#cbcbcb; border:1px solid #cbcbcb; color:#fff; } 
 
@@ -167,6 +180,8 @@ img { max-width:100%; }
 .rew_member_sub_text span { font-size:16px; font-weight:400; letter-spacing:-0.025em; line-height:26px; display:block; } 
 
 @media screen and (max-width: 1200px){
+ .rew_conts_scroll_01 { width: 100%; } 
+
  .rew_member_in { width: auto; padding: 40px 30px 0px 40px; } 
 
  .rew_member_list { width: auto; } 

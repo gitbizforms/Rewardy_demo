@@ -24,21 +24,6 @@ img { max-width:100%; }
 .rew_qck button { font-size:17px; line-height:35px; color:#aaa; font-weight:400; letter-spacing:-0.05em; display:inline-block; vertical-align:top; margin-left:15px; padding:0 5px; text-align:center; } 
 .rew_qck button:hover { color:#454545; } 
 
-/* 튜토리얼 */
-.tuto_link { position:fixed; right:4.7%; bottom:10.5%; z-index:60030; } 
-.tuto_link .tuto_link_in { position:relative; text-align:right; } 
-.tuto_link .btn_tuto_link_close { position:absolute; top:-10px; right:0; text-align:left; text-indent:-9999px; width:20px; height:20px; border-radius:50%; background:#f4f4f4 url(../images/pre/ico_tuto_close.png) 50% 50% no-repeat; box-shadow:1px 1px 1px 1px rgba(0,0,0,0.1); z-index:2; } 
-.tuto_link .tuto_link_area { margin-right:10px; text-align:left; padding:18px 14px 18px 14px; border-radius:40px; background:#000; display:block; animation:tuto_link 0.4s 2.5s both; } 
-.tuto_link .tuto_link_area p { font-size:16px; font-weight:300; color:transparent; letter-spacing:-0.06em; line-height:22px; height:44px; width:0px; padding-right:52px; background:url(../images/pre/ico_tuto_link.png) 100% 50% no-repeat; overflow:hidden; animation:tuto_link2 0.4s 2.5s both; } 
-@keyframes tuto_link { 
- 0% { padding:18px 14px 18px 14px; } 
-100% { padding:18px 30px 18px 33px; } 
- }
-@keyframes tuto_link2 { 
- 0% { color:transparent; width:0; } 
-100% { color:#fff; width:211px; } 
- }
-
 .tuto_start { } 
 .tuto_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
 .tuto_start_in { max-width:420px; width:90%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; } 
@@ -1048,13 +1033,13 @@ img { max-width:100%; }
 @media screen and (max-width: 1750px){
  .rew_mains_info_me { padding-bottom: 0; } 
 
- .rew_mains_info_l { width: 300px; } 
+ .rew_mains_info_l { width: 400px; } 
  .rew_mains_info .rew_mypage_coin_box { width: 100%; margin-bottom: 15px; } 
  .rew_mains_chart_state { width: 100%; padding-bottom: 0; } 
  .rew_mains_chart_state_tit { margin-bottom: 10px; } 
  .rew_mains_chart_state li { padding-top: 20px; padding-bottom: 20px; } 
 
- .rew_mains_info_r { width: calc(100% - 300px); } 
+ .rew_mains_info_r { width: calc(100% - 400px); } 
  .rew_mains_info .tl_prof { margin-left: 0; } 
  .rew_main_anno { left: 0; } 
 
@@ -1247,7 +1232,7 @@ img { max-width:100%; }
  .rew_mains_live_list .live_list .live_list_box { width: calc((100% - 36px) / 3); } 
  .rew_mains_live_list .live_list .live_list_box:nth-child(3) { display: none; } 
  
- .heart_user_list .list_none { width: 280px; }
+ .heart_user_list .list_none { width: 280px; } 
  .heart_user_list .list_none .none_q span { width: 280px; font-size: 11px; padding: 20px 30px; } 
  }
 @media screen and (max-width: 360px){
@@ -1286,101 +1271,27 @@ img { max-width:100%; }
 .lcp_in .lcp_btn button.lcp_on { width:calc(100% - 110px); } 
  }
 
+ /* 메인 리뉴얼 */
 
-/* 튜토리얼 */
+ .rew_company_coin { position: relative; background: #f6f7f9; border-radius: 10px; padding: 30px; box-sizing: border-box; } 
+ .rew_company_coin button { position: absolute; top: 30px; right: 30px; background: #fff; border: 1px solid #e1e1e1; border-radius: 8px; padding: 5px 14px; } 
+ .rew_company_coin button span { font-size: 14px; color: #555; } 
 
-.tuto_link { position:fixed; right:4.7%; bottom:10.5%; z-index:60030; } 
-.tuto_link .tuto_link_in { position:relative; text-align:right; } 
-.tuto_link .btn_tuto_link_close { position:absolute; top:-10px; right:0; text-align:left; text-indent:-9999px; width:20px; height:20px; border-radius:50%; background:#f4f4f4 url(../images/pre/ico_tuto_close.png) 50% 50% no-repeat; box-shadow:1px 1px 1px 1px rgba(0,0,0,0.1); z-index:2; } 
-.tuto_link .tuto_link_area { margin-right:10px; text-align:left; padding:18px 14px 18px 14px; border-radius:40px; background:#000; display:block; animation:tuto_link 0.4s 2.5s both; } 
-.tuto_link .tuto_link_area p { font-size:16px; font-weight:300; color:transparent; letter-spacing:-0.06em; line-height:22px; height:44px; width:0px; padding-right:52px; background:url(../images/pre/ico_tuto_link.png) 100% 50% no-repeat; overflow:hidden; animation:tuto_link2 0.4s 2.5s both; } 
-@keyframes tuto_link { 
- 0% { padding:18px 14px 18px 14px; } 
-100% { padding:18px 30px 18px 33px; } 
- }
-@keyframes tuto_link2 { 
- 0% { color:transparent; width:0; } 
-100% { color:#fff; width:211px; } 
- }
+ .rew_my_coin ul { width: 100%; height: 141px; border: 1px solid #e1e1e1; border-radius: 10px; padding: 0 30px; margin-top: 20px; box-sizing: border-box; } 
+ .rew_my_coin ul li { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #e1e1e1; } 
+ .rew_my_coin ul li:last-child { border: none; } 
+ .rew_my_coin ul li .qna { margin-bottom: 0 !important; } 
+ .rew_my_coin ul li .rew_mypage_coin_chall span { font-size: 24px; } 
 
-.tuto_start { } 
-.tuto_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
-.tuto_start_in { max-width:420px; width:90%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; } 
-.tuto_start_tit { padding:51px 10% 0 10%; text-align:center; } 
-.tuto_start_tit img { margin:0 auto; display:block; width:auto; } 
-.tuto_start_tit p { font-size:16px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:26px; display:block; margin-top:14px; } 
-.tuto_start_tit p em { font-style:italic; } 
-.tuto_start_btn { padding:212px 30px 40px 30px; background:url(../images/pre/bg_tuto_coin.png) 50% 100% no-repeat; } 
-.tuto_start_btn button { width:100%; height:57px; line-height:56px; text-align:center; display:block; background:#000; border-radius:10px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
+ .rew_my_point ul { display: flex; margin-top: 20px; } 
+ .rew_my_point ul li { width: calc(100% / 2 - 10px); height: 107px; padding: 20px; border-radius: 10px; margin-right: 20px; box-sizing: border-box; } 
+ .rew_my_point ul li:first-child { background: #f6f7f9 url(../images/pre/rew_my_point_01.png) no-repeat 50% 50%; } 
+ .rew_my_point ul li:last-child { background: #f6f7f9 url(../images/pre/rew_my_point_02.png) no-repeat 50% 50%; margin-right: 0; } 
+ .rew_my_point ul li>p { font-size: 15px; color: #151515; letter-spacing: -1px; margin-bottom: 10px; } 
+ .rew_my_point ul li .rank_total { display: flex; flex-direction: row; justify-content: space-between; align-items: center; } 
+ .rew_my_point ul li .rank_total .rank { width: 60px; height: 28px; font-size: 15px; letter-spacing: -1px; color: #fff; font-weight: 300; text-align: center; background: #43454c; border-radius: 15px; } 
+ .rew_my_point ul li .rank_total p { font-size: 18px; color: #ccc; font-weight: 700; } 
+ .rew_my_point ul li .rank_total p em { font-size: 24px; color: #38c9d2; } 
 
-.tuto_end { } 
-.tuto_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
-.tuto_end_in { max-width:420px; width:90%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; } 
-.tuto_end_tit { padding:59px 10% 0 10%; text-align:center; } 
-.tuto_end_tit img { margin:0 auto; display:block; width:auto; } 
-.tuto_end_tit p { font-size:16px; font-weight:300; color:#aaa; letter-spacing:-0.05em; line-height:26px; display:block; margin-top:14px; } 
-.tuto_end_tit p em { font-style:italic; } 
-.tuto_end_coin { margin-top:33px; background:url(../images/pre/ico_tuto_coin.png) 50% 0 no-repeat; padding-top:138px; } 
-.tuto_end_coin strong { font-size:21px; font-weight:bold; color:#353535; letter-spacing:-0.025em; line-height:31px; display:block; text-align:center; } 
-.tuto_end_btn { padding:33px 30px 40px 30px; } 
-.tuto_end_btn button { width:100%; height:57px; line-height:56px; text-align:center; display:block; background:#38c9d2; border-radius:10px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; } 
 
-.tuto_phase { } 
-.tuto_phase_deam { background:rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:90010; } 
-.tuto_phase_in { max-width:750px; width:90%; max-height:95%; margin:0 auto; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; border-radius:10px; overflow:hidden; z-index:90020; overflow-y:auto; } 
-.tuto_phase_tit { padding:45px 0 0 0; text-align:center; } 
-.tuto_phase_tit strong { font-size:28px; font-weight:bold; color:#353535; letter-spacing:-0.05em; line-height:38px; display:block; margin-bottom:10px; } 
-.tuto_phase_tit span { font-size:16px; font-weight:300; color:#454545; letter-spacing:-0.05em; line-height:26px; display:block; } 
-.tuto_phase_list { padding-top:35px; text-align:center; font-size:0; padding-bottom:10px; } 
-.tuto_phase_list .tuto_phase_box { display:inline-block; vertical-align:top; margin:0 15px 30px 15px; position:relative; } 
-.tuto_phase_list .tuto_phase_box:after { content:""; width:41px; height:13px; background:url(../images/pre/ico_tuto_arrow.png) 50% 50% no-repeat; position:absolute; right:-20px; bottom:89px; z-index:9; } 
-.tuto_phase_list .tuto_phase_box.phase_03:after { bottom:-5px; right:75px; transform:rotate(90deg); } 
-.tuto_phase_list .tuto_phase_box.phase_04:after { right:auto; left:-20px; transform:rotate(180deg); } 
-.tuto_phase_list .tuto_phase_box.phase_05:after { right:auto; left:-20px; transform:rotate(180deg); } 
-.tuto_phase_list .tuto_phase_box.phase_06:after { display: none; } 
-.tuto_phase_list .tuto_phase_box p { width:36px; height:36px; line-height:35px; font-size:15px; font-weight:500; color:#fff; letter-spacing:0; background:#e0e0e0; border-radius:50%; margin:0 auto -18px auto; position:relative; z-index:5; text-align:center; } 
-.tuto_phase_list .tuto_phase_box button { display:block; width:190px; height:190px; border-radius:50%; background:#f7f8f9; overflow:hidden; position:relative; cursor:default; } 
-.tuto_phase_list .tuto_phase_box dl { font-size:0; margin-bottom:14px; padding-top:34px; } 
-.tuto_phase_list .tuto_phase_box dt { font-size:18px; font-weight:bold; color:#252525; letter-spacing:-0.075em; line-height:28px; margin-bottom:9px; } 
-.tuto_phase_list .tuto_phase_box dd { display:inline-block; vertical-align:top; width:calc(50% - 5px); text-align:left; padding-left:5px; filter:saturate(0.3); } 
-.tuto_phase_list .tuto_phase_box dt + dd { text-align:right; padding-right:5px; padding-left:0; } 
-.tuto_phase_list .tuto_phase_box dd span { display:block; background:url(../images/pre/ico_tuto_02.png) 0 50% no-repeat; height:30px; } 
-.tuto_phase_list .tuto_phase_box dt + dd span { background:url(../images/pre/ico_tuto_01.png) 100% 50% no-repeat; } 
-.tuto_phase_list .tuto_phase_box.phase_03 dt + dd span { background:url(../images/pre/ico_tuto_03.png) 100% 50% no-repeat; } 
-.tuto_phase_list .tuto_phase_box.phase_06 dt + dd span { background:url(../images/pre/ico_tuto_03.png) 100% 50% no-repeat; } 
-.tuto_phase_list .tuto_phase_box dd strong { font-size:15px; font-weight:500; color:#353535; letter-spacing:-0.05em; line-height:25px; display:inline-block; vertical-align:top; width:30px; text-align:center; margin-top:4px; } 
-.tuto_phase_list .tuto_phase_box em { display:block; height:46px; line-height:45px; background:#e0e0e0; font-size:15px; font-weight:400; color:#fff; letter-spacing:-0.05em; text-align:center; } 
-.tuto_phase_pause { text-align:right; margin:0 60px; padding-bottom:50px; } 
-.tuto_phase_pause button { font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; line-height:54px; height:55px; display:block; width:100%; background:#38c9d2; border-radius:10px; } 
 
-.tuto_phase_list .tuto_phase_box.tuto_clear button:after { content:""; width:100%; height:100%; position:absolute; top:0; left:0; background:url(../images/pre/img_clear.png) 50% 50% no-repeat; z-index:6; } 
-.tuto_phase_list .tuto_phase_box.tuto_clear em { opacity:0; } 
-.tuto_phase_list .tuto_phase_box.tuto_on p { background:#000; } 
-.tuto_phase_list .tuto_phase_box.tuto_on dd { filter:saturate(1); } 
-.tuto_phase_list .tuto_phase_box.tuto_on em { background:#000; } 
-.tuto_phase_list .tuto_phase_box.tuto_on button { cursor:pointer; box-shadow:0 0 5px 2px #ff001e; } 
-
-.rew_tutorial_deam { position:fixed; top:0; left:0; width:100%; height:100%; z-index:70000; } 
-.tuto_mark { position:absolute; top:-100%; left:-100%; width:46px; height:46px; margin-top:-23px; margin-left:-23px; z-index:80000; opacity:0; transition:opacity 0.4s; } 
-.tuto_mark button { display:block; width:100%; height:100%; position:relative; } 
-.tuto_mark button:before { content:""; position:absolute; top:50%; left:50%; margin-top:-23px; margin-left:-23px; width:40px; height:40px; border:3px solid #f10000; display:block; border-radius:50%; opacity:0.1; animation:tuto_mark 0.9s 0.6s alternate infinite; } 
-.tuto_mark button:after { content:""; position:absolute; top:50%; left:50%; margin-top:-20px; margin-left:-20px; width:30px; height:30px; border:5px solid #f10000; display:block; border-radius:50%; opacity:0.1; animation:tuto_mark 0.9s 0.3s alternate infinite; } 
-.tuto_mark button span { position:absolute; top:50%; left:50%; margin-top:-15px; margin-left:-15px; width:24px; height:24px; border:3px solid #f10000; display:block; border-radius:50%; opacity:0.1; animation:tuto_mark 0.9s alternate infinite; } 
-@keyframes tuto_mark { 
- 0% { opacity:0.7; } 
-90% { opacity:0.1; } 
-100% { opacity:0.1; } 
- }
-.tuto_mark_01_01 { } 
-.tuto_01_01 { } 
-.tuto_pop { position:absolute; top:-100%; left:-100%; width:340px; height:auto; background:#000; border-radius:5px; box-shadow:4px 4px 5px rgba(0,0,0,0.1); z-index:90000; opacity:0; transition:opacity 0.4s; } 
-.tuto_pop_01_01 { } 
-.tuto_pop .tuto_in { padding:27px 25px 21px 25px; position:relative; } 
-.tuto_pop .tuto_tit { text-align:left; padding-right:30px; font-size:17px; font-weight:500; color:#fff; letter-spacing:-0.05em; line-height:1.5; margin-bottom:12px; } 
-.tuto_pop .tuto_pager { text-align:right; position:absolute; top:30px; right:31px; font-size:13px; font-weight:300; color:#aaa; letter-spacing:0; line-height:1.5; } 
-.tuto_pop .tuto_desc { text-align:left; font-size:15px; font-weight:300; color:#ccc; letter-spacing:-0.05em; line-height:1.4; padding-bottom:4px; } 
-.tuto_pop .tuto_desc p { margin-bottom:12px; } 
-.tuto_pop .tuto_desc p span { color:#63f6ff; } 
-.tuto_pop .tuto_btns { text-align:right; } 
-.tuto_pop .tuto_prev { display:inline-block; vertical-align:top; font-size:15px; font-weight:300; color:#aaa; letter-spacing:-0.05em; height:36px; line-height:31px; border:2px solid transparent; padding:0 20px; } 
-.tuto_pop .tuto_next { display:inline-block; vertical-align:top; font-size:15px; font-weight:400; color:#222; letter-spacing:-0.05em; height:36px; line-height:31px; border:2px solid transparent; border-radius:20px; padding:0 20px; background:#fff; } 

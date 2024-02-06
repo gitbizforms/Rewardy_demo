@@ -647,37 +647,28 @@
 
 						<div class="rb_nav_admin_depth">
 							<ul class="admin_depth_01_area">
+								<li class="admin_depth_01 on">
+									<a href="./set_01.html" class="admin_depth_01_link"><span>초기 설정</span></a>
+								</li>
 								<li class="admin_depth_01">
 									<a href="./0001.html" class="admin_depth_01_link"><span>멤버관리</span></a>
 								</li>
-
 								<li class="admin_depth_01">
-									<strong class="admin_depth_01_link"><span>공용코인 관리</span></strong>
-									<ul class="admin_depth_02_area">
-										<li class="admin_depth_02">
-											<a href="#" class="admin_depth_02_link"><span>공용코인 충전</span></a>
-										</li>
-										<li class="admin_depth_02">
-											<a href="./0002a.html" class="admin_depth_02_link"><span>공용코인 출금</span></a>
-										</li>
-										<li class="admin_depth_02">
-											<a href="./0002.html" class="admin_depth_02_link"><span>입출금 내역</span></a>
-										</li>
-									</ul>
+									<a href="./set_03_03.html" class="admin_depth_01_link"><span>공용코인 관리</span></a>
 								</li>
 
 								<li class="admin_depth_01">
-									<a href="./0003.html" class="admin_depth_01_link"><span>멤버별 공용코인</span></a>
+									<a href="./set_03_03.html" class="admin_depth_01_link"><span>멤버별 공용코인</span></a>
 								</li>
 
-								<li class="admin_depth_01 on">
-									<strong class="admin_depth_01_link"><span>정산&middot;증빙</span></strong>
+								<li class="admin_depth_01">
+									<strong class="admin_depth_01_link"><span>출금신청 내역</span></strong>
 									<ul class="admin_depth_02_area">
-										<li class="admin_depth_02 on">
-											<a href="./0011.html" class="admin_depth_02_link"><span>코인 출금내역</span></a>
+										<li class="admin_depth_02">
+											<a href="./set_05_01.html" class="admin_depth_02_link"><span>코인 출금내역</span></a>
 										</li>
 										<li class="admin_depth_02">
-											<a href="./0011a.html" class="admin_depth_02_link lts_0"><span>출금 수수료 및 이용료 결제 내역</span></a>
+											<a href="./set_05_02.html" class="admin_depth_02_link lts_0"><span>출금 수수료 및 이용료 결제 내역</span></a>
 										</li>
 									</ul>
 								</li>
@@ -716,26 +707,37 @@
 										<div class="rew_member_list_in">
 											<div class="member_list_header">
 												<div class="member_list_header_in">
-													<div class="member_list_header_name">
+													<div class="member_list_header_date">
+														<strong>날짜</strong>
+														<em>
+															<button class="btn_sort_up" title="오름차순"></button>
+															<button class="btn_sort_down" title="내림차순"></button>
+														</em>
+													</div>
+													<div class="member_list_header_deposit">
 														<strong>이름</strong>
+														<em>
+															<button class="btn_sort_up" title="오름차순"></button>
+															<button class="btn_sort_down" title="내림차순"></button>
+														</em>
 													</div>
-													<div class="member_list_header_team">
-														<strong>부서</strong>
+													<div class="member_list_header_deposit">
+														<strong>은행명</strong>
 													</div>
-													<div class="member_list_header_email">
-														<strong>이메일</strong>
+													<div class="member_list_header_coin">
+														<strong>계좌번호</strong>
 													</div>
-													<div class="member_list_header_amount_money">
+													<div class="member_list_header_coin">
 														<strong>신청금액</strong>
 													</div>
-													<div class="member_list_header_withdraw_fee">
-														<strong>출금수수료</strong>
+													<div class="member_list_header_coin">
+														<strong>수수료</strong>
 													</div>
-													<div class="member_list_header_amount_paid">
-														<strong>지급금액</strong>
+													<div class="member_list_header_coin">
+														<strong>지급할금액</strong>
 													</div>
-													<div class="member_list_header_withdraw_date">
-														<strong>출금일자</strong>
+													<div class="member_list_header_deposit">
+														<strong>상태</strong>
 													</div>
 												</div>
 											</div>
@@ -743,51 +745,58 @@
 												<div class="member_list_conts_in">
 													<ul>
 														<li>
-															<div class="member_list_conts_name">
-																<strong>이선규</strong>
+															<div class="member_list_conts_date">
+																<strong>2024-01-09</strong>
 															</div>
-															<div class="member_list_conts_team">
-																<strong>경영지원팀</strong>
+															<div class="member_list_conts_deposit">
+																<strong>김성희</strong>
 															</div>
-															<div class="member_list_conts_email">
-																<strong>sun@bizforms.co.kr</strong>
+															<div class="member_list_conts_deposit">
+																<strong>신한은행</strong>
 															</div>
-															<div class="member_list_conts_amount_money">
-																<strong>100,000,000</strong>
+															<div class="member_list_conts_coin">
+																<strong>3211212341</strong>
 															</div>
-															<div class="member_list_conts_withdraw_fee">
+															<div class="member_list_conts_coin">
 																<strong>5,000,000</strong>
 															</div>
-															<div class="member_list_conts_amount_paid">
-																<strong>95,000,000</strong>
+															<div class="member_list_conts_coin">
+																<strong>500</strong>
 															</div>
-															<div class="member_list_conts_withdraw_date">
-																<strong>2022-11-09</strong>
+															<div class="member_list_conts_coin">
+																<strong>1,000,000</strong>
+															</div>
+															<div class="member_list_conts_deposit">
+																<strong>확인중</strong>
 															</div>
 														</li>
 														<li>
-															<div class="member_list_conts_name">
-																<strong>손언영</strong>
+															<div class="member_list_conts_date">
+																<strong>2024-01-24</strong>
 															</div>
-															<div class="member_list_conts_team">
-																<strong>운영기획팀</strong>
+															<div class="member_list_conts_deposit">
+																<strong>박수민</strong>
 															</div>
-															<div class="member_list_conts_email">
-																<strong>eyson@bizforms.co.kr</strong>
+															<div class="member_list_conts_deposit">
+																<strong>부산은행</strong>
 															</div>
-															<div class="member_list_conts_amount_money">
-																<strong>10,000</strong>
+															<div class="member_list_conts_coin">
+																<strong>3211234341</strong>
 															</div>
-															<div class="member_list_conts_withdraw_fee">
+															<div class="member_list_conts_coin">
+																<strong>300,000</strong>
+															</div>
+															<div class="member_list_conts_coin">
 																<strong>500</strong>
 															</div>
-															<div class="member_list_conts_amount_paid">
-																<strong>9,500</strong>
+															<div class="member_list_conts_coin">
+																<strong>300,000</strong>
 															</div>
-															<div class="member_list_conts_withdraw_date">
-																<strong>2022-11-09</strong>
+															<div class="member_list_conts_deposit">
+																<strong>확인중</strong>
 															</div>
 														</li>
+
 													</ul>
 												</div>
 											</div>

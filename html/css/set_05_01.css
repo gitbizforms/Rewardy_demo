@@ -1,5 +1,4 @@
-@charset "utf-8"; .rew_warp input, .rew_warp button, .rew_warp select, .rew_warp textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
-.tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
+@charset "utf-8"; .tuto_pop input, .tuto_pop button, .tuto_pop select, .tuto_pop textarea { outline:none; border:none; background:none; resize:none; font-family:'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
 .rew_warp button { cursor:pointer; } 
 
 button { cursor:pointer; outline:none; border:none; background:none; } 
@@ -34,9 +33,24 @@ img { max-width:100%; }
 
 .rew_conts { background: #ececec; height: 100%; padding-left: 70px; transition: all 0.6s 0.4s; } 
 /* ------------------------------------------------------------------ */
+.rew_member_sub_func_sort_in { position: relative;}
+.btn_sort_on { width: 130px; height: 46px; padding-left: 10px; border: 1px solid #e5e5e5 !important; border-radius: 5px; background: #fff url(../images/replay_popup/arrow_down.png) no-repeat 100% 50%; font-size: 15px; line-height: 29px; color: #555; text-align: left; box-sizing: border-box; } 
+
+.rew_member_sub_func_sort ul { width: 130px; display: none; position: absolute; top: 0; right: 0; font-size: 15px; line-height: 46px; border: 1px solid #555; border-radius: 5px; background: #fff; text-align: left; z-index:9999; } 
+
+.rew_member_sub_func_sort ul li { height: 46px; padding-left: 10px; } 
+
+.rew_member_sub_func_sort ul li:last-child { border-bottom: none; } 
+
+.rew_member_sub_func_sort:hover ul { display: block; } 
+
+.rew_member_sub_func_sort ul li:hover { background: #454545; } 
+
+.rew_member_sub_func_sort ul li:hover button span { color: #fff; } 
+
 /* cont */
 
-.rew_conts_scroll_01 { height:calc(100% - 90px); overflow-y:scroll; overflow-x:auto; -ms-overflow-style:none; min-width:640px; position:relative; } 
+.rew_conts_scroll_01 { width: 100%; height:calc(100% - 90px); overflow-y:scroll; overflow-x:auto; -ms-overflow-style:none; min-width:640px; position:absolute; top: 70px; } 
 .rew_conts_scroll_01::-webkit-scrollbar { height:10px; width:10px; } 
 .rew_conts_scroll_01::-webkit-scrollbar-thumb { border-radius:5px; background-color:rgba(0,0,0,0.05); border:none; height:10px; width:10px; background-color:rgba(0,0,0,0.05); } 
 .rew_conts_scroll_01::-webkit-scrollbar-track { background-color:#ececec; } 
@@ -44,7 +58,7 @@ img { max-width:100%; }
 
 .rew_member_in { padding:50px 40px 90px 40px; width:1100px; margin:0 auto; } 
 
-.rew_member_sub_func_tab { margin-bottom:30px; display:flex; justify-content:space-between; } 
+.rew_member_sub_func_tab { margin-bottom:20px; display:flex; justify-content:space-between; } 
 .rew_member_sub_func_tab_in { font-size:0; text-align:right; display:flex; } 
 .tyle_money .rew_member_sub_func_tab_in { position: relative; } 
 .rew_member_sub_func_qna { text-align: left; position: absolute; bottom:0; left:0; } 
@@ -52,25 +66,31 @@ img { max-width:100%; }
 
 .rew_member_sub_count { } 
 .rew_member_sub_count span { font-size:20px; font-weight:500; color:#252525; letter-spacing:-0.05em; line-height:46px; margin-right:8px; height:46px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_count span em { font-size: 20px; font-weight: 700; color: #38c9d2; letter-spacing: -0.05em; line-height: 46px; margin-left: 5px;} 
 .rew_member_sub_count strong { font-size:20px; font-weight:bold; font-weight:900; color:#38c9d2; letter-spacing:-0.05em; line-height:46px; height:46px; display:inline-block; vertical-align:top; } 
 .rew_member_sub_count em { font-size:15px; font-weight:300; color:#858585; letter-spacing:-0.05em; line-height:48px; height:46px; display:inline-block; vertical-align:top; } 
 
 .tyle_money .rew_member_sub_func_tab_in { position: relative; } 
 
-.rew_member_sub_func_calendar { display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_calendar { display:inline-block; vertical-align:top;  } 
 .rew_member_sub_func_btns { font-size:0; display:inline-block; vertical-align:top; } 
-.rew_member_sub_func_btns button { text-align:center; border:1px solid #e1e1e1; background:#fff; height:46px; line-height:44px; font-size:15px; color:#454545; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:5px; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_btns button {padding-left: 25px; box-sizing: border-box; text-align:center; background:#38c9d2; height:46px; line-height:44px; font-size:15px; color:#fff; font-weight:300; letter-spacing:-0.05em; border-radius:5px; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_btns button.on { background:#38c9d2; color:#fff; } 
 .rew_member_sub_func_btns button span { padding:0 15px; } 
+.rew_member_sub_func_btns button.coin_all_excel { width: 145px; background: #38c9d2 url(../images/pre/ico_download.png) no-repeat 16px 50%; margin-right: 10px; }
+.rew_member_sub_func_btns button.coin_all_pay { width: 148px; background: #38c9d2 url(../images/pre/ico_chk_pay.png) no-repeat 20px 50%; }
 
 .rew_member_sub_func_down { font-size:0; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_down button { text-align:center; border:1px solid #38c9d2; background:#38c9d2; height:46px; line-height:44px; font-size:15px; color:#fff; font-weight:300; letter-spacing:-0.05em; border-radius:5px; margin-left:10px; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_down button span { padding:0 15px; } 
 
+.rew_member_sub_func_tab_in > div { margin-right: 10px;}
+.rew_member_sub_func_tab_in > div:last-child { margin-right: 0px;}
 .rew_member_sub_func_period { margin-left:10px; display:inline-block; vertical-align:top; } 
 .tyle_money .rew_member_sub_func_period { margin-left:0; } 
-.rew_member_sub_func_period_box { padding:0 5px; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
+.rew_member_sub_func_period_box { height: 44px; padding:0; background:#fff; border:1px solid #e1e1e1; border-radius:5px; text-align:center; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_period_box.cal_month { padding:0 20px; } 
+.rew_member_sub_func_period_box .input_date { background:none; border:none; width: 132px; height:46px; line-height:44px; font-size:15px; color:#555; letter-spacing:0; font-weight:300; text-align:center; padding-left:40px; box-sizing: border-box; background:url(../images/pre/ico_calendar.png) 20px 50% no-repeat; border:none; text-align:center; display:inline-block; vertical-align:top; cursor:pointer; } 
 .rew_member_sub_func_period .input_date_l { width:96px; text-align:center; font-size:16px; color:#454545; font-weight:300; letter-spacing:0; line-height:44px; border:none; background:none; display:inline-block; vertical-align:top; } 
 .rew_member_sub_func_period .cal_month .input_date_l { width:76px; } 
 .rew_member_sub_func_period .btn_calendar_l { width:26px; height:44px; background:url(../images/pre/ico_calendar.png) 50% 50% no-repeat; text-indent:-9999px; margin-right:5px; display:inline-block; vertical-align:top; } 
@@ -89,12 +109,13 @@ img { max-width:100%; }
 
 .member_list_header_in { } 
 .member_list_header_in > div { display:inline-block; vertical-align:top; padding-top:18px; } 
-.member_list_header .member_list_header_name { width:119px; } 
-.member_list_header .member_list_header_team { width:166px; } 
-.tyle_money .member_list_header .member_list_header_email { width:240px; } 
-.member_list_header .member_list_header_date { width:175px; } 
-.member_list_header .member_list_header_admin { width:147px; } 
-.member_list_header .member_list_header_function { width:177px; } 
+.member_list_header .member_list_header_choice { width: 76px; } 
+.member_list_header .member_list_header_date { width: 216px; } 
+.member_list_header .member_list_header_deposit { width: 143px; } 
+.member_list_header .member_list_header_part { width: 167px; } 
+.member_list_header .member_list_header_coin { width: 151px; } 
+.member_list_header .member_list_header_state { width: 157px; } 
+.member_list_header .member_list_header_manager { width: 138px; } 
 
 .member_list_header_in > div strong { font-size:17px; font-weight:400; color:#000; line-height:27px; letter-spacing:-0.05em; display:inline-block; vertical-align:middle; } 
 .member_list_header_in > div em { width:13px; height:18px; margin-left:5px; display:inline-block; vertical-align:middle; } 
@@ -104,35 +125,46 @@ img { max-width:100%; }
 .member_list_header_in > div button.btn_sort_down { background:url(../images/pre/ico_sort_down.png) 50% 1px no-repeat; } 
 .member_list_header_in > div button.btn_sort_down.on { background:url(../images/pre/ico_sort_down_on.png) 50% 1px no-repeat; } 
 
-.member_list_header .member_list_header_amount_money { width:140px; } 
-.member_list_header .member_list_header_withdraw_fee { width:130px; } 
-.member_list_header .member_list_header_amount_paid { width:140px; } 
-.member_list_header .member_list_header_withdraw_date { width:163px; } 
+.member_list_header .member_list_header_choice input { display: none; } 
+.member_list_header .member_list_header_choice input[type="checkbox"] + label { font-size: 17px; font-weight: 400; color: #000; line-height: 27px; letter-spacing: -0.05em; display: inline-block; vertical-align: middle; background: url(../images/pre/ico_tuto_che_off.png) no-repeat 0% 7px; padding-left: 25px; cursor: pointer; } 
+.member_list_header .member_list_header_choice input[type="checkbox"]:checked + label { background: url(../images/pre/ico_tuto_che_on.png) no-repeat 0 7px; } 
 
-.member_list_conts { background:#fff; } 
+
+.member_list_conts { background:#fff; border-radius: 0 0 10px 10px; } 
 .member_list_conts_in { } 
 .member_list_conts_in > ul > li { text-align:center; font-size:0; padding:0 10px 0 34px; border-top:1px solid #f2f2f2; } 
 .tyle_coin .member_list_conts_in > ul > li { padding:0; } 
 .tyle_money .member_list_conts_in > ul > li { padding:0; } 
 .type_member_coin .member_list_conts_in > ul > li { padding:0 39px 0 34px; } 
 .member_list_conts_in > ul > li.on { background:#f6f7f9; } 
-.member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding-top:17px; padding-bottom:17px; } 
+.member_list_conts_in > ul > li > div { display:inline-block; vertical-align:top; padding: 17px 0 ; } 
+.member_list_conts_in > ul > li.search_list_none { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; display:block; text-align:center; padding:20px 0; } 
 
-.member_list_conts .member_list_conts_name { width:119px; } 
-.member_list_conts .member_list_conts_team { width:166px; } 
-.tyle_money .member_list_conts .member_list_conts_email { width: 240px; } 
-.member_list_conts .member_list_conts_amount_money { width: 140px; } 
-.member_list_conts .member_list_conts_withdraw_fee { width: 130px; } 
-.member_list_conts .member_list_conts_amount_paid { width: 140px; } 
-.member_list_conts .member_list_conts_withdraw_date { width: 163px; } 
+
+.member_list_conts .member_list_conts_choice { width: 76px; } 
+.member_list_conts .member_list_conts_date { width: 216px; } 
+.member_list_conts .member_list_conts_deposit { width: 143px; } 
+.member_list_conts .member_list_conts_part { width: 167px; } 
+.member_list_conts .member_list_conts_coin { width: 151px; } 
+.member_list_conts .member_list_conts_state { width: 157px; } 
+.member_list_conts .member_list_conts_manager { width: 138px; } 
 
 .member_list_conts_in > ul > li > div > strong { font-size:16px; font-weight:300; color:#666; line-height:28px; letter-spacing:-0.05em; max-width:calc(100% - 2px); display:inline-block; vertical-align:top; } 
-.member_list_conts .member_list_conts_name strong { letter-spacing: 0.01em; text-align: left; } 
-.member_list_conts .member_list_conts_amount_paid strong { letter-spacing: 0; color: #f10006; font-weight: 400; text-align: right; } 
-.member_list_conts .member_list_conts_email strong { letter-spacing: 0; text-align: left; } 
-.member_list_conts .member_list_conts_amount_money strong { letter-spacing: 0; text-align: right; } 
-.member_list_conts .member_list_conts_withdraw_fee strong { letter-spacing: 0; text-align: right; } 
-.member_list_conts .member_list_conts_withdraw_date strong { letter-spacing: 0; } 
+.member_list_conts .member_list_conts_deposit strong { font-weight: 400; color: #337bf6; letter-spacing: 0; text-align: right; } 
+.member_list_conts .member_list_conts_deposit:last-child strong { color: gray; } 
+
+.member_list_conts .member_list_conts_choice { height: 62px; box-sizing: border-box; } 
+.member_list_conts .member_list_conts_choice input { display: none; } 
+.member_list_conts .member_list_conts_choice input[type="checkbox"] + label { width: 100%; height: 100%; content: ''; display: block; background: url(../images/pre/ico_tuto_che_off.png) no-repeat 50% 50%; cursor: pointer; } 
+.member_list_conts .member_list_conts_choice input[type="checkbox"]:checked + label { background: url(../images/pre/ico_tuto_che_on.png) no-repeat 50% 50%; } 
+
+.member_list_conts .member_list_conts_date strong { width: 100%; text-align: center; box-sizing: border-box; } 
+.member_list_conts .member_list_conts_deposit.color_n strong { color: #454545; } 
+
+.member_list_conts .member_list_conts_manager { padding: 14.5px 0;}
+.member_list_conts .member_list_conts_manager button { font-size: 13px; color: #aaa; letter-spacing: -1px; padding: 6px 10px 6px 35px; border: 1px solid #ccc; border-radius: 25px; background: url(../images/pre/ico_chk_off.png) no-repeat 8px 50%;} 
+.member_list_conts .member_list_conts_manager button.on { border: 1px solid #38c9d2; color: #38c9d2; background: url(../images/pre/ico_chk_on.png)no-repeat 8px 50%; } 
+.member_list_conts .member_list_conts_manager button.off {  pointer-events: none;} 
 
 .rew_member_sub_text { margin-top:20px; } 
 .rew_member_sub_text button { display:inline-block; vertical-align:top; } 
@@ -173,7 +205,7 @@ img { max-width:100%; }
  .member_list_conts_in > ul > li { text-align: left; padding: 5px 15px; border-top: none; border-right: 2px solid #ececec; } 
  .member_list_conts_in > ul > li > div { display: block; padding: 10px 15px; width: auto !important; min-width: 155px; } 
  .member_list_conts_in > ul > li > div > strong { font-size: 15px; line-height: 25px; width: auto !important; } 
-}
+ }
 
 
 

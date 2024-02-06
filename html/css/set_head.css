@@ -42,7 +42,9 @@
  .admin_depth_02_area { top: 55px; border-radius: 5px; padding: 5px 0; } 
  .admin_depth_02_area .admin_depth_02 { width: 100px; padding: 10px 15px; } 
  .admin_depth_02 .admin_depth_02_link { font-size: 14px; } 
- }
+ 
+ .rew_conts { height: 100%;}
+}
 
 @media screen and (max-width: 630px){
   .rew_conts_scroll_01 { position: absolute; top: 70px; }

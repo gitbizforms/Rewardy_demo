@@ -47,7 +47,10 @@ button { cursor: pointer; }
 .lay_pay .pay_input .pay_input_in .pay_check button.on { color: #fff; border: none; background: #38c9d2; } 
 .lay_pay .pay_input .pay_input_in .pay_check button.ok { background: #aaa; color: #fff; border: none; } 
 
-.lay_pay .submit_btn { margin-top: 30px; } 
+.lay_pay .bottom_btn { display: flex; align-items: center; justify-content: space-between; margin-top: 30px; } 
+.lay_pay .close_btn { width: 130px; height: 60px; } 
+.lay_pay .close_btn button { width: 100%; height: 60px; border-radius: 10px; background: #ccc; font-size: 18px; font-weight: bold; line-height: 60px; letter-spacing: -0.05em; color: #fff; vertical-align: top; border: 0; } 
+.lay_pay .submit_btn { width: calc(100% - 140px); height: 60px; } 
 .lay_pay .submit_btn button { width: 100%; height: 60px; font-size: 18px; font-weight: bold; line-height: 60px; letter-spacing: -0.05em; color: #fff; vertical-align: top; background: #38c9d2; border: 0; border-radius: 10px; } 
 
 /* rew_layer_pay_02 */
@@ -74,7 +77,8 @@ button { cursor: pointer; }
 .move_before button span { } 
 
 @media screen and (max-width: 540px){
- .lay_pay { width: 90%; padding: 30px 20px; } 
+ .t_layer.rew_layer_pay_01 { position: fixed; top: 50%; left: 50%; width: 100%; } 
+ .lay_pay { width: 90%; padding: 30px 20px; position: fixed; } 
  .lay_pay:after { display: none; } 
 
  .lay_pay .pay_tit h2 { font-size: 18px; margin-bottom: 5px; } 
@@ -83,8 +87,13 @@ button { cursor: pointer; }
  .lay_pay .pay_input .pay_input_in { margin-top: 20px; } 
  .lay_pay .pay_input .pay_input_in input { height: 47px; border-radius: 5px; font-size: 12px; line-height: 47px; padding: 0 15px; } 
 
- .lay_pay .submit_btn { margin-top: 20px; } 
- .lay_pay .submit_btn button { height: 47px; line-height: 47px; border-radius: 5px; font-size: 14px; font-weight: 500; } 
+ .lay_pay .submit_btn { height: 47px; } 
+ .lay_pay .submit_btn button { height: 47px; line-height: 47px; border-radius: 5px; font-size: 14px; font-weight: 500; line-height: 47px; } 
+ .lay_pay .close_btn { width: 100px; height: 47px; } 
+ .lay_pay .close_btn button { height: 47px; border-radius: 5px; font-size: 14px; font-weight: 500; line-height: 47px; } 
+ .lay_pay .submit_btn { width: calc(100% - 110px); } 
+
+ .lay_pay .pay_input .pay_input_in .pay_check button { height: 47px; border-radius: 5px; font-size: 12px; } 
 
  /* rew_layer_pay_02 */
  .pay_02_input_in .pay_cont { margin-top: 20px; border-radius: 5px; padding: 30px 15px 20px 15px; } 
@@ -99,6 +108,10 @@ button { cursor: pointer; }
  .pay_02_input_in .pay_cash label { font-size: 12px; line-height: 44px; } 
  .pay_02_input_in .pay_cash input { right: 30px; font-size: 16px; } 
  .pay_02_input_in .pay_cash span { right: 15px; bottom: -2px; font-size: 12px; } 
+ .pay_02_input_in .pay_cash p { font-size: 13px; line-height: 42px; } 
+ .pay_02_input_in .pay_cash .pay { font-size: 18px; line-height: 42px; } 
+ .pay_02_input_in .pay_cash em { font-size: 13px; line-height: 42px; } 
+
 
  .move_before { margin-top: 10px; } 
  .move_before button { font-size: 12px; } 

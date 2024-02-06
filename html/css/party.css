@@ -49,12 +49,17 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 
 .rewardy_loading_box span { display: block; font-size: 11px; font-weight: bold; letter-spacing: 0.5em; line-height: 21px; text-align: center; padding-top: 135px; color: #fff; padding-left: 4px; } 
 
+
 @keyframes circ_01 { 
  0% { transform: rotate(0deg); } 
  
  100% { transform: rotate(-360deg); } 
  }
- 
+
+.tdw_list_none { position:absolute; top:20px; left:10px; width:calc(100% - 10px); height:calc(100% - 70px); display:block; } 
+.tdw_list_none strong { display:table; width:100%; height:100%; text-align:center; vertical-align:middle; } 
+.tdw_list_none span { font-size:17px; font-weight:500; color:#353535; letter-spacing:-0.05em; display:table-cell; vertical-align:middle; text-align:center; } 
+
 /* rew_mypage */
 .rew_mypage_10 { position:absolute; top:0; right:0; width:510px; padding-left:70px; height:100%; background:#fff; box-shadow:0px 0px 10px 0px rgba(0,0,0,0.1); } 
 .rew_mypage_10 .rew_mypage_section { padding-bottom:20px; } 
@@ -159,6 +164,8 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .rew_type_slc button.btn_type_box.on { border: 1px solid #202020; background:#fff url(../images/pre/ico_type_img_02_on.png) 50% 50% no-repeat; } 
 .rew_type_slc button.btn_type_list { background:#fff url(../images/pre/ico_type_list_02.png) 50% 50% no-repeat; border-radius:0 5px 5px 0; } 
 .rew_type_slc button.btn_type_list.on { border: 1px solid #202020; background:#fff url(../images/pre/ico_type_list_02_on.png) 50% 50% no-repeat; } 
+.rew_type_slc button.party_btn_type_list { background:#fff url(../images/pre/ico_type_list_02.png) 50% 50% no-repeat; border-radius:0 5px 5px 0; } 
+.rew_type_slc button.party_btn_type_list.on { border: 1px solid #202020; background:#fff url(../images/pre/ico_type_list_02_on.png) 50% 50% no-repeat; } 
 .rew_type_slc button span { } 
 
 .rew_cha_search { position:absolute; top:0; right:344px; } 
@@ -282,9 +289,9 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul .cha_bar { height:24px; background:#f9f9f9; position:relative; text-align:left; padding:16px 30px; display:flex; flex-direction:row-reverse; justify-content:flex-end; } 
 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list li { width:calc(100% - 20px); margin:0 10px 10px 10px; display:block; } 
-.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_box { padding:0; font-size:0; white-space:nowrap; position:relative; padding-left:108px; padding-right:114px; display:flex; align-items:center; } 
+.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_box { padding:0; font-size:0; white-space:nowrap; position:relative; margin-left:108px; padding-right:114px; display:flex; align-items:center; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_fav { width:57px; margin-top:-9.5px; top:50%; left:0; right:auto; display:inline-block; vertical-align:middle; } 
-.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_delay { width:42px; padding:0; margin-right:9px; margin-top:-14px; top:50%; bottom:auto; left:57px; right:auto; display:inline-block; vertical-align:middle; } 
+.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_delay { width:42px; padding:0; margin-right:9px; margin-top:-14px; top:50%; bottom:auto; left:-50px; right:auto; display:inline-block; vertical-align:middle; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_tit { margin:0; font-size:16px; font-weight:300; color:#252525; width:100%; padding:18px 0; display:inline-block; vertical-align:middle; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_date { margin:0 20px; top:auto; left:auto; position:relative; display:inline-block; vertical-align:middle; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_bar { background:none; padding:0; display:inline-block; vertical-align:middle; } 
@@ -411,6 +418,7 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
  .rew_type_slc button { width: 44px; height: 44px; } 
  .rew_type_slc button.btn_type_box { border-radius: 3px 0 0 3px; } 
  .rew_type_slc button.btn_type_list { border-radius: 0 3px 3px 0; } 
+ .rew_type_slc button.party_btn_type_list { border-radius: 0 3px 3px 0; } 
  
  /* main */
  .rew_cha_list { padding: 0 15px; } 
@@ -434,6 +442,8 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
  
  .rew_type_slc button.btn_type_list { background: #fff url(../images/pre_m/ico_type_img_01_off.png) 50% 50% no-repeat; background-size: 18px; } 
  .rew_type_slc button.btn_type_list.on { background: #fff url(../images/pre_m/ico_type_img_01_on.png) 50% 50% no-repeat; border: 1px solid #202020; background-size: 18px } 
+ .rew_type_slc button.party_btn_type_list { background: #fff url(../images/pre_m/ico_type_img_01_off.png) 50% 50% no-repeat; background-size: 18px; } 
+ .rew_type_slc button.party_btn_type_list.on { background: #fff url(../images/pre_m/ico_type_img_01_on.png) 50% 50% no-repeat; border: 1px solid #202020; background-size: 18px } 
  
  .rew_party_wrap.rew_cha_list .rew_cha_list_ul .cha_fav { background: url(../images/pre_m/star_off.png) 0% 50% no-repeat; background-size: 13px; } 
  .rew_party_wrap.rew_cha_list .rew_cha_list_ul .cha_fav.on { background: url(../images/pre_m/star_on.png) 0% 50% no-repeat; background-size: 13px; } 
@@ -460,7 +470,7 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
  
 /* type_02 */
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list li { margin:0 0 10px 0; width:100%; } 
-.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_box { padding:0; padding-top:44px; display:block; } 
+.rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_box { margin-left: 0; padding:0; padding-top:44px; display:block; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_fav { position:absolute; width:19px; top:16px; left:auto; right:17px; margin:0; margin-top:1px; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_date { position:absolute; margin:0; top:15px; margin-top:0; left:66px; } 
 .rew_party_wrap.rew_cha_list .rew_cha_list_ul.party_type_list .cha_delay { position:absolute; top:15px; margin-top:0; left:15px; margin-right:0; height:23px; line-height:22px; font-size:12px; } 

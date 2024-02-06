@@ -115,7 +115,7 @@ li .jt_table_04 button span { font-size: 12px; }
 }
 @media screen and (max-width: 750px) { } 
 @media screen and (max-width: 540px){
- .jt_in { width:90%; } 
+ .jt_in { width:90%; height: 390px ;} 
  }
 @media screen and (max-width: 480px) { } 
 @media screen and (max-width: 420px) { } 

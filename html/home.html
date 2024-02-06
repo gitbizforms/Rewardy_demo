@@ -277,7 +277,7 @@
 			$(this).parents('li').slideUp()
 		})
 
-		$(window).scroll(function () { });
+		$(window).scroll(function () {});
 
 		// 타이핑할 텍스트
 		const textToType = "이선규님의 리워디 활성지수는 지난주 대비 10% 상승했어요!";
@@ -300,14 +300,20 @@
 		$(document).ready(typeEffect);
 	</script>
 	<div class="rew_warp">
+		<!-- 수정 -->
 		<div class="tuto_link">
 			<div class="tuto_link_in">
 				<button class="btn_tuto_link_close">닫기</button>
 				<a href="#" class="tuto_link_area">
 					<p>튜토리얼을 시작하고, <br />코인으로 보상도 받아 가세요!</p>
 				</a>
+				<div class="close_check">
+					<input type="checkbox" id="close_che" id="">
+					<label for="close_che">오늘 하루 안보기</label>
+				</div>
 			</div>
 		</div>
+		<!-- 끝 -->
 		<div class="rew_warp_in">
 			<div class="rew_box">
 				<div class="rew_box_in">
@@ -506,7 +512,7 @@
 														<div class="rew_mains_info_me">
 															<div class="rew_mains_info_l">
 
-																<div class="rew_mypage_coin_box">
+																<!-- <div class="rew_mypage_coin_box">
 																	<div class="title_area">
 																		<div class="qna">
 																			<strong class="title_main">내 코인</strong>
@@ -566,6 +572,63 @@
 																			</li>
 																		</ul>
 																	</div>
+																</div> -->
+																<div class="rew_company_coin">
+																	<div class="title_area">
+																		<div class="qna">
+																			<strong class="title_main">우리회사 전체 공용 코인</strong>
+																			<span class="qna_q open_qna_01">?</span>
+																		</div>
+																	</div>
+																	<div class="rew_mypage_coin_chall">
+																		<strong><span>115,000</span></strong>
+																	</div>
+																	<button><span>충전</span></button>
+																</div>
+																<div class="rew_my_coin">
+																	<ul>
+																		<li>
+																			<div class="title_area">
+																				<div class="qna">
+																					<strong class="title_main">나의 공용코인</strong>
+																					<span class="qna_q open_qna_01">?</span>
+																				</div>
+																			</div>
+																			<div class="rew_mypage_coin_chall">
+																				<strong><span>20,000</span></strong>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="title_area">
+																				<div class="qna">
+																					<strong class="title_main">내 코인</strong>
+																					<span class="qna_q open_qna_01">?</span>
+																				</div>
+																			</div>
+																			<div class="rew_mypage_coin_chall">
+																				<strong><span>115,000</span></strong>
+																			</div>
+																		</li>
+																	</ul>
+																</div>
+																<div class="rew_my_point">
+																	<ul>
+																		<li>
+																			<p>역량</p>
+																			<div class="rank_total">
+																				<div class="rank">Rank 7</div>
+																				<p><em>453</em>점</p>
+																			</div>
+																		</li>
+																		<li>
+																			<p>좋아요</p>
+																			<div class="rank_total">
+																				<div class="rank">Rank 12</div>
+																				<p><em>47</em>점</p>
+																			</div>
+																		</li>
+																	</ul>
+
 																</div>
 
 															</div>

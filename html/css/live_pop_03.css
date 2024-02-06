@@ -200,7 +200,7 @@ img { max-width:100%; }
  }
 @media screen and (max-width: 750px) { } 
 @media screen and (max-width: 540px){
- .jg_in { width: 90%; } 
+ .jg_in { width: 90%; height: 390px; } 
 .jf_in { width: 90%; margin-left: 0; transform: translateX(-50%); } 
 .jg_icon_list li { margin:0 4px; } 
 /* .jt_in { margin-left:-160px; width:320px; } */

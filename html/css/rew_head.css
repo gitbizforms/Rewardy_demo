@@ -1,5 +1,8 @@
 @charset "utf-8"; body { font-size: 14px; line-height: 1.6; word-break: break-all; background: #f0f1f4; } 
 
+a { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color: transparent; /* For some Androids */ } 
+
+
 span { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif; } 
 .rew_warp button { cursor: pointer; } 
 
@@ -40,8 +43,8 @@ button { cursor: pointer; outline: none; border: none; background: none;     fon
 .rew_head_my_mail .btn_my_mail em { font-size: 11px; font-weight: 300; color: #fff; letter-spacing: -0.062em; line-height: 17px; text-align: center; background: #f42635; position: absolute; right: 1px; bottom: 5px; width: 18px; height: 18px; border-radius: 50%; } 
 
 /* rew_head_my_mess_layer */
-.rew_head_my_mess .layer_my_mess { position: absolute; left: -280px; top: 44px; z-index: 14; } 
-.rew_head_my_mess .layer_my_mess:after { content: ""; width: 12px; height: 12px; background: #fff; position: absolute; top: -6px; right: 43%; transform: rotate(45deg); box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05); } 
+.rew_head_my_mess .layer_my_mess { position: absolute; left: -280px; top: 34px; padding-top: 10px; z-index: 14; } 
+.rew_head_my_mess .layer_my_mess:after { content: ""; width: 12px; height: 12px; background: #fff; position: absolute; top: 5px; right: 43%; transform: rotate(45deg); box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05); } 
 .rew_head_my_mess .layer_my_mess_in { width: 540px; position: relative; border-radius: 10px; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1); overflow: hidden; } 
 
 .rew_head_my_mess .my_mess_tit { display: flex; justify-content: space-between; border-bottom: 1px solid #f1f2f5; background: #fff; padding: 15px 20px; } 
@@ -60,7 +63,7 @@ button { cursor: pointer; outline: none; border: none; background: none;     fon
 .rew_head_my_mess .my_mess_list .mess_list_body .mess_list_none { padding: 20px 0; } 
 .rew_head_my_mess .my_mess_list .mess_list_body .mess_list_none span { width: 100%; display: inline-block; text-align: center; } 
 
-.rew_head_my_mess .my_mess_list .mess_list_body div span { font-size: 13px; font-weight: 300; letter-spacing: -1px; color: #353535; } 
+.rew_head_my_mess .my_mess_list .mess_list_body div span { font-size: 14px; font-weight: 300; letter-spacing: -1px; color: #353535; } 
 .rew_head_my_mess .my_mess_list .mess_list_body ul li { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; } 
 .rew_head_my_mess .my_mess_list .mess_list_body ul li .list_day span { line-height: 44px; } 
 .rew_head_my_mess .my_mess_list .mess_list_body ul li .list_cont span { margin: 12px 0; display: inline-block; } 
@@ -150,7 +153,7 @@ button { cursor: pointer; outline: none; border: none; background: none;     fon
 .rew_head_my_alert .my_alert_list .my_alert_box_tit img { width: 23px; margin-right: 5px; } 
 .rew_head_my_alert .my_alert_list .my_alert_box_tit strong { font-weight: 500; line-height: 24px; } 
 
-.rew_head_my_alert .my_alert_list .my_alert_box_desc { max-height: 44px; display: block; display: -webkit-box; font-size: 15px; font-weight: 300; color: #353535; letter-spacing: -0.062em; line-height: 22px; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: ellipsis; padding: 10px 15px 0px 15px; overflow: hidden; } 
+.rew_head_my_alert .my_alert_list .my_alert_box_desc { max-height: 44px; display: block; display: -webkit-box; font-size: 14px; font-weight: 300; color: #353535; letter-spacing: -0.062em; line-height: 22px; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; text-overflow: ellipsis; padding: 10px 15px 0px 15px; overflow: hidden; } 
 .rew_head_my_alert .my_alert_list .my_alert_box_desc.rew_pena { overflow: visible; max-height: 100px; -webkit-line-clamp: 10; } 
 
 .rew_head_my_alert .my_alert_list .my_alert_box_desc em { display:inline-block; width: 100%; padding-top : 3px; text-decoration: none; font-size: 13px; color: #858585; letter-spacing: -1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } 
@@ -360,7 +363,7 @@ button { cursor: pointer; outline: none; border: none; background: none;     fon
  
  .rew_head_my_mess .layer_my_mess { left: -323px; } 
  .rew_head_my_mess .layer_my_mess_in { top: 0px; right: 92px; } 
- .rew_head_my_mess .layer_my_mess:after { content: ""; width: 12px; height: 12px; background: #fff; position: absolute; top: -6px; right: 35%; transform: rotate(45deg); box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05); } 
+ .rew_head_my_mess .layer_my_mess:after { content: ""; width: 12px; height: 12px; background: #fff; position: absolute; top: 4px; right: 35%; transform: rotate(45deg); box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.05); } 
 
  .rew_head_my_mess .my_mess_tit { flex-direction: column; padding: 13px 16px; } 
  .rew_head_my_mess .my_mess_tit button { font-size: 14px; } 
@@ -662,7 +665,7 @@ button { cursor: pointer; outline: none; border: none; background: none;     fon
 
 @media screen and (max-width: 630px){
  .t_layer.rew_layer_login { width:90%; left: 5%; margin-left:0; margin-top:0; height:auto; } 
-.rew_layer_login .tl_in { padding:0 20px 30px 20px; } 
+.rew_layer_login .tl_in { padding:0 20px 30px 20px; transform: translateY(-50%);} 
 .rew_layer_login .tl_login_logo { display:none; } 
 .rew_layer_login .tl_tit { padding-top:25px; margin-bottom:15px; } 
 .rew_layer_login .tl_tit strong { margin-bottom:5px; } 

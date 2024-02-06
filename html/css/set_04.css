@@ -44,7 +44,7 @@ img { max-width:100%; }
 
 .rew_member_in { padding:50px 40px 90px 40px; width:1100px; margin:0 auto; } 
 
-.rew_member_banner { text-align:center; background:#3d57c7; height:45px; padding:17px 30px 18px 30px; border-radius:10px; margin-top:10px; margin-bottom:30px; } 
+.rew_member_banner { text-align:center; background:#3d57c7; height:122px; padding:17px 30px 18px 30px; border-radius:10px; margin-top:10px; margin-bottom:30px; } 
 .rew_member_banner_in { position:relative; } 
 .rew_member_banner p { font-size:18px; font-weight:bold; color:#fff; letter-spacing:-0.05em; line-height:44px; padding-left:35px; background:url(../images/pre/ico_banner_coin.png) 0 50% no-repeat; display:inline-block; vertical-align:top; } 
 .rew_member_banner p strong { font-size:25px; font-weight:bold; letter-spacing:0; line-height:43px; padding-right:36px; background:url(../images/pre/ico_banner_c.png) calc(100% - 1px) 50% no-repeat; margin:0 20px; display:inline-block; vertical-align:top; } 

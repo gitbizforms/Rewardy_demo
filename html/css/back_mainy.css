@@ -361,3 +361,24 @@ tbody td:nth-child(4) { text-align: right; } */
 .title_text{font-size:30px;}
 .title_list{text-align:left;}
 /*----------------------------브로슈어 공지사항--------------------------*/
+
+/*-------------------------튜토리얼 진행현황--------------------------*/
+#backoff_table .u_tuto_idx{width:5%}
+#backoff_table .u_tuto_name{width:15%}
+#backoff_table .u_tuto_email{width:15%}
+#backoff_table .u_tuto_company{width:20%}
+#backoff_table .u_tuto_part{width:15%}
+#backoff_table .u_tuto_level{width:5%}
+#backoff_table .u_tuto_time{width:15%}
+#backoff_table .u_tuto_reset{width:10%}
+/*-------------------------튜토리얼 진행현황--------------------------*/
+
+/*-------------------------이메일 문의--------------------------*/
+#backoff_table .email_no{width:3%}
+#backoff_table .email_name{width:10%}
+#backoff_table .email_email{width:15%}
+#backoff_table .email_contents{width:45%}
+#backoff_table .email_date{width:15%}
+#backoff_table .email_answer{width:6%}
+#backoff_table .email_send{width:6%}
+/*-------------------------이메일 문의--------------------------*/

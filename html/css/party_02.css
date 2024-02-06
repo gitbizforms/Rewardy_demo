@@ -400,9 +400,9 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 
 
 .tdw_list .tdw_list_chk { width:29px; height:29px; padding-top:5px; display:inline-block; vertical-align:top; margin-right:17px; } 
-.tdw_list .coin_on .btn_tdw_list_chk { background: url(../images/pre/ico_coin_new.png) 50% 50% no-repeat; -webkit-background-size: 100%; background-size: 100%;} 
+.tdw_list .coin_on .btn_tdw_list_chk { background: url(../images/pre/ico_coin_new.png) 50% 50% no-repeat; -webkit-background-size: 100%; background-size: 100%; } 
 .tdw_list .btn_tdw_list_chk { display:block; width:100%; height:100%; background:url(../images/pre/chk_off.png) 50% 50% no-repeat; -webkit-background-size:100%; background-size:100%; text-indent:-9999px; } 
-.tdw_list .btn_tdw_list_chk_user { display:block; width:100%; height:100%;  -webkit-background-size:100%; background-size:100%; text-indent:-9999px; border-radius: 20px; border: 1px solid #e5e5e5;} 
+.tdw_list .btn_tdw_list_chk_user { display:block; width:100%; height:100%; -webkit-background-size:100%; background-size:100%; text-indent:-9999px; border-radius: 20px; border: 1px solid #e5e5e5; } 
 .tdw_list .tdw_list_box.on .btn_tdw_list_chk { background:url(../images/pre/chk_on.png) 50% 50% no-repeat; -webkit-background-size:100%; background-size:100%; } 
 .tdw_list .tdw_list_desc { width:calc(100% - 363px); display:inline-block; vertical-align:top; padding:6px 5px 6px 0; position:relative; } 
 .tdw_list .tdw_list_desc p { font-size:16px; font-weight:300; color:#252525; line-height:27px; display:inline-block; vertical-align:top; word-break:break-word; } 
@@ -412,6 +412,10 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .tdw_list .req .tdw_list_desc em.tdw_read { color:#ffbb04; } 
 .tdw_list .req_get .tdw_list_desc em.tdw_read { color:#ffbb04; } 
 .tdw_list .report .tdw_list_desc em.tdw_read { color:#10b420; } 
+.tdw_list .share .btn_tdw_list_chk { background: url(../images/pre/share_icon.png) 50% 50% no-repeat; -webkit-background-size: 100%; background-size: 100%; cursor: default; } 
+.tdw_list .req .btn_tdw_list_chk { background: url(../images/pre/arrow_icon.png) 50% 50% no-repeat; -webkit-background-size: 100%; background-size: 100%; cursor: default; } 
+.tdw_list .report .btn_tdw_list_chk { background: url(../images/pre/ico_report.png) 50% 50% no-repeat; -webkit-background-size: 100%; background-size: 100%; cursor: default; } 
+
 .tdw_list .report_get .tdw_list_desc em.tdw_read { color:#10b420; } 
 .tdw_list .challenges .tdw_list_desc em.tdw_read { color:#ff48b4; } 
 .tdw_list .tdw_list_desc .tdw_list_regi { position:absolute; top:-12px; left:-66px; width:calc(100% + 398px); height:100%; padding:12px 0; display:none; z-index:2; } 
@@ -469,7 +473,7 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .tdw_list .tdw_list_function .tdw_list_jjim { background:#fff url(../images/pre_m/ico_list_heart.png) 50% 50% no-repeat; background-size:19px; } 
 .tdw_list .tdw_list_function .tdw_list_jjim_clear { background:#fff url(../images/pre_m/ico_list_heart.png) 50% 50% no-repeat; background-size:19px; } 
 
-.tdw_list .tdw_list_function .tdw_list_party_link { background:#fff url(../images/pre_m/ico_list_party.png) 50% 50% no-repeat; background-size:20px; } 
+.tdw_list .tdw_list_function .tdw_list_party_link { display: none; background:#fff url(../images/pre_m/ico_list_party.png) 50% 50% no-repeat; background-size:20px; } 
 .tdw_list .tdw_list_function .tdw_list_reported_hart { background:#fff url(../images/pre_m/ico_list_heart.png) 50% 50% no-repeat; background-size:19px; animation:heart_on 2.0s infinite; } 
 .tdw_list .tdw_list_function .tdw_list_shared_hart { background:#fff url(../images/pre_m/ico_list_heart.png) 50% 50% no-repeat; background-size:19px; animation:heart_on 2.0s infinite; } 
 
@@ -515,6 +519,9 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .tdw_list .tdw_list_function .tdw_list_100c_list button:hover { background:#43454c; color:#fff; } 
 .tdw_list .tdw_list_function .tdw_list_100c_list button:hover span { background:url(../images/pre/ico_coin_b.png) calc(100% - 1px) 4px no-repeat; background-size:12px; } 
 
+/* 여기 */
+.tdw_list .tdw_list_function .tdw_list_party_heart:hover { background:#f5f5f5 url(../images/pre/ico_list_heart_on.png) 50% 50% no-repeat; } 
+.tdw_list .tdw_list_function .tdw_list_party_memo:hover { background:#f5f5f5 url(../images/pre/ico_list_regi.png) 50% 50% no-repeat; } 
 .tdw_list .tdw_list_function .tdw_list_100c:hover { background:#f5f5f5 url(../images/pre/ico_coin_new.png) 50% 50% no-repeat; background-size:22px; } 
 .tdw_list .tdw_list_function .tdw_list_100c.on { background:#f5f5f5 url(../images/pre/ico_coin_new.png) 50% 50% no-repeat; background-size:22px; } 
 .tdw_list .tdw_list_function .tdw_list_tomorrows:hover { background:#f5f5f5; color:#454545; border-radius:10px; } 
@@ -642,6 +649,15 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
 .tdw_list_file .btn_list_file_del { width: 16px; height: 16px; border: none; text-indent: -9999px; background: url(../images/pre/ico_file_xx.png) 50% 50% no-repeat; position: absolute; top: 50%; margin-top: -8px; right: 12px; z-index: 2; } 
 .tdw_list_file .btn_list_file:hover { background: #38c9d2 url(../images/pre/ico_file_list_on.png) 15px 50% no-repeat; color: #fff; transition: all 0.2s; } 
 
+/* 파티명 바꾸기 */
+.rew_mypage_08 .tdw_list_regi { display: flex; justify-content: space-between; } 
+.rew_mypage_08 .textarea_regi { height: 47px; text-align: left; line-height: 47px; padding-left: 20px; border-radius: 10px; border: 1px solid #e1e1e1; } 
+
+.rew_mypage_08 .tdw_list_regi .btn_regi_box { width: calc(100% - 280px); } 
+.rew_mypage_08 .tdw_list_regi .btn_regi_box button { width: calc(100% / 2 - 5px); height: 47px;; font-size: 16px; text-align: center; letter-spacing: -1px; border-radius: 10px; } 
+.rew_mypage_08 .tdw_list_regi .btn_regi_box button.btn_regi_submit { background: #38c9d2; color: #fff; margin-right: 5px; } 
+.rew_mypage_08 .tdw_list_regi .btn_regi_box button.btn_regi_cancel { background: #aeaeae; color: #fff; } 
+
 @media all and (min-width: 961px){
  .rew_mypage_party .pu_list_conts .pu_list_conts_in { padding-bottom: 120px; } 
  }
@@ -649,8 +665,8 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
  .rew_warp { min-height: 1px; } 
  .rew_box { min-width: 1px; } 
  .rew_box.on .rew_conts { padding-left: 0; } 
- .rew_box.on .rew_conts::-webkit-scrollbar { display: none;}
- .rew_conts_scroll_10v::-webkit-scrollbar {display: none;}
+ .rew_box.on .rew_conts::-webkit-scrollbar { display: none; } 
+ .rew_conts_scroll_10v::-webkit-scrollbar { display: none; } 
 
  .tdw_open_btn { width: 100%; display: block; position: fixed; bottom: 0; background: #fff; border-radius: 15px 15px 0 0; padding: 10px 15px; box-sizing: border-box; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); z-index: 1; } 
  .tdw_open_btn button { height: 43px; font-size: 14px; font-weight: 500; color: #fff; letter-spacing: -0.05em; width: 100%; background: #38c9d2; border-radius: 5px; } 
@@ -784,6 +800,11 @@ body { background:#fff6e0; background:#fff6e0 url(../images/pre/img_intro.png) 5
  .rew_mypage_party .pu_list_header em button.btn_sort_up.on { background: url(../images/pre_m/ico_sort_up_on.png) 50% 0% no-repeat; background-size: 8px; margin-bottom: 0; } 
  .rew_mypage_party .pu_list_header em button.btn_sort_down.on { background: url(../images/pre_m/ico_sort_down_on.png) 50% 0% no-repeat; background-size: 8px; } 
 
+
+ .tdw_list .share .btn_tdw_list_chk { background: url(../images/pre_m/share_icon.png) 0% 50% no-repeat; background-size: 22px; } 
+ .tdw_list .report .btn_tdw_list_chk { background: url(../images/pre_m/ico_report.png) 0% 50% no-repeat; background-size: 22px; } 
+ .tdw_list .req .btn_tdw_list_chk { background: url(../images/pre_m/arrow_icon.png) 0% 50% no-repeat; background-size: 22px; } 
+ 
  /* pop */
  .jjim_first { position: relative; z-index: 99999; } 
 

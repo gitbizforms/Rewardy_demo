@@ -322,6 +322,8 @@ input[type='search']::-webkit-search-cancel-button {-webkit-appearance:none; -we
 .fix, .clearfix, .clear_fix, .clearFix, .cf{*zoom:1;}
 .fix:after, .clearfix:after, .clear_fix:after, .clearFix:after, .cf:after{content:""; display:block; clear:both;}
 
+.layer_user_no { display:table; text-align:center; width:100%; height:100%; } 
+.layer_user_no strong { display:table-cell; vertical-align:middle; font-size:17px; font-weight:500; color:#454545; letter-spacing:-0.05em; }
 
 
 
